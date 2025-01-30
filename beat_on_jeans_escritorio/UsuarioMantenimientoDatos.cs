@@ -8,6 +8,6 @@ namespace beat_on_jeans_escritorio
 {
     internal class UsuarioMantenimientoDatos : UsuariosCSharp
     {
-        int rol;
+        
     }
 }
