@@ -52,5 +52,13 @@ namespace beat_on_jeans_escritorio
                 buttonMapas.Enabled = true;
             }
         }
+
+        private void buttonMapas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormMaps maps = new FormMaps();
+            maps.ShowDialog();
+        }
     }
 }

@@ -89,6 +89,7 @@
             this.buttonMapas.TabIndex = 5;
             this.buttonMapas.Text = "Mapas";
             this.buttonMapas.UseVisualStyleBackColor = true;
+            this.buttonMapas.Click += new System.EventHandler(this.buttonMapas_Click);
             // 
             // Form2
             // 
