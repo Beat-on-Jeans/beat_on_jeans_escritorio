@@ -60,5 +60,13 @@ namespace beat_on_jeans_escritorio
             FormMaps maps = new FormMaps();
             maps.ShowDialog();
         }
+
+        private void buttonGestionUsuarios_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormGestionUsuarios usuarios = new FormGestionUsuarios();
+            usuarios.ShowDialog();
+        }
     }
 }

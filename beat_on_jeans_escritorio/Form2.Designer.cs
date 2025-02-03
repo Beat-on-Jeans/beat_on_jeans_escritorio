@@ -53,6 +53,7 @@
             this.buttonGestionUsuarios.TabIndex = 1;
             this.buttonGestionUsuarios.Text = "Gestión Usuarios";
             this.buttonGestionUsuarios.UseVisualStyleBackColor = true;
+            this.buttonGestionUsuarios.Click += new System.EventHandler(this.buttonGestionUsuarios_Click);
             // 
             // buttonGestionMusicos
             // 

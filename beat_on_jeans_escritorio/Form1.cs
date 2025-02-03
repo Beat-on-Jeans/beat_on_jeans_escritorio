@@ -22,7 +22,7 @@ namespace beat_on_jeans_escritorio
             String correoPorDefecto = "example@gmail.com";
             String contrasenaPorDefecto = "123";
 
-            Superusuario superusuario = new Superusuario(1, correoPorDefecto, contrasenaPorDefecto, 3);
+            Superusuario superusuario = new Superusuario(1, correoPorDefecto, contrasenaPorDefecto, 1);
 
             // Verificar si las credenciales ingresadas son correctas
             if (textBoxCorreo.Text.Equals(correoPorDefecto) && textBoxContrasena.Text.Equals(contrasenaPorDefecto))
@@ -40,6 +40,11 @@ namespace beat_on_jeans_escritorio
             {
                 MessageBox.Show("Credenciales incorrectas. Inténtalo nuevamente.");
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
