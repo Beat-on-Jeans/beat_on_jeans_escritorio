@@ -73,5 +73,18 @@ namespace beat_on_jeans_escritorio
             // Refrescar el mapa
             gMapControl1.Refresh();
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            
+            UsuariosCSharp usuarioActual = new UsuariosCSharp();
+
+            // Cerrar FormMaps y abrir Form2, pasando el usuarioActual
+            this.Hide();
+
+            Form2 formularioMenu = new Form2(usuarioActual);
+            formularioMenu.ShowDialog();
+        }
+
     }
 }

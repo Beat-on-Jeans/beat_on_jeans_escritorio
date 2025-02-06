@@ -32,78 +32,185 @@ namespace beat_on_jeans_escritorio
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxCorreo = new System.Windows.Forms.TextBox();
             this.textBoxContrasena = new System.Windows.Forms.TextBox();
-            this.buttonAceptar = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.buttonIniciarSesion = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxCorreo = new System.Windows.Forms.TextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 58);
+            this.label1.Font = new System.Drawing.Font("Poppins Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(82, 183);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(86, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Correo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 105);
+            this.label2.Font = new System.Drawing.Font("Poppins Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(83, 301);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(117, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
-            // textBoxCorreo
-            // 
-            this.textBoxCorreo.Location = new System.Drawing.Point(145, 58);
-            this.textBoxCorreo.Name = "textBoxCorreo";
-            this.textBoxCorreo.Size = new System.Drawing.Size(395, 20);
-            this.textBoxCorreo.TabIndex = 2;
-            // 
             // textBoxContrasena
             // 
-            this.textBoxContrasena.Location = new System.Drawing.Point(145, 102);
+            this.textBoxContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxContrasena.Font = new System.Drawing.Font("Poppins Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContrasena.Location = new System.Drawing.Point(92, 349);
+            this.textBoxContrasena.MinimumSize = new System.Drawing.Size(355, 45);
             this.textBoxContrasena.Name = "textBoxContrasena";
-            this.textBoxContrasena.Size = new System.Drawing.Size(395, 20);
+            this.textBoxContrasena.Size = new System.Drawing.Size(427, 45);
             this.textBoxContrasena.TabIndex = 3;
+            this.textBoxContrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonAceptar
+            // buttonRegistrar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(204, 158);
-            this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 4;
-            this.buttonAceptar.Text = "Aceptar";
-            this.buttonAceptar.UseVisualStyleBackColor = true;
-            this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
+            this.buttonRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
+            this.buttonRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
+            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegistrar.Font = new System.Drawing.Font("Poppins Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
+            this.buttonRegistrar.Location = new System.Drawing.Point(107, 465);
+            this.buttonRegistrar.Name = "buttonRegistrar";
+            this.buttonRegistrar.Size = new System.Drawing.Size(406, 44);
+            this.buttonRegistrar.TabIndex = 4;
+            this.buttonRegistrar.Text = "Registrarse";
+            this.buttonRegistrar.UseVisualStyleBackColor = false;
+            this.buttonRegistrar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 
-            // buttonCancelar
+            // buttonIniciarSesion
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(311, 158);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 5;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            this.buttonIniciarSesion.BackColor = System.Drawing.Color.White;
+            this.buttonIniciarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonIniciarSesion.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIniciarSesion.Font = new System.Drawing.Font("Poppins Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIniciarSesion.Location = new System.Drawing.Point(107, 541);
+            this.buttonIniciarSesion.Name = "buttonIniciarSesion";
+            this.buttonIniciarSesion.Size = new System.Drawing.Size(405, 38);
+            this.buttonIniciarSesion.TabIndex = 5;
+            this.buttonIniciarSesion.Text = "Iniciar Sesión";
+            this.buttonIniciarSesion.UseVisualStyleBackColor = false;
+            this.buttonIniciarSesion.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Figtree", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(159, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(287, 58);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Bienvenido!";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Figtree", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(138)))));
+            this.label4.Location = new System.Drawing.Point(140, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(324, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Sincroniza tu talento con el escenario ideal";
+            // 
+            // textBoxCorreo
+            // 
+            this.textBoxCorreo.BackColor = System.Drawing.Color.White;
+            this.textBoxCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCorreo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBoxCorreo.DataBindings.Add(new System.Windows.Forms.Binding("MaximumSize", global::beat_on_jeans_escritorio.Properties.Settings.Default, "test", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxCorreo.Font = new System.Drawing.Font("Poppins Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCorreo.ForeColor = System.Drawing.Color.Black;
+            this.textBoxCorreo.Location = new System.Drawing.Point(92, 237);
+            this.textBoxCorreo.MaximumSize = global::beat_on_jeans_escritorio.Properties.Settings.Default.test;
+            this.textBoxCorreo.MinimumSize = new System.Drawing.Size(355, 45);
+            this.textBoxCorreo.Name = "textBoxCorreo";
+            this.textBoxCorreo.Size = new System.Drawing.Size(427, 45);
+            this.textBoxCorreo.TabIndex = 8;
+            this.textBoxCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleIniciarSesion;
+            this.pictureBox4.Location = new System.Drawing.Point(81, 535);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(453, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 12;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.Rectangle_35;
+            this.pictureBox1.Location = new System.Drawing.Point(79, 220);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(453, 67);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::beat_on_jeans_escritorio.Properties.Resources.Rectangle_35;
+            this.pictureBox2.Location = new System.Drawing.Point(79, 332);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(453, 67);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleRegistre;
+            this.pictureBox3.Location = new System.Drawing.Point(79, 462);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(453, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 188);
-            this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.buttonAceptar);
-            this.Controls.Add(this.textBoxContrasena);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1424, 985);
             this.Controls.Add(this.textBoxCorreo);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.buttonIniciarSesion);
+            this.Controls.Add(this.buttonRegistrar);
+            this.Controls.Add(this.textBoxContrasena);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,12 +220,16 @@ namespace beat_on_jeans_escritorio
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.TextBox textBoxContrasena;
-        private System.Windows.Forms.Button buttonAceptar;
-        private System.Windows.Forms.Button buttonCancelar;
-
-        
+        private System.Windows.Forms.Button buttonRegistrar;
+        private System.Windows.Forms.Button buttonIniciarSesion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxCorreo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 
