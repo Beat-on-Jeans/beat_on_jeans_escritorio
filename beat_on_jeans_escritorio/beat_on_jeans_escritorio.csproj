@@ -128,5 +128,32 @@
   <ItemGroup>
     <None Include="Resources\RectangleIniciarSesion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgDerecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageEstadistica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageRegistro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageNotificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageEvento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageUsuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageConf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoProvisional.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
