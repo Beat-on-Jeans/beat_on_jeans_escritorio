@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace beat_on_jeans_escritorio
@@ -7,6 +9,7 @@ namespace beat_on_jeans_escritorio
     {
         bool sidebarExpand;
         private UsuariosCSharp usuarioActual; // Variable para almacenar el usuario
+        private bool isHovered = false;
 
         // Constructor modificado para recibir el usuario como parámetro
         public Form2(UsuariosCSharp usuario)
@@ -14,6 +17,45 @@ namespace beat_on_jeans_escritorio
             InitializeComponent();
             this.usuarioActual = usuario; // Asignamos el usuario recibido
             configurarInterfaz();
+            configurarImagenRedonda();
+            hoverBotones();
+           
+        
+        }
+
+        private void hoverBotones()
+        {
+            
+        }
+
+        private void configurarImagenRedonda()
+        {
+            // Crear un grafico a partir de la imagen actual.
+            Bitmap originalBitmap = new Bitmap(pictureBox.Image);
+            int diametro = Math.Min(originalBitmap.Width, pictureBox.Image.Height);
+
+            // Crear una nueva imagen con el mismo tamaño que la imagen
+            Bitmap roundBitmap = new Bitmap(diametro, diametro);
+
+            // Crear un objeto Graphics para dibujar la nueva imagen
+            using (Graphics g = Graphics.FromImage(roundBitmap))
+            {
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.Clear(Color.Transparent);  // Fondo transparente
+
+                // Crea una ruta de gráficos con una forma circular
+                GraphicsPath path = new GraphicsPath();
+                path.AddEllipse(0, 0, diametro, diametro);
+
+                // Establece la región del gráfico como la forma circular
+                g.SetClip(path);
+
+                // Dibuja la imagen original en la imagen redonda
+                g.DrawImage(originalBitmap, new Rectangle(0, 0, diametro, diametro));
+            }
+
+            // Asigna la imagen redonda al PictureBox
+            pictureBox.Image = roundBitmap;
         }
 
         private void configurarInterfaz()
@@ -70,34 +112,6 @@ namespace beat_on_jeans_escritorio
             usuarios.ShowDialog();
         }
 
-        private void sidebarTimer_Tick(object sender, EventArgs e)
-        {
-            if (sidebarExpand)
-            {
-                sidebar.Width -= 10;
-                if (sidebar.Width == sidebar.MinimumSize.Width)
-                {
-
-
-                    sidebarExpand = false;
-                    sidebarTimer.Stop();
-                }
-            }
-            else 
-            {
-                sidebar.Width += 10;
-                if (sidebar.Width == sidebar.MaximumSize.Width) 
-                {
-                    sidebarExpand = true;
-                    sidebarTimer.Stop();
-                }
-            }
-
-        }
-
-        private void pictureBoxLogo_Click(object sender, EventArgs e)
-        {
-            sidebarTimer.Start();
-        }
+        
     }
 }

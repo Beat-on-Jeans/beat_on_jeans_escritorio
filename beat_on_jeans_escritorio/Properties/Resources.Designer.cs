@@ -143,6 +143,16 @@ namespace beat_on_jeans_escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logoBeatOnJeans {
+            get {
+                object obj = ResourceManager.GetObject("logoBeatOnJeans", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoProvisional {
             get {
                 object obj = ResourceManager.GetObject("logoProvisional", resourceCulture);
@@ -176,6 +186,16 @@ namespace beat_on_jeans_escritorio.Properties {
         internal static System.Drawing.Bitmap RectangleRegistre {
             get {
                 object obj = ResourceManager.GetObject("RectangleRegistre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rectanguloNegro {
+            get {
+                object obj = ResourceManager.GetObject("rectanguloNegro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
