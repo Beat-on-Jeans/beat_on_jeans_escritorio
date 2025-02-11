@@ -25,8 +25,24 @@ namespace beat_on_jeans_escritorio
 
         private void hoverBotones()
         {
-            
+            // Inicializar PictureBox como invisible
+            pictureBoxHome.Hide();
+
+            // Cuando el cursor entra en el botón
+            buttonHome.MouseEnter += (sender, e) =>
+            {
+                // Mostrar PictureBox cuando el cursor pasa por encima del botón
+                pictureBoxHome.Show();
+            };
+
+            // Cuando el cursor sale del botón
+            buttonHome.MouseLeave += (sender, e) =>
+            {
+                // Ocultar PictureBox cuando el cursor sale del área del botón
+                pictureBoxHome.Hide();
+            };
         }
+
 
         private void configurarImagenRedonda()
         {
