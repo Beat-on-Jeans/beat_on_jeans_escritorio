@@ -25,23 +25,120 @@ namespace beat_on_jeans_escritorio
 
         private void hoverBotones()
         {
-            // Inicializar PictureBox como invisible
+            hidePictureBoxHome();
+            hidePictureBoxEstadisticas();
+            hidePictureBoxRegistro();
+            hidePictureBoxNotificaciones();
+            hidePictureBoxEventos();
+            hidepictureBoxGestionUsuarios();
+            hidePictureBoxConf();
+        }
+
+        private void hidePictureBoxConf()
+        {
+            pictureBoxConf.Hide();
+
+            buttonConfiguracion.MouseEnter += (sender, e) =>
+            {
+                pictureBoxConf.Show();
+            };
+
+            buttonConfiguracion.MouseLeave += (sender, e) =>
+            {
+                pictureBoxConf.Hide();
+            };
+        }
+
+        private void hidepictureBoxGestionUsuarios()
+        {
+            pictureBoxGestionUsuarios.Hide();
+
+            buttonGestionUsuarios.MouseEnter += (sender, e) =>
+            {
+                pictureBoxGestionUsuarios.Show();
+            };
+
+            buttonGestionUsuarios.MouseLeave += (sender, e) =>
+            {
+                pictureBoxGestionUsuarios.Hide();
+            };
+        }
+
+        private void hidePictureBoxEventos()
+        {
+            pictureBoxEventos.Hide();
+
+            buttonEventos.MouseEnter += (sender, e) =>
+            {
+                pictureBoxEventos.Show();
+            };
+
+            buttonEventos.MouseLeave += (sender, e) =>
+            {
+                pictureBoxEventos.Hide();
+            };
+        }
+
+        private void hidePictureBoxNotificaciones()
+        {
+            pictureBoxNotificaciones.Hide();
+
+            buttonNotificaciones.MouseEnter += (sender, e) =>
+            {
+                pictureBoxNotificaciones.Show();
+            };
+
+            buttonNotificaciones.MouseLeave += (sender, e) =>
+            {
+                pictureBoxNotificaciones.Hide();
+            };
+        }
+        private void hidePictureBoxEstadisticas()
+        {
+            pictureBoxEstadisticas.Hide();
+
+            buttonEstadisticas.MouseEnter += (sender, e) =>
+            {
+                pictureBoxEstadisticas.Show();
+            };
+
+            buttonEstadisticas.MouseLeave += (sender, e) =>
+            {
+                pictureBoxEstadisticas.Hide();
+            };
+        }
+
+        private void hidePictureBoxRegistro()
+        {
+            pictureBoxRegistro.Hide();
+
+            buttonRegistro.MouseEnter += (sender, e) =>
+            {
+                pictureBoxRegistro.Show();
+            };
+
+            buttonRegistro.MouseLeave += (sender, e) =>
+            {
+                pictureBoxRegistro.Hide();
+            };
+        }
+
+        private void hidePictureBoxHome()
+        {
             pictureBoxHome.Hide();
 
-            // Cuando el cursor entra en el botón
             buttonHome.MouseEnter += (sender, e) =>
             {
-                // Mostrar PictureBox cuando el cursor pasa por encima del botón
                 pictureBoxHome.Show();
             };
 
-            // Cuando el cursor sale del botón
             buttonHome.MouseLeave += (sender, e) =>
             {
-                // Ocultar PictureBox cuando el cursor sale del área del botón
                 pictureBoxHome.Hide();
             };
         }
+
+        
 
 
         private void configurarImagenRedonda()
