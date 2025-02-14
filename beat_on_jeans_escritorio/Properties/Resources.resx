@@ -124,17 +124,20 @@
   <data name="RectangleIniciarSesion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RectangleIniciarSesion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imageRegistro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imageRegistro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="imageUsuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageUsuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Rectangle 35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rectangle 35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="rectanguloNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rectanguloNegro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RectangleRegistre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RectangleRegistre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageConf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageConf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imageEstadistica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageEstadistica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,19 +148,22 @@
   <data name="imageNotificacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageNotificacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imageLogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageLogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoProvisional" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoProvisional.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logoBeatOnJeans" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoBeatOnJeans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imageConf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imageConf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imageRegistro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageRegistro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imgDerecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgDerecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rectanguloNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rectanguloNegro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imgLane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgLane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
