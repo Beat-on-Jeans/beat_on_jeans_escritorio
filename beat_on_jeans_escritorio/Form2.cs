@@ -7,9 +7,7 @@ namespace beat_on_jeans_escritorio
 {
     public partial class Form2 : Form
     {
-        bool sidebarExpand;
         private UsuariosCSharp usuarioActual; // Variable para almacenar el usuario
-        private bool isHovered = false;
 
         // Constructor modificado para recibir el usuario como parámetro
         public Form2(UsuariosCSharp usuario)
@@ -25,119 +23,14 @@ namespace beat_on_jeans_escritorio
 
         private void hoverBotones()
         {
-            hidePictureBoxHome();
-            hidePictureBoxEstadisticas();
-            hidePictureBoxRegistro();
-            hidePictureBoxNotificaciones();
-            hidePictureBoxEventos();
-            hidepictureBoxGestionUsuarios();
-            hidePictureBoxConf();
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxEstadistica, buttonEstadisticas);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxRegistro, buttonRegistro);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonNotificaciones);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
         }
-
-        private void hidePictureBoxConf()
-        {
-            pictureBoxConf.Hide();
-
-            buttonConfiguracion.MouseEnter += (sender, e) =>
-            {
-                pictureBoxConf.Show();
-            };
-
-            buttonConfiguracion.MouseLeave += (sender, e) =>
-            {
-                pictureBoxConf.Hide();
-            };
-        }
-
-        private void hidepictureBoxGestionUsuarios()
-        {
-            pictureBoxGestionUsuarios.Hide();
-
-            buttonGestionUsuarios.MouseEnter += (sender, e) =>
-            {
-                pictureBoxGestionUsuarios.Show();
-            };
-
-            buttonGestionUsuarios.MouseLeave += (sender, e) =>
-            {
-                pictureBoxGestionUsuarios.Hide();
-            };
-        }
-
-        private void hidePictureBoxEventos()
-        {
-            pictureBoxEventos.Hide();
-
-            buttonEventos.MouseEnter += (sender, e) =>
-            {
-                pictureBoxEventos.Show();
-            };
-
-            buttonEventos.MouseLeave += (sender, e) =>
-            {
-                pictureBoxEventos.Hide();
-            };
-        }
-
-        private void hidePictureBoxNotificaciones()
-        {
-            pictureBoxNotificaciones.Hide();
-
-            buttonNotificaciones.MouseEnter += (sender, e) =>
-            {
-                pictureBoxNotificaciones.Show();
-            };
-
-            buttonNotificaciones.MouseLeave += (sender, e) =>
-            {
-                pictureBoxNotificaciones.Hide();
-            };
-        }
-        private void hidePictureBoxEstadisticas()
-        {
-            pictureBoxEstadistica.Hide();
-
-            buttonEstadisticas.MouseEnter += (sender, e) =>
-            {
-                pictureBoxEstadistica.Show();
-            };
-
-            buttonEstadisticas.MouseLeave += (sender, e) =>
-            {
-                pictureBoxEstadistica.Hide();
-            };
-        }
-
-        private void hidePictureBoxRegistro()
-        {
-            pictureBoxRegistro.Hide();
-
-            buttonRegistro.MouseEnter += (sender, e) =>
-            {
-                pictureBoxRegistro.Show();
-            };
-
-            buttonRegistro.MouseLeave += (sender, e) =>
-            {
-                pictureBoxRegistro.Hide();
-            };
-        }
-
-        private void hidePictureBoxHome()
-        {
-            pictureBoxHome.Hide();
-
-            buttonHome.MouseEnter += (sender, e) =>
-            {
-                pictureBoxHome.Show();
-            };
-
-            buttonHome.MouseLeave += (sender, e) =>
-            {
-                pictureBoxHome.Hide();
-            };
-        }
-
 
         private void configurarImagenRedonda()
         {
