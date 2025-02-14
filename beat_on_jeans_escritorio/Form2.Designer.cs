@@ -1,4 +1,4 @@
-﻿namespace beat_on_jeans_escritorio
+namespace beat_on_jeans_escritorio
 {
     partial class Form2
     {
@@ -35,55 +35,55 @@
             this.buttonMapas = new System.Windows.Forms.Button();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             this.buttonHome = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBoxEstadisticas = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEstadistica = new System.Windows.Forms.PictureBox();
             this.buttonEstadisticas = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBoxRegistro = new System.Windows.Forms.PictureBox();
             this.buttonRegistro = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBoxNotificaciones = new System.Windows.Forms.PictureBox();
             this.buttonNotificaciones = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBoxEventos = new System.Windows.Forms.PictureBox();
             this.buttonEventos = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBoxGestionUsuarios = new System.Windows.Forms.PictureBox();
             this.buttonGestionUsuarios = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBoxConf = new System.Windows.Forms.PictureBox();
             this.buttonConfiguracion = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.buttonLogOut = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstadisticas)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistro)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotificaciones)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventos)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionUsuarios)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConf)).BeginInit();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstadistica)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotificaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConf)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonGestionSoporte
@@ -160,17 +160,6 @@
             this.panel1.Size = new System.Drawing.Size(309, 103);
             this.panel1.TabIndex = 7;
             // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox.Image = global::beat_on_jeans_escritorio.Properties.Resources.logoBeatOnJeans;
-            this.pictureBox.Location = new System.Drawing.Point(11, 17);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 7;
-            this.pictureBox.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -190,12 +179,106 @@
             this.panel2.Size = new System.Drawing.Size(301, 48);
             this.panel2.TabIndex = 7;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBoxEstadistica);
+            this.panel3.Controls.Add(this.buttonEstadisticas);
+            this.panel3.Location = new System.Drawing.Point(3, 166);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(301, 48);
+            this.panel3.TabIndex = 8;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pictureBoxRegistro);
+            this.panel4.Controls.Add(this.buttonRegistro);
+            this.panel4.Location = new System.Drawing.Point(3, 220);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(301, 48);
+            this.panel4.TabIndex = 8;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBoxNotificaciones);
+            this.panel5.Controls.Add(this.buttonNotificaciones);
+            this.panel5.Location = new System.Drawing.Point(3, 274);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(301, 48);
+            this.panel5.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.pictureBoxEventos);
+            this.panel6.Controls.Add(this.buttonEventos);
+            this.panel6.Location = new System.Drawing.Point(3, 328);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(301, 48);
+            this.panel6.TabIndex = 8;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pictureBoxGestionUsuarios);
+            this.panel7.Controls.Add(this.buttonGestionUsuarios);
+            this.panel7.Location = new System.Drawing.Point(3, 382);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(301, 48);
+            this.panel7.TabIndex = 8;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.pictureBoxConf);
+            this.panel8.Controls.Add(this.buttonConfiguracion);
+            this.panel8.Location = new System.Drawing.Point(3, 436);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(301, 48);
+            this.panel8.TabIndex = 8;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.pictureBox1);
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Location = new System.Drawing.Point(3, 490);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(229, 304);
+            this.panel9.TabIndex = 7;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.buttonLogOut);
+            this.panel10.Location = new System.Drawing.Point(17, 233);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(195, 64);
+            this.panel10.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.imgLane;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 216);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 1);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox.Image = global::beat_on_jeans_escritorio.Properties.Resources.logoBeatOnJeans;
+            this.pictureBox.Location = new System.Drawing.Point(11, 17);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 7;
+            this.pictureBox.TabStop = false;
+            // 
             // pictureBoxHome
             // 
             this.pictureBoxHome.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxHome.Location = new System.Drawing.Point(0, 1);
+            this.pictureBoxHome.Location = new System.Drawing.Point(0, 9);
             this.pictureBoxHome.Name = "pictureBoxHome";
-            this.pictureBoxHome.Size = new System.Drawing.Size(5, 50);
+            this.pictureBoxHome.Size = new System.Drawing.Size(5, 40);
             this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxHome.TabIndex = 9;
             this.pictureBoxHome.TabStop = false;
@@ -215,24 +298,15 @@
             this.buttonHome.Text = "Home";
             this.buttonHome.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // pictureBoxEstadistica
             // 
-            this.panel3.Controls.Add(this.pictureBoxEstadisticas);
-            this.panel3.Controls.Add(this.buttonEstadisticas);
-            this.panel3.Location = new System.Drawing.Point(3, 166);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(301, 48);
-            this.panel3.TabIndex = 8;
-            // 
-            // pictureBoxEstadisticas
-            // 
-            this.pictureBoxEstadisticas.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxEstadisticas.Location = new System.Drawing.Point(0, 2);
-            this.pictureBoxEstadisticas.Name = "pictureBoxEstadisticas";
-            this.pictureBoxEstadisticas.Size = new System.Drawing.Size(5, 50);
-            this.pictureBoxEstadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxEstadisticas.TabIndex = 10;
-            this.pictureBoxEstadisticas.TabStop = false;
+            this.pictureBoxEstadistica.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
+            this.pictureBoxEstadistica.Location = new System.Drawing.Point(0, 3);
+            this.pictureBoxEstadistica.Name = "pictureBoxEstadistica";
+            this.pictureBoxEstadistica.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxEstadistica.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEstadistica.TabIndex = 10;
+            this.pictureBoxEstadistica.TabStop = false;
             // 
             // buttonEstadisticas
             // 
@@ -248,23 +322,14 @@
             this.buttonEstadisticas.Text = "Estadisticas";
             this.buttonEstadisticas.UseVisualStyleBackColor = false;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pictureBoxRegistro);
-            this.panel4.Controls.Add(this.buttonRegistro);
-            this.panel4.Location = new System.Drawing.Point(3, 220);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(301, 48);
-            this.panel4.TabIndex = 8;
-            // 
             // pictureBoxRegistro
             // 
             this.pictureBoxRegistro.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
             this.pictureBoxRegistro.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxRegistro.Name = "pictureBoxRegistro";
-            this.pictureBoxRegistro.Size = new System.Drawing.Size(5, 50);
+            this.pictureBoxRegistro.Size = new System.Drawing.Size(5, 40);
             this.pictureBoxRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxRegistro.TabIndex = 11;
+            this.pictureBoxRegistro.TabIndex = 10;
             this.pictureBoxRegistro.TabStop = false;
             // 
             // buttonRegistro
@@ -281,23 +346,14 @@
             this.buttonRegistro.Text = "Registro";
             this.buttonRegistro.UseVisualStyleBackColor = false;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.pictureBoxNotificaciones);
-            this.panel5.Controls.Add(this.buttonNotificaciones);
-            this.panel5.Location = new System.Drawing.Point(3, 274);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(301, 48);
-            this.panel5.TabIndex = 8;
-            // 
             // pictureBoxNotificaciones
             // 
             this.pictureBoxNotificaciones.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
             this.pictureBoxNotificaciones.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxNotificaciones.Name = "pictureBoxNotificaciones";
-            this.pictureBoxNotificaciones.Size = new System.Drawing.Size(5, 50);
+            this.pictureBoxNotificaciones.Size = new System.Drawing.Size(5, 40);
             this.pictureBoxNotificaciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxNotificaciones.TabIndex = 12;
+            this.pictureBoxNotificaciones.TabIndex = 10;
             this.pictureBoxNotificaciones.TabStop = false;
             // 
             // buttonNotificaciones
@@ -314,23 +370,14 @@
             this.buttonNotificaciones.Text = "Notificaciones";
             this.buttonNotificaciones.UseVisualStyleBackColor = false;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.pictureBoxEventos);
-            this.panel6.Controls.Add(this.buttonEventos);
-            this.panel6.Location = new System.Drawing.Point(3, 328);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(301, 48);
-            this.panel6.TabIndex = 8;
-            // 
             // pictureBoxEventos
             // 
             this.pictureBoxEventos.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxEventos.Location = new System.Drawing.Point(0, -2);
+            this.pictureBoxEventos.Location = new System.Drawing.Point(0, 1);
             this.pictureBoxEventos.Name = "pictureBoxEventos";
-            this.pictureBoxEventos.Size = new System.Drawing.Size(5, 50);
+            this.pictureBoxEventos.Size = new System.Drawing.Size(5, 40);
             this.pictureBoxEventos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxEventos.TabIndex = 12;
+            this.pictureBoxEventos.TabIndex = 10;
             this.pictureBoxEventos.TabStop = false;
             // 
             // buttonEventos
@@ -347,23 +394,14 @@
             this.buttonEventos.Text = "Eventos";
             this.buttonEventos.UseVisualStyleBackColor = false;
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.pictureBoxGestionUsuarios);
-            this.panel7.Controls.Add(this.buttonGestionUsuarios);
-            this.panel7.Location = new System.Drawing.Point(3, 382);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(301, 48);
-            this.panel7.TabIndex = 8;
-            // 
             // pictureBoxGestionUsuarios
             // 
             this.pictureBoxGestionUsuarios.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxGestionUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxGestionUsuarios.Location = new System.Drawing.Point(0, 1);
             this.pictureBoxGestionUsuarios.Name = "pictureBoxGestionUsuarios";
-            this.pictureBoxGestionUsuarios.Size = new System.Drawing.Size(5, 50);
+            this.pictureBoxGestionUsuarios.Size = new System.Drawing.Size(5, 40);
             this.pictureBoxGestionUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxGestionUsuarios.TabIndex = 12;
+            this.pictureBoxGestionUsuarios.TabIndex = 10;
             this.pictureBoxGestionUsuarios.TabStop = false;
             // 
             // buttonGestionUsuarios
@@ -380,23 +418,14 @@
             this.buttonGestionUsuarios.Text = "Gestión Usuarios";
             this.buttonGestionUsuarios.UseVisualStyleBackColor = false;
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.pictureBoxConf);
-            this.panel8.Controls.Add(this.buttonConfiguracion);
-            this.panel8.Location = new System.Drawing.Point(3, 436);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(301, 48);
-            this.panel8.TabIndex = 8;
-            // 
             // pictureBoxConf
             // 
             this.pictureBoxConf.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxConf.Location = new System.Drawing.Point(0, -2);
+            this.pictureBoxConf.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxConf.Name = "pictureBoxConf";
-            this.pictureBoxConf.Size = new System.Drawing.Size(5, 50);
+            this.pictureBoxConf.Size = new System.Drawing.Size(5, 40);
             this.pictureBoxConf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxConf.TabIndex = 12;
+            this.pictureBoxConf.TabIndex = 10;
             this.pictureBoxConf.TabStop = false;
             // 
             // buttonConfiguracion
@@ -413,69 +442,37 @@
             this.buttonConfiguracion.Text = "Configuración";
             this.buttonConfiguracion.UseVisualStyleBackColor = false;
             // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label3);
-            this.panel9.Controls.Add(this.label2);
-            this.panel9.Controls.Add(this.pictureBox1);
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(3, 490);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(276, 304);
-            this.panel9.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Figtree", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(59, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "label3";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Figtree", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
-            this.label2.Location = new System.Drawing.Point(59, 184);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "label2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.imgLane;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 213);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 1);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.buttonLogOut);
-            this.panel10.Location = new System.Drawing.Point(3, 228);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(270, 45);
-            this.panel10.TabIndex = 7;
-            // 
             // buttonLogOut
             // 
             this.buttonLogOut.BackColor = System.Drawing.Color.White;
             this.buttonLogOut.Font = new System.Drawing.Font("Figtree Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogOut.Image = global::beat_on_jeans_escritorio.Properties.Resources.imgLogOut;
+            this.buttonLogOut.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageLogOut;
             this.buttonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLogOut.Location = new System.Drawing.Point(-5, -15);
+            this.buttonLogOut.Location = new System.Drawing.Point(-17, -27);
             this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Padding = new System.Windows.Forms.Padding(35, 14, 133, 14);
-            this.buttonLogOut.Size = new System.Drawing.Size(314, 79);
-            this.buttonLogOut.TabIndex = 10;
+            this.buttonLogOut.Padding = new System.Windows.Forms.Padding(35, 14, 190, 14);
+            this.buttonLogOut.Size = new System.Drawing.Size(377, 91);
+            this.buttonLogOut.TabIndex = 9;
             this.buttonLogOut.Text = "Log Out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(79, 159);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(79, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "label3";
             // 
             // Form2
             // 
@@ -494,25 +491,25 @@
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstadisticas)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistro)).EndInit();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotificaciones)).EndInit();
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventos)).EndInit();
             this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionUsuarios)).EndInit();
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConf)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstadistica)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotificaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConf)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -546,14 +543,14 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBoxHome;
-        private System.Windows.Forms.PictureBox pictureBoxEstadisticas;
+        private System.Windows.Forms.PictureBox pictureBoxEstadistica;
         private System.Windows.Forms.PictureBox pictureBoxRegistro;
         private System.Windows.Forms.PictureBox pictureBoxNotificaciones;
         private System.Windows.Forms.PictureBox pictureBoxEventos;
         private System.Windows.Forms.PictureBox pictureBoxGestionUsuarios;
         private System.Windows.Forms.PictureBox pictureBoxConf;
         private System.Windows.Forms.Button buttonLogOut;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

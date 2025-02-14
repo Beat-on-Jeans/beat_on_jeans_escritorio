@@ -95,16 +95,18 @@ namespace beat_on_jeans_escritorio
         }
         private void hidePictureBoxEstadisticas()
         {
-            pictureBoxEstadisticas.Hide();
+
+            pictureBoxEstadistica.Hide();
 
             buttonEstadisticas.MouseEnter += (sender, e) =>
             {
-                pictureBoxEstadisticas.Show();
+                pictureBoxEstadistica.Show();
             };
 
             buttonEstadisticas.MouseLeave += (sender, e) =>
             {
-                pictureBoxEstadisticas.Hide();
+
+                pictureBoxEstadistica.Hide();
             };
         }
 

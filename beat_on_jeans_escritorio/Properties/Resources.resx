@@ -151,6 +151,9 @@
   <data name="imageNotificacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageNotificacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imageLogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageLogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logoProvisional" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoProvisional.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

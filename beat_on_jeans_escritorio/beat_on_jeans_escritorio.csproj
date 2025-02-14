@@ -162,7 +162,7 @@
     <None Include="Resources\rectanguloNegro.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imgLogOut.png" />
+    <None Include="Resources\imageLogOut.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgLane.png" />

@@ -103,6 +103,16 @@ namespace beat_on_jeans_escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imageLogOut {
+            get {
+                object obj = ResourceManager.GetObject("imageLogOut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imageNotificacion {
             get {
                 object obj = ResourceManager.GetObject("imageNotificacion", resourceCulture);
