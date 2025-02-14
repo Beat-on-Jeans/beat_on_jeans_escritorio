@@ -95,6 +95,7 @@ namespace beat_on_jeans_escritorio
         }
         private void hidePictureBoxEstadisticas()
         {
+
             pictureBoxEstadistica.Hide();
 
             buttonEstadisticas.MouseEnter += (sender, e) =>
@@ -104,6 +105,7 @@ namespace beat_on_jeans_escritorio
 
             buttonEstadisticas.MouseLeave += (sender, e) =>
             {
+
                 pictureBoxEstadistica.Hide();
             };
         }
@@ -137,6 +139,8 @@ namespace beat_on_jeans_escritorio
                 pictureBoxHome.Hide();
             };
         }
+
+        
 
 
         private void configurarImagenRedonda()
