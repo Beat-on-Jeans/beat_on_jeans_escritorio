@@ -1,4 +1,4 @@
-﻿namespace beat_on_jeans_escritorio
+namespace beat_on_jeans_escritorio
 {
     partial class Form2
     {
