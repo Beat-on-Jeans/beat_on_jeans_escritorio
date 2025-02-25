@@ -72,6 +72,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormHomeSuperUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHomeSuperUsuarios.Designer.cs">
+      <DependentUpon>FormHomeSuperUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PictureBoxHandler.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGestionUsuarios.resx">
       <DependentUpon>FormGestionUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHomeSuperUsuarios.resx">
+      <DependentUpon>FormHomeSuperUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMaps.resx">
       <DependentUpon>FormMaps.cs</DependentUpon>
@@ -182,6 +192,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rectanguloNegro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageLogOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgLane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectanguloNaranjita.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
