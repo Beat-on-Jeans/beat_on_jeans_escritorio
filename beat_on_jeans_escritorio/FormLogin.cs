@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace beat_on_jeans_escritorio
 {
-    public partial class Form1 : Form
+    public partial class FormLogin : Form
     {
-        public Form1()
+        public FormLogin()
         {
             InitializeComponent();
             textBoxContrasena.UseSystemPasswordChar = true;
