@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using beat_on_jeans_escritorio.Models;
 
 namespace beat_on_jeans_escritorio
 {
@@ -19,11 +20,38 @@ namespace beat_on_jeans_escritorio
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            // Definir usuario predeterminado con rol
-            String correoPorDefecto = "example@gmail.com";
-            String contrasenaPorDefecto = "123";
 
-            Superusuario superusuario = new Superusuario(1, correoPorDefecto, contrasenaPorDefecto, 1);
+            String correo = textBoxCorreo.Text;
+            String contrasena = textBoxContrasena.Text;
+            String mensaje;
+            Boolean ValidarCredenciales = true;
+
+            // Definir usuario predeterminado con rol
+            //String correoPorDefecto = "example@gmail.com";
+            //String contrasenaPorDefecto = "123";
+
+            //Superusuario superusuario = new Superusuario(1, correoPorDefecto, contrasenaPorDefecto, 1);
+            ValidarCredenciales = validarCorreoContrasena(correo, contrasena, ValidarCredenciales);
+
+            if (ValidarCredenciales == true)
+            {
+                Boolean validado = Usuarios.validarUsuarios(correo, contrasena, out mensaje);
+                if (validado == true)
+                {
+                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+
+                    Form2 formulario2 = new Form2(usuarioActual);
+                    formulario2.ShowDialog();
+                    //this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+
 
             // Verificar si las credenciales ingresadas son correctas
             if (textBoxCorreo.Text.Equals(correoPorDefecto) && textBoxContrasena.Text.Equals(contrasenaPorDefecto))
@@ -33,9 +61,8 @@ namespace beat_on_jeans_escritorio
                 usuarioActual.rol = superusuario.rol; // Asignar el rol basado en el superusuario
 
                 // Ocultar Form1 y mostrar Form2, pasando el usuarioActual
-                this.Hide();
-                Form2 formulario2 = new Form2(usuarioActual);
-                formulario2.ShowDialog();
+               
+                
             }
             else
             {
@@ -62,6 +89,23 @@ namespace beat_on_jeans_escritorio
            
         }
 
-        
+        private static Boolean validarCorreoContrasena(String correu, String contrasenya, Boolean validar)
+        {
+
+            if (string.IsNullOrEmpty(correu))
+            {
+                MessageBox.Show("Por favor, introduce tu correo electrónico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validar = false;
+            }
+
+            if (string.IsNullOrEmpty(contrasenya))
+            {
+                MessageBox.Show("Por favor, introduce tu contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validar = false;
+            }
+
+            return validar;
+        }
+
     }
 }

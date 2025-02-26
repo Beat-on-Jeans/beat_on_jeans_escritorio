@@ -47,20 +47,20 @@ namespace beat_on_jeans_escritorio.Models
             return taula;
 
         }
-        public static Boolean validarUsuaris(String correu, String contrasenya, out String missatge)
+        public static Boolean validarUsuarios(String correo, String contrasena, out String mensaje)
         {
             SqlCommand sentencia = new SqlCommand();
             SqlDataReader dades;
             DataTable taula = new DataTable();
             Boolean validar = false;
-            missatge = null;
+            mensaje = null;
 
             try
             {
                 sentencia.Connection = Bd.connexion;
-                sentencia.CommandText = "select contrasenya from usuaris where correu = @correu";
+                sentencia.CommandText = "select Contrasena from UsuariosCSharp where Correo = @correo";
                 sentencia.Parameters.Clear();
-                sentencia.Parameters.AddWithValue("@correu", correu);
+                sentencia.Parameters.AddWithValue("@Correo", correo);
 
                 Bd.connexion.Open();
 
@@ -70,23 +70,23 @@ namespace beat_on_jeans_escritorio.Models
                 if (taula.Rows.Count > 0)
                 {
                     // Obtener el hash almacenado en la base de datos
-                    string hashAlmacenado = taula.Rows[0]["contrasenya"].ToString();
-                    Boolean constrasenyaEncryptada = BCrypt.Net.BCrypt.EnhancedVerify(contrasenya, hashAlmacenado, HashType.SHA512);
+                    string hashAlmacenado = taula.Rows[0]["Contrasena"].ToString();
+                    Boolean constrasenyaEncryptada = BCrypt.Net.BCrypt.EnhancedVerify(contrasena, hashAlmacenado, HashType.SHA512);
 
                     if (constrasenyaEncryptada == true)
                     {
                         validar = true;
-                        missatge = validar ? "Inicio de sesión exitoso." : "Contraseña incorrecta.";
+                        mensaje = validar ? "Inicio de sesión exitoso." : "Contraseña incorrecta.";
                     }
                 }
                 else
                 {
-                    missatge = "El correo ingresado no existe en la base de datos.";
+                    mensaje = "El correo ingresado no existe en la base de datos.";
                 }
             }
             catch (SqlException ex)
             {
-                missatge = $"Error al validar el usuario: {Bd.MensageError(ex)}";
+                mensaje = $"Error al validar el usuario: {Bd.MensageError(ex)}";
             }
             finally
             {
