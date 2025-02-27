@@ -72,12 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormHomeSuperUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHomeSuperUsuarios.Designer.cs">
-      <DependentUpon>FormHomeSuperUsuarios.cs</DependentUpon>
-    </Compile>
+
+    <Compile Include="DataGridViewStyler.cs" />
+
     <Compile Include="PictureBoxHandler.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
