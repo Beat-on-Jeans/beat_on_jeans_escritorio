@@ -31,19 +31,25 @@ namespace beat_on_jeans_escritorio
             //String contrasenaPorDefecto = "123";
 
             //Superusuario superusuario = new Superusuario(1, correoPorDefecto, contrasenaPorDefecto, 1);
+
             ValidarCredenciales = validarCorreoContrasena(correo, contrasena, ValidarCredenciales);
 
             if (ValidarCredenciales == true)
             {
                 Boolean validado = Usuarios.validarUsuarios(correo, contrasena, out mensaje);
+
                 if (validado == true)
                 {
-                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-
+                    // Recoger el rolId del usuario
+                    UsuariosCSharp usuarioActual = new UsuariosCSharp.recogerUsuario(correo, contrasena);
+                    // Mostrar la landing page
                     Form2 formulario2 = new Form2(usuarioActual);
                     formulario2.ShowDialog();
+
+
+                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //this.Close();
+                    //this.Hide();
                 }
                 else
                 {
@@ -58,6 +64,7 @@ namespace beat_on_jeans_escritorio
             {
                 // Crear el usuario actual (esto se debe obtener de tu lógica de login)
                 UsuariosCSharp usuarioActual = new UsuariosCSharp(); // Esto se debe obtener de tu lógica de login
+
                 usuarioActual.rol = superusuario.rol; // Asignar el rol basado en el superusuario
 
                 // Ocultar Form1 y mostrar Form2, pasando el usuarioActual

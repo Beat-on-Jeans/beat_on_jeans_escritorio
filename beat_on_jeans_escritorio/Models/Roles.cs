@@ -1,37 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace beat_on_jeans_escritorio.Models
+using beat_on_jeans_escritorio.Models;
+
+namespace beat_on_jeans_escritorio
 {
-    internal class Roles
+    public class UsuariosCSharp
     {
-        public static DataTable recogerRoles()
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string contrasena { get; set; }
+        public string correo { get; set; }
+        public int rol { get; set; }
+
+        public static UsuariosCSharp recogerUsuario(string correo, string contrasena)
         {
             string mensajeError = "";
             SqlCommand sentencia = new SqlCommand();
-            SqlDataReader dades;
-            DataTable taula = new DataTable();
+            SqlDataReader datos;
+            UsuariosCSharp usuario = null;
 
             try
             {
                 sentencia.Connection = Bd.connexion;
-                sentencia.CommandText = "select * from roles";
+                sentencia.CommandText = "SELECT * FROM usuarios WHERE correo = @correo AND contrasena = @contrasena";
+                sentencia.Parameters.AddWithValue("@correo", correo);
+                sentencia.Parameters.AddWithValue("@contrasena", contrasena);
 
                 Bd.connexion.Open();
 
-                dades = sentencia.ExecuteReader();
-                taula.Load(dades);
-
+                datos = sentencia.ExecuteReader();
+                if (datos.Read())
+                {
+                    usuario = new UsuariosCSharp
+                    {
+                        id = Convert.ToInt32(datos["id"]),
+                        nombre = datos["nombre"].ToString(),
+                        contrasena = datos["contrasena"].ToString(),
+                        correo = datos["correo"].ToString(),
+                        rol = Convert.ToInt32(datos["rol"])
+                    };
+                }
             }
             catch (SqlException ex)
             {
                 mensajeError = Bd.MensageError(ex);
-                MessageBox.Show($"No se puedo recoger los datos: {mensajeError}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No se pudo recoger los datos: {mensajeError}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -41,7 +56,7 @@ namespace beat_on_jeans_escritorio.Models
                 }
             }
 
-            return taula;
+            return usuario;
         }
     }
 }
