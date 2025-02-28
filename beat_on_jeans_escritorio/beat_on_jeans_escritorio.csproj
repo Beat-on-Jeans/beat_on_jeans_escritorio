@@ -72,9 +72,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="DataGridViewStyler.cs" />
-
+    <Compile Include="FormHomeAdmistrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHomeAdmistrador.Designer.cs">
+      <DependentUpon>FormHomeAdmistrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHomeMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHomeMantenimiento.Designer.cs">
+      <DependentUpon>FormHomeMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHomeSuperUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHomeSuperUsuario.Designer.cs">
+      <DependentUpon>FormHomeSuperUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="PictureBoxHandler.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -109,6 +125,15 @@
     <Compile Include="UsuarioMantenimientoDatos.cs" />
     <Compile Include="UsuariosCSharp.cs" />
     <Compile Include="Superusuario.cs" />
+    <EmbeddedResource Include="FormHomeAdmistrador.resx">
+      <DependentUpon>FormHomeAdmistrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHomeMantenimiento.resx">
+      <DependentUpon>FormHomeMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHomeSuperUsuario.resx">
+      <DependentUpon>FormHomeSuperUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,9 +142,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGestionUsuarios.resx">
       <DependentUpon>FormGestionUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHomeSuperUsuarios.resx">
-      <DependentUpon>FormHomeSuperUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMaps.resx">
       <DependentUpon>FormMaps.cs</DependentUpon>
