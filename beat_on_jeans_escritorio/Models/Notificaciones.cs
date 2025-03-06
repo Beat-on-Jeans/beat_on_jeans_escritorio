@@ -12,18 +12,18 @@ namespace beat_on_jeans_escritorio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Roles
+    public partial class Notificaciones
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Roles()
+        public Notificaciones()
         {
-            this.UsuariosCSharp = new HashSet<UsuariosCSharp>();
+            this.UsuarioMobil = new HashSet<UsuarioMobil>();
         }
     
         public int ID { get; set; }
-        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsuariosCSharp> UsuariosCSharp { get; set; }
+        public virtual ICollection<UsuarioMobil> UsuarioMobil { get; set; }
     }
 }

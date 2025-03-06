@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20c1d5795e7a463288b5776de9a1c72f" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="dbJeanModel.Actuacion" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Chats" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Generos_Musicales" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Locales" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Matches" Width="1.5" PointX="10.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Mensajes" Width="1.5" PointX="13" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Musicos" Width="1.5" PointX="8.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Notificaciones" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Roles" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.RolesMovil" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Soporte" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.TipoIncidencia" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.UsuarioMobil" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.UsuariosCSharp" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbJeanModel.Valoracion" Width="1.5" PointX="13.75" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="dbJeanModel.FK__Actuacion__Local__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Chats__Local_ID__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Chats__Musico_ID__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Mensajes__Chat_I__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Locales__Rol_ID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Locales__Usuario__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Matches__Like_Lo__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Valoracio__Valor__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Valoracio__Valor__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Matches__Like_Mu__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Musicos__Rol_ID__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Musicos__Usuario__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Valoracio__Valor__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Valoracio__Valor__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__UsuarioMo__Notif__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__UsuariosC__RoleI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__UsuarioMo__ROL_I__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Soporte__Tecnico__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Soporte__Tipo_In__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.FK__Soporte__Usuario__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.Locales_Generos" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.Musicos_Actuaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="dbJeanModel.Musicos_Generos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

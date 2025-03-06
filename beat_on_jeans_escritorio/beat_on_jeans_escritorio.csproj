@@ -36,6 +36,12 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
       <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
     </Reference>
@@ -46,6 +52,7 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.9.0\lib\net462\System.Data.SqlClient.dll</HintPath>
@@ -61,6 +68,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +86,68 @@
     </Compile>
     <Compile Include="FormHomeSuperUsuarios.Designer.cs">
       <DependentUpon>FormHomeSuperUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Actuacion.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Chats.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Generos_Musicales.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Locales.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Matches.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Mensajes.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBeat.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBeat.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBeat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBeat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBeat.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Musicos.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notificaciones.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orm.cs" />
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RolesMovil.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Soporte.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoIncidencia.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioCSharpOrm.cs" />
+    <Compile Include="Models\UsuarioMobil.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuariosCSharp.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Valoracion.cs">
+      <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
     <Compile Include="PictureBoxHandler.cs" />
     <Compile Include="FormLogin.cs">
@@ -103,9 +174,9 @@
     <Compile Include="FormMaps.Designer.cs">
       <DependentUpon>FormMaps.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bd.cs" />
-    <Compile Include="Models\Roles.cs" />
-    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Models_Prova\Bd.cs" />
+    <Compile Include="Models_Prova\Roles.cs" />
+    <Compile Include="Models_Prova\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioAdministracion.cs" />
@@ -137,6 +208,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Models\ModelBeat.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBeat.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\ModelBeat.edmx.diagram">
+      <DependentUpon>ModelBeat.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -201,6 +279,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rectanguloNaranjita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\ModelBeat.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelBeat.Context.cs</LastGenOutput>
+      <DependentUpon>ModelBeat.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModelBeat.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBeat.edmx</DependentUpon>
+      <LastGenOutput>ModelBeat.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
