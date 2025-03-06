@@ -26,54 +26,23 @@ namespace beat_on_jeans_escritorio
             String mensaje;
             Boolean ValidarCredenciales = true;
 
-            // Definir usuario predeterminado con rol
-            //String correoPorDefecto = "example@gmail.com";
-            //String contrasenaPorDefecto = "123";
-
-            //Superusuario superusuario = new Superusuario(1, correoPorDefecto, contrasenaPorDefecto, 1);
-
             ValidarCredenciales = validarCorreoContrasena(correo, contrasena, ValidarCredenciales);
 
             if (ValidarCredenciales == true)
             {
-                Boolean validado = Usuarios.validarUsuarios(correo, contrasena, out mensaje);
+                UsuariosCSharp usuarioActual = UsuarioCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
 
-                if (validado == true)
+                if (usuarioActual == null)
                 {
-                    // Recoger el rolId del usuario
-                    UsuariosCSharp usuarioActual = new UsuariosCSharp.recogerUsuario(correo, contrasena);
-                    // Mostrar la landing page
-                    FormHome formulario2 = new FormHome(usuarioActual);
-                    formulario2.ShowDialog();
-
-
-                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //this.Close();
-                    //this.Hide();
+                    MessageBox.Show(mensaje, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Pasarle el usuario actual
+                    FormHome formulario2 = new FormHome(usuarioActual);
+                    formulario2.ShowDialog();
+                    MessageBox.Show(mensaje, "Validación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-
-
-
-            // Verificar si las credenciales ingresadas son correctas
-            if (textBoxCorreo.Text.Equals(correoPorDefecto) && textBoxContrasena.Text.Equals(contrasenaPorDefecto))
-            {
-                // Crear el usuario actual (esto se debe obtener de tu lógica de login)
-                UsuariosCSharp usuarioActual = new UsuariosCSharp(); // Esto se debe obtener de tu lógica de login
-
-                usuarioActual.rol = superusuario.rol; // Asignar el rol basado en el superusuario
-
-                // Ocultar Form1 y mostrar Form2, pasando el usuarioActual
-               
-                
-            }
-            else
-            {
-                MessageBox.Show("Credenciales incorrectas. Inténtalo nuevamente.");
             }
         }
 
