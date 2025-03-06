@@ -15,7 +15,19 @@ namespace beat_on_jeans_escritorio
         public FormGestionUsuarios()
         {
             InitializeComponent();
+        }
+
+        private void FormGestionUsuarios_Load(object sender, EventArgs e)
+        {
             hoverBotones();
+            ajustarComboBox();
+
+        }
+
+        private void ajustarComboBox()
+        {
+            comboBox1.DrawMode = DrawMode.OwnerDrawVariable;
+            comboBox1.MeasureItem += (sender, e) => e.ItemHeight = 42;
         }
 
         private void hoverBotones()
@@ -29,6 +41,6 @@ namespace beat_on_jeans_escritorio
             PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
         }
 
-      
+        
     }
 }

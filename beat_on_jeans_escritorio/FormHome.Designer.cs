@@ -1,6 +1,6 @@
 namespace beat_on_jeans_escritorio
 {
-    partial class Form2
+    partial class FormHome
     {
         /// <summary>
         /// Required designer variable.

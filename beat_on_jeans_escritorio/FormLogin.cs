@@ -43,7 +43,7 @@ namespace beat_on_jeans_escritorio
                     // Recoger el rolId del usuario
                     UsuariosCSharp usuarioActual = new UsuariosCSharp.recogerUsuario(correo, contrasena);
                     // Mostrar la landing page
-                    Form2 formulario2 = new Form2(usuarioActual);
+                    FormHome formulario2 = new FormHome(usuarioActual);
                     formulario2.ShowDialog();
 
 

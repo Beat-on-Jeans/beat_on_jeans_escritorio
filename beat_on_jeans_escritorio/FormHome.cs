@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace beat_on_jeans_escritorio
 {
-    public partial class Form2 : Form
+    public partial class FormHome : Form
     {
         private UsuariosCSharp usuarioActual; // Variable para almacenar el usuario
 
         // Constructor modificado para recibir el usuario como parámetro
-        public Form2(UsuariosCSharp usuario)
+        public FormHome(UsuariosCSharp usuario)
         {
             InitializeComponent();
             this.usuarioActual = usuario; // Asignamos el usuario recibido
