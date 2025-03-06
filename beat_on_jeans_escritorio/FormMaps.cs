@@ -82,7 +82,7 @@ namespace beat_on_jeans_escritorio
             // Cerrar FormMaps y abrir Form2, pasando el usuarioActual
             this.Hide();
 
-            Form2 formularioMenu = new Form2(usuarioActual);
+            FormHome formularioMenu = new FormHome(usuarioActual);
             formularioMenu.ShowDialog();
         }
 
