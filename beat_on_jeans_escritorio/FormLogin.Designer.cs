@@ -56,7 +56,7 @@ namespace beat_on_jeans_escritorio
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(107, 336);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 24);
+            this.label1.Size = new System.Drawing.Size(94, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Correo";
             // 
@@ -66,7 +66,7 @@ namespace beat_on_jeans_escritorio
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(108, 454);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.Size = new System.Drawing.Size(124, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
@@ -95,7 +95,7 @@ namespace beat_on_jeans_escritorio
             this.buttonRegistrar.TabIndex = 4;
             this.buttonRegistrar.Text = "Registrarse";
             this.buttonRegistrar.UseVisualStyleBackColor = false;
-            this.buttonRegistrar.Click += new System.EventHandler(this.buttonAceptar_Click);
+            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
             // buttonIniciarSesion
             // 
@@ -110,7 +110,7 @@ namespace beat_on_jeans_escritorio
             this.buttonIniciarSesion.TabIndex = 5;
             this.buttonIniciarSesion.Text = "Iniciar Sesión";
             this.buttonIniciarSesion.UseVisualStyleBackColor = false;
-            this.buttonIniciarSesion.Click += new System.EventHandler(this.buttonCancelar_Click);
+            this.buttonIniciarSesion.Click += new System.EventHandler(this.buttonIniciarSesion_Click);
             // 
             // label3
             // 
@@ -118,7 +118,7 @@ namespace beat_on_jeans_escritorio
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(184, 203);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(286, 55);
+            this.label3.Size = new System.Drawing.Size(352, 69);
             this.label3.TabIndex = 6;
             this.label3.Text = "Bienvenido!";
             // 
@@ -129,7 +129,7 @@ namespace beat_on_jeans_escritorio
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(138)))));
             this.label4.Location = new System.Drawing.Point(165, 261);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(354, 20);
+            this.label4.Size = new System.Drawing.Size(425, 25);
             this.label4.TabIndex = 7;
             this.label4.Text = "Sincroniza tu talento con el escenario ideal";
             // 
@@ -199,7 +199,7 @@ namespace beat_on_jeans_escritorio
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
             // 
-            // Form1
+            // FormLogin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -217,7 +217,7 @@ namespace beat_on_jeans_escritorio
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox4);
-            this.Name = "Form1";
+            this.Name = "FormLogin";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
