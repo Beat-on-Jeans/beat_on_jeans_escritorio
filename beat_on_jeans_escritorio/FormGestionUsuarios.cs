@@ -49,5 +49,10 @@ namespace beat_on_jeans_escritorio
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bindingSourceRoles.DataSource = 
+        }
     }
 }
