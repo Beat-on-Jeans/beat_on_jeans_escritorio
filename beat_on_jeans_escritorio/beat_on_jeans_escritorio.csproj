@@ -187,14 +187,13 @@
     <Compile Include="FormMaps.Designer.cs">
       <DependentUpon>FormMaps.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models_Prova\Bd.cs" />
-    <Compile Include="Models_Prova\Roles.cs" />
-    <Compile Include="Models_Prova\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
     <Compile Include="UsuarioAdministracion.cs" />
     <Compile Include="UsuarioMantenimientoDatos.cs" />
     <Compile Include="Superusuario.cs" />
+
     <EmbeddedResource Include="FormHomeAdmistrador.resx">
       <DependentUpon>FormHomeAdmistrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,8 +317,10 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+
   <ItemGroup>
     <Folder Include="ClasesEstilos\" />
   </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

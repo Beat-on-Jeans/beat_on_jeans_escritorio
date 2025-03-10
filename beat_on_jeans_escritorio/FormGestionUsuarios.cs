@@ -17,11 +17,13 @@ namespace beat_on_jeans_escritorio
         public FormGestionUsuarios()
         {
             InitializeComponent();
+
         }
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
             disenoBotones();
+
         }
 
         private void disenoBotones()

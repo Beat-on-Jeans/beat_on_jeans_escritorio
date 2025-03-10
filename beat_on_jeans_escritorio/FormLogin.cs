@@ -13,52 +13,38 @@ namespace beat_on_jeans_escritorio
             textBoxContrasena.UseSystemPasswordChar = true;
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void buttonAceptar_Click(object sender, EventArgs e)
-        {
-
             String correo = textBoxCorreo.Text;
             String contrasena = textBoxContrasena.Text;
             String mensaje;
             Boolean ValidarCredenciales = true;
 
-            // Definir usuario predeterminado con rol
-            //String correoPorDefecto = "example@gmail.com";
-            //String contrasenaPorDefecto = "123";
-
-            //Superusuario superusuario = new Superusuario(1, correoPorDefecto, contrasenaPorDefecto, 1);
-
             ValidarCredenciales = validarCorreoContrasena(correo, contrasena, ValidarCredenciales);
 
             if (ValidarCredenciales == true)
             {
-                Boolean validado = Usuarios.validarUsuarios(correo, contrasena, out mensaje);
+                UsuariosCSharp usuarioActual = UsuarioCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
 
-                if (validado == true)
+                if (usuarioActual == null)
                 {
-                    // Recoger el rolId del usuario
-                    //UsuariosCSharp usuarioActual = new UsuariosCSharp.recogerUsuario(correo, contrasena);
-                    // Mostrar la landing page
-                    //FormHome Home = new FormHome(usuarioActual);
-                    //Home.ShowDialog();
 
+                    MessageBox.Show(mensaje, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //this.Close();
-                    //this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Pasarle el usuario actual
+                    FormHome formulario2 = new FormHome(usuarioActual);
+                    formulario2.ShowDialog();
+                    MessageBox.Show(mensaje, "Validación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
 
-
-
+        private void buttonRegistrar_Click(object sender, EventArgs e)
+        {
+            // Logica del boton de registrarse
             // Verificar si las credenciales ingresadas son correctas
             //if (textBoxCorreo.Text.Equals(correoPorDefecto) && textBoxContrasena.Text.Equals(contrasenaPorDefecto))
             //{
@@ -113,6 +99,7 @@ namespace beat_on_jeans_escritorio
 
             return validar;
         }
+
 
     }
 }
