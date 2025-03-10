@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace beat_on_jeans_escritorio
 {
-    public static class DataGridViewStyler
+    public static class DataGridViewBordeRedondo
     {
         public static void RedondearBordes(DataGridView dgv, int radio)
         {
