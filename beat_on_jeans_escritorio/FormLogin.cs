@@ -13,14 +13,8 @@ namespace beat_on_jeans_escritorio
             textBoxContrasena.UseSystemPasswordChar = true;
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void buttonAceptar_Click(object sender, EventArgs e)
-        {
-
             String correo = textBoxCorreo.Text;
             String contrasena = textBoxContrasena.Text;
             String mensaje;
@@ -44,6 +38,13 @@ namespace beat_on_jeans_escritorio
                     MessageBox.Show(mensaje, "Validación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void buttonRegistrar_Click(object sender, EventArgs e)
+        {
+            // Logica del boton de registrarse
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -82,6 +83,7 @@ namespace beat_on_jeans_escritorio
 
             return validar;
         }
+
 
     }
 }
