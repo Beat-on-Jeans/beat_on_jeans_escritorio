@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,15 @@ namespace beat_on_jeans_escritorio
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
             disenoBotones();
-
+            disenoGrid();
         }
+
+        private void disenoGrid()
+        {
+            DataGridViewHome.ApplyDesign(dataGridView2);
+        }
+
+
 
         private void disenoBotones()
         {
@@ -50,9 +58,6 @@ namespace beat_on_jeans_escritorio
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            bindingSourceRoles.DataSource = 
-        }
+        
     }
 }

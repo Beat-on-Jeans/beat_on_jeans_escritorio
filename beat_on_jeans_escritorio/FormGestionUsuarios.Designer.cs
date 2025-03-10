@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.comboBoxUsuarios = new System.Windows.Forms.ComboBox();
+            this.bindingSourceRoles = new System.Windows.Forms.BindingSource(this.components);
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonNuevoUsuario = new System.Windows.Forms.Button();
@@ -39,14 +40,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.bindingSourceRoles = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxUsuarios
@@ -62,6 +64,10 @@
             this.comboBoxUsuarios.Size = new System.Drawing.Size(179, 28);
             this.comboBoxUsuarios.TabIndex = 1;
             this.comboBoxUsuarios.ValueMember = "ID";
+            // 
+            // bindingSourceRoles
+            // 
+            this.bindingSourceRoles.DataSource = typeof(beat_on_jeans_escritorio.Models.Roles);
             // 
             // buttonModificar
             // 
@@ -116,7 +122,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1138, 286);
             this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // pictureBox4
             // 
@@ -153,7 +158,7 @@
             this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNaranja;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1208, 424);
+            this.pictureBox1.Size = new System.Drawing.Size(1197, 424);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -168,16 +173,21 @@
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             // 
-            // bindingSourceRoles
+            // dataGridView2
             // 
-            this.bindingSourceRoles.DataSource = typeof(beat_on_jeans_escritorio.Models.Roles);
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(42, 488);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1138, 282);
+            this.dataGridView2.TabIndex = 11;
             // 
             // FormGestionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1261, 476);
+            this.ClientSize = new System.Drawing.Size(1221, 819);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.comboBoxUsuarios);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.buttonNuevoUsuario);
@@ -191,13 +201,14 @@
             this.Name = "FormGestionUsuarios";
             this.Text = "FormGestionUsuarios";
             this.Load += new System.EventHandler(this.FormGestionUsuarios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,5 +226,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.BindingSource bindingSourceRoles;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
