@@ -28,7 +28,9 @@ namespace beat_on_jeans_escritorio
 
                 if (usuarioActual == null)
                 {
+
                     MessageBox.Show(mensaje, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 else
                 {
@@ -43,8 +45,22 @@ namespace beat_on_jeans_escritorio
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {
             // Logica del boton de registrarse
+            // Verificar si las credenciales ingresadas son correctas
+            //if (textBoxCorreo.Text.Equals(correoPorDefecto) && textBoxContrasena.Text.Equals(contrasenaPorDefecto))
+            //{
+                // Crear el usuario actual (esto se debe obtener de tu lógica de login)
+                //UsuariosCSharp usuarioActual = new UsuariosCSharp(); // Esto se debe obtener de tu lógica de login
 
+                //usuarioActual.rol = superusuario.rol; // Asignar el rol basado en el superusuario
 
+                // Ocultar Form1 y mostrar Form2, pasando el usuarioActual
+               
+                
+            //}
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas. Inténtalo nuevamente.");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
