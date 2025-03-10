@@ -146,6 +146,7 @@
     <Compile Include="Models\RolesMovil.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RolesOrm.cs" />
     <Compile Include="Models\Soporte.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
@@ -228,6 +229,23 @@
       <DependentUpon>ModelBeat.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Actuacion.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Chats.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Generos_Musicales.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Locales.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Matches.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Mensajes.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Musicos.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Notificaciones.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Orm.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Roles.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.RolesMovil.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Soporte.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.TipoIncidencia.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.UsuarioCSharpOrm.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.UsuarioMobil.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.UsuariosCSharp.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Valoracion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

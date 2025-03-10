@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using beat_on_jeans_escritorio.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
@@ -52,7 +53,7 @@ namespace beat_on_jeans_escritorio
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            bindingSourceRoles.DataSource = 
+            bindingSourceRoles.DataSource = RolesOrm.Select();
         }
     }
 }
