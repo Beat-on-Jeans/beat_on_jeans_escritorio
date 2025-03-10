@@ -9,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using beat_on_jeans_escritorio.Models;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace beat_on_jeans_escritorio
 {
@@ -24,8 +22,10 @@ namespace beat_on_jeans_escritorio
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
+
             disenoBotones();
             disenoGrid();
+            bindingSourceRoles.DataSource = RolesOrm.Select();
         }
 
         private void disenoGrid()
@@ -63,6 +63,10 @@ namespace beat_on_jeans_escritorio
         {
             bindingSourceRoles.DataSource = RolesOrm.Select();
         }
-        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
