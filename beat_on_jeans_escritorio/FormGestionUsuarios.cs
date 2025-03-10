@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace beat_on_jeans_escritorio
 {
@@ -15,20 +17,35 @@ namespace beat_on_jeans_escritorio
         public FormGestionUsuarios()
         {
             InitializeComponent();
-            hoverBotones();
         }
 
-        private void hoverBotones()
+        private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxEstadistica, buttonEstadisticas);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxRegistro, buttonRegistro);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonNotificaciones);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
+            disenoBotones();
         }
 
-      
+        private void disenoBotones()
+        {
+            // BOTON MODIFICAR
+            buttonModificar.BackColor = Color.FromArgb(255, 243, 226);
+
+            buttonModificar.FlatAppearance.MouseOverBackColor = buttonModificar.BackColor;
+            buttonModificar.FlatAppearance.MouseDownBackColor = buttonModificar.BackColor;
+            buttonModificar.FlatAppearance.MouseDownBackColor = buttonModificar.BackColor;
+
+            // BOTON ELIMINAR
+            buttonEliminar.BackColor = Color.FromArgb(46, 196, 182);
+
+            buttonEliminar.FlatAppearance.MouseOverBackColor = buttonEliminar.BackColor;
+            buttonEliminar.FlatAppearance.MouseDownBackColor = buttonEliminar.BackColor;
+            buttonEliminar.FlatAppearance.MouseDownBackColor = buttonEliminar.BackColor;
+
+            // BOTON NUEVO USUARIO
+            buttonNuevoUsuario.BackColor = Color.FromArgb(242, 104, 27);
+
+            buttonNuevoUsuario.FlatAppearance.MouseOverBackColor = buttonNuevoUsuario.BackColor;
+            buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
+            buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
+        }
     }
 }

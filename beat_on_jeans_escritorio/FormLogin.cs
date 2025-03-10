@@ -41,10 +41,10 @@ namespace beat_on_jeans_escritorio
                 if (validado == true)
                 {
                     // Recoger el rolId del usuario
-                    UsuariosCSharp usuarioActual = new UsuariosCSharp.recogerUsuario(correo, contrasena);
+                    //UsuariosCSharp usuarioActual = new UsuariosCSharp.recogerUsuario(correo, contrasena);
                     // Mostrar la landing page
-                    FormHome formulario2 = new FormHome(usuarioActual);
-                    formulario2.ShowDialog();
+                    //FormHome Home = new FormHome(usuarioActual);
+                    //Home.ShowDialog();
 
 
                     MessageBox.Show(mensaje, "Resultado del Inicio de Sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -60,17 +60,17 @@ namespace beat_on_jeans_escritorio
 
 
             // Verificar si las credenciales ingresadas son correctas
-            if (textBoxCorreo.Text.Equals(correoPorDefecto) && textBoxContrasena.Text.Equals(contrasenaPorDefecto))
-            {
+            //if (textBoxCorreo.Text.Equals(correoPorDefecto) && textBoxContrasena.Text.Equals(contrasenaPorDefecto))
+            //{
                 // Crear el usuario actual (esto se debe obtener de tu lógica de login)
-                UsuariosCSharp usuarioActual = new UsuariosCSharp(); // Esto se debe obtener de tu lógica de login
+                //UsuariosCSharp usuarioActual = new UsuariosCSharp(); // Esto se debe obtener de tu lógica de login
 
-                usuarioActual.rol = superusuario.rol; // Asignar el rol basado en el superusuario
+                //usuarioActual.rol = superusuario.rol; // Asignar el rol basado en el superusuario
 
                 // Ocultar Form1 y mostrar Form2, pasando el usuarioActual
                
                 
-            }
+            //}
             else
             {
                 MessageBox.Show("Credenciales incorrectas. Inténtalo nuevamente.");
