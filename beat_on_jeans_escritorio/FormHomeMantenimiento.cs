@@ -19,9 +19,9 @@ namespace beat_on_jeans_escritorio
 
         private void FormHomeMantenimiento_Load(object sender, EventArgs e)
         {
-            DataGridViewStyler.RedondearBordes(dataGridViewGestionMusicosLocales, 20);
-            DataGridViewStyler.RedondearBordes(dataGridViewListaModificaciones, 20);
-            DataGridViewStyler.RedondearBordes(dataGridViewHistorialModificaciones, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewGestionMusicosLocales, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewListaModificaciones, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewHistorialModificaciones, 20);
         }
     }
 }

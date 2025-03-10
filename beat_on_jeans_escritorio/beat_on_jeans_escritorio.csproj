@@ -81,7 +81,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataGridViewStyler.cs" />
+    <Compile Include="ClasesEstilos\DataGridViewBordeRedondo.cs" />
+    <Compile Include="ClasesEstilos\DataGridViewHome.cs" />
     <Compile Include="FormHomeAdmistrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,8 +331,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ClasesEstilos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

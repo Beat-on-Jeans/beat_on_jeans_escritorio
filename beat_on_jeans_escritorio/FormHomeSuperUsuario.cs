@@ -19,10 +19,10 @@ namespace beat_on_jeans_escritorio
 
         private void FormHomeSuperUsuario_Load(object sender, EventArgs e)
         {
-            DataGridViewStyler.RedondearBordes(dataGridViewNumUsuarios, 20);
-            DataGridViewStyler.RedondearBordes(dataGridViewUltimosRegistros, 20);
-            DataGridViewStyler.RedondearBordes(dataGridViewGestionUsuarios, 20);
-            DataGridViewStyler.RedondearBordes(dataGridViewNotificaciones, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewNumUsuarios, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewUltimosRegistros, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewGestionUsuarios, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewNotificaciones, 20);
         }
     }
 }
