@@ -8,10 +8,9 @@ namespace beat_on_jeans_escritorio
 {
     public partial class FormHome : Form
     {
-
         private UsuariosCSharp usuarioActual;
 
-        // Recibimos el usuario como parámetro
+        // Constructor que recibe el usuario como parámetro
         public FormHome(UsuariosCSharp usuario)
         {
             InitializeComponent();
@@ -19,10 +18,18 @@ namespace beat_on_jeans_escritorio
             configurarInterfaz();
             configurarImagenRedonda();
             hoverBotones();
-           
-        
+
+            // Cargar el formulario por defecto (Home) al iniciar
+            CargarFormulario(new FormHomeSuperUsuario()); // Cambia "FormHomeSuperUsuario" si es necesario
         }
 
+        // Constructor sin parámetros (opcional, por si lo necesitas)
+        public FormHome()
+        {
+            InitializeComponent();
+        }
+
+        // Método para configurar el comportamiento de hover en los botones
         private void hoverBotones()
         {
             PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
@@ -34,11 +41,12 @@ namespace beat_on_jeans_escritorio
             PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
         }
 
+        // Método para redondear la imagen del PictureBox
         private void configurarImagenRedonda()
         {
-            // Crear un grafico a partir de la imagen actual.
+            // Crear un gráfico a partir de la imagen actual.
             Bitmap originalBitmap = new Bitmap(pictureBox.Image);
-            int diametro = Math.Min(originalBitmap.Width, pictureBox.Image.Height);
+            int diametro = Math.Min(originalBitmap.Width, originalBitmap.Height);
 
             // Crear una nueva imagen con el mismo tamaño que la imagen
             Bitmap roundBitmap = new Bitmap(diametro, diametro);
@@ -49,21 +57,22 @@ namespace beat_on_jeans_escritorio
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.Clear(Color.Transparent);  // Fondo transparente
 
-                // Crea una ruta de gráficos con una forma circular
+                // Crear una ruta de gráficos con una forma circular
                 GraphicsPath path = new GraphicsPath();
                 path.AddEllipse(0, 0, diametro, diametro);
 
-                // Establece la región del gráfico como la forma circular
+                // Establecer la región del gráfico como la forma circular
                 g.SetClip(path);
 
-                // Dibuja la imagen original en la imagen redonda
+                // Dibujar la imagen original en la imagen redonda
                 g.DrawImage(originalBitmap, new Rectangle(0, 0, diametro, diametro));
             }
 
-            // Asigna la imagen redonda al PictureBox
+            // Asignar la imagen redonda al PictureBox
             pictureBox.Image = roundBitmap;
         }
 
+        // Método para configurar la interfaz según el rol del usuario
         private void configurarInterfaz()
         {
             if (usuarioActual == null)
@@ -102,22 +111,36 @@ namespace beat_on_jeans_escritorio
             //}
         }
 
-        private void buttonMapas_Click(object sender, EventArgs e)
+        // Método para cargar formularios dentro del panel
+        private void CargarFormulario(Form formulario)
         {
-            this.Hide();
+            // Limpiar el panel antes de cargar un nuevo formulario
+            panelCargarForms.Controls.Clear();
 
-            FormMaps maps = new FormMaps();
-            maps.ShowDialog();
+            // Configurar el formulario
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al panel
+            panelCargarForms.Controls.Add(formulario);
+            formulario.Show();
         }
 
+        // Eventos de los botones
+
+        // Botón Home
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FormHomeSuperUsuario()); // Cargar el formulario correspondiente
+        }
+
+        // Botón Gestión de Usuarios
         private void buttonGestionUsuarios_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            FormGestionUsuarios usuarios = new FormGestionUsuarios();
-            usuarios.ShowDialog();
+            CargarFormulario(new FormGestionUsuarios()); // Cargar el formulario de gestión de usuarios
         }
 
-        
+       
     }
 }

@@ -83,6 +83,12 @@
   <ItemGroup>
     <Compile Include="ClasesEstilos\DataGridViewBordeRedondo.cs" />
     <Compile Include="ClasesEstilos\DataGridViewHome.cs" />
+    <Compile Include="FormCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalendario.Designer.cs">
+      <DependentUpon>FormCalendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHomeAdmistrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCalendario.resx">
+      <DependentUpon>FormCalendario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHomeAdmistrador.resx">
       <DependentUpon>FormHomeAdmistrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +331,12 @@
       <DependentUpon>ModelBeat.edmx</DependentUpon>
       <LastGenOutput>ModelBeat.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\arrowRight.png" />
+    <None Include="Resources\arrowLeft.png" />
+    <None Include="Resources\adsada.png" />
+    <None Include="Resources\felchaDerecha1.png" />
+    <None Include="Resources\felchaDerecha.png" />
+    <None Include="Resources\rectanguloFormCalendario.png" />
     <None Include="Resources\RectangleComboBox.png" />
     <None Include="Resources\RectangleNaranja.png" />
     <None Include="Resources\RectangleAzul.png" />
