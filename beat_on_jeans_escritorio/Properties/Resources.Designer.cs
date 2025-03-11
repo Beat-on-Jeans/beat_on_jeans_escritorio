@@ -63,6 +63,56 @@ namespace beat_on_jeans_escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adsada {
+            get {
+                object obj = ResourceManager.GetObject("adsada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrowLeft {
+            get {
+                object obj = ResourceManager.GetObject("arrowLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrowRight {
+            get {
+                object obj = ResourceManager.GetObject("arrowRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap felchaDerecha {
+            get {
+                object obj = ResourceManager.GetObject("felchaDerecha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap felchaDerecha1 {
+            get {
+                object obj = ResourceManager.GetObject("felchaDerecha1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imageConf {
             get {
                 object obj = ResourceManager.GetObject("imageConf", resourceCulture);
@@ -256,6 +306,16 @@ namespace beat_on_jeans_escritorio.Properties {
         internal static System.Drawing.Bitmap RectangleRegistre {
             get {
                 object obj = ResourceManager.GetObject("RectangleRegistre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rectanguloFormCalendario {
+            get {
+                object obj = ResourceManager.GetObject("rectanguloFormCalendario", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

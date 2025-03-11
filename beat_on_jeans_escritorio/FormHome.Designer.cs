@@ -28,11 +28,6 @@ namespace beat_on_jeans_escritorio
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonGestionSoporte = new System.Windows.Forms.Button();
-            this.buttonGestionMusicos = new System.Windows.Forms.Button();
-            this.buttonGestionLocales = new System.Windows.Forms.Button();
-            this.buttonGestionDatosSistema = new System.Windows.Forms.Button();
-            this.buttonMapas = new System.Windows.Forms.Button();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
@@ -64,6 +59,7 @@ namespace beat_on_jeans_escritorio
             this.label2 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.buttonLogOut = new System.Windows.Forms.Button();
+            this.panelCargarForms = new System.Windows.Forms.Panel();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -85,52 +81,6 @@ namespace beat_on_jeans_escritorio
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonGestionSoporte
-            // 
-            this.buttonGestionSoporte.Location = new System.Drawing.Point(833, 279);
-            this.buttonGestionSoporte.Name = "buttonGestionSoporte";
-            this.buttonGestionSoporte.Size = new System.Drawing.Size(109, 45);
-            this.buttonGestionSoporte.TabIndex = 0;
-            this.buttonGestionSoporte.Text = "Gestión Soporte";
-            this.buttonGestionSoporte.UseVisualStyleBackColor = true;
-            // 
-            // buttonGestionMusicos
-            // 
-            this.buttonGestionMusicos.Location = new System.Drawing.Point(973, 289);
-            this.buttonGestionMusicos.Name = "buttonGestionMusicos";
-            this.buttonGestionMusicos.Size = new System.Drawing.Size(109, 43);
-            this.buttonGestionMusicos.TabIndex = 2;
-            this.buttonGestionMusicos.Text = "Gestión Músicos";
-            this.buttonGestionMusicos.UseVisualStyleBackColor = true;
-            // 
-            // buttonGestionLocales
-            // 
-            this.buttonGestionLocales.Location = new System.Drawing.Point(1130, 289);
-            this.buttonGestionLocales.Name = "buttonGestionLocales";
-            this.buttonGestionLocales.Size = new System.Drawing.Size(109, 43);
-            this.buttonGestionLocales.TabIndex = 3;
-            this.buttonGestionLocales.Text = "Gestión Locales";
-            this.buttonGestionLocales.UseVisualStyleBackColor = true;
-            // 
-            // buttonGestionDatosSistema
-            // 
-            this.buttonGestionDatosSistema.Location = new System.Drawing.Point(1279, 289);
-            this.buttonGestionDatosSistema.Name = "buttonGestionDatosSistema";
-            this.buttonGestionDatosSistema.Size = new System.Drawing.Size(109, 43);
-            this.buttonGestionDatosSistema.TabIndex = 4;
-            this.buttonGestionDatosSistema.Text = "Gestión Datos del Sistema";
-            this.buttonGestionDatosSistema.UseVisualStyleBackColor = true;
-            // 
-            // buttonMapas
-            // 
-            this.buttonMapas.Location = new System.Drawing.Point(973, 395);
-            this.buttonMapas.Name = "buttonMapas";
-            this.buttonMapas.Size = new System.Drawing.Size(109, 43);
-            this.buttonMapas.TabIndex = 5;
-            this.buttonMapas.Text = "Mapas";
-            this.buttonMapas.UseVisualStyleBackColor = true;
-            this.buttonMapas.Click += new System.EventHandler(this.buttonMapas_Click);
             // 
             // sidebar
             // 
@@ -214,6 +164,7 @@ namespace beat_on_jeans_escritorio
             this.buttonHome.TabIndex = 8;
             this.buttonHome.Text = "Home";
             this.buttonHome.UseVisualStyleBackColor = false;
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // panel3
             // 
@@ -379,6 +330,7 @@ namespace beat_on_jeans_escritorio
             this.buttonGestionUsuarios.TabIndex = 8;
             this.buttonGestionUsuarios.Text = "Gestión Usuarios";
             this.buttonGestionUsuarios.UseVisualStyleBackColor = false;
+            this.buttonGestionUsuarios.Click += new System.EventHandler(this.buttonGestionUsuarios_Click);
             // 
             // panel8
             // 
@@ -474,19 +426,22 @@ namespace beat_on_jeans_escritorio
             this.buttonLogOut.Text = "Log Out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
             // 
-            // Form2
+            // panelCargarForms
+            // 
+            this.panelCargarForms.Location = new System.Drawing.Point(301, 3);
+            this.panelCargarForms.Name = "panelCargarForms";
+            this.panelCargarForms.Size = new System.Drawing.Size(1152, 791);
+            this.panelCargarForms.TabIndex = 7;
+            // 
+            // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1453, 794);
+            this.Controls.Add(this.panelCargarForms);
             this.Controls.Add(this.sidebar);
-            this.Controls.Add(this.buttonMapas);
-            this.Controls.Add(this.buttonGestionDatosSistema);
-            this.Controls.Add(this.buttonGestionLocales);
-            this.Controls.Add(this.buttonGestionMusicos);
-            this.Controls.Add(this.buttonGestionSoporte);
-            this.Name = "Form2";
+            this.Name = "FormHome";
             this.Text = "Form2";
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -515,12 +470,6 @@ namespace beat_on_jeans_escritorio
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonGestionSoporte;
-        private System.Windows.Forms.Button buttonGestionMusicos;
-        private System.Windows.Forms.Button buttonGestionLocales;
-        private System.Windows.Forms.Button buttonGestionDatosSistema;
-        private System.Windows.Forms.Button buttonMapas;
         private System.Windows.Forms.FlowLayoutPanel sidebar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -552,5 +501,6 @@ namespace beat_on_jeans_escritorio
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panelCargarForms;
     }
 }
