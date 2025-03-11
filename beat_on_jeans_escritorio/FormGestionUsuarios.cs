@@ -17,24 +17,50 @@ namespace beat_on_jeans_escritorio
         public FormGestionUsuarios()
         {
             InitializeComponent();
-
+           
         }
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
-
             disenoBotones();
             disenoGrid();
+
             bindingSourceRoles.DataSource = RolesOrm.Select();
+            rellenarUsuariosRoles();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rellenarUsuariosRoles();
+        }
+
+        private void rellenarUsuariosRoles()
+        {
+            Roles _roles = comboBoxUsuarios.SelectedItem as Roles;
+            if (_roles != null)
+            {
+                bindingSourceUsuariosCSharp.DataSource = _roles.UsuariosCSharp.ToList();
+            }
+            else
+            {
+                // Handle the case where _roles is null
+                bindingSourceUsuariosCSharp.DataSource = null;
+            }
+        }
         private void disenoGrid()
         {
             DataGridViewHome.ApplyDesign(dataGridView2);
         }
-
-
-
         private void disenoBotones()
         {
             // BOTON MODIFICAR
@@ -57,16 +83,6 @@ namespace beat_on_jeans_escritorio
             buttonNuevoUsuario.FlatAppearance.MouseOverBackColor = buttonNuevoUsuario.BackColor;
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            bindingSourceRoles.DataSource = RolesOrm.Select();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
