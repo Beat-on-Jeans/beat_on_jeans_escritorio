@@ -49,21 +49,21 @@ namespace beat_on_jeans_escritorio
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Establecer el estilo plano para el botón
-            buttonRegistrar.FlatStyle = FlatStyle.Flat;
-            buttonRegistrar.FlatAppearance.BorderSize = 0;  // Quitar el borde predeterminado
-
-            // Establecer el color de fondo del botón
-            buttonRegistrar.BackColor = Color.FromArgb(242, 104, 27);  // Cambia al color que desees
-
             // Desactivar efectos de hover o clic
-            buttonRegistrar.FlatAppearance.MouseOverBackColor = buttonRegistrar.BackColor;  // No cambia el color cuando el mouse pasa por encima
-            buttonRegistrar.FlatAppearance.MouseDownBackColor = buttonRegistrar.BackColor;  // No cambia el color cuando se hace clic
+            buttonRegistrar.FlatAppearance.MouseOverBackColor = buttonRegistrar.BackColor;  
+            buttonRegistrar.FlatAppearance.MouseDownBackColor = buttonRegistrar.BackColor;  
 
             // También desactivar el cambio visual cuando se hace clic en el botón
-            buttonRegistrar.FlatAppearance.MouseDownBackColor = buttonRegistrar.BackColor;  // Asegura que no se resalte al hacer clic
+            buttonRegistrar.FlatAppearance.MouseDownBackColor = buttonRegistrar.BackColor;
 
-           
+            // Desactivar efectos de hover o clic
+            buttonIniciarSesion.FlatAppearance.MouseOverBackColor = buttonIniciarSesion.BackColor;
+            buttonIniciarSesion.FlatAppearance.MouseDownBackColor = buttonIniciarSesion.BackColor;
+
+            // También desactivar el cambio visual cuando se hace clic en el botón
+            buttonIniciarSesion.FlatAppearance.MouseDownBackColor = buttonIniciarSesion.BackColor;
+
+
         }
 
         private static Boolean validarCorreoContrasena(String correu, String contrasenya, Boolean validar)
