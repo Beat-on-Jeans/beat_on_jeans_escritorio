@@ -152,9 +152,9 @@ namespace beat_on_jeans_escritorio
             // pictureBox5
             // 
             this.pictureBox5.Image = global::beat_on_jeans_escritorio.Properties.Resources.imgDerecha;
-            this.pictureBox5.Location = new System.Drawing.Point(739, 74);
+            this.pictureBox5.Location = new System.Drawing.Point(688, 12);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(387, 534);
+            this.pictureBox5.Size = new System.Drawing.Size(564, 657);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;

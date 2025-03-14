@@ -373,13 +373,13 @@ namespace beat_on_jeans_escritorio
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Location = new System.Drawing.Point(3, 490);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(229, 304);
+            this.panel9.Size = new System.Drawing.Size(229, 197);
             this.panel9.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(79, 190);
+            this.label3.Location = new System.Drawing.Point(79, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 8;
@@ -388,7 +388,7 @@ namespace beat_on_jeans_escritorio
             // pictureBox1
             // 
             this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.imgLane;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 216);
+            this.pictureBox1.Location = new System.Drawing.Point(17, 100);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 1);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -398,7 +398,7 @@ namespace beat_on_jeans_escritorio
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 159);
+            this.label2.Location = new System.Drawing.Point(79, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 7;
@@ -407,7 +407,7 @@ namespace beat_on_jeans_escritorio
             // panel10
             // 
             this.panel10.Controls.Add(this.buttonLogOut);
-            this.panel10.Location = new System.Drawing.Point(17, 233);
+            this.panel10.Location = new System.Drawing.Point(17, 117);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(195, 64);
             this.panel10.TabIndex = 7;
@@ -428,9 +428,9 @@ namespace beat_on_jeans_escritorio
             // 
             // panelCargarForms
             // 
-            this.panelCargarForms.Location = new System.Drawing.Point(301, 3);
+            this.panelCargarForms.Location = new System.Drawing.Point(301, 12);
             this.panelCargarForms.Name = "panelCargarForms";
-            this.panelCargarForms.Size = new System.Drawing.Size(1152, 791);
+            this.panelCargarForms.Size = new System.Drawing.Size(951, 657);
             this.panelCargarForms.TabIndex = 7;
             // 
             // FormHome
@@ -438,7 +438,7 @@ namespace beat_on_jeans_escritorio
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1453, 794);
+            this.ClientSize = new System.Drawing.Size(1264, 682);
             this.Controls.Add(this.panelCargarForms);
             this.Controls.Add(this.sidebar);
             this.Name = "FormHome";
