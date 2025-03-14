@@ -19,15 +19,14 @@ namespace beat_on_jeans_escritorio
             configurarImagenRedonda();
             hoverBotones();
 
-            // Habilitar barras de desplazamiento en el panel
-            panelCargarForms.AutoScroll = true;
-            panelCargarForms.AutoScrollMinSize = new Size(800, 600);
-
             // Cargar el formulario por defecto (Home) al iniciar
-            CargarFormulario(new FormHomeSuperUsuario());
+            CargarFormulario(new FormHomeSuperUsuario()); // Cambia "FormHomeSuperUsuario" si es necesario
+        }
 
-            // Manejar el evento Resize
-            this.Resize += FormHome_Resize;
+        // Constructor sin parámetros (opcional, por si lo necesitas)
+        public FormHome()
+        {
+            InitializeComponent();
         }
 
         // Método para configurar el comportamiento de hover en los botones
@@ -45,23 +44,31 @@ namespace beat_on_jeans_escritorio
         // Método para redondear la imagen del PictureBox
         private void configurarImagenRedonda()
         {
+            // Crear un gráfico a partir de la imagen actual.
             Bitmap originalBitmap = new Bitmap(pictureBox.Image);
             int diametro = Math.Min(originalBitmap.Width, originalBitmap.Height);
 
+            // Crear una nueva imagen con el mismo tamaño que la imagen
             Bitmap roundBitmap = new Bitmap(diametro, diametro);
 
+            // Crear un objeto Graphics para dibujar la nueva imagen
             using (Graphics g = Graphics.FromImage(roundBitmap))
             {
                 g.SmoothingMode = SmoothingMode.AntiAlias;
-                g.Clear(Color.Transparent);
+                g.Clear(Color.Transparent);  // Fondo transparente
 
+                // Crear una ruta de gráficos con una forma circular
                 GraphicsPath path = new GraphicsPath();
                 path.AddEllipse(0, 0, diametro, diametro);
 
+                // Establecer la región del gráfico como la forma circular
                 g.SetClip(path);
+
+                // Dibujar la imagen original en la imagen redonda
                 g.DrawImage(originalBitmap, new Rectangle(0, 0, diametro, diametro));
             }
 
+            // Asignar la imagen redonda al PictureBox
             pictureBox.Image = roundBitmap;
         }
 
@@ -74,7 +81,34 @@ namespace beat_on_jeans_escritorio
                 return;
             }
 
-            // Configura la interfaz según el rol del usuario
+            // Configuramos la interfaz según el rol del usuario
+            //if (usuarioActual.rol == 1) // Administrador
+            //{
+            //    buttonGestionSoporte.Enabled = true;
+            //    buttonGestionUsuarios.Enabled = true;
+            //    buttonGestionMusicos.Enabled = true;
+            //    buttonGestionLocales.Enabled = true;
+            //    buttonGestionDatosSistema.Enabled = true;
+            //    buttonMapas.Enabled = true;
+            //}
+            //else if (usuarioActual.rol == 2) // Usuario con rol menos privilegios
+            //{
+            //    buttonGestionSoporte.Enabled = false;
+            //    buttonGestionUsuarios.Enabled = false;
+            //    buttonGestionMusicos.Enabled = true;
+            //    buttonGestionLocales.Enabled = true;
+            //    buttonGestionDatosSistema.Enabled = true;
+            //    buttonMapas.Enabled = true;
+            //}
+            //else // Rol básico
+            //{
+            //    buttonGestionSoporte.Enabled = false;
+            //    buttonGestionUsuarios.Enabled = false;
+            //    buttonGestionMusicos.Enabled = false;
+            //    buttonGestionLocales.Enabled = false;
+            //    buttonGestionDatosSistema.Enabled = true;
+            //    buttonMapas.Enabled = true;
+            //}
         }
 
         // Método para cargar formularios dentro del panel
@@ -86,58 +120,30 @@ namespace beat_on_jeans_escritorio
             // Configurar el formulario
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill; // Ajustar el formulario al tamaño del panel
+            formulario.Dock = DockStyle.Fill;
 
             // Agregar el formulario al panel
             panelCargarForms.Controls.Add(formulario);
             formulario.Show();
-
-            // Hacer que el formulario cargado se ajuste al tamaño del panel
-            formulario.Resize += (s, e) => AjustarControlesFormulario(formulario);
-        }
-
-        // Método que ajusta los controles dentro del formulario cargado
-        private void AjustarControlesFormulario(Form formulario)
-        {
-            // Aquí puedes recorrer los controles del formulario cargado y ajustar sus tamaños y posiciones
-            foreach (Control control in formulario.Controls)
-            {
-                // Ajuste de tamaños y posición para cada control en el formulario cargado
-                control.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
-            }
-        }
-
-        // Manejar el evento Resize
-        private void FormHome_Resize(object sender, EventArgs e)
-        {
-            // Ajustar el tamaño del panel al nuevo tamaño del formulario principal
-            panelCargarForms.Size = new Size(this.ClientSize.Width - panelCargarForms.Location.X, this.ClientSize.Height - panelCargarForms.Location.Y);
-
-            // Redimensionar el formulario cargado (si existe)
-            if (panelCargarForms.Controls.Count > 0 && panelCargarForms.Controls[0] is Form)
-            {
-                Form formularioCargado = (Form)panelCargarForms.Controls[0];
-                formularioCargado.Size = panelCargarForms.Size;
-
-                // Llamar al método que ajusta los controles dentro del formulario cargado
-                AjustarControlesFormulario(formularioCargado);
-            }
         }
 
         // Eventos de los botones
+
+        // Botón Home
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            CargarFormulario(new FormHomeSuperUsuario());
+            CargarFormulario(new FormHomeSuperUsuario()); // Cargar el formulario correspondiente
         }
 
+        // Botón Gestión de Usuarios
         private void buttonGestionUsuarios_Click(object sender, EventArgs e)
         {
-            CargarFormulario(new FormGestionUsuarios());
+            CargarFormulario(new FormGestionUsuarios()); // Cargar el formulario de gestión de usuarios
         }
 
-        private void buttonEventos_Click(object sender, EventArgs e)
+        private void panelCargarForms_Paint(object sender, PaintEventArgs e)
         {
-            CargarFormulario(new FormCalendario());
+
         }
     }
 }

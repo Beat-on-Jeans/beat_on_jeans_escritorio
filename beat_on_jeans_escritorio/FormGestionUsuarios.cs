@@ -60,6 +60,13 @@ namespace beat_on_jeans_escritorio
         private void disenoGrid()
         {
             DataGridViewHome.ApplyDesign(dataGridView2);
+
+            // Establecer el ancho fijo para todas las columnas
+            int columnWidth = dataGridView2.Width / dataGridView2.ColumnCount;
+            foreach (DataGridViewColumn column in dataGridView2.Columns)
+            {
+                column.Width = columnWidth;
+            }
         }
         private void disenoBotones()
         {
@@ -84,5 +91,6 @@ namespace beat_on_jeans_escritorio
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
         }
+        
     }
 }

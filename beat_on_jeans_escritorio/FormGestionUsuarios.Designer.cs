@@ -66,9 +66,9 @@
             this.comboBoxUsuarios.DataSource = this.bindingSourceRoles;
             this.comboBoxUsuarios.DisplayMember = "Nombre";
             this.comboBoxUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxUsuarios.Font = new System.Drawing.Font("Figtree", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUsuarios.FormattingEnabled = true;
-            this.comboBoxUsuarios.Location = new System.Drawing.Point(51, 64);
+            this.comboBoxUsuarios.Location = new System.Drawing.Point(20, 63);
             this.comboBoxUsuarios.Name = "comboBoxUsuarios";
             this.comboBoxUsuarios.Size = new System.Drawing.Size(179, 28);
             this.comboBoxUsuarios.TabIndex = 1;
@@ -86,8 +86,8 @@
             this.buttonModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.buttonModificar.FlatAppearance.BorderSize = 0;
             this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonModificar.Font = new System.Drawing.Font("Figtree", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonModificar.Location = new System.Drawing.Point(261, 58);
+            this.buttonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonModificar.Location = new System.Drawing.Point(230, 57);
             this.buttonModificar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(107, 40);
@@ -101,9 +101,9 @@
             this.buttonEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonEliminar.FlatAppearance.BorderSize = 0;
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminar.Font = new System.Drawing.Font("Figtree", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEliminar.ForeColor = System.Drawing.Color.White;
-            this.buttonEliminar.Location = new System.Drawing.Point(413, 59);
+            this.buttonEliminar.Location = new System.Drawing.Point(382, 58);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(107, 40);
             this.buttonEliminar.TabIndex = 3;
@@ -116,11 +116,11 @@
             this.buttonNuevoUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonNuevoUsuario.FlatAppearance.BorderSize = 0;
             this.buttonNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNuevoUsuario.Font = new System.Drawing.Font("Figtree", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevoUsuario.ForeColor = System.Drawing.Color.White;
-            this.buttonNuevoUsuario.Location = new System.Drawing.Point(1017, 59);
+            this.buttonNuevoUsuario.Location = new System.Drawing.Point(763, 56);
             this.buttonNuevoUsuario.Name = "buttonNuevoUsuario";
-            this.buttonNuevoUsuario.Size = new System.Drawing.Size(158, 38);
+            this.buttonNuevoUsuario.Size = new System.Drawing.Size(158, 40);
             this.buttonNuevoUsuario.TabIndex = 4;
             this.buttonNuevoUsuario.Text = "Nuevo Usuario";
             this.buttonNuevoUsuario.UseVisualStyleBackColor = false;
@@ -140,9 +140,9 @@
             this.rolesDataGridViewTextBoxColumn,
             this.soporteDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.bindingSourceUsuariosCSharp;
-            this.dataGridView2.Location = new System.Drawing.Point(42, 114);
+            this.dataGridView2.Location = new System.Drawing.Point(11, 115);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1138, 286);
+            this.dataGridView2.Size = new System.Drawing.Size(915, 286);
             this.dataGridView2.TabIndex = 5;
             // 
             // iDDataGridViewTextBoxColumn
@@ -209,7 +209,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleNaranja;
-            this.pictureBox4.Location = new System.Drawing.Point(1013, 57);
+            this.pictureBox4.Location = new System.Drawing.Point(759, 54);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(167, 42);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -219,7 +219,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleAzul;
-            this.pictureBox3.Location = new System.Drawing.Point(406, 58);
+            this.pictureBox3.Location = new System.Drawing.Point(375, 57);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(121, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,7 +229,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleModificar;
-            this.pictureBox2.Location = new System.Drawing.Point(254, 57);
+            this.pictureBox2.Location = new System.Drawing.Point(223, 56);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(121, 42);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -239,9 +239,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNaranja;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1197, 607);
+            this.pictureBox1.Size = new System.Drawing.Size(932, 615);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -250,7 +250,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleComboBox;
-            this.pictureBox5.Location = new System.Drawing.Point(42, 57);
+            this.pictureBox5.Location = new System.Drawing.Point(11, 56);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(195, 42);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -262,7 +262,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1221, 631);
+            this.ClientSize = new System.Drawing.Size(935, 618);
             this.Controls.Add(this.comboBoxUsuarios);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.buttonNuevoUsuario);
