@@ -145,5 +145,10 @@ namespace beat_on_jeans_escritorio
         {
 
         }
+
+        private void buttonEventos_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FormCalendario()); // Cargar el formulario de gestión de usuarios
+        }
     }
 }

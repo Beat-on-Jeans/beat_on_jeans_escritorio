@@ -297,6 +297,7 @@ namespace beat_on_jeans_escritorio
             this.buttonEventos.TabIndex = 8;
             this.buttonEventos.Text = "Eventos";
             this.buttonEventos.UseVisualStyleBackColor = false;
+            this.buttonEventos.Click += new System.EventHandler(this.buttonEventos_Click);
             // 
             // panel7
             // 
