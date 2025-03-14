@@ -42,7 +42,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(108, 108);
+            this.panel1.Size = new System.Drawing.Size(100, 100);
             this.panel1.TabIndex = 0;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 4);
+            this.label1.Location = new System.Drawing.Point(74, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 23);
             this.label1.TabIndex = 0;
@@ -72,7 +72,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ucDays";
             this.Padding = new System.Windows.Forms.Padding(1);
-            this.Size = new System.Drawing.Size(110, 110);
+            this.Size = new System.Drawing.Size(102, 102);
             this.Load += new System.EventHandler(this.ucDays_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
