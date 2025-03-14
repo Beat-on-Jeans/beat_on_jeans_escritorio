@@ -197,6 +197,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDays.Designer.cs">
+      <DependentUpon>ucDays.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormCalendario.resx">
       <DependentUpon>FormCalendario.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +237,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucDays.resx">
+      <DependentUpon>ucDays.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Models\ModelBeat.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelBeat.Designer.cs</LastGenOutput>
