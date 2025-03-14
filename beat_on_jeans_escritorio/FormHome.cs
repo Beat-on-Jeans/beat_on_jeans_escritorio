@@ -14,6 +14,8 @@ namespace beat_on_jeans_escritorio
         public FormHome(UsuariosCSharp usuario)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.usuarioActual = usuario;
             configurarInterfaz();
             configurarImagenRedonda();
