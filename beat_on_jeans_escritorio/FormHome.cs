@@ -141,6 +141,9 @@ namespace beat_on_jeans_escritorio
             CargarFormulario(new FormGestionUsuarios()); // Cargar el formulario de gestión de usuarios
         }
 
-       
+        private void panelCargarForms_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

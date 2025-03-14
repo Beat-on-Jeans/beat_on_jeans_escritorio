@@ -432,6 +432,7 @@ namespace beat_on_jeans_escritorio
             this.panelCargarForms.Name = "panelCargarForms";
             this.panelCargarForms.Size = new System.Drawing.Size(951, 657);
             this.panelCargarForms.TabIndex = 7;
+            this.panelCargarForms.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCargarForms_Paint);
             // 
             // FormHome
             // 

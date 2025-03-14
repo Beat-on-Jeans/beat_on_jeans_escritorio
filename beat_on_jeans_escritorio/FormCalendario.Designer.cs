@@ -29,17 +29,10 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -64,6 +57,13 @@
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel28 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -100,76 +100,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1256, 734);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 11F);
-            this.label1.Location = new System.Drawing.Point(69, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 26);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Lunes";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins", 11F);
-            this.label2.Location = new System.Drawing.Point(250, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 26);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Martes";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 11F);
-            this.label3.Location = new System.Drawing.Point(406, 129);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 26);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Miercoles";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 11F);
-            this.label4.Location = new System.Drawing.Point(594, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 26);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Jueves";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 11F);
-            this.label5.Location = new System.Drawing.Point(765, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 26);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Viernes";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 11F);
-            this.label6.Location = new System.Drawing.Point(941, 129);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 26);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Sabado";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins", 11F);
-            this.label7.Location = new System.Drawing.Point(1113, 129);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 26);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Domingo";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel3);
@@ -179,14 +109,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(173, 142);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(175, 1);
-            this.panel2.Margin = new System.Windows.Forms.Padding(1);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(173, 142);
-            this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
@@ -204,6 +126,14 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(173, 142);
             this.panel4.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(175, 1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(173, 142);
+            this.panel2.TabIndex = 1;
             // 
             // panel5
             // 
@@ -415,9 +345,79 @@
             this.panel28.Size = new System.Drawing.Size(173, 142);
             this.panel28.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(69, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Lunes";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label2.Location = new System.Drawing.Point(250, 129);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Martes";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(406, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 18);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Miercoles";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label4.Location = new System.Drawing.Point(594, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 18);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Jueves";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label5.Location = new System.Drawing.Point(765, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 18);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Viernes";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.Location = new System.Drawing.Point(941, 129);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 18);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Sabado";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label7.Location = new System.Drawing.Point(1113, 129);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 18);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Domingo";
+            // 
             // label8
             // 
-            this.label8.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(52, 34);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(241, 44);
@@ -449,7 +449,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1615, 1061);
+            this.ClientSize = new System.Drawing.Size(935, 618);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
