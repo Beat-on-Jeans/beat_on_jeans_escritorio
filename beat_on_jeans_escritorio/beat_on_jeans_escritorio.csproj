@@ -170,7 +170,7 @@
     <Compile Include="Models\Valoracion.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
-    <Compile Include="PictureBoxHandler.cs" />
+    <Compile Include="ClasesEstilos\PictureBoxHandler.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>

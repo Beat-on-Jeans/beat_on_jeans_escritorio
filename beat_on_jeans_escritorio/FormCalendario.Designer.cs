@@ -123,7 +123,7 @@
             // lbMonth
             // 
             this.lbMonth.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMonth.Location = new System.Drawing.Point(42, 23);
+            this.lbMonth.Location = new System.Drawing.Point(66, 23);
             this.lbMonth.Name = "lbMonth";
             this.lbMonth.Size = new System.Drawing.Size(241, 44);
             this.lbMonth.TabIndex = 8;
@@ -132,7 +132,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::beat_on_jeans_escritorio.Properties.Resources.arrowRight;
-            this.pictureBox2.Location = new System.Drawing.Point(299, 23);
+            this.pictureBox2.Location = new System.Drawing.Point(207, 23);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -143,7 +143,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.arrowLeft;
-            this.pictureBox1.Location = new System.Drawing.Point(260, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 23);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(33, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
