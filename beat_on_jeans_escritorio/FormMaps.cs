@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Device.Location; // Necesario para usar GeoCoordinateWatcher
+using System.Device.Location;
+using System.Drawing;
 using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.MapProviders;
@@ -43,6 +44,24 @@ namespace beat_on_jeans_escritorio
             // Inicializar el overlay del marcador
             markerOverlay = new GMapOverlay("Marcador");
             gMapControl1.Overlays.Add(markerOverlay);
+
+            // Aplicar bordes redondeados al GMapControl
+            SetRoundedCorners(gMapControl1, 20); // 20 es el radio de los bordes redondeados
+        }
+
+        // Método para aplicar bordes redondeados al GMapControl
+        private void SetRoundedCorners(GMapControl mapControl, int radius)
+        {
+            // Crear una GraphicsPath para definir la forma redondeada
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddArc(0, 0, radius, radius, 180, 90); // Esquina superior izquierda
+            path.AddArc(mapControl.Width - radius, 0, radius, radius, 270, 90); // Esquina superior derecha
+            path.AddArc(mapControl.Width - radius, mapControl.Height - radius, radius, radius, 0, 90); // Esquina inferior derecha
+            path.AddArc(0, mapControl.Height - radius, radius, radius, 90, 90); // Esquina inferior izquierda
+            path.CloseAllFigures();
+
+            // Asignar la región del control a la forma redondeada
+            mapControl.Region = new Region(path);
         }
 
         private void Watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
@@ -73,18 +92,5 @@ namespace beat_on_jeans_escritorio
             // Refrescar el mapa
             gMapControl1.Refresh();
         }
-
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            
-            //UsuariosCSharp usuarioActual = new UsuariosCSharp();
-
-            // Cerrar FormMaps y abrir Form2, pasando el usuarioActual
-            this.Hide();
-
-            //FormHome formularioMenu = new FormHome(usuarioActual);
-            //formularioMenu.ShowDialog();
-        }
-
     }
 }
