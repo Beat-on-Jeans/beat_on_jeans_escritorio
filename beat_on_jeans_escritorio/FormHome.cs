@@ -17,30 +17,103 @@ namespace beat_on_jeans_escritorio
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.usuarioActual = usuario;
+
+            // Configurar la interfaz y cargar el formulario según el rol
             configurarInterfaz();
+            cargarFormularioPorRol();
+            cargarLabels();
             configurarImagenRedonda();
             hoverBotones();
-
-            // Cargar el formulario por defecto (Home) al iniciar
-            CargarFormulario(new FormHomeSuperUsuario()); // Cambia "FormHomeSuperUsuario" si es necesario
         }
 
-        // Constructor sin parámetros (opcional, por si lo necesitas)
-        public FormHome()
+        private void cargarLabels()
         {
-            InitializeComponent();
+            labelNombreUsuario.Text = usuarioActual.Nombre;
+            string nombreRol = ObtenerNombreRol(usuarioActual.RoleId);
+            labelRol.Text = nombreRol;
         }
 
-        // Método para configurar el comportamiento de hover en los botones
-        private void hoverBotones()
+        private string ObtenerNombreRol(int roleId)
         {
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxEstadistica, buttonEstadisticas);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxRegistro, buttonRegistro);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonNotificaciones);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
+            switch (roleId)
+            {
+                case 1:
+                    return "Superusuario";
+                case 2:
+                    return "Administrador";
+                case 3:
+                    return "Mantenimiento de Datos";
+                default:
+                    return "Rol Desconocido";
+            }
+        }
+
+        private void cargarFormularioPorRol()
+        {
+            if (usuarioActual.RoleId == 1) // Superusuario
+            {
+                CargarFormulario(new FormHomeSuperUsuario());
+            }
+            else if (usuarioActual.RoleId == 2) // Admin
+            {
+                CargarFormulario(new FormHomeAdmistrador());
+            }
+            else // Mantenimiento
+            {
+                CargarFormulario(new FormHomeMantenimiento());
+            }
+        }
+
+        private void configurarInterfaz()
+        {
+            // Configuramos la interfaz según el rol del usuario
+            if (usuarioActual.RoleId == 1) // Superusuario
+            {
+                buttonHome.Enabled = true;
+                buttonEstadisticas.Enabled = true;
+                buttonRegistro.Enabled = true;
+                buttonNotificaciones.Enabled = true;
+                buttonEventos.Enabled = true;
+                buttonGestionUsuarios.Enabled = true;
+                buttonConfiguracion.Enabled = true;
+
+            }
+            else if (usuarioActual.RoleId == 2) // Usuario normal
+            {
+                buttonHome.Enabled = true;
+                buttonEstadisticas.Enabled = true;
+                buttonRegistro.Enabled = true;
+                buttonNotificaciones.Enabled = true;
+                buttonEventos.Enabled = true;
+                buttonGestionUsuarios.Enabled = false;
+                buttonConfiguracion.Enabled = true;
+            }
+            else // Rol básico
+            {
+                buttonHome.Enabled = true;
+                buttonEstadisticas.Enabled = true;
+                buttonRegistro.Enabled = true;
+                buttonNotificaciones.Enabled = true;
+                buttonEventos.Enabled = true;
+                buttonGestionUsuarios.Enabled = false;
+                buttonConfiguracion.Enabled = true;
+            }
+        }
+
+        // Método para cargar formularios dentro del panel
+        private void CargarFormulario(Form formulario)
+        {
+            // Limpiar el panel antes de cargar un nuevo formulario
+            panelCargarForms.Controls.Clear();
+
+            // Configurar el formulario
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al panel
+            panelCargarForms.Controls.Add(formulario);
+            formulario.Show();
         }
 
         // Método para redondear la imagen del PictureBox
@@ -74,59 +147,16 @@ namespace beat_on_jeans_escritorio
             pictureBox.Image = roundBitmap;
         }
 
-        // Método para configurar la interfaz según el rol del usuario
-        private void configurarInterfaz()
+        // Método para configurar el comportamiento de hover en los botones
+        private void hoverBotones()
         {
-            if (usuarioActual == null)
-            {
-                MessageBox.Show("Error: El usuario no está inicializado.");
-                return;
-            }
-
-            // Configuramos la interfaz según el rol del usuario
-            //if (usuarioActual.rol == 1) // Administrador
-            //{
-            //    buttonGestionSoporte.Enabled = true;
-            //    buttonGestionUsuarios.Enabled = true;
-            //    buttonGestionMusicos.Enabled = true;
-            //    buttonGestionLocales.Enabled = true;
-            //    buttonGestionDatosSistema.Enabled = true;
-            //    buttonMapas.Enabled = true;
-            //}
-            //else if (usuarioActual.rol == 2) // Usuario con rol menos privilegios
-            //{
-            //    buttonGestionSoporte.Enabled = false;
-            //    buttonGestionUsuarios.Enabled = false;
-            //    buttonGestionMusicos.Enabled = true;
-            //    buttonGestionLocales.Enabled = true;
-            //    buttonGestionDatosSistema.Enabled = true;
-            //    buttonMapas.Enabled = true;
-            //}
-            //else // Rol básico
-            //{
-            //    buttonGestionSoporte.Enabled = false;
-            //    buttonGestionUsuarios.Enabled = false;
-            //    buttonGestionMusicos.Enabled = false;
-            //    buttonGestionLocales.Enabled = false;
-            //    buttonGestionDatosSistema.Enabled = true;
-            //    buttonMapas.Enabled = true;
-            //}
-        }
-
-        // Método para cargar formularios dentro del panel
-        private void CargarFormulario(Form formulario)
-        {
-            // Limpiar el panel antes de cargar un nuevo formulario
-            panelCargarForms.Controls.Clear();
-
-            // Configurar el formulario
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-
-            // Agregar el formulario al panel
-            panelCargarForms.Controls.Add(formulario);
-            formulario.Show();
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxEstadistica, buttonEstadisticas);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxRegistro, buttonRegistro);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonNotificaciones);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
         }
 
         // Eventos de los botones
@@ -134,7 +164,7 @@ namespace beat_on_jeans_escritorio
         // Botón Home
         private void buttonHome_Click(object sender, EventArgs e)
         {
-            CargarFormulario(new FormHomeSuperUsuario()); // Cargar el formulario correspondiente
+            cargarFormularioPorRol(); // Recargar el formulario según el rol
         }
 
         // Botón Gestión de Usuarios
@@ -145,12 +175,12 @@ namespace beat_on_jeans_escritorio
 
         private void panelCargarForms_Paint(object sender, PaintEventArgs e)
         {
-
+            // No es necesario hacer nada aquí
         }
 
         private void buttonEventos_Click(object sender, EventArgs e)
         {
-            CargarFormulario(new FormCalendario()); // Cargar el formulario de gestión de usuarios
+            CargarFormulario(new FormCalendario()); // Cargar el formulario de calendario
         }
     }
 }
