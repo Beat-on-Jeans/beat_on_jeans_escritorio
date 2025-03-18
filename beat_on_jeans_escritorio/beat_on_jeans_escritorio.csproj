@@ -340,6 +340,7 @@
       <DependentUpon>ModelBeat.edmx</DependentUpon>
       <LastGenOutput>ModelBeat.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\user.png" />
     <None Include="Resources\arrowRight.png" />
     <None Include="Resources\arrowLeft.png" />
     <None Include="Resources\adsada.png" />
