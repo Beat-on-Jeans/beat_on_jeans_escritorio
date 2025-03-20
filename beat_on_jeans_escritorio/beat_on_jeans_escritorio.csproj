@@ -83,6 +83,10 @@
   <ItemGroup>
     <Compile Include="ClasesEstilos\DataGridViewBordeRedondo.cs" />
     <Compile Include="ClasesEstilos\DataGridViewHome.cs" />
+    <Compile Include="Clases\Actuacion.cs" />
+    <Compile Include="Clases\Locales.cs" />
+    <Compile Include="Clases\Musicos.cs" />
+    <Compile Include="Clases\Soporte.cs" />
     <Compile Include="FormCalendario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +114,7 @@
     <Compile Include="Models\Actuacion.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActuacionOrm.cs" />
     <Compile Include="Models\Chats.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
@@ -119,6 +124,7 @@
     <Compile Include="Models\Locales.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocalOrm.cs" />
     <Compile Include="Models\Matches.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
@@ -140,6 +146,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelBeat.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MusicoOrm.cs" />
     <Compile Include="Models\Musicos.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
@@ -157,6 +164,7 @@
     <Compile Include="Models\Soporte.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SoporteOrm.cs" />
     <Compile Include="Models\TipoIncidencia.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
