@@ -35,6 +35,12 @@
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonNuevoUsuario = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.bindingSourceUsuariosCSharp = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contrasenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,12 +50,6 @@
             this.musicosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceUsuariosCSharp = new System.Windows.Forms.BindingSource(this.components);
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuariosCSharp)).BeginInit();
@@ -145,63 +145,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(915, 286);
             this.dataGridView2.TabIndex = 5;
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.Width = 248;
-            // 
-            // contrasenaDataGridViewTextBoxColumn
-            // 
-            this.contrasenaDataGridViewTextBoxColumn.DataPropertyName = "Contrasena";
-            this.contrasenaDataGridViewTextBoxColumn.HeaderText = "Contrasena";
-            this.contrasenaDataGridViewTextBoxColumn.Name = "contrasenaDataGridViewTextBoxColumn";
-            this.contrasenaDataGridViewTextBoxColumn.Width = 247;
-            // 
-            // correoDataGridViewTextBoxColumn
-            // 
-            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
-            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
-            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
-            // 
-            // roleIdDataGridViewTextBoxColumn
-            // 
-            this.roleIdDataGridViewTextBoxColumn.DataPropertyName = "RoleId";
-            this.roleIdDataGridViewTextBoxColumn.HeaderText = "RoleId";
-            this.roleIdDataGridViewTextBoxColumn.Name = "roleIdDataGridViewTextBoxColumn";
-            // 
-            // localesDataGridViewTextBoxColumn
-            // 
-            this.localesDataGridViewTextBoxColumn.DataPropertyName = "Locales";
-            this.localesDataGridViewTextBoxColumn.HeaderText = "Locales";
-            this.localesDataGridViewTextBoxColumn.Name = "localesDataGridViewTextBoxColumn";
-            // 
-            // musicosDataGridViewTextBoxColumn
-            // 
-            this.musicosDataGridViewTextBoxColumn.DataPropertyName = "Musicos";
-            this.musicosDataGridViewTextBoxColumn.HeaderText = "Musicos";
-            this.musicosDataGridViewTextBoxColumn.Name = "musicosDataGridViewTextBoxColumn";
-            // 
-            // rolesDataGridViewTextBoxColumn
-            // 
-            this.rolesDataGridViewTextBoxColumn.DataPropertyName = "Roles";
-            this.rolesDataGridViewTextBoxColumn.HeaderText = "Roles";
-            this.rolesDataGridViewTextBoxColumn.Name = "rolesDataGridViewTextBoxColumn";
-            // 
-            // soporteDataGridViewTextBoxColumn
-            // 
-            this.soporteDataGridViewTextBoxColumn.DataPropertyName = "Soporte";
-            this.soporteDataGridViewTextBoxColumn.HeaderText = "Soporte";
-            this.soporteDataGridViewTextBoxColumn.Name = "soporteDataGridViewTextBoxColumn";
-            // 
             // bindingSourceUsuariosCSharp
             // 
             this.bindingSourceUsuariosCSharp.DataSource = typeof(beat_on_jeans_escritorio.Models.UsuariosCSharp);
@@ -256,6 +199,65 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // contrasenaDataGridViewTextBoxColumn
+            // 
+            this.contrasenaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.contrasenaDataGridViewTextBoxColumn.DataPropertyName = "Contrasena";
+            this.contrasenaDataGridViewTextBoxColumn.HeaderText = "Contrasena";
+            this.contrasenaDataGridViewTextBoxColumn.Name = "contrasenaDataGridViewTextBoxColumn";
+            this.contrasenaDataGridViewTextBoxColumn.Width = 86;
+            // 
+            // correoDataGridViewTextBoxColumn
+            // 
+            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
+            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
+            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
+            // 
+            // roleIdDataGridViewTextBoxColumn
+            // 
+            this.roleIdDataGridViewTextBoxColumn.DataPropertyName = "RoleId";
+            this.roleIdDataGridViewTextBoxColumn.HeaderText = "RoleId";
+            this.roleIdDataGridViewTextBoxColumn.Name = "roleIdDataGridViewTextBoxColumn";
+            // 
+            // localesDataGridViewTextBoxColumn
+            // 
+            this.localesDataGridViewTextBoxColumn.DataPropertyName = "Locales";
+            this.localesDataGridViewTextBoxColumn.HeaderText = "Locales";
+            this.localesDataGridViewTextBoxColumn.Name = "localesDataGridViewTextBoxColumn";
+            // 
+            // musicosDataGridViewTextBoxColumn
+            // 
+            this.musicosDataGridViewTextBoxColumn.DataPropertyName = "Musicos";
+            this.musicosDataGridViewTextBoxColumn.HeaderText = "Musicos";
+            this.musicosDataGridViewTextBoxColumn.Name = "musicosDataGridViewTextBoxColumn";
+            // 
+            // rolesDataGridViewTextBoxColumn
+            // 
+            this.rolesDataGridViewTextBoxColumn.DataPropertyName = "Roles";
+            this.rolesDataGridViewTextBoxColumn.HeaderText = "Roles";
+            this.rolesDataGridViewTextBoxColumn.Name = "rolesDataGridViewTextBoxColumn";
+            // 
+            // soporteDataGridViewTextBoxColumn
+            // 
+            this.soporteDataGridViewTextBoxColumn.DataPropertyName = "Soporte";
+            this.soporteDataGridViewTextBoxColumn.HeaderText = "Soporte";
+            this.soporteDataGridViewTextBoxColumn.Name = "soporteDataGridViewTextBoxColumn";
             // 
             // FormGestionUsuarios
             // 
