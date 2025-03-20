@@ -45,5 +45,6 @@ namespace beat_on_jeans_escritorio.Models
         public virtual ICollection<Actuacion> Actuacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Generos_Musicales> Generos_Musicales { get; set; }
+        public string NombreMusico { get; internal set; }
     }
 }
