@@ -118,6 +118,9 @@
     <Compile Include="Models\Chats.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\comboBoxHint.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Models\Generos_Musicales.cs">
       <DependentUpon>ModelBeat.tt</DependentUpon>
     </Compile>
