@@ -24,7 +24,7 @@ namespace beat_on_jeans_escritorio
 
             if (ValidarCredenciales == true)
             {
-                UsuariosCSharp usuarioActual = UsuarioCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
+                Usuarios usuarioActual = UsuariosCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
 
                 if (usuarioActual == null)
                 {
