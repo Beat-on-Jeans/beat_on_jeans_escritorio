@@ -28,7 +28,7 @@ namespace beat_on_jeans_escritorio
 
         private void cargarLabels()
         {
-            labelNombreUsuario.Text = usuarioActual.Nombre;
+           // labelNombreUsuario.Text = usuarioActual.Nombre;
             string nombreRol = ObtenerNombreRol(usuarioActual.RoleId);
             labelRol.Text = nombreRol;
         }

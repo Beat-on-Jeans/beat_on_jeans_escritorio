@@ -36,7 +36,7 @@ namespace beat_on_jeans_escritorio
             disenoBotones();
             disenoGrid();
 
-            bindingSourceRoles.DataSource = RolesOrm.Select();
+            // bindingSourceRoles.DataSource = RolesOrm.Select();
             rellenarUsuariosRoles();
         }
 
