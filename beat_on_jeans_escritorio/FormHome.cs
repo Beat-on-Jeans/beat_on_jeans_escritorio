@@ -35,6 +35,7 @@ namespace beat_on_jeans_escritorio
 
         private string ObtenerNombreRol(int roleId)
         {
+            // cambiar roles a 3,4,5.
             switch (roleId)
             {
                 case 1:
@@ -181,6 +182,14 @@ namespace beat_on_jeans_escritorio
         private void buttonEventos_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormCalendario()); // Cargar el formulario de calendario
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormLogin login = new FormLogin();
+            login.Show();
         }
     }
 }

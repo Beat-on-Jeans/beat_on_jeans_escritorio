@@ -1,44 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using beat_on_jeans_escritorio.Models;
 
 namespace beat_on_jeans_escritorio
 {
-    
-    public partial class ucDays: UserControl
+    public partial class ucDays : UserControl
     {
-        String _day, date, weekday;
+        private string _day, date, weekday;
+        private FormCalendario _parentForm;
 
-        private void panel1_Click(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == false)
-            {
-                checkBox1.Checked = true;
-                this.BackColor = Color.FromArgb(255, 150, 79);
-            }
-            else 
-            {
-                checkBox1.Checked = false;
-                this.BackColor = Color.White;
-            }
-        }
-
-        public ucDays(string day)
+        public ucDays(string day, FormCalendario parentForm)
         {
             InitializeComponent();
             _day = day;
+            _parentForm = parentForm;
             label1.Text = day;
             checkBox1.Hide();
-            date = FormCalendario._month + "/" + _day + "/" + FormCalendario._year;
+
+            if (string.IsNullOrEmpty(day))
+            {
+                this.Enabled = false;
+                label1.Text = "";
+                return;
+            }
+
+            // Formatear la fecha correctamente
+            date = $"{FormCalendario._month}/{_day}/{FormCalendario._year}";
+
+            // Verificar y resaltar días con actuaciones
+            if (ActuacionLocalOrm.TieneActuacion(date))
+            {
+                ResaltarDiaConActuacion();
+            }
         }
 
-        private void sundays() 
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_day)) return;
+
+            // Obtener actuaciones para esta fecha
+            var actuaciones = ActuacionLocalOrm.GetActuacionesPorFecha(date);
+
+            // Mostrar mensaje con la información
+            if (actuaciones.Count > 0)
+            {
+                string mensaje = $"Actuaciones para el {date}:\n";
+                foreach (var actuacion in actuaciones)
+                {
+                    mensaje += $"- {actuacion.NombreLocal}\n";
+                }
+                MessageBox.Show(mensaje, "Actuaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"No hay actuaciones para el {date}", "Actuaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ResaltarDiaConActuacion()
+        {
+            this.BackColor = Color.FromArgb(255, 150, 79); // Naranja
+            checkBox1.Checked = true;
+        }
+
+        private void sundays()
         {
             try
             {
@@ -47,7 +73,6 @@ namespace beat_on_jeans_escritorio
                 if (weekday == "Sun")
                 {
                     label1.ForeColor = Color.FromArgb(64, 64, 64);
-
                 }
             }
             catch (Exception) { }
@@ -55,9 +80,10 @@ namespace beat_on_jeans_escritorio
 
         private void ucDays_Load(object sender, EventArgs e)
         {
-            sundays();
+            if (!string.IsNullOrEmpty(_day))
+            {
+                sundays();
+            }
         }
-
-        
     }
 }

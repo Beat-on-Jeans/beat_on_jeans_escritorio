@@ -18,12 +18,13 @@ namespace beat_on_jeans_escritorio.Models
         public Nullable<int> Usuario_ID { get; set; }
         public Nullable<int> Tecnico_ID { get; set; }
         public Nullable<int> Tipo_Incidencia_ID { get; set; }
-        public string Descripcion { get; set; }
         public System.DateTime Fecha_Creacion { get; set; }
         public Nullable<System.DateTime> Fecha_Cierre { get; set; }
     
-        public virtual UsuariosCSharp UsuariosCSharp { get; set; }
         public virtual TipoIncidencia TipoIncidencia { get; set; }
         public virtual UsuarioMobil UsuarioMobil { get; set; }
+        public virtual UsuariosCSharp UsuariosCSharp { get; set; }
+        public virtual UsuarioMobil UsuarioMobil1 { get; set; }
+        public virtual UsuariosCSharp UsuariosCSharp1 { get; set; }
     }
 }

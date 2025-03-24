@@ -111,76 +111,6 @@
     <Compile Include="FormHomeSuperUsuario.Designer.cs">
       <DependentUpon>FormHomeSuperUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Actuacion.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ActuacionOrm.cs" />
-    <Compile Include="Models\Chats.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\comboBoxHint.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Models\Generos_Musicales.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Locales.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocalOrm.cs" />
-    <Compile Include="Models\Matches.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Mensajes.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelBeat.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBeat.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelBeat.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelBeat.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBeat.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MusicoOrm.cs" />
-    <Compile Include="Models\Musicos.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Notificaciones.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Orm.cs" />
-    <Compile Include="Models\Roles.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RolesMovil.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RolesOrm.cs" />
-    <Compile Include="Models\Soporte.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SoporteOrm.cs" />
-    <Compile Include="Models\TipoIncidencia.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UsuarioCSharpOrm.cs" />
-    <Compile Include="Models\UsuarioMobil.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UsuariosCSharp.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Valoracion.cs">
-      <DependentUpon>ModelBeat.tt</DependentUpon>
-    </Compile>
     <Compile Include="ClasesEstilos\PictureBoxHandler.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -205,6 +135,69 @@
     </Compile>
     <Compile Include="FormMaps.Designer.cs">
       <DependentUpon>FormMaps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Actuacion.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Chats.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Generos_Musicales.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Generos_Usuarios.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Locales.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Matches.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Mensajes.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBoj.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBoj.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBoj.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBoj.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBoj.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Musicos.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notificaciones.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Soporte.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoIncidencia.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioMobil.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuarios.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuariosCSharp.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Valoracion.cs">
+      <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,12 +244,12 @@
     <EmbeddedResource Include="ucDays.resx">
       <DependentUpon>ucDays.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\ModelBeat.edmx">
+    <EntityDeploy Include="Models\ModelBoj.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelBeat.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelBoj.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\ModelBeat.edmx.diagram">
-      <DependentUpon>ModelBeat.edmx</DependentUpon>
+    <None Include="Models\ModelBoj.edmx.diagram">
+      <DependentUpon>ModelBoj.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Actuacion.datasource" />
@@ -341,16 +334,6 @@
     <None Include="Resources\rectanguloNaranjita.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\ModelBeat.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelBeat.Context.cs</LastGenOutput>
-      <DependentUpon>ModelBeat.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ModelBeat.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelBeat.edmx</DependentUpon>
-      <LastGenOutput>ModelBeat.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\user.png" />
     <None Include="Resources\arrowRight.png" />
     <None Include="Resources\arrowLeft.png" />
@@ -368,5 +351,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\ModelBoj.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBoj.edmx</DependentUpon>
+      <LastGenOutput>ModelBoj.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelBoj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBoj.edmx</DependentUpon>
+      <LastGenOutput>ModelBoj.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

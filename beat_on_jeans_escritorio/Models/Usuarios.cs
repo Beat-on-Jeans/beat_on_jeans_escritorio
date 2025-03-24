@@ -12,25 +12,25 @@ namespace beat_on_jeans_escritorio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class RolesMovil
+    public partial class Usuarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RolesMovil()
+        public Usuarios()
         {
-            this.Locales = new HashSet<Locales>();
-            this.Musicos = new HashSet<Musicos>();
             this.UsuarioMobil = new HashSet<UsuarioMobil>();
+            this.UsuariosCSharp = new HashSet<UsuariosCSharp>();
         }
     
         public int ID { get; set; }
-        public string RoleType { get; set; }
-        public int RoleReferenceID { get; set; }
+        public Nullable<int> ROL_ID { get; set; }
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+        public string Contrasena { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Locales> Locales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Musicos> Musicos { get; set; }
+        public virtual Roles Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UsuarioMobil> UsuarioMobil { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UsuariosCSharp> UsuariosCSharp { get; set; }
     }
 }

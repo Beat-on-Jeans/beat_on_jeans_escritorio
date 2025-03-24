@@ -12,14 +12,13 @@ namespace beat_on_jeans_escritorio.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Valoracion
+    public partial class Generos_Usuarios
     {
         public int ID { get; set; }
-        public Nullable<int> Valor { get; set; }
-        public Nullable<int> Valorado_ID { get; set; }
-        public Nullable<int> Valorador_ID { get; set; }
+        public Nullable<int> Genero_Id { get; set; }
+        public Nullable<int> Usuario_Id { get; set; }
     
+        public virtual Generos_Musicales Generos_Musicales { get; set; }
         public virtual UsuarioMobil UsuarioMobil { get; set; }
-        public virtual UsuarioMobil UsuarioMobil1 { get; set; }
     }
 }

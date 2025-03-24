@@ -21,7 +21,7 @@ namespace beat_on_jeans_escritorio.Models
         }
     
         public int ID { get; set; }
-        public string nombreIncidencia { get; set; }
+        public string Nombre_Incidencia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Soporte> Soporte { get; set; }
