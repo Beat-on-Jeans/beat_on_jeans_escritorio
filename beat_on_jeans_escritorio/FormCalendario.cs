@@ -2,18 +2,57 @@
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace beat_on_jeans_escritorio
 {
     public partial class FormCalendario : Form
     {
         public static int _year, _month;
+        private DataGridView dataGridViewActuaciones;
 
         public FormCalendario()
         {
             InitializeComponent();
             _year = DateTime.Now.Year;
             _month = DateTime.Now.Month;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            ConfigurarDataGridView();
+        }
+
+        private void ConfigurarDataGridView()
+        {
+            // Configurar columnas
+            dataGridViewActuacion.Columns.Add("Fecha", "Fecha y Hora");
+            dataGridViewActuacion.Columns.Add("Musico", "Músico");
+            dataGridViewActuacion.Columns.Add("Local", "Local");
+
+            dataGridViewActuacion.Columns["Fecha"].DefaultCellStyle.Format = "g";
+            dataGridViewActuacion.Columns["Fecha"].Width = 150;
+
+            this.Controls.Add(dataGridViewActuacion);
+        }
+
+        public void MostrarActuaciones(List<dynamic> actuaciones)
+        {
+            dataGridViewActuacion.Rows.Clear();
+
+            if (actuaciones == null || actuaciones.Count == 0)
+            {
+                dataGridViewActuacion.Rows.Add("No hay actuaciones para esta fecha");
+                return;
+            }
+
+            foreach (var actuacion in actuaciones)
+            {
+                dataGridViewActuacion.Rows.Add(
+                    actuacion.FechaActuacion,
+                    actuacion.NombreMusico,
+                    actuacion.NombreLocal
+                );
+            }
         }
 
         private void FormCalendario_Load(object sender, EventArgs e)
@@ -21,24 +60,26 @@ namespace beat_on_jeans_escritorio
             showDays(_month, _year);
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e) // Siguiente mes
-        {
-            _month += 1;
-            if (_month > 12)
-            {
-                _month = 1;
-                _year += 1;
-            }
-            showDays(_month, _year);
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e) // Mes anterior
+        // Método para navegar al mes anterior (PictureBox1)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             _month -= 1;
             if (_month < 1)
             {
                 _month = 12;
                 _year -= 1;
+            }
+            showDays(_month, _year);
+        }
+
+        // Método para navegar al siguiente mes (PictureBox2)
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            _month += 1;
+            if (_month > 12)
+            {
+                _month = 1;
+                _year += 1;
             }
             showDays(_month, _year);
         }

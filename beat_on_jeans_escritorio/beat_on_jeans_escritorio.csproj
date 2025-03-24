@@ -139,6 +139,7 @@
     <Compile Include="Models\Actuacion.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActuacionLocalOrm.cs" />
     <Compile Include="Models\Chats.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>

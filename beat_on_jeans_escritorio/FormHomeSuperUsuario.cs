@@ -52,10 +52,10 @@ namespace beat_on_jeans_escritorio
         private void cargarDatosTickets()
         {
             // Obtener la lista de tickets de soporte desde la base de datos
-            List<Soporte> tickets = SoporteOrm.Select();
+          //  List<Soporte> tickets = SoporteOrm.Select();
 
             // Asignar la lista de tickets al DataGridView
-            dataGridViewTickets.DataSource = tickets;
+           // dataGridViewTickets.DataSource = tickets;
 
             // Hacer que el DataGridView sea de solo lectura
             dataGridViewTickets.ReadOnly = true;
@@ -73,10 +73,10 @@ namespace beat_on_jeans_escritorio
         private void cargarDatosLocales()
         {
             // Obtener la lista de locales desde la base de datos
-            List<Locales> locales = LocalOrm.Select();
+           // List<Locales> locales = LocalOrm.Select();
 
             // Asignar la lista de locales al DataGridView
-            dataGridViewLocales.DataSource = locales;
+           // dataGridViewLocales.DataSource = locales;
 
             // Hacer que el DataGridView sea de solo lectura
             dataGridViewLocales.ReadOnly = true;
@@ -94,10 +94,10 @@ namespace beat_on_jeans_escritorio
         private void cargarDatosMusicos()
         {
             // Obtener la lista de músicos desde la base de datos
-            List<Musicos> musicos = MusicoOrm.Select();
+           // List<Musicos> musicos = MusicoOrm.Select();
 
             // Asignar la lista de músicos al DataGridView
-            dataGridViewMusicos.DataSource = musicos;
+           // dataGridViewMusicos.DataSource = musicos;
 
             // Hacer que el DataGridView sea de solo lectura
             dataGridViewMusicos.ReadOnly = true;

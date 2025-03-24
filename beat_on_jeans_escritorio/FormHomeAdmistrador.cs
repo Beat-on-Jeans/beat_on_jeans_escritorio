@@ -37,10 +37,10 @@ namespace beat_on_jeans_escritorio
         private void cargarDatosActuaciones()
         {
             // Obtener la lista de actuaciones desde la base de datos
-            List<Actuacion> actuaciones = ActuacionOrm.Select();
+           // List<Actuacion> actuaciones = ActuacionOrm.Select();
 
             // Asignar la lista de actuaciones al DataGridView
-            dataGridViewEventosProgramados.DataSource = actuaciones;
+           // dataGridViewEventosProgramados.DataSource = actuaciones;
 
             // Hacer que el DataGridView sea de solo lectura
             dataGridViewEventosProgramados.ReadOnly = true;

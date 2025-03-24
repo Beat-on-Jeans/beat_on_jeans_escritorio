@@ -22,27 +22,28 @@ namespace beat_on_jeans_escritorio
 
             ValidarCredenciales = validarCorreoContrasena(correo, contrasena, ValidarCredenciales);
 
-            if (ValidarCredenciales == true)
-            {
-                Usuarios usuarioActual = UsuariosCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
 
-                if (usuarioActual == null)
-                {
+           // if (ValidarCredenciales == true)
+           // {
+               // UsuariosCSharp usuarioActual = UsuarioCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
 
-                    MessageBox.Show(mensaje, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // if (usuarioActual == null)
+             //   {
 
-                }
-                else
-                {
+                 //   MessageBox.Show(mensaje, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+               // }
+               // else
+                //{
                     // Pasarle el usuario actual
-                    FormHome formulario2 = new FormHome(usuarioActual);
-                    MessageBox.Show(mensaje, "Validación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    formulario2.Show();
-                    this.Hide(); // Ocultar el formulario actual
-                    formulario2.FormClosed += (s, args) => this.Close(); // Cerrar el formulario actual cuando se cierre el nuevo formulario
-                }
+                   // FormHome formulario2 = new FormHome(usuarioActual);
+                   // MessageBox.Show(mensaje, "Validación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   // formulario2.Show();
+                   // this.Hide(); // Ocultar el formulario actual
+                   // formulario2.FormClosed += (s, args) => this.Close(); // Cerrar el formulario actual cuando se cierre el nuevo formulario
+                //}
             }
-        }
+        
 
         private void buttonRegistrar_Click(object sender, EventArgs e)
         {

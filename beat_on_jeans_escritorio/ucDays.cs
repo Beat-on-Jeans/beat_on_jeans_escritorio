@@ -7,7 +7,9 @@ namespace beat_on_jeans_escritorio
 {
     public partial class ucDays : UserControl
     {
-        private string _day, date, weekday;
+        private string _day;
+        private DateTime _date;
+        private string _weekday;
         private FormCalendario _parentForm;
 
         public ucDays(string day, FormCalendario parentForm)
@@ -25,13 +27,19 @@ namespace beat_on_jeans_escritorio
                 return;
             }
 
-            // Formatear la fecha correctamente
-            date = $"{FormCalendario._month}/{_day}/{FormCalendario._year}";
-
-            // Verificar y resaltar días con actuaciones
-            if (ActuacionLocalOrm.TieneActuacion(date))
+            try
             {
-                ResaltarDiaConActuacion();
+                _date = new DateTime(FormCalendario._year, FormCalendario._month, int.Parse(day));
+
+                // Verificar y resaltar días con actuaciones
+                if (ActuacionLocalOrm.TieneActuacion(_date))
+                {
+                    ResaltarDiaConActuacion();
+                }
+            }
+            catch
+            {
+                this.Enabled = false;
             }
         }
 
@@ -39,22 +47,15 @@ namespace beat_on_jeans_escritorio
         {
             if (string.IsNullOrEmpty(_day)) return;
 
-            // Obtener actuaciones para esta fecha
-            var actuaciones = ActuacionLocalOrm.GetActuacionesPorFecha(date);
-
-            // Mostrar mensaje con la información
-            if (actuaciones.Count > 0)
+            try
             {
-                string mensaje = $"Actuaciones para el {date}:\n";
-                foreach (var actuacion in actuaciones)
-                {
-                    mensaje += $"- {actuacion.NombreLocal}\n";
-                }
-                MessageBox.Show(mensaje, "Actuaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var actuaciones = ActuacionLocalOrm.GetActuacionesPorFecha(_date);
+                _parentForm.MostrarActuaciones(actuaciones);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show($"No hay actuaciones para el {date}", "Actuaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Error al cargar actuaciones: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -68,14 +69,13 @@ namespace beat_on_jeans_escritorio
         {
             try
             {
-                DateTime day = DateTime.Parse(date);
-                weekday = day.ToString("ddd");
-                if (weekday == "Sun")
+                _weekday = _date.ToString("ddd");
+                if (_weekday == "Sun")
                 {
                     label1.ForeColor = Color.FromArgb(64, 64, 64);
                 }
             }
-            catch (Exception) { }
+            catch { }
         }
 
         private void ucDays_Load(object sender, EventArgs e)
