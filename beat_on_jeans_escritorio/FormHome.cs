@@ -36,14 +36,13 @@ namespace beat_on_jeans_escritorio
 
         private string ObtenerNombreRol(int? roleId)
         {
-            // cambiar roles a 3,4,5.
             switch (roleId)
             {
-                case 1:
-                    return "Superusuario";
-                case 2:
-                    return "Administrador";
                 case 3:
+                    return "Superusuario";
+                case 4:
+                    return "Administrador";
+                case 5:
                     return "Mantenimiento de Datos";
                 default:
                     return "Rol Desconocido";
@@ -52,11 +51,11 @@ namespace beat_on_jeans_escritorio
 
         private void cargarFormularioPorRol()
         {
-            if (usuarioActual.ROL_ID == 1) // Superusuario
+            if (usuarioActual.ROL_ID == 3) // Superusuario
             {
                 CargarFormulario(new FormHomeSuperUsuario());
             }
-            else if (usuarioActual.ROL_ID == 2) // Admin
+            else if (usuarioActual.ROL_ID == 4) // Admin
             {
                 CargarFormulario(new FormHomeAdmistrador());
             }
@@ -69,7 +68,7 @@ namespace beat_on_jeans_escritorio
         private void configurarInterfaz()
         {
             // Configuramos la interfaz según el rol del usuario
-            if (usuarioActual.ROL_ID == 1) // Superusuario
+            if (usuarioActual.ROL_ID == 3) // Superusuario
             {
                 buttonHome.Enabled = true;
                 buttonEstadisticas.Enabled = true;
@@ -80,7 +79,7 @@ namespace beat_on_jeans_escritorio
                 buttonConfiguracion.Enabled = true;
 
             }
-            else if (usuarioActual.ROL_ID == 2) // Usuario normal
+            else if (usuarioActual.ROL_ID == 4) // Usuario normal
             {
                 buttonHome.Enabled = true;
                 buttonEstadisticas.Enabled = true;

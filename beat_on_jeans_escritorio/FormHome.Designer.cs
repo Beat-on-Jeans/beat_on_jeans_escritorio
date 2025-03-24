@@ -436,7 +436,7 @@ namespace beat_on_jeans_escritorio
             this.buttonLogOut.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageLogOut;
             this.buttonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLogOut.Location = new System.Drawing.Point(-17, -27);
+            this.buttonLogOut.Location = new System.Drawing.Point(-17, -24);
             this.buttonLogOut.Name = "buttonLogOut";
             this.buttonLogOut.Padding = new System.Windows.Forms.Padding(35, 14, 190, 14);
             this.buttonLogOut.Size = new System.Drawing.Size(377, 91);
