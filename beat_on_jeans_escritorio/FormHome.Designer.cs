@@ -396,7 +396,7 @@ namespace beat_on_jeans_escritorio
             this.labelRol.BackColor = System.Drawing.Color.White;
             this.labelRol.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(198)))), ((int)(((byte)(198)))));
-            this.labelRol.Location = new System.Drawing.Point(93, 69);
+            this.labelRol.Location = new System.Drawing.Point(87, 69);
             this.labelRol.Name = "labelRol";
             this.labelRol.Size = new System.Drawing.Size(39, 28);
             this.labelRol.TabIndex = 8;
@@ -416,7 +416,7 @@ namespace beat_on_jeans_escritorio
             // 
             this.labelNombreUsuario.AutoSize = true;
             this.labelNombreUsuario.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreUsuario.Location = new System.Drawing.Point(93, 33);
+            this.labelNombreUsuario.Location = new System.Drawing.Point(87, 33);
             this.labelNombreUsuario.Name = "labelNombreUsuario";
             this.labelNombreUsuario.Size = new System.Drawing.Size(79, 28);
             this.labelNombreUsuario.TabIndex = 7;
