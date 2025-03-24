@@ -17,16 +17,13 @@ namespace beat_on_jeans_escritorio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Generos_Musicales()
         {
-            this.Locales = new HashSet<Locales>();
-            this.Musicos = new HashSet<Musicos>();
+            this.Generos_Usuarios = new HashSet<Generos_Usuarios>();
         }
     
         public int ID { get; set; }
         public string Nombre_Genero { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Locales> Locales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Musicos> Musicos { get; set; }
+        public virtual ICollection<Generos_Usuarios> Generos_Usuarios { get; set; }
     }
 }

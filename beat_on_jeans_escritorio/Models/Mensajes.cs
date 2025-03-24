@@ -17,9 +17,8 @@ namespace beat_on_jeans_escritorio.Models
         public int ID { get; set; }
         public Nullable<int> Chat_ID { get; set; }
         public Nullable<int> Emisor_ID { get; set; }
-        public string Emisor_Tipo { get; set; }
-        public string Texto { get; set; }
         public Nullable<System.DateTime> Hora { get; set; }
+        public string Mensaje { get; set; }
     
         public virtual Chats Chats { get; set; }
     }

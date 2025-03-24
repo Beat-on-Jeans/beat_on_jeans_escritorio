@@ -74,7 +74,7 @@ namespace beat_on_jeans_escritorio
             // 
             this.textBoxContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxContrasena.Location = new System.Drawing.Point(101, 336);
+            this.textBoxContrasena.Location = new System.Drawing.Point(101, 333);
             this.textBoxContrasena.MinimumSize = new System.Drawing.Size(355, 45);
             this.textBoxContrasena.Name = "textBoxContrasena";
             this.textBoxContrasena.Size = new System.Drawing.Size(427, 45);
@@ -141,7 +141,7 @@ namespace beat_on_jeans_escritorio
             this.textBoxCorreo.DataBindings.Add(new System.Windows.Forms.Binding("MaximumSize", global::beat_on_jeans_escritorio.Properties.Settings.Default, "test", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCorreo.ForeColor = System.Drawing.Color.Black;
-            this.textBoxCorreo.Location = new System.Drawing.Point(101, 224);
+            this.textBoxCorreo.Location = new System.Drawing.Point(101, 218);
             this.textBoxCorreo.MaximumSize = global::beat_on_jeans_escritorio.Properties.Settings.Default.test;
             this.textBoxCorreo.MinimumSize = new System.Drawing.Size(355, 45);
             this.textBoxCorreo.Name = "textBoxCorreo";

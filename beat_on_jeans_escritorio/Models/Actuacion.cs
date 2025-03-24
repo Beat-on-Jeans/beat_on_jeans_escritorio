@@ -14,18 +14,12 @@ namespace beat_on_jeans_escritorio.Models
     
     public partial class Actuacion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Actuacion()
-        {
-            this.Musicos = new HashSet<Musicos>();
-        }
-    
         public int ID { get; set; }
         public System.DateTime Fecha { get; set; }
         public Nullable<int> Local_ID { get; set; }
+        public Nullable<int> Musico_ID { get; set; }
     
         public virtual Locales Locales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Musicos> Musicos { get; set; }
+        public virtual Musicos Musicos { get; set; }
     }
 }

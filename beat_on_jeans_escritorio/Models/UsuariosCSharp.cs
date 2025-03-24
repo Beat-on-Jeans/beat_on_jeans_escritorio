@@ -17,23 +17,19 @@ namespace beat_on_jeans_escritorio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UsuariosCSharp()
         {
-            this.Locales = new HashSet<Locales>();
-            this.Musicos = new HashSet<Musicos>();
             this.Soporte = new HashSet<Soporte>();
+            this.Soporte1 = new HashSet<Soporte>();
         }
     
         public int ID { get; set; }
-        public string Nombre { get; set; }
-        public string Contrasena { get; set; }
-        public string Correo { get; set; }
         public int RoleId { get; set; }
+        public Nullable<int> Usuario_Id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Locales> Locales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Musicos> Musicos { get; set; }
         public virtual Roles Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Soporte> Soporte { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Soporte> Soporte1 { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }
