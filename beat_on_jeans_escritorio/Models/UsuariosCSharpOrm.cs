@@ -27,15 +27,17 @@ namespace beat_on_jeans_escritorio.Models
                                      where u.Correo == correo
                                      select u).FirstOrDefault();
 
-
             if (usuarioEncontrado == null)
             {
                 mensaje = "El correo no existe.";
             }
-
             else if (usuarioEncontrado.Contrasena != contrasena)
             {
                 mensaje = "La contraseña es incorrecta.";
+            }
+            else if (usuarioEncontrado.ROL_ID < 3 || usuarioEncontrado.ROL_ID > 5)
+            {
+                mensaje = "El usuario no tiene los permisos necesarios.";
             }
             else
             {
