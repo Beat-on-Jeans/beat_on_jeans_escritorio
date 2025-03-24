@@ -8,10 +8,10 @@ namespace beat_on_jeans_escritorio
 {
     public partial class FormHome : Form
     {
-        private UsuariosCSharp usuarioActual;
+        private Usuarios usuarioActual;
 
         // Constructor que recibe el usuario como parámetro
-        public FormHome(UsuariosCSharp usuario)
+        public FormHome(Usuarios usuario)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -28,12 +28,13 @@ namespace beat_on_jeans_escritorio
 
         private void cargarLabels()
         {
+
            // labelNombreUsuario.Text = usuarioActual.Nombre;
             string nombreRol = ObtenerNombreRol(usuarioActual.RoleId);
             labelRol.Text = nombreRol;
         }
 
-        private string ObtenerNombreRol(int roleId)
+        private string ObtenerNombreRol(int? roleId)
         {
             // cambiar roles a 3,4,5.
             switch (roleId)
@@ -51,11 +52,11 @@ namespace beat_on_jeans_escritorio
 
         private void cargarFormularioPorRol()
         {
-            if (usuarioActual.RoleId == 1) // Superusuario
+            if (usuarioActual.ROL_ID == 1) // Superusuario
             {
                 CargarFormulario(new FormHomeSuperUsuario());
             }
-            else if (usuarioActual.RoleId == 2) // Admin
+            else if (usuarioActual.ROL_ID == 2) // Admin
             {
                 CargarFormulario(new FormHomeAdmistrador());
             }
@@ -68,7 +69,7 @@ namespace beat_on_jeans_escritorio
         private void configurarInterfaz()
         {
             // Configuramos la interfaz según el rol del usuario
-            if (usuarioActual.RoleId == 1) // Superusuario
+            if (usuarioActual.ROL_ID == 1) // Superusuario
             {
                 buttonHome.Enabled = true;
                 buttonEstadisticas.Enabled = true;
@@ -79,7 +80,7 @@ namespace beat_on_jeans_escritorio
                 buttonConfiguracion.Enabled = true;
 
             }
-            else if (usuarioActual.RoleId == 2) // Usuario normal
+            else if (usuarioActual.ROL_ID == 2) // Usuario normal
             {
                 buttonHome.Enabled = true;
                 buttonEstadisticas.Enabled = true;

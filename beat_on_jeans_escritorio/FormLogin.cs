@@ -22,6 +22,7 @@ namespace beat_on_jeans_escritorio
 
             ValidarCredenciales = validarCorreoContrasena(correo, contrasena, ValidarCredenciales);
 
+
            // if (ValidarCredenciales == true)
            // {
                // UsuariosCSharp usuarioActual = UsuarioCSharpOrm.validarUsuario(correo, contrasena, out mensaje);

@@ -198,6 +198,7 @@
     <Compile Include="Models\UsuariosCSharp.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuariosCSharpOrm.cs" />
     <Compile Include="Models\Valoracion.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
