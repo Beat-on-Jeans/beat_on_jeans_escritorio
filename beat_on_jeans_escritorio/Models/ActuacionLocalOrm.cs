@@ -31,16 +31,17 @@ namespace beat_on_jeans_escritorio.Models
                 try
                 {
                     return db.Actuacion
+                           .Include(a => a.Locales)
                            .Include(a => a.Musicos)
                            .Include(a => a.Musicos.UsuarioMobil)
                            .Include(a => a.Musicos.UsuarioMobil.Usuarios)
-                           .Include(a => a.Locales)
                            .Where(a => DbFunctions.TruncateTime(a.Fecha) == fecha.Date)
                            .Select(a => new
                            {
                                FechaActuacion = a.Fecha,
                                NombreMusico = a.Musicos.UsuarioMobil.Usuarios.Nombre,
-                               NombreLocal = a.Locales.Ubicacion
+                               NombreLocal = a.Locales.UsuarioMobil.Usuarios.Nombre, // Nombre del local
+                               DireccionLocal = a.Locales.Ubicacion // Dirección del local
                            })
                            .ToList<dynamic>();
                 }

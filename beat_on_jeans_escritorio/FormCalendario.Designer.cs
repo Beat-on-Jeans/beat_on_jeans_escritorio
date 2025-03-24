@@ -40,6 +40,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.labelUbicacion = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelLocal = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.labelMusico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +53,7 @@
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 114);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(632, 492);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(625, 492);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -155,11 +160,62 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(708, 128);
+            this.label8.Font = new System.Drawing.Font("Figtree", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(644, 122);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.Size = new System.Drawing.Size(96, 23);
             this.label8.TabIndex = 11;
             this.label8.Text = "Ubicación";
+            // 
+            // labelUbicacion
+            // 
+            this.labelUbicacion.AutoSize = true;
+            this.labelUbicacion.Font = new System.Drawing.Font("Figtree Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUbicacion.Location = new System.Drawing.Point(644, 156);
+            this.labelUbicacion.Name = "labelUbicacion";
+            this.labelUbicacion.Size = new System.Drawing.Size(115, 20);
+            this.labelUbicacion.TabIndex = 12;
+            this.labelUbicacion.Text = "labelUbicación";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Figtree", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(644, 263);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 23);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Local";
+            // 
+            // labelLocal
+            // 
+            this.labelLocal.AutoSize = true;
+            this.labelLocal.Font = new System.Drawing.Font("Figtree Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLocal.Location = new System.Drawing.Point(644, 294);
+            this.labelLocal.Name = "labelLocal";
+            this.labelLocal.Size = new System.Drawing.Size(75, 18);
+            this.labelLocal.TabIndex = 14;
+            this.labelLocal.Text = "labelLocal";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Figtree", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(644, 403);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 23);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Musico";
+            // 
+            // labelMusico
+            // 
+            this.labelMusico.AutoSize = true;
+            this.labelMusico.Font = new System.Drawing.Font("Figtree Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMusico.Location = new System.Drawing.Point(644, 432);
+            this.labelMusico.Name = "labelMusico";
+            this.labelMusico.Size = new System.Drawing.Size(88, 18);
+            this.labelMusico.TabIndex = 16;
+            this.labelMusico.Text = "labelMusico";
             // 
             // FormCalendario
             // 
@@ -167,6 +223,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(935, 618);
+            this.Controls.Add(this.labelMusico);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.labelLocal);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.labelUbicacion);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -179,6 +240,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCalendario";
             this.Text = "FormCalendario";
             this.Load += new System.EventHandler(this.FormCalendario_Load);
@@ -203,5 +265,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelUbicacion;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelLocal;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelMusico;
     }
 }

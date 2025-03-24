@@ -9,58 +9,63 @@ namespace beat_on_jeans_escritorio
     public partial class FormCalendario : Form
     {
         public static int _year, _month;
-        private DataGridView dataGridViewActuaciones;
 
         public FormCalendario()
         {
             InitializeComponent();
             _year = DateTime.Now.Year;
             _month = DateTime.Now.Month;
-
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(800, 600);
 
-            ConfigurarDataGridView();
+            // Configurar estilo de los labels
+            ConfigurarLabels();
         }
 
-        private void ConfigurarDataGridView()
+        private void ConfigurarLabels()
         {
-            // Configurar columnas
-            //dataGridViewActuacion.Columns.Add("Fecha", "Fecha y Hora");
-            //dataGridViewActuacion.Columns.Add("Musico", "Músico");
-            //dataGridViewActuacion.Columns.Add("Local", "Local");
+            // Configurar el label de Ubicación
+            labelUbicacion.AutoSize = true;
+            labelUbicacion.ForeColor = Color.Black;
+            labelUbicacion.Text = "Ubicación: ";
+            labelUbicacion.MaximumSize = new Size(150, 0);
 
-            //dataGridViewActuacion.Columns["Fecha"].DefaultCellStyle.Format = "g";
-            //dataGridViewActuacion.Columns["Fecha"].Width = 150;
+            // Configurar el label de Local
+            labelLocal.AutoSize = true;
+            labelLocal.ForeColor = Color.Black;
+            labelLocal.Text = "Local: ";
 
-            //this.Controls.Add(dataGridViewActuacion);
+            // Configurar el label de Músico
+            labelMusico.AutoSize = true;
+            labelMusico.ForeColor = Color.Black;
+            labelMusico.Text = "Músico: ";
         }
 
         public void MostrarActuaciones(List<dynamic> actuaciones)
         {
-            //dataGridViewActuacion.Rows.Clear();
+            // Limpiar los labels
+            labelUbicacion.Text = "Ubicación: ";
+            labelLocal.Text = "Local: ";
+            labelMusico.Text = "Músico: ";
 
             if (actuaciones == null || actuaciones.Count == 0)
             {
-                //dataGridViewActuacion.Rows.Add("No hay actuaciones para esta fecha");
+                labelUbicacion.Text = "No hay actuaciones para esta fecha";
                 return;
             }
 
-            //foreach (var actuacion in actuaciones)
-            //{
-                //dataGridViewActuacion.Rows.Add(
-                  //  actuacion.FechaActuacion,
-                    //actuacion.NombreMusico,
-                    //actuacion.NombreLocal
-              //  );
-            }
-        
+            // Mostrar la información en los labels
+            var primeraActuacion = actuaciones[0];
+            labelUbicacion.Text = $"Ubicación: {primeraActuacion.DireccionLocal}";
+            labelLocal.Text = $"Local: {primeraActuacion.NombreLocal}";
+            labelMusico.Text = $"Músico: {primeraActuacion.NombreMusico}";
+        }
 
         private void FormCalendario_Load(object sender, EventArgs e)
         {
             showDays(_month, _year);
         }
 
-        // Método para navegar al mes anterior (PictureBox1)
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             _month -= 1;
@@ -72,7 +77,6 @@ namespace beat_on_jeans_escritorio
             showDays(_month, _year);
         }
 
-        // Método para navegar al siguiente mes (PictureBox2)
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             _month += 1;

@@ -16,7 +16,7 @@ namespace beat_on_jeans_escritorio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCalendario());
+            Application.Run(new FormLogin());
         }
     }
 }
