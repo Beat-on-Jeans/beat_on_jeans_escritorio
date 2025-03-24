@@ -26,11 +26,6 @@ namespace beat_on_jeans_escritorio
             // Definir el color RGB (255, 243, 226)
             Color colorFondo = Color.FromArgb(255, 243, 226);
 
-            // Configurar el color de fondo del DataGridView
-            //dataGridViewEventosProgramados.BackgroundColor = colorFondo;
-            //dataGridViewEventosProgramados.BackgroundColor = colorFondo;
-            //dataGridViewEventosProgramados.BackgroundColor = colorFondo;
-
             // Configurar el color de fondo de las celdas
             dataGridViewEventosProgramados.DefaultCellStyle.BackColor = colorFondo;
             dataGridViewEventosProgramados.DefaultCellStyle.BackColor = colorFondo;

@@ -12,15 +12,16 @@ namespace beat_on_jeans_escritorio
         public FormCalendario()
         {
             InitializeComponent();
-            this.Size = new Size(800, 600); // Tamaño inicial del formulario
+            _year = DateTime.Now.Year;
+            _month = DateTime.Now.Month;
         }
 
         private void FormCalendario_Load(object sender, EventArgs e)
         {
-            showDays(DateTime.Now.Month, DateTime.Now.Year);
+            showDays(_month, _year);
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e) // Siguiente mes
         {
             _month += 1;
             if (_month > 12)
@@ -31,7 +32,7 @@ namespace beat_on_jeans_escritorio
             showDays(_month, _year);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e) // Mes anterior
         {
             _month -= 1;
             if (_month < 1)
@@ -53,21 +54,19 @@ namespace beat_on_jeans_escritorio
 
             DateTime startOfTheMonth = new DateTime(year, month, 1);
             int daysInMonth = DateTime.DaysInMonth(year, month);
-
-            // Obtener el día de la semana del primer día del mes (0 = Domingo, 1 = Lunes, ..., 6 = Sábado)
             int startDayOfWeek = (int)startOfTheMonth.DayOfWeek;
 
-            // Agregar cuadros vacíos para los días anteriores al primer día del mes
+            // Días vacíos para alinear el primer día
             for (int i = 0; i < startDayOfWeek; i++)
             {
-                ucDays uc = new ucDays("");
+                ucDays uc = new ucDays("", this);
                 flowLayoutPanel1.Controls.Add(uc);
             }
 
-            // Agregar los días del mes
+            // Días del mes
             for (int i = 1; i <= daysInMonth; i++)
             {
-                ucDays uc = new ucDays(i.ToString());
+                ucDays uc = new ucDays(i.ToString(), this);
                 flowLayoutPanel1.Controls.Add(uc);
             }
         }
