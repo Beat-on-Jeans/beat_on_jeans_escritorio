@@ -14,10 +14,21 @@ namespace beat_on_jeans_escritorio
 {
     public partial class FormGestionUsuarios : Form
     {
+        private string hintText = "Busca al usuario...";
         public FormGestionUsuarios()
         {
             InitializeComponent();
-           
+
+            comboBoxBuscarUsuario = new ComboBox();
+            comboBoxBuscarUsuario.Location = new Point(50, 50);
+            comboBoxBuscarUsuario.Width = 200;
+            comboBoxBuscarUsuario.ForeColor = Color.Gray;
+            comboBoxBuscarUsuario.Text = hintText;
+            comboBoxBuscarUsuario.GotFocus += RemoveHint;
+            comboBoxBuscarUsuario.LostFocus += ShowHint;
+
+            Controls.Add(comboBoxBuscarUsuario);
+
         }
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
@@ -91,6 +102,43 @@ namespace beat_on_jeans_escritorio
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
             buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
         }
-        
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RemoveHint(object sender, EventArgs e)
+        {
+            if (comboBoxBuscarUsuario.ForeColor == Color.Gray)
+            {
+                comboBoxBuscarUsuario.Text = "";
+                comboBoxBuscarUsuario.ForeColor = Color.Black;
+            }
+        }
+
+        private void ShowHint(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxBuscarUsuario.Text))
+            {
+                comboBoxBuscarUsuario.ForeColor = Color.Gray;
+                comboBoxBuscarUsuario.Text = hintText;
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
