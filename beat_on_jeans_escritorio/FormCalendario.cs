@@ -25,35 +25,35 @@ namespace beat_on_jeans_escritorio
         private void ConfigurarDataGridView()
         {
             // Configurar columnas
-            dataGridViewActuacion.Columns.Add("Fecha", "Fecha y Hora");
-            dataGridViewActuacion.Columns.Add("Musico", "Músico");
-            dataGridViewActuacion.Columns.Add("Local", "Local");
+            //dataGridViewActuacion.Columns.Add("Fecha", "Fecha y Hora");
+            //dataGridViewActuacion.Columns.Add("Musico", "Músico");
+            //dataGridViewActuacion.Columns.Add("Local", "Local");
 
-            dataGridViewActuacion.Columns["Fecha"].DefaultCellStyle.Format = "g";
-            dataGridViewActuacion.Columns["Fecha"].Width = 150;
+            //dataGridViewActuacion.Columns["Fecha"].DefaultCellStyle.Format = "g";
+            //dataGridViewActuacion.Columns["Fecha"].Width = 150;
 
-            this.Controls.Add(dataGridViewActuacion);
+            //this.Controls.Add(dataGridViewActuacion);
         }
 
         public void MostrarActuaciones(List<dynamic> actuaciones)
         {
-            dataGridViewActuacion.Rows.Clear();
+            //dataGridViewActuacion.Rows.Clear();
 
             if (actuaciones == null || actuaciones.Count == 0)
             {
-                dataGridViewActuacion.Rows.Add("No hay actuaciones para esta fecha");
+                //dataGridViewActuacion.Rows.Add("No hay actuaciones para esta fecha");
                 return;
             }
 
-            foreach (var actuacion in actuaciones)
-            {
-                dataGridViewActuacion.Rows.Add(
-                    actuacion.FechaActuacion,
-                    actuacion.NombreMusico,
-                    actuacion.NombreLocal
-                );
+            //foreach (var actuacion in actuaciones)
+            //{
+                //dataGridViewActuacion.Rows.Add(
+                  //  actuacion.FechaActuacion,
+                    //actuacion.NombreMusico,
+                    //actuacion.NombreLocal
+              //  );
             }
-        }
+        
 
         private void FormCalendario_Load(object sender, EventArgs e)
         {

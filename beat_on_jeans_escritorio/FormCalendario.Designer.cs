@@ -157,9 +157,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(708, 128);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 11;
-            this.label8.Text = "label8";
+            this.label8.Text = "Ubicación";
             // 
             // FormCalendario
             // 

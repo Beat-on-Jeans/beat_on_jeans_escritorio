@@ -30,8 +30,8 @@ namespace beat_on_jeans_escritorio
         {
 
            // labelNombreUsuario.Text = usuarioActual.Nombre;
-            string nombreRol = ObtenerNombreRol(usuarioActual.RoleId);
-            labelRol.Text = nombreRol;
+            //string nombreRol = ObtenerNombreRol(usuarioActual.RoleId);
+            //labelRol.Text = nombreRol;
         }
 
         private string ObtenerNombreRol(int? roleId)
