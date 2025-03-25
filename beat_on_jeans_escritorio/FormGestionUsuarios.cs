@@ -18,8 +18,9 @@ namespace beat_on_jeans_escritorio
         public FormGestionUsuarios()
         {
             InitializeComponent();
+
+            //Ecoger los roles en la ComboBox
             bindingSourceRoles.DataSource = RolesOrm.Select();
-            bindingSourceUsuarios.DataSource = UsuariosCSharpOrm.Select();
 
             comboBoxBuscarUsuario = new ComboBox();
             comboBoxBuscarUsuario.Location = new Point(50, 50);
@@ -37,12 +38,9 @@ namespace beat_on_jeans_escritorio
         {
             disenoBotones();
             disenoGrid();
+            rellenarUsuarios();
+            // Ajusta el tamaño de las columnas al ancho del DataGridView
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -52,9 +50,17 @@ namespace beat_on_jeans_escritorio
 
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            rellenarUsuarios();
       
         }
+
+        private void rellenarUsuarios() 
+        {
+
+            Roles _rol = (Roles)comboBoxRoles.SelectedItem;
+            dataGridViewUsuarios.DataSource = _rol.Usuarios.ToList();
+        }
+
         private void disenoGrid()
         {
             DataGridViewHome.ApplyDesign(dataGridViewUsuarios);
@@ -147,8 +153,8 @@ namespace beat_on_jeans_escritorio
         {
             if (e.ColumnIndex == 1)
             {
-                Usuarios _usuario = (Usuarios)dataGridViewUsuarios.Rows[e.RowIndex].DataBoundItem;
-                e.Value = _usuario.Roles.Nombre_Rol;
+                //Usuarios _usuario = (Usuarios)dataGridViewUsuarios.Rows[e.RowIndex].DataBoundItem;
+                //e.Value = _usuario.Roles.Nombre_Rol;
             }
         }
     }

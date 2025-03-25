@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label1;
-            this.comboBoxUsuarios = new System.Windows.Forms.ComboBox();
+            this.comboBoxRoles = new System.Windows.Forms.ComboBox();
             this.bindingSourceRoles = new System.Windows.Forms.BindingSource(this.components);
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonNuevoUsuario = new System.Windows.Forms.Button();
@@ -70,20 +70,20 @@
             label1.TabIndex = 10;
             label1.Text = "Buscar Usuario";
             // 
-            // comboBoxUsuarios
+            // comboBoxRoles
             // 
-            this.comboBoxUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
-            this.comboBoxUsuarios.DataSource = this.bindingSourceRoles;
-            this.comboBoxUsuarios.DisplayMember = "Nombre_Rol";
-            this.comboBoxUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxUsuarios.FormattingEnabled = true;
-            this.comboBoxUsuarios.Location = new System.Drawing.Point(20, 276);
-            this.comboBoxUsuarios.Name = "comboBoxUsuarios";
-            this.comboBoxUsuarios.Size = new System.Drawing.Size(179, 28);
-            this.comboBoxUsuarios.TabIndex = 1;
-            this.comboBoxUsuarios.ValueMember = "ID";
-            this.comboBoxUsuarios.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsuarios_SelectedIndexChanged);
+            this.comboBoxRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
+            this.comboBoxRoles.DataSource = this.bindingSourceRoles;
+            this.comboBoxRoles.DisplayMember = "Nombre_Rol";
+            this.comboBoxRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRoles.FormattingEnabled = true;
+            this.comboBoxRoles.Location = new System.Drawing.Point(20, 276);
+            this.comboBoxRoles.Name = "comboBoxRoles";
+            this.comboBoxRoles.Size = new System.Drawing.Size(179, 28);
+            this.comboBoxRoles.TabIndex = 1;
+            this.comboBoxRoles.ValueMember = "ID";
+            this.comboBoxRoles.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsuarios_SelectedIndexChanged);
             // 
             // bindingSourceRoles
             // 
@@ -269,7 +269,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxBuscarUsuario);
             this.Controls.Add(label1);
-            this.Controls.Add(this.comboBoxUsuarios);
+            this.Controls.Add(this.comboBoxRoles);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.buttonNuevoUsuario);
             this.Controls.Add(this.pictureBox4);
@@ -298,7 +298,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBoxUsuarios;
+        private System.Windows.Forms.ComboBox comboBoxRoles;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonNuevoUsuario;
         private System.Windows.Forms.DataGridView dataGridViewUsuarios;
