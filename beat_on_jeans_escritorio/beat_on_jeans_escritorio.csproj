@@ -176,6 +176,8 @@
     <Compile Include="Models\Musicos.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocalesOrm.cs" />
+    <Compile Include="Models\MusicosOrm.cs" />
     <Compile Include="Models\Notificaciones.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
@@ -186,6 +188,7 @@
     <Compile Include="Models\Soporte.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TicketsOrm.cs" />
     <Compile Include="Models\TipoIncidencia.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
@@ -251,6 +254,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelBoj.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Fonts\Figtree.ttf" />
+    <None Include="Fonts\Poppins-Bold.ttf" />
     <None Include="Models\ModelBoj.edmx.diagram">
       <DependentUpon>ModelBoj.edmx</DependentUpon>
     </None>
