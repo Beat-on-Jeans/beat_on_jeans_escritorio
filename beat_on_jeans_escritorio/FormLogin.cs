@@ -11,6 +11,7 @@ namespace beat_on_jeans_escritorio
         {
             InitializeComponent();
             textBoxContrasena.UseSystemPasswordChar = true;
+            UsuariosCSharpOrm.Select();
         }
 
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
@@ -25,6 +26,7 @@ namespace beat_on_jeans_escritorio
 
             if (ValidarCredenciales == true)
             {
+                  
                 Usuarios usuarioActual = UsuariosCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
 
                 if (usuarioActual == null)

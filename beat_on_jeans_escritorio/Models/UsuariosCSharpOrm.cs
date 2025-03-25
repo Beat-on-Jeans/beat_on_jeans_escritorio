@@ -9,14 +9,18 @@ namespace beat_on_jeans_escritorio.Models
 {
     public static class UsuariosCSharpOrm
     {
+        // Recoge los usuarios Adm, SupAdm y Mant
         public static List<Usuarios> Select()
         {
             List<Usuarios> _usuarios = (
                     from u in Orm.db.Usuarios
+                    where u.ROL_ID >= 3 && u.ROL_ID <= 5
                     select u
                     ).ToList();
             return _usuarios;
         }
+
+
 
         public static Usuarios validarUsuario(string correo, string contrasena, out string mensaje)
         {

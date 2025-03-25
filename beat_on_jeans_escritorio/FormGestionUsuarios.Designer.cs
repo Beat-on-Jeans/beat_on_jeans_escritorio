@@ -34,17 +34,13 @@
             this.bindingSourceRoles = new System.Windows.Forms.BindingSource(this.components);
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonNuevoUsuario = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contrasenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.musicosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceUsuariosCSharp = new System.Windows.Forms.BindingSource(this.components);
+            this.rOLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -52,10 +48,11 @@
             this.comboBoxBuscarUsuario = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonModificar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuariosCSharp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,11 +60,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(16, 55);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(147, 22);
+            label1.TabIndex = 10;
+            label1.Text = "Buscar Usuario";
+            // 
             // comboBoxUsuarios
             // 
             this.comboBoxUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.comboBoxUsuarios.DataSource = this.bindingSourceRoles;
-            this.comboBoxUsuarios.DisplayMember = "Nombre";
+            this.comboBoxUsuarios.DisplayMember = "Nombre_Rol";
             this.comboBoxUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUsuarios.FormattingEnabled = true;
@@ -90,12 +97,13 @@
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEliminar.ForeColor = System.Drawing.Color.White;
-            this.buttonEliminar.Location = new System.Drawing.Point(20, 210);
+            this.buttonEliminar.Location = new System.Drawing.Point(632, 275);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(107, 40);
+            this.buttonEliminar.Size = new System.Drawing.Size(107, 28);
             this.buttonEliminar.TabIndex = 3;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = false;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonNuevoUsuario
             // 
@@ -105,32 +113,30 @@
             this.buttonNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevoUsuario.ForeColor = System.Drawing.Color.White;
-            this.buttonNuevoUsuario.Location = new System.Drawing.Point(763, 209);
+            this.buttonNuevoUsuario.Location = new System.Drawing.Point(759, 17);
             this.buttonNuevoUsuario.Name = "buttonNuevoUsuario";
-            this.buttonNuevoUsuario.Size = new System.Drawing.Size(158, 40);
+            this.buttonNuevoUsuario.Size = new System.Drawing.Size(167, 27);
             this.buttonNuevoUsuario.TabIndex = 4;
-            this.buttonNuevoUsuario.Text = "Nuevo Usuario";
+            this.buttonNuevoUsuario.Text = "Crear Usuario";
             this.buttonNuevoUsuario.UseVisualStyleBackColor = false;
             // 
-            // dataGridView2
+            // dataGridViewUsuarios
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewUsuarios.AutoGenerateColumns = false;
+            this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.contrasenaDataGridViewTextBoxColumn,
-            this.correoDataGridViewTextBoxColumn,
-            this.roleIdDataGridViewTextBoxColumn,
-            this.localesDataGridViewTextBoxColumn,
-            this.musicosDataGridViewTextBoxColumn,
-            this.rolesDataGridViewTextBoxColumn,
-            this.soporteDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.bindingSourceUsuariosCSharp;
-            this.dataGridView2.Location = new System.Drawing.Point(11, 320);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(915, 286);
-            this.dataGridView2.TabIndex = 5;
+            this.rOLIDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewUsuarios.DataSource = this.bindingSourceUsuarios;
+            this.dataGridViewUsuarios.Location = new System.Drawing.Point(11, 320);
+            this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(915, 286);
+            this.dataGridViewUsuarios.TabIndex = 5;
+            this.dataGridViewUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridViewUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewUsuarios_CellFormatting);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -139,66 +145,38 @@
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // nombreDataGridViewTextBoxColumn
+            // rOLIDDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.Width = 69;
+            this.rOLIDDataGridViewTextBoxColumn.DataPropertyName = "ROL_ID";
+            this.rOLIDDataGridViewTextBoxColumn.HeaderText = "ROL_ID";
+            this.rOLIDDataGridViewTextBoxColumn.Name = "rOLIDDataGridViewTextBoxColumn";
             // 
-            // contrasenaDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.contrasenaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.contrasenaDataGridViewTextBoxColumn.DataPropertyName = "Contrasena";
-            this.contrasenaDataGridViewTextBoxColumn.HeaderText = "Contrasena";
-            this.contrasenaDataGridViewTextBoxColumn.Name = "contrasenaDataGridViewTextBoxColumn";
-            this.contrasenaDataGridViewTextBoxColumn.Width = 86;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Nombre";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // correoDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
-            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
-            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Correo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // roleIdDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.roleIdDataGridViewTextBoxColumn.DataPropertyName = "RoleId";
-            this.roleIdDataGridViewTextBoxColumn.HeaderText = "RoleId";
-            this.roleIdDataGridViewTextBoxColumn.Name = "roleIdDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Contrasena";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Contrasena";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // localesDataGridViewTextBoxColumn
+            // bindingSourceUsuarios
             // 
-            this.localesDataGridViewTextBoxColumn.DataPropertyName = "Locales";
-            this.localesDataGridViewTextBoxColumn.HeaderText = "Locales";
-            this.localesDataGridViewTextBoxColumn.Name = "localesDataGridViewTextBoxColumn";
-            // 
-            // musicosDataGridViewTextBoxColumn
-            // 
-            this.musicosDataGridViewTextBoxColumn.DataPropertyName = "Musicos";
-            this.musicosDataGridViewTextBoxColumn.HeaderText = "Musicos";
-            this.musicosDataGridViewTextBoxColumn.Name = "musicosDataGridViewTextBoxColumn";
-            // 
-            // rolesDataGridViewTextBoxColumn
-            // 
-            this.rolesDataGridViewTextBoxColumn.DataPropertyName = "Roles";
-            this.rolesDataGridViewTextBoxColumn.HeaderText = "Roles";
-            this.rolesDataGridViewTextBoxColumn.Name = "rolesDataGridViewTextBoxColumn";
-            // 
-            // soporteDataGridViewTextBoxColumn
-            // 
-            this.soporteDataGridViewTextBoxColumn.DataPropertyName = "Soporte";
-            this.soporteDataGridViewTextBoxColumn.HeaderText = "Soporte";
-            this.soporteDataGridViewTextBoxColumn.Name = "soporteDataGridViewTextBoxColumn";
-            // 
-            // bindingSourceUsuariosCSharp
-            // 
-            this.bindingSourceUsuariosCSharp.DataSource = typeof(beat_on_jeans_escritorio.Models.UsuariosCSharp);
+            this.bindingSourceUsuarios.DataSource = typeof(beat_on_jeans_escritorio.Models.Usuarios);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleNaranja;
-            this.pictureBox4.Location = new System.Drawing.Point(759, 207);
+            this.pictureBox4.Location = new System.Drawing.Point(759, 10);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(167, 42);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +186,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleAzul;
-            this.pictureBox3.Location = new System.Drawing.Point(13, 209);
+            this.pictureBox3.Location = new System.Drawing.Point(625, 268);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(121, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -218,9 +196,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNaranja;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(932, 615);
+            this.pictureBox1.Size = new System.Drawing.Size(932, 606);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -239,7 +217,7 @@
             // comboBoxBuscarUsuario
             // 
             this.comboBoxBuscarUsuario.FormattingEnabled = true;
-            this.comboBoxBuscarUsuario.Location = new System.Drawing.Point(169, 12);
+            this.comboBoxBuscarUsuario.Location = new System.Drawing.Point(169, 58);
             this.comboBoxBuscarUsuario.Name = "comboBoxBuscarUsuario";
             this.comboBoxBuscarUsuario.Size = new System.Drawing.Size(752, 21);
             this.comboBoxBuscarUsuario.TabIndex = 13;
@@ -248,9 +226,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleModificar;
-            this.pictureBox2.Location = new System.Drawing.Point(626, 208);
+            this.pictureBox2.Location = new System.Drawing.Point(759, 262);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(121, 42);
+            this.pictureBox2.Size = new System.Drawing.Size(162, 42);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -263,23 +241,24 @@
             this.buttonModificar.FlatAppearance.BorderSize = 0;
             this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonModificar.Location = new System.Drawing.Point(633, 209);
+            this.buttonModificar.Location = new System.Drawing.Point(759, 271);
             this.buttonModificar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(107, 40);
+            this.buttonModificar.Size = new System.Drawing.Size(162, 27);
             this.buttonModificar.TabIndex = 2;
-            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.Text = "Modificar usuario";
             this.buttonModificar.UseVisualStyleBackColor = false;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
-            // label1
+            // label2
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(16, 9);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(147, 22);
-            label1.TabIndex = 10;
-            label1.Text = "Buscar Usuario";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 249);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 18);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Roles";
             // 
             // FormGestionUsuarios
             // 
@@ -287,6 +266,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(935, 618);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxBuscarUsuario);
             this.Controls.Add(label1);
             this.Controls.Add(this.comboBoxUsuarios);
@@ -297,14 +277,14 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridViewUsuarios);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormGestionUsuarios";
             this.Text = "FormGestionUsuarios";
             this.Load += new System.EventHandler(this.FormGestionUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuariosCSharp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -321,23 +301,25 @@
         private System.Windows.Forms.ComboBox comboBoxUsuarios;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonNuevoUsuario;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridViewUsuarios;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.BindingSource bindingSourceRoles;
-        private System.Windows.Forms.BindingSource bindingSourceUsuariosCSharp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contrasenaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn musicosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rolesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soporteDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboBoxBuscarUsuario;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource bindingSourceRoles;
+        private System.Windows.Forms.BindingSource bindingSourceUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rOLIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

@@ -18,6 +18,8 @@ namespace beat_on_jeans_escritorio
         public FormGestionUsuarios()
         {
             InitializeComponent();
+            bindingSourceRoles.DataSource = RolesOrm.Select();
+            bindingSourceUsuarios.DataSource = UsuariosCSharpOrm.Select();
 
             comboBoxBuscarUsuario = new ComboBox();
             comboBoxBuscarUsuario.Location = new Point(50, 50);
@@ -35,9 +37,7 @@ namespace beat_on_jeans_escritorio
         {
             disenoBotones();
             disenoGrid();
-
-            // bindingSourceRoles.DataSource = RolesOrm.Select();
-            rellenarUsuariosRoles();
+            dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,32 +52,19 @@ namespace beat_on_jeans_escritorio
 
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rellenarUsuariosRoles();
-        }
-
-        private void rellenarUsuariosRoles()
-        {
-            Roles _roles = comboBoxUsuarios.SelectedItem as Roles;
-            if (_roles != null)
-            {
-                bindingSourceUsuariosCSharp.DataSource = _roles.UsuariosCSharp.ToList();
-            }
-            else
-            {
-                // Handle the case where _roles is null
-                bindingSourceUsuariosCSharp.DataSource = null;
-            }
+            
+      
         }
         private void disenoGrid()
         {
-            DataGridViewHome.ApplyDesign(dataGridView2);
+            DataGridViewHome.ApplyDesign(dataGridViewUsuarios);
 
             // Establecer el ancho fijo para todas las columnas
-            int columnWidth = dataGridView2.Width / dataGridView2.ColumnCount;
-            foreach (DataGridViewColumn column in dataGridView2.Columns)
-            {
-                column.Width = columnWidth;
-            }
+            //int columnWidth = dataGridView2.Width / dataGridView2.ColumnCount;
+            //foreach (DataGridViewColumn column in dataGridView2.Columns)
+            //{
+            //    column.Width = columnWidth;
+            //}
         }
         private void disenoBotones()
         {
@@ -139,6 +126,30 @@ namespace beat_on_jeans_escritorio
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                Usuarios _usuario = (Usuarios)dataGridViewUsuarios.Rows[e.RowIndex].DataBoundItem;
+                e.Value = _usuario.Roles.Nombre_Rol;
+            }
         }
     }
 }
