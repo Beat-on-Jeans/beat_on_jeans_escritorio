@@ -33,7 +33,6 @@ namespace beat_on_jeans_escritorio
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxContrasena = new System.Windows.Forms.TextBox();
-            this.buttonRegistrar = new System.Windows.Forms.Button();
             this.buttonIniciarSesion = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,13 +40,14 @@ namespace beat_on_jeans_escritorio
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.buttonRegistrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +57,7 @@ namespace beat_on_jeans_escritorio
             this.label1.Location = new System.Drawing.Point(91, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 24);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Correo";
             // 
             // label2
@@ -67,35 +67,19 @@ namespace beat_on_jeans_escritorio
             this.label2.Location = new System.Drawing.Point(92, 288);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 20);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 7;
             this.label2.Text = "Contraseña";
             // 
             // textBoxContrasena
             // 
             this.textBoxContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxContrasena.Location = new System.Drawing.Point(101, 333);
+            this.textBoxContrasena.Location = new System.Drawing.Point(101, 335);
             this.textBoxContrasena.MinimumSize = new System.Drawing.Size(355, 45);
             this.textBoxContrasena.Name = "textBoxContrasena";
             this.textBoxContrasena.Size = new System.Drawing.Size(427, 45);
-            this.textBoxContrasena.TabIndex = 3;
+            this.textBoxContrasena.TabIndex = 1;
             this.textBoxContrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // buttonRegistrar
-            // 
-            this.buttonRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
-            this.buttonRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
-            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
-            this.buttonRegistrar.Location = new System.Drawing.Point(116, 452);
-            this.buttonRegistrar.Name = "buttonRegistrar";
-            this.buttonRegistrar.Size = new System.Drawing.Size(406, 44);
-            this.buttonRegistrar.TabIndex = 4;
-            this.buttonRegistrar.Text = "Registrarse";
-            this.buttonRegistrar.UseVisualStyleBackColor = false;
-            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
             // buttonIniciarSesion
             // 
@@ -107,7 +91,7 @@ namespace beat_on_jeans_escritorio
             this.buttonIniciarSesion.Location = new System.Drawing.Point(116, 528);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
             this.buttonIniciarSesion.Size = new System.Drawing.Size(405, 38);
-            this.buttonIniciarSesion.TabIndex = 5;
+            this.buttonIniciarSesion.TabIndex = 3;
             this.buttonIniciarSesion.Text = "Iniciar Sesión";
             this.buttonIniciarSesion.UseVisualStyleBackColor = false;
             this.buttonIniciarSesion.Click += new System.EventHandler(this.buttonIniciarSesion_Click);
@@ -119,7 +103,7 @@ namespace beat_on_jeans_escritorio
             this.label3.Location = new System.Drawing.Point(168, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(286, 55);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Bienvenido!";
             // 
             // label4
@@ -130,7 +114,7 @@ namespace beat_on_jeans_escritorio
             this.label4.Location = new System.Drawing.Point(149, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(354, 20);
-            this.label4.TabIndex = 7;
+            this.label4.TabIndex = 5;
             this.label4.Text = "Sincroniza tu talento con el escenario ideal";
             // 
             // textBoxCorreo
@@ -141,12 +125,12 @@ namespace beat_on_jeans_escritorio
             this.textBoxCorreo.DataBindings.Add(new System.Windows.Forms.Binding("MaximumSize", global::beat_on_jeans_escritorio.Properties.Settings.Default, "test", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCorreo.ForeColor = System.Drawing.Color.Black;
-            this.textBoxCorreo.Location = new System.Drawing.Point(101, 218);
+            this.textBoxCorreo.Location = new System.Drawing.Point(101, 220);
             this.textBoxCorreo.MaximumSize = global::beat_on_jeans_escritorio.Properties.Settings.Default.test;
             this.textBoxCorreo.MinimumSize = new System.Drawing.Size(355, 45);
             this.textBoxCorreo.Name = "textBoxCorreo";
             this.textBoxCorreo.Size = new System.Drawing.Size(427, 45);
-            this.textBoxCorreo.TabIndex = 8;
+            this.textBoxCorreo.TabIndex = 0;
             this.textBoxCorreo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox5
@@ -179,6 +163,16 @@ namespace beat_on_jeans_escritorio
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleIniciarSesion;
+            this.pictureBox4.Location = new System.Drawing.Point(90, 522);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(453, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 12;
+            this.pictureBox4.TabStop = false;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleRegistre;
@@ -189,15 +183,21 @@ namespace beat_on_jeans_escritorio
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox4
+            // buttonRegistrar
             // 
-            this.pictureBox4.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleIniciarSesion;
-            this.pictureBox4.Location = new System.Drawing.Point(90, 522);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(453, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 12;
-            this.pictureBox4.TabStop = false;
+            this.buttonRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
+            this.buttonRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
+            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
+            this.buttonRegistrar.Location = new System.Drawing.Point(116, 452);
+            this.buttonRegistrar.Name = "buttonRegistrar";
+            this.buttonRegistrar.Size = new System.Drawing.Size(406, 44);
+            this.buttonRegistrar.TabIndex = 2;
+            this.buttonRegistrar.Text = "Registrarse";
+            this.buttonRegistrar.UseVisualStyleBackColor = false;
+            this.buttonRegistrar.Click += new System.EventHandler(this.buttonRegistrar_Click);
             // 
             // FormLogin
             // 
@@ -223,8 +223,8 @@ namespace beat_on_jeans_escritorio
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,16 +235,16 @@ namespace beat_on_jeans_escritorio
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxContrasena;
-        private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Button buttonIniciarSesion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button buttonRegistrar;
     }
 }
 
