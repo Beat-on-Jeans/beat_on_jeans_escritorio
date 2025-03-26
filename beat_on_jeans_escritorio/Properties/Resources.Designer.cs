@@ -113,6 +113,16 @@ namespace beat_on_jeans_escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_mapa_de_apple_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mapa-de-apple-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imageConf {
             get {
                 object obj = ResourceManager.GetObject("imageConf", resourceCulture);
@@ -243,6 +253,16 @@ namespace beat_on_jeans_escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap maps {
+            get {
+                object obj = ResourceManager.GetObject("maps", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rectangle_35 {
             get {
                 object obj = ResourceManager.GetObject("Rectangle 35", resourceCulture);
@@ -346,6 +366,16 @@ namespace beat_on_jeans_escritorio.Properties {
         internal static System.Drawing.Bitmap rectanguloNegro {
             get {
                 object obj = ResourceManager.GetObject("rectanguloNegro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ubicacion {
+            get {
+                object obj = ResourceManager.GetObject("ubicacion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

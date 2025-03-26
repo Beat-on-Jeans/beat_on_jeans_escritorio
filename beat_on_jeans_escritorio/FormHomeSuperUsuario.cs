@@ -29,6 +29,15 @@ namespace beat_on_jeans_escritorio
             cargarDatosTickets();
             cargarJsonRegistro();
             configurarFondoContenidoGrid();
+            autoSeleccionarGrid();
+        }
+
+        private void autoSeleccionarGrid()
+        {
+            dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewLocales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTickets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewUltimosRegistros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void cargarJsonRegistro()

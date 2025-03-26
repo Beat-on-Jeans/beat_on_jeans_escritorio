@@ -145,9 +145,9 @@ namespace beat_on_jeans_escritorio
             // pictureBoxHome
             // 
             this.pictureBoxHome.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxHome.Location = new System.Drawing.Point(0, 9);
+            this.pictureBoxHome.Location = new System.Drawing.Point(0, -13);
             this.pictureBoxHome.Name = "pictureBoxHome";
-            this.pictureBoxHome.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxHome.Size = new System.Drawing.Size(5, 80);
             this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxHome.TabIndex = 9;
             this.pictureBoxHome.TabStop = false;
@@ -180,9 +180,9 @@ namespace beat_on_jeans_escritorio
             // pictureBoxEstadistica
             // 
             this.pictureBoxEstadistica.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxEstadistica.Location = new System.Drawing.Point(0, 3);
+            this.pictureBoxEstadistica.Location = new System.Drawing.Point(0, -15);
             this.pictureBoxEstadistica.Name = "pictureBoxEstadistica";
-            this.pictureBoxEstadistica.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxEstadistica.Size = new System.Drawing.Size(5, 80);
             this.pictureBoxEstadistica.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxEstadistica.TabIndex = 10;
             this.pictureBoxEstadistica.TabStop = false;
@@ -213,9 +213,9 @@ namespace beat_on_jeans_escritorio
             // pictureBoxRegistro
             // 
             this.pictureBoxRegistro.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxRegistro.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxRegistro.Location = new System.Drawing.Point(0, -21);
             this.pictureBoxRegistro.Name = "pictureBoxRegistro";
-            this.pictureBoxRegistro.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxRegistro.Size = new System.Drawing.Size(5, 80);
             this.pictureBoxRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxRegistro.TabIndex = 10;
             this.pictureBoxRegistro.TabStop = false;
@@ -246,9 +246,9 @@ namespace beat_on_jeans_escritorio
             // pictureBoxNotificaciones
             // 
             this.pictureBoxNotificaciones.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxNotificaciones.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxNotificaciones.Location = new System.Drawing.Point(0, -17);
             this.pictureBoxNotificaciones.Name = "pictureBoxNotificaciones";
-            this.pictureBoxNotificaciones.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxNotificaciones.Size = new System.Drawing.Size(5, 80);
             this.pictureBoxNotificaciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxNotificaciones.TabIndex = 10;
             this.pictureBoxNotificaciones.TabStop = false;
@@ -257,15 +257,16 @@ namespace beat_on_jeans_escritorio
             // 
             this.buttonNotificaciones.BackColor = System.Drawing.Color.White;
             this.buttonNotificaciones.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNotificaciones.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageNotificacion;
+            this.buttonNotificaciones.Image = global::beat_on_jeans_escritorio.Properties.Resources.icons8_mapa_de_apple_20;
             this.buttonNotificaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNotificaciones.Location = new System.Drawing.Point(-2, -24);
             this.buttonNotificaciones.Name = "buttonNotificaciones";
-            this.buttonNotificaciones.Padding = new System.Windows.Forms.Padding(35, 14, 130, 14);
+            this.buttonNotificaciones.Padding = new System.Windows.Forms.Padding(35, 14, 195, 14);
             this.buttonNotificaciones.Size = new System.Drawing.Size(377, 100);
             this.buttonNotificaciones.TabIndex = 8;
-            this.buttonNotificaciones.Text = "Notificaciones";
+            this.buttonNotificaciones.Text = "Mapa";
             this.buttonNotificaciones.UseVisualStyleBackColor = false;
+            this.buttonNotificaciones.Click += new System.EventHandler(this.buttonNotificaciones_Click);
             // 
             // panel6
             // 
@@ -279,9 +280,9 @@ namespace beat_on_jeans_escritorio
             // pictureBoxEventos
             // 
             this.pictureBoxEventos.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxEventos.Location = new System.Drawing.Point(0, 1);
+            this.pictureBoxEventos.Location = new System.Drawing.Point(0, -14);
             this.pictureBoxEventos.Name = "pictureBoxEventos";
-            this.pictureBoxEventos.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxEventos.Size = new System.Drawing.Size(5, 80);
             this.pictureBoxEventos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxEventos.TabIndex = 10;
             this.pictureBoxEventos.TabStop = false;
@@ -313,9 +314,9 @@ namespace beat_on_jeans_escritorio
             // pictureBoxGestionUsuarios
             // 
             this.pictureBoxGestionUsuarios.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxGestionUsuarios.Location = new System.Drawing.Point(0, 1);
+            this.pictureBoxGestionUsuarios.Location = new System.Drawing.Point(0, -14);
             this.pictureBoxGestionUsuarios.Name = "pictureBoxGestionUsuarios";
-            this.pictureBoxGestionUsuarios.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxGestionUsuarios.Size = new System.Drawing.Size(5, 80);
             this.pictureBoxGestionUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxGestionUsuarios.TabIndex = 10;
             this.pictureBoxGestionUsuarios.TabStop = false;
@@ -347,9 +348,9 @@ namespace beat_on_jeans_escritorio
             // pictureBoxConf
             // 
             this.pictureBoxConf.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxConf.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxConf.Location = new System.Drawing.Point(0, -15);
             this.pictureBoxConf.Name = "pictureBoxConf";
-            this.pictureBoxConf.Size = new System.Drawing.Size(5, 40);
+            this.pictureBoxConf.Size = new System.Drawing.Size(5, 80);
             this.pictureBoxConf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxConf.TabIndex = 10;
             this.pictureBoxConf.TabStop = false;
