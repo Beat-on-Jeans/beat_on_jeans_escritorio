@@ -7,7 +7,6 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace beat_on_jeans_escritorio
@@ -26,6 +25,8 @@ namespace beat_on_jeans_escritorio
 
         private void FormMaps_Load(object sender, EventArgs e)
         {
+            bindingSourceUbicaciones.DataSource = LocalesMapsOrm.SelectUbicacionesLocales();
+
             dt = new DataTable();
             dt.Columns.Add(new DataColumn("Descripción", typeof(string)));
             dt.Columns.Add(new DataColumn("Lat", typeof(double)));
@@ -33,7 +34,7 @@ namespace beat_on_jeans_escritorio
 
             esconderLabels();
             ConfigureMap();
-            CargarComboBoxUbicaciones();
+            
         }
 
         private void esconderLabels()
@@ -62,31 +63,7 @@ namespace beat_on_jeans_escritorio
             SetRoundedCorners(gMapControl1, 20);
         }
 
-        private void CargarComboBoxUbicaciones()
-        {
-            try
-            {
-                comboBoxCalles.Items.Clear();
-
-                var ubicaciones = LocalesMapsOrm.SelectUbicacionesLocales();
-                foreach (var ubicacion in ubicaciones)
-                {
-                    if (!string.IsNullOrWhiteSpace(ubicacion))
-                    {
-                        comboBoxCalles.Items.Add(ubicacion.Trim());
-                    }
-                }
-
-                comboBoxCalles.DropDownStyle = ComboBoxStyle.DropDown;
-                comboBoxCalles.AutoCompleteMode = AutoCompleteMode.Suggest;
-                comboBoxCalles.AutoCompleteSource = AutoCompleteSource.ListItems;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar las ubicaciones: {ex.Message}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
         private void MostrarUbicacionSeleccionada(string direccion)
         {

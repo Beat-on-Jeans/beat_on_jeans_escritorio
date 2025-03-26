@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxCalles = new System.Windows.Forms.ComboBox();
+            this.bindingSourceUbicaciones = new System.Windows.Forms.BindingSource(this.components);
             this.labelNombreLocal = new System.Windows.Forms.Label();
             this.labelLocal = new System.Windows.Forms.Label();
             this.labelValoracionMedia = new System.Windows.Forms.Label();
@@ -40,6 +42,7 @@
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUbicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -84,14 +87,21 @@
             // 
             this.comboBoxCalles.AllowDrop = true;
             this.comboBoxCalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
+            this.comboBoxCalles.DataSource = this.bindingSourceUbicaciones;
+            this.comboBoxCalles.DisplayMember = "Ubicacion";
             this.comboBoxCalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCalles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxCalles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCalles.Font = new System.Drawing.Font("Figtree Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCalles.FormattingEnabled = true;
             this.comboBoxCalles.Location = new System.Drawing.Point(583, 48);
             this.comboBoxCalles.Name = "comboBoxCalles";
             this.comboBoxCalles.Size = new System.Drawing.Size(258, 28);
             this.comboBoxCalles.TabIndex = 2;
+            this.comboBoxCalles.ValueMember = "ID";
+            // 
+            // bindingSourceUbicaciones
+            // 
+            this.bindingSourceUbicaciones.DataSource = typeof(beat_on_jeans_escritorio.Models.Locales);
             // 
             // labelNombreLocal
             // 
@@ -210,6 +220,7 @@
             this.Name = "FormMaps";
             this.Text = "FormMaps";
             this.Load += new System.EventHandler(this.FormMaps_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUbicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -230,5 +241,6 @@
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.BindingSource bindingSourceUbicaciones;
     }
 }
