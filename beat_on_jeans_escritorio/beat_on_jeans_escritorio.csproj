@@ -61,6 +61,7 @@
       <HintPath>..\packages\System.Data.SqlClient.4.9.0\lib\net462\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -196,6 +197,7 @@
     <Compile Include="Models\Roles.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RolesOrm.cs" />
     <Compile Include="Models\Soporte.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
@@ -274,6 +276,7 @@
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Actuacion.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.ActuacionLocalOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Chats.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.dam05Entities.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Generos_Musicales.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Generos_Usuarios.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Locales.datasource" />
@@ -286,11 +289,9 @@
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Notificaciones.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Orm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Roles.datasource" />
-    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.RolesMovil.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Soporte.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.TicketsOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.TipoIncidencia.datasource" />
-    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.UsuarioCSharpOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.UsuarioMobil.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Usuarios.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.UsuariosCSharp.datasource" />
