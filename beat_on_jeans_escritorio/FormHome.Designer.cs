@@ -286,11 +286,11 @@ namespace beat_on_jeans_escritorio
             // 
             this.buttonSoporte.BackColor = System.Drawing.Color.White;
             this.buttonSoporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSoporte.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageEstadistica;
+            this.buttonSoporte.Image = global::beat_on_jeans_escritorio.Properties.Resources.soporte;
             this.buttonSoporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSoporte.Location = new System.Drawing.Point(-2, -20);
             this.buttonSoporte.Name = "buttonSoporte";
-            this.buttonSoporte.Padding = new System.Windows.Forms.Padding(35, 14, 150, 14);
+            this.buttonSoporte.Padding = new System.Windows.Forms.Padding(35, 14, 180, 14);
             this.buttonSoporte.Size = new System.Drawing.Size(375, 91);
             this.buttonSoporte.TabIndex = 8;
             this.buttonSoporte.Text = "Soporte";
