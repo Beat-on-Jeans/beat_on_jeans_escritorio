@@ -393,6 +393,7 @@
       <DependentUpon>ModelBoj.edmx</DependentUpon>
       <LastGenOutput>ModelBoj.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\maps1.png" />
     <None Include="Resources\soporte.png" />
     <None Include="Resources\icons8-mapa-de-apple-20.png" />
     <None Include="Resources\ubicacion.png" />

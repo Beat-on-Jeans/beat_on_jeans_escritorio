@@ -263,6 +263,16 @@ namespace beat_on_jeans_escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap maps1 {
+            get {
+                object obj = ResourceManager.GetObject("maps1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rectangle_35 {
             get {
                 object obj = ResourceManager.GetObject("Rectangle 35", resourceCulture);
