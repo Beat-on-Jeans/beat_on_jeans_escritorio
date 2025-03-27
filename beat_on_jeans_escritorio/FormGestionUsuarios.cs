@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -43,34 +44,67 @@ namespace beat_on_jeans_escritorio
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             rellenarUsuarios();
       
         }
 
-        private void rellenarUsuarios() 
+        private void rellenarUsuarios()
         {
-
             Roles _rol = (Roles)comboBoxRoles.SelectedItem;
+            if (_rol == null)
+            {
+                return;
+            }
+
             dataGridViewUsuarios.DataSource = _rol.Usuarios.ToList();
+
+            if (_rol.Nombre_Rol == "Musico")
+            {
+                var usuariosMusicos = UsuariosCSharpOrm.SelectMusicos();
+                dataGridViewUsuarios.DataSource = usuariosMusicos.ToList();
+
+                if (!dataGridViewUsuarios.Columns.Contains("Codigo_Postal"))
+                {
+                    dataGridViewUsuarios.Columns.Add("Codigo_Postal", "Código Postal");
+                }
+            }
+            else if (_rol.Nombre_Rol == "Local")
+            {
+                //var usuariosLocales = UsuariosCSharpOrm.SelectLocales();
+                //dataGridViewUsuarios.DataSource = usuariosLocales.ToList();
+
+                if (!dataGridViewUsuarios.Columns.Contains("Ubicación"))
+                {
+                    dataGridViewUsuarios.Columns.Add("Ubicacion", "Ubicación");
+                }
+            }
+
+            else
+            {
+                if (dataGridViewUsuarios.Columns.Contains("Codigo_Postal"))
+                {
+                    dataGridViewUsuarios.Columns.Remove("Codigo_Postal");
+                }
+            }
+        }
+
+        private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var dataBoundItem = dataGridViewUsuarios.Rows[e.RowIndex].DataBoundItem;
+
+            // Mostramos el codigo postal de Musicos
+            if (dataGridViewUsuarios.Columns[e.ColumnIndex].Name == "Codigo_Postal")
+            {
+                dynamic _usuario = dataBoundItem;
+                e.Value = _usuario.Codigo_Postal;
+            }
         }
 
         private void disenoGrid()
         {
             DataGridViewHome.ApplyDesign(dataGridViewUsuarios);
-
-            // Establecer el ancho fijo para todas las columnas
-            //int columnWidth = dataGridView2.Width / dataGridView2.ColumnCount;
-            //foreach (DataGridViewColumn column in dataGridView2.Columns)
-            //{
-            //    column.Width = columnWidth;
-            //}
         }
         private void disenoBotones()
         {
@@ -100,7 +134,10 @@ namespace beat_on_jeans_escritorio
         {
             
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -147,15 +184,6 @@ namespace beat_on_jeans_escritorio
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex == 1)
-            {
-                //Usuarios _usuario = (Usuarios)dataGridViewUsuarios.Rows[e.RowIndex].DataBoundItem;
-                //e.Value = _usuario.Roles.Nombre_Rol;
-            }
         }
     }
 }

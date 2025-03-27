@@ -64,7 +64,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(16, 55);
+            label1.Location = new System.Drawing.Point(12, 70);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(147, 22);
             label1.TabIndex = 10;
@@ -75,6 +75,7 @@
             this.comboBoxRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.comboBoxRoles.DataSource = this.bindingSourceRoles;
             this.comboBoxRoles.DisplayMember = "Nombre_Rol";
+            this.comboBoxRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRoles.FormattingEnabled = true;
@@ -97,7 +98,7 @@
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEliminar.ForeColor = System.Drawing.Color.White;
-            this.buttonEliminar.Location = new System.Drawing.Point(632, 275);
+            this.buttonEliminar.Location = new System.Drawing.Point(632, 271);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(107, 28);
             this.buttonEliminar.TabIndex = 3;
@@ -113,7 +114,7 @@
             this.buttonNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevoUsuario.ForeColor = System.Drawing.Color.White;
-            this.buttonNuevoUsuario.Location = new System.Drawing.Point(759, 17);
+            this.buttonNuevoUsuario.Location = new System.Drawing.Point(759, 29);
             this.buttonNuevoUsuario.Name = "buttonNuevoUsuario";
             this.buttonNuevoUsuario.Size = new System.Drawing.Size(167, 27);
             this.buttonNuevoUsuario.TabIndex = 4;
@@ -176,7 +177,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleNaranja;
-            this.pictureBox4.Location = new System.Drawing.Point(759, 10);
+            this.pictureBox4.Location = new System.Drawing.Point(759, 22);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(167, 42);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -186,7 +187,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::beat_on_jeans_escritorio.Properties.Resources.RectangleAzul;
-            this.pictureBox3.Location = new System.Drawing.Point(625, 268);
+            this.pictureBox3.Location = new System.Drawing.Point(625, 264);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(121, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -217,9 +218,9 @@
             // comboBoxBuscarUsuario
             // 
             this.comboBoxBuscarUsuario.FormattingEnabled = true;
-            this.comboBoxBuscarUsuario.Location = new System.Drawing.Point(169, 58);
+            this.comboBoxBuscarUsuario.Location = new System.Drawing.Point(169, 70);
             this.comboBoxBuscarUsuario.Name = "comboBoxBuscarUsuario";
-            this.comboBoxBuscarUsuario.Size = new System.Drawing.Size(752, 21);
+            this.comboBoxBuscarUsuario.Size = new System.Drawing.Size(757, 21);
             this.comboBoxBuscarUsuario.TabIndex = 13;
             this.comboBoxBuscarUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 

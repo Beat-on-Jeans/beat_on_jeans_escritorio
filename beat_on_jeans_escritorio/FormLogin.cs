@@ -89,6 +89,9 @@ namespace beat_on_jeans_escritorio
             return validar;
         }
 
-
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
