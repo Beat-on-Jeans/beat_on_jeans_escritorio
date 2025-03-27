@@ -58,6 +58,8 @@ namespace beat_on_jeans_escritorio
                 label1.Visible = true;
                 labelNombreUsuario.Visible = true;
                 label2.Visible = true;
+                buttonCerrarTicket.Visible = true;
+                pictureBox1.Visible = true;
             }
             catch (Exception ex)
             {
@@ -111,11 +113,27 @@ namespace beat_on_jeans_escritorio
             label1.Visible = false;
             labelNombreUsuario.Visible = false;
             label2.Visible = false;
+            buttonCerrarTicket.Visible = false;
+            pictureBox1.Visible = false;
         }
 
         private void gridBorderRedondos()
         {
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewTickets, 20);
+        }
+
+        private void buttonCerrarTicket_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Estás seguro de que quieres cerrar este ticket?",
+                                              "Confirmar cierre",
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes) 
+            { 
+                // Codigo para eliminar el ticket con el delete de la base de datos y actualizar el grid.
+            }
+
         }
     }
 }
