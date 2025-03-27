@@ -34,5 +34,29 @@ namespace beat_on_jeans_escritorio.Models
                 throw new Exception("Error al obtener tickets: " + ex.Message);
             }
         }
+
+        // En la clase TicketsOrm, añade este nuevo método
+        public static (string nombreUsuario, string nombreTecnico) GetNombresUsuarioYTecnico(int usuarioId, int tecnicoId)
+        {
+            try
+            {
+                using (var db = new dam05Entities())
+                {
+                    // Obtener nombre del usuario
+                    var usuario = db.Usuarios.FirstOrDefault(u => u.ID == usuarioId);
+                    string nombreUsuario = usuario?.Nombre ?? "Desconocido";
+
+                    // Obtener nombre del técnico
+                    var tecnico = db.Usuarios.FirstOrDefault(u => u.ID == tecnicoId);
+                    string nombreTecnico = tecnico?.Nombre ?? "Desconocido";
+
+                    return (nombreUsuario, nombreTecnico);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener nombres: " + ex.Message);
+            }
+        }
     }
 }

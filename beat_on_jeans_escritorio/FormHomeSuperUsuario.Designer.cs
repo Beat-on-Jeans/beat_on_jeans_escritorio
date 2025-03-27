@@ -39,15 +39,15 @@
             this.labelRegistros = new System.Windows.Forms.Label();
             this.labelLocales = new System.Windows.Forms.Label();
             this.dataGridViewMusicos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewUltimosRegistros = new System.Windows.Forms.DataGridView();
-            this.dataGridViewLocales = new System.Windows.Forms.DataGridView();
-            this.labelTickets = new System.Windows.Forms.Label();
-            this.dataGridViewTickets = new System.Windows.Forms.DataGridView();
             this.NombreMusico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewUltimosRegistros = new System.Windows.Forms.DataGridView();
+            this.dataGridViewLocales = new System.Windows.Forms.DataGridView();
             this.NombreLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValoracionMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelTickets = new System.Windows.Forms.Label();
+            this.dataGridViewTickets = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tecnico_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,7 +119,7 @@
             this.CodigoPostal});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(150)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -137,6 +137,22 @@
             this.dataGridViewMusicos.RowTemplate.Height = 24;
             this.dataGridViewMusicos.Size = new System.Drawing.Size(416, 225);
             this.dataGridViewMusicos.TabIndex = 9;
+            // 
+            // NombreMusico
+            // 
+            this.NombreMusico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombreMusico.FillWeight = 150F;
+            this.NombreMusico.HeaderText = "Nombre del Músico";
+            this.NombreMusico.Name = "NombreMusico";
+            this.NombreMusico.ReadOnly = true;
+            // 
+            // CodigoPostal
+            // 
+            this.CodigoPostal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CodigoPostal.FillWeight = 150F;
+            this.CodigoPostal.HeaderText = "Codigo Postal";
+            this.CodigoPostal.Name = "CodigoPostal";
+            this.CodigoPostal.ReadOnly = true;
             // 
             // dataGridViewUltimosRegistros
             // 
@@ -175,7 +191,7 @@
             this.Ubicacion});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(150)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -193,6 +209,30 @@
             this.dataGridViewLocales.RowTemplate.Height = 24;
             this.dataGridViewLocales.Size = new System.Drawing.Size(416, 251);
             this.dataGridViewLocales.TabIndex = 11;
+            // 
+            // NombreLocal
+            // 
+            this.NombreLocal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombreLocal.FillWeight = 150F;
+            this.NombreLocal.HeaderText = "Nombre del local";
+            this.NombreLocal.Name = "NombreLocal";
+            this.NombreLocal.ReadOnly = true;
+            // 
+            // ValoracionMedia
+            // 
+            this.ValoracionMedia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ValoracionMedia.FillWeight = 150F;
+            this.ValoracionMedia.HeaderText = "Valoración media";
+            this.ValoracionMedia.Name = "ValoracionMedia";
+            this.ValoracionMedia.ReadOnly = true;
+            // 
+            // Ubicacion
+            // 
+            this.Ubicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ubicacion.FillWeight = 150F;
+            this.Ubicacion.HeaderText = "Ubicación";
+            this.Ubicacion.Name = "Ubicacion";
+            this.Ubicacion.ReadOnly = true;
             // 
             // labelTickets
             // 
@@ -233,7 +273,7 @@
             this.Fecha_Cierre});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(150)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -252,57 +292,17 @@
             this.dataGridViewTickets.Size = new System.Drawing.Size(474, 251);
             this.dataGridViewTickets.TabIndex = 13;
             // 
-            // NombreMusico
-            // 
-            this.NombreMusico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreMusico.FillWeight = 150F;
-            this.NombreMusico.HeaderText = "Nombre del Músico";
-            this.NombreMusico.Name = "NombreMusico";
-            this.NombreMusico.ReadOnly = true;
-            // 
-            // CodigoPostal
-            // 
-            this.CodigoPostal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CodigoPostal.FillWeight = 150F;
-            this.CodigoPostal.HeaderText = "Codigo Postal";
-            this.CodigoPostal.Name = "CodigoPostal";
-            this.CodigoPostal.ReadOnly = true;
-            // 
-            // NombreLocal
-            // 
-            this.NombreLocal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreLocal.FillWeight = 150F;
-            this.NombreLocal.HeaderText = "Nombre del local";
-            this.NombreLocal.Name = "NombreLocal";
-            this.NombreLocal.ReadOnly = true;
-            // 
-            // ValoracionMedia
-            // 
-            this.ValoracionMedia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ValoracionMedia.FillWeight = 150F;
-            this.ValoracionMedia.HeaderText = "Valoración media";
-            this.ValoracionMedia.Name = "ValoracionMedia";
-            this.ValoracionMedia.ReadOnly = true;
-            // 
-            // Ubicacion
-            // 
-            this.Ubicacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ubicacion.FillWeight = 150F;
-            this.Ubicacion.HeaderText = "Ubicación";
-            this.Ubicacion.Name = "Ubicacion";
-            this.Ubicacion.ReadOnly = true;
-            // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.FillWeight = 150F;
+            this.ID.FillWeight = 90F;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
             // Usuario_ID
             // 
-            this.Usuario_ID.FillWeight = 150F;
+            this.Usuario_ID.FillWeight = 90F;
             this.Usuario_ID.HeaderText = "ID Usuario";
             this.Usuario_ID.Name = "Usuario_ID";
             this.Usuario_ID.ReadOnly = true;
