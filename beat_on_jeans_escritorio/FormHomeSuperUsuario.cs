@@ -55,17 +55,6 @@ namespace beat_on_jeans_escritorio
                 // Configurar el DataGridView
                 dataGridViewTickets.AutoGenerateColumns = false;
                 dataGridViewTickets.DataSource = tickets;
-                dataGridViewTickets.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                // Configurar las columnas si no están configuradas en el diseñador
-                if (dataGridViewTickets.Columns.Count == 0)
-                {
-                    dataGridViewTickets.Columns.Add("ID", "ID");
-                    dataGridViewTickets.Columns.Add("Usuario_ID", "ID Usuario");
-                    dataGridViewTickets.Columns.Add("Tecnico_ID", "ID Técnico");
-                    dataGridViewTickets.Columns.Add("TipoIncidencia", "Tipo de Incidencia");
-                    dataGridViewTickets.Columns.Add("Fecha_Creacion", "Fecha Creación");
-                    dataGridViewTickets.Columns.Add("Fecha_Cierre", "Fecha Cierre");
 
                     // Configurar las propiedades de las columnas
                     dataGridViewTickets.Columns["ID"].DataPropertyName = "ID";
@@ -78,10 +67,9 @@ namespace beat_on_jeans_escritorio
                     // Formato de fechas
                     dataGridViewTickets.Columns["Fecha_Creacion"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
                     dataGridViewTickets.Columns["Fecha_Cierre"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-                }
+                
 
                 // Configuración de visualización
-                dataGridViewTickets.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridViewTickets.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 dataGridViewTickets.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
@@ -105,18 +93,14 @@ namespace beat_on_jeans_escritorio
                 dataGridViewMusicos.AutoGenerateColumns = false;
                 dataGridViewMusicos.DataSource = datosMusicos;
 
-                dataGridViewMusicos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                // Configurar las columnas para que usen las propiedades correctas
+                dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "NombreMusico";
+                dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "CodigoPostal";
 
-                // Configurar las columnas (si no están configuradas en el diseñador)
-                if (dataGridViewMusicos.Columns.Count == 0)
-                {
-                    dataGridViewMusicos.Columns.Add("NombreMusico", "Nombre del Músico");
-                    dataGridViewMusicos.Columns.Add("CodigoPostal", "Codigo Postal");
+                // Configuración de visualización
+                dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                    // Configurar las columnas para que usen las propiedades correctas
-                    dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "NombreMusico";
-                    dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "CodigoPostal";
-                }
             }
             catch (Exception ex)
             {
@@ -136,32 +120,13 @@ namespace beat_on_jeans_escritorio
                 dataGridViewLocales.AutoGenerateColumns = false;
                 dataGridViewLocales.DataSource = datosLocales;
 
-                // Configuración de visualización mejorada
-                dataGridViewLocales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                dataGridViewLocales.Columns["NombreLocal"].DataPropertyName = "NombreLocal";
+                dataGridViewLocales.Columns["ValoracionMedia"].DataPropertyName = "ValoracionMedia";
+                dataGridViewLocales.Columns["Ubicacion"].DataPropertyName = "Ubicacion";
+
+                // Configuración de visualización
                 dataGridViewLocales.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 dataGridViewLocales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                if (dataGridViewLocales.Columns.Count == 0)
-                {
-                    dataGridViewLocales.Columns.Add("NombreLocal", "Nombre del Local");
-                    dataGridViewLocales.Columns.Add("ValoracionMedia", "Valoración Media");
-                    dataGridViewLocales.Columns.Add("Ubicacion", "Ubicación");
-
-                    dataGridViewLocales.Columns["NombreLocal"].DataPropertyName = "NombreLocal";
-                    dataGridViewLocales.Columns["ValoracionMedia"].DataPropertyName = "ValoracionMedia";
-                    dataGridViewLocales.Columns["Ubicacion"].DataPropertyName = "Ubicacion";
-
-                    // Configuración individual de columnas
-                    dataGridViewLocales.Columns["NombreLocal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridViewLocales.Columns["ValoracionMedia"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    dataGridViewLocales.Columns["Ubicacion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-
-                    // Formato para valoración
-                    dataGridViewLocales.Columns["ValoracionMedia"].DefaultCellStyle.Format = "N1";
-                    dataGridViewLocales.Columns["ValoracionMedia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                    
-                }
             }
             catch (Exception ex)
             {
