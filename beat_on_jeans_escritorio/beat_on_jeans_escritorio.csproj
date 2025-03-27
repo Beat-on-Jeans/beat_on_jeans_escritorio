@@ -248,6 +248,9 @@
     <EmbeddedResource Include="FormMaps.resx">
       <DependentUpon>FormMaps.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSoporte.resx">
+      <DependentUpon>FormSoporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
