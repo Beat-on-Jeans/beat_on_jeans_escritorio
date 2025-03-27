@@ -139,6 +139,12 @@
     <Compile Include="FormMaps.Designer.cs">
       <DependentUpon>FormMaps.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSoporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSoporte.Designer.cs">
+      <DependentUpon>FormSoporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Geocoder.cs" />
     <Compile Include="Models\Actuacion.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
@@ -383,8 +389,7 @@
       <DependentUpon>ModelBoj.edmx</DependentUpon>
       <LastGenOutput>ModelBoj.cs</LastGenOutput>
     </Content>
-    <Content Include="Resources\estrellaCompleta.png" />
-    <Content Include="Resources\estrellaMitad.png" />
+    <None Include="Resources\soporte.png" />
     <None Include="Resources\icons8-mapa-de-apple-20.png" />
     <None Include="Resources\ubicacion.png" />
     <None Include="Resources\maps.png" />
