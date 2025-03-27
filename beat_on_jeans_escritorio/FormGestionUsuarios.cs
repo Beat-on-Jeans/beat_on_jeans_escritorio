@@ -104,7 +104,7 @@ namespace beat_on_jeans_escritorio
 
         private void disenoGrid()
         {
-            DataGridViewHome.ApplyDesign(dataGridViewUsuarios);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewUsuarios, 20);
         }
         private void disenoBotones()
         {
