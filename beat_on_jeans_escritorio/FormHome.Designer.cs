@@ -200,6 +200,7 @@ namespace beat_on_jeans_escritorio
             this.buttonSoporte.TabIndex = 8;
             this.buttonSoporte.Text = "Soporte";
             this.buttonSoporte.UseVisualStyleBackColor = false;
+            this.buttonSoporte.Click += new System.EventHandler(this.buttonSoporte_Click);
             // 
             // panel4
             // 
@@ -266,6 +267,7 @@ namespace beat_on_jeans_escritorio
             this.buttonMapa.TabIndex = 8;
             this.buttonMapa.Text = "Mapa";
             this.buttonMapa.UseVisualStyleBackColor = false;
+            this.buttonMapa.Click += new System.EventHandler(this.buttonMapa_Click);
             // 
             // panel6
             // 

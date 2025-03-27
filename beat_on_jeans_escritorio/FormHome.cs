@@ -192,14 +192,16 @@ namespace beat_on_jeans_escritorio
             login.Show();
         }
 
-        private void buttonNotificaciones_Click(object sender, EventArgs e)
-        {
-            CargarFormulario(new FormMaps());
-        }
+        
 
         private void buttonSoporte_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormSoporte());
+        }
+
+        private void buttonMapa_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FormMaps());
         }
     }
 }
