@@ -48,6 +48,9 @@
     <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
       <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -137,6 +140,13 @@
     <Compile Include="FormMaps.Designer.cs">
       <DependentUpon>FormMaps.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSoporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSoporte.Designer.cs">
+      <DependentUpon>FormSoporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Geocoder.cs" />
     <Compile Include="Models\Actuacion.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
@@ -153,6 +163,7 @@
     <Compile Include="Models\Locales.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocalesMapsOrm.cs" />
     <Compile Include="Models\Matches.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
@@ -177,6 +188,8 @@
     <Compile Include="Models\Musicos.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LocalesOrm.cs" />
+    <Compile Include="Models\MusicosOrm.cs" />
     <Compile Include="Models\Notificaciones.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
@@ -188,6 +201,7 @@
     <Compile Include="Models\Soporte.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TicketsOrm.cs" />
     <Compile Include="Models\TipoIncidencia.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
@@ -253,6 +267,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelBoj.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Fonts\Figtree.ttf" />
+    <None Include="Fonts\Poppins-Bold.ttf" />
     <None Include="Models\ModelBoj.edmx.diagram">
       <DependentUpon>ModelBoj.edmx</DependentUpon>
     </None>
@@ -264,13 +280,17 @@
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Generos_Musicales.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Generos_Usuarios.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Locales.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.LocalesMapsOrm.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.LocalesOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Matches.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Mensajes.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Musicos.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.MusicosOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Notificaciones.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Orm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Roles.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Soporte.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.TicketsOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.TipoIncidencia.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.UsuarioMobil.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Usuarios.datasource" />
@@ -370,6 +390,10 @@
       <DependentUpon>ModelBoj.edmx</DependentUpon>
       <LastGenOutput>ModelBoj.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\soporte.png" />
+    <None Include="Resources\icons8-mapa-de-apple-20.png" />
+    <None Include="Resources\ubicacion.png" />
+    <None Include="Resources\maps.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

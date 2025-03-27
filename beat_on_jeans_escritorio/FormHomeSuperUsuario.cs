@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +24,117 @@ namespace beat_on_jeans_escritorio
         private void FormHomeSuperUsuario_Load(object sender, EventArgs e)
         {
             gridBordesRedondos();
-            cargarDatosMusicos();
             cargarDatosLocales();
+            cargarDatosMusicos();
             cargarDatosTickets();
+            cargarJsonRegistro();
             configurarFondoContenidoGrid();
+            autoSeleccionarGrid();
+        }
+
+        private void autoSeleccionarGrid()
+        {
+            dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewLocales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTickets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewUltimosRegistros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void cargarJsonRegistro()
+        {
+            
+        }
+
+        private void cargarDatosTickets()
+        {
+            try
+            {
+                // Obtener los datos de los tickets con el tipo de incidencia
+                var tickets = TicketsOrm.SelectTicketsWithIncidentType();
+
+                // Configurar el DataGridView
+                dataGridViewTickets.AutoGenerateColumns = false;
+                dataGridViewTickets.DataSource = tickets;
+
+                    // Configurar las propiedades de las columnas
+                    dataGridViewTickets.Columns["ID"].DataPropertyName = "ID";
+                    dataGridViewTickets.Columns["Usuario_ID"].DataPropertyName = "Usuario_ID";
+                    dataGridViewTickets.Columns["Tecnico_ID"].DataPropertyName = "Tecnico_ID";
+                    dataGridViewTickets.Columns["TipoIncidencia"].DataPropertyName = "TipoIncidencia";
+                    dataGridViewTickets.Columns["Fecha_Creacion"].DataPropertyName = "Fecha_Creacion";
+                    dataGridViewTickets.Columns["Fecha_Cierre"].DataPropertyName = "Fecha_Cierre";
+
+                    // Formato de fechas
+                    dataGridViewTickets.Columns["Fecha_Creacion"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                    dataGridViewTickets.Columns["Fecha_Cierre"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                
+
+                // Configuración de visualización
+                dataGridViewTickets.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridViewTickets.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los tickets: " + ex.Message,
+                              "Error",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Error);
+            }
+        }
+
+        private void cargarDatosMusicos()
+        {
+            try
+            {
+                // Obtener los datos de los locales
+                var datosMusicos = MusicosOrm.SelectMusicosInfo();
+
+                // Configurar el DataGridView
+                dataGridViewMusicos.AutoGenerateColumns = false;
+                dataGridViewMusicos.DataSource = datosMusicos;
+
+                // Configurar las columnas para que usen las propiedades correctas
+                dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "NombreMusico";
+                dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "CodigoPostal";
+
+                // Configuración de visualización
+                dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de locales: " + ex.Message,
+                               "Error",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
+        }
+
+        private void cargarDatosLocales()
+        {
+            try
+            {
+                var datosLocales = LocalesOrm.SelectLocalesInfo();
+
+                dataGridViewLocales.AutoGenerateColumns = false;
+                dataGridViewLocales.DataSource = datosLocales;
+
+                dataGridViewLocales.Columns["NombreLocal"].DataPropertyName = "NombreLocal";
+                dataGridViewLocales.Columns["ValoracionMedia"].DataPropertyName = "ValoracionMedia";
+                dataGridViewLocales.Columns["Ubicacion"].DataPropertyName = "Ubicacion";
+
+                // Configuración de visualización
+                dataGridViewLocales.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridViewLocales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de locales: " + ex.Message,
+                               "Error",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
         }
 
         private void configurarFondoContenidoGrid()
@@ -37,80 +146,16 @@ namespace beat_on_jeans_escritorio
             dataGridViewMusicos.BackgroundColor = colorFondo;
             dataGridViewLocales.BackgroundColor = colorFondo;
             dataGridViewTickets.BackgroundColor = colorFondo;
+            dataGridViewUltimosRegistros.BackgroundColor = colorFondo;
 
             // Configurar el color de fondo de las celdas
             dataGridViewMusicos.DefaultCellStyle.BackColor = colorFondo;
             dataGridViewLocales.DefaultCellStyle.BackColor = colorFondo;
             dataGridViewTickets.DefaultCellStyle.BackColor = colorFondo;
-
-            // Configurar el color de fondo de las filas alternas (si las hay)
-            dataGridViewMusicos.AlternatingRowsDefaultCellStyle.BackColor = colorFondo;
-            dataGridViewLocales.AlternatingRowsDefaultCellStyle.BackColor = colorFondo;
-            dataGridViewTickets.AlternatingRowsDefaultCellStyle.BackColor = colorFondo;
+            dataGridViewUltimosRegistros.DefaultCellStyle.BackColor = colorFondo;
         }
 
-        private void cargarDatosTickets()
-        {
-            // Obtener la lista de tickets de soporte desde la base de datos
-          //  List<Soporte> tickets = SoporteOrm.Select();
-
-            // Asignar la lista de tickets al DataGridView
-           // dataGridViewTickets.DataSource = tickets;
-
-            // Hacer que el DataGridView sea de solo lectura
-            dataGridViewTickets.ReadOnly = true;
-
-            // Configurar el DataGridView para que genere automáticamente las columnas
-            dataGridViewTickets.AutoGenerateColumns = true;
-
-            // Asegurarse de que las columnas estén visibles
-            foreach (DataGridViewColumn column in dataGridViewTickets.Columns)
-            {
-                column.Visible = true;
-            }
-        }
-
-        private void cargarDatosLocales()
-        {
-            // Obtener la lista de locales desde la base de datos
-           // List<Locales> locales = LocalOrm.Select();
-
-            // Asignar la lista de locales al DataGridView
-           // dataGridViewLocales.DataSource = locales;
-
-            // Hacer que el DataGridView sea de solo lectura
-            dataGridViewLocales.ReadOnly = true;
-
-            // Configurar el DataGridView para que genere automáticamente las columnas
-            dataGridViewLocales.AutoGenerateColumns = true;
-
-            // Asegurarse de que las columnas estén visibles
-            foreach (DataGridViewColumn column in dataGridViewLocales.Columns)
-            {
-                column.Visible = true;
-            }
-        }
-
-        private void cargarDatosMusicos()
-        {
-            // Obtener la lista de músicos desde la base de datos
-           // List<Musicos> musicos = MusicoOrm.Select();
-
-            // Asignar la lista de músicos al DataGridView
-           // dataGridViewMusicos.DataSource = musicos;
-
-            // Hacer que el DataGridView sea de solo lectura
-            dataGridViewMusicos.ReadOnly = true;
-
-            // Configurar el DataGridView para que genere automáticamente las columnas
-            dataGridViewMusicos.AutoGenerateColumns = true;
-
-            // Asegurarse de que las columnas estén visibles
-            foreach (DataGridViewColumn column in dataGridViewMusicos.Columns)
-            {
-                column.Visible = true;
-            }
-        }
+        
 
         private void gridBordesRedondos()
         {
@@ -118,6 +163,7 @@ namespace beat_on_jeans_escritorio
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewMusicos, 20);
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewLocales, 20);
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewTickets, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewUltimosRegistros, 20);
         }
     }
 }

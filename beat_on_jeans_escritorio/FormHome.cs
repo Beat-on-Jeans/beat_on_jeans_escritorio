@@ -71,9 +71,9 @@ namespace beat_on_jeans_escritorio
             if (usuarioActual.ROL_ID == 3) // Superusuario
             {
                 buttonHome.Enabled = true;
-                buttonEstadisticas.Enabled = true;
+                buttonSoporte.Enabled = true;
                 buttonRegistro.Enabled = true;
-                buttonNotificaciones.Enabled = true;
+                buttonMapa.Enabled = true;
                 buttonEventos.Enabled = true;
                 buttonGestionUsuarios.Enabled = true;
                 buttonConfiguracion.Enabled = true;
@@ -82,9 +82,9 @@ namespace beat_on_jeans_escritorio
             else if (usuarioActual.ROL_ID == 4) // Usuario normal
             {
                 buttonHome.Enabled = true;
-                buttonEstadisticas.Enabled = true;
+                buttonSoporte.Enabled = true;
                 buttonRegistro.Enabled = true;
-                buttonNotificaciones.Enabled = true;
+                buttonMapa.Enabled = true;
                 buttonEventos.Enabled = true;
                 buttonGestionUsuarios.Enabled = false;
                 buttonConfiguracion.Enabled = true;
@@ -92,9 +92,9 @@ namespace beat_on_jeans_escritorio
             else // Rol básico
             {
                 buttonHome.Enabled = true;
-                buttonEstadisticas.Enabled = true;
+                buttonSoporte.Enabled = true;
                 buttonRegistro.Enabled = true;
-                buttonNotificaciones.Enabled = true;
+                buttonMapa.Enabled = true;
                 buttonEventos.Enabled = true;
                 buttonGestionUsuarios.Enabled = false;
                 buttonConfiguracion.Enabled = true;
@@ -152,9 +152,9 @@ namespace beat_on_jeans_escritorio
         private void hoverBotones()
         {
             PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxEstadistica, buttonEstadisticas);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxEstadistica, buttonSoporte);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxRegistro, buttonRegistro);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonNotificaciones);
+            PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonMapa);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
@@ -190,6 +190,16 @@ namespace beat_on_jeans_escritorio
 
             FormLogin login = new FormLogin();
             login.Show();
+        }
+
+        private void buttonNotificaciones_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FormMaps());
+        }
+
+        private void buttonSoporte_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FormSoporte());
         }
     }
 }
