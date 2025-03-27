@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -19,6 +20,9 @@ namespace beat_on_jeans_escritorio
         {
             InitializeComponent();
 
+            //Ecoger los roles en la ComboBox
+            bindingSourceRoles.DataSource = RolesOrm.Select();
+
             comboBoxBuscarUsuario = new ComboBox();
             comboBoxBuscarUsuario.Location = new Point(50, 50);
             comboBoxBuscarUsuario.Width = 200;
@@ -35,49 +39,72 @@ namespace beat_on_jeans_escritorio
         {
             disenoBotones();
             disenoGrid();
-
-            // bindingSourceRoles.DataSource = RolesOrm.Select();
-            rellenarUsuariosRoles();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            rellenarUsuarios();
+            // Ajusta el tamaño de las columnas al ancho del DataGridView
+            dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rellenarUsuariosRoles();
+            rellenarUsuarios();
+      
         }
 
-        private void rellenarUsuariosRoles()
+        private void rellenarUsuarios()
         {
-            Roles _roles = comboBoxUsuarios.SelectedItem as Roles;
-            if (_roles != null)
+            Roles _rol = (Roles)comboBoxRoles.SelectedItem;
+            if (_rol == null)
             {
-                bindingSourceUsuariosCSharp.DataSource = _roles.UsuariosCSharp.ToList();
+                return;
             }
+
+            dataGridViewUsuarios.DataSource = _rol.Usuarios.ToList();
+
+            if (_rol.Nombre_Rol == "Musico")
+            {
+                var usuariosMusicos = UsuariosCSharpOrm.SelectMusicos();
+                dataGridViewUsuarios.DataSource = usuariosMusicos.ToList();
+
+                if (!dataGridViewUsuarios.Columns.Contains("Codigo_Postal"))
+                {
+                    dataGridViewUsuarios.Columns.Add("Codigo_Postal", "Código Postal");
+                }
+            }
+            else if (_rol.Nombre_Rol == "Local")
+            {
+                //var usuariosLocales = UsuariosCSharpOrm.SelectLocales();
+                //dataGridViewUsuarios.DataSource = usuariosLocales.ToList();
+
+                if (!dataGridViewUsuarios.Columns.Contains("Ubicación"))
+                {
+                    dataGridViewUsuarios.Columns.Add("Ubicacion", "Ubicación");
+                }
+            }
+
             else
             {
-                // Handle the case where _roles is null
-                bindingSourceUsuariosCSharp.DataSource = null;
+                if (dataGridViewUsuarios.Columns.Contains("Codigo_Postal"))
+                {
+                    dataGridViewUsuarios.Columns.Remove("Codigo_Postal");
+                }
             }
         }
+
+        private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var dataBoundItem = dataGridViewUsuarios.Rows[e.RowIndex].DataBoundItem;
+
+            // Mostramos el codigo postal de Musicos
+            if (dataGridViewUsuarios.Columns[e.ColumnIndex].Name == "Codigo_Postal")
+            {
+                dynamic _usuario = dataBoundItem;
+                e.Value = _usuario.Codigo_Postal;
+            }
+        }
+
         private void disenoGrid()
         {
-            DataGridViewHome.ApplyDesign(dataGridView2);
-
-            // Establecer el ancho fijo para todas las columnas
-            int columnWidth = dataGridView2.Width / dataGridView2.ColumnCount;
-            foreach (DataGridViewColumn column in dataGridView2.Columns)
-            {
-                column.Width = columnWidth;
-            }
+            DataGridViewHome.ApplyDesign(dataGridViewUsuarios);
         }
         private void disenoBotones()
         {
@@ -107,7 +134,10 @@ namespace beat_on_jeans_escritorio
         {
             
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -137,6 +167,21 @@ namespace beat_on_jeans_escritorio
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

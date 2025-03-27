@@ -155,7 +155,7 @@ namespace beat_on_jeans_escritorio
             // buttonHome
             // 
             this.buttonHome.BackColor = System.Drawing.Color.White;
-            this.buttonHome.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHome.ForeColor = System.Drawing.Color.Black;
             this.buttonHome.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageHome;
             this.buttonHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,20 +187,30 @@ namespace beat_on_jeans_escritorio
             this.pictureBoxEstadistica.TabIndex = 10;
             this.pictureBoxEstadistica.TabStop = false;
             // 
-            // buttonSoporte
+
+            // buttonEstadisticas
             // 
-            this.buttonSoporte.BackColor = System.Drawing.Color.White;
-            this.buttonSoporte.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSoporte.Image = global::beat_on_jeans_escritorio.Properties.Resources.soporte;
-            this.buttonSoporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSoporte.Location = new System.Drawing.Point(-2, -20);
-            this.buttonSoporte.Name = "buttonSoporte";
-            this.buttonSoporte.Padding = new System.Windows.Forms.Padding(35, 14, 180, 14);
-            this.buttonSoporte.Size = new System.Drawing.Size(375, 91);
-            this.buttonSoporte.TabIndex = 8;
-            this.buttonSoporte.Text = "Soporte";
-            this.buttonSoporte.UseVisualStyleBackColor = false;
-            this.buttonSoporte.Click += new System.EventHandler(this.buttonSoporte_Click);
+            this.buttonEstadisticas.BackColor = System.Drawing.Color.White;
+            this.buttonEstadisticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEstadisticas.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageEstadistica;
+            this.buttonEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEstadisticas.Location = new System.Drawing.Point(-2, -20);
+            this.buttonEstadisticas.Name = "buttonEstadisticas";
+            this.buttonEstadisticas.Padding = new System.Windows.Forms.Padding(35, 14, 150, 14);
+            this.buttonEstadisticas.Size = new System.Drawing.Size(375, 91);
+            this.buttonEstadisticas.TabIndex = 8;
+            this.buttonEstadisticas.Text = "Estadisticas";
+            this.buttonEstadisticas.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pictureBoxRegistro);
+            this.panel4.Controls.Add(this.buttonRegistro);
+            this.panel4.Location = new System.Drawing.Point(3, 220);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(301, 48);
+            this.panel4.TabIndex = 8;
+
             // 
             // panel4
             // 
@@ -224,7 +234,7 @@ namespace beat_on_jeans_escritorio
             // buttonRegistro
             // 
             this.buttonRegistro.BackColor = System.Drawing.Color.White;
-            this.buttonRegistro.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegistro.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageRegistro;
             this.buttonRegistro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRegistro.Location = new System.Drawing.Point(-2, -31);
@@ -254,20 +264,30 @@ namespace beat_on_jeans_escritorio
             this.pictureBoxNotificaciones.TabIndex = 10;
             this.pictureBoxNotificaciones.TabStop = false;
             // 
-            // buttonMapa
+
+            // buttonNotificaciones
             // 
-            this.buttonMapa.BackColor = System.Drawing.Color.White;
-            this.buttonMapa.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMapa.Image = global::beat_on_jeans_escritorio.Properties.Resources.icons8_mapa_de_apple_20;
-            this.buttonMapa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonMapa.Location = new System.Drawing.Point(-2, -24);
-            this.buttonMapa.Name = "buttonMapa";
-            this.buttonMapa.Padding = new System.Windows.Forms.Padding(35, 14, 195, 14);
-            this.buttonMapa.Size = new System.Drawing.Size(377, 100);
-            this.buttonMapa.TabIndex = 8;
-            this.buttonMapa.Text = "Mapa";
-            this.buttonMapa.UseVisualStyleBackColor = false;
-            this.buttonMapa.Click += new System.EventHandler(this.buttonNotificaciones_Click);
+            this.buttonNotificaciones.BackColor = System.Drawing.Color.White;
+            this.buttonNotificaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNotificaciones.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageNotificacion;
+            this.buttonNotificaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNotificaciones.Location = new System.Drawing.Point(-2, -24);
+            this.buttonNotificaciones.Name = "buttonNotificaciones";
+            this.buttonNotificaciones.Padding = new System.Windows.Forms.Padding(35, 14, 130, 14);
+            this.buttonNotificaciones.Size = new System.Drawing.Size(377, 100);
+            this.buttonNotificaciones.TabIndex = 8;
+            this.buttonNotificaciones.Text = "Notificaciones";
+            this.buttonNotificaciones.UseVisualStyleBackColor = false;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.pictureBoxEventos);
+            this.panel6.Controls.Add(this.buttonEventos);
+            this.panel6.Location = new System.Drawing.Point(3, 328);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(301, 48);
+            this.panel6.TabIndex = 8;
+
             // 
             // panel6
             // 
@@ -291,7 +311,7 @@ namespace beat_on_jeans_escritorio
             // buttonEventos
             // 
             this.buttonEventos.BackColor = System.Drawing.Color.White;
-            this.buttonEventos.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEventos.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageEvento;
             this.buttonEventos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEventos.Location = new System.Drawing.Point(-2, -34);
@@ -325,7 +345,7 @@ namespace beat_on_jeans_escritorio
             // buttonGestionUsuarios
             // 
             this.buttonGestionUsuarios.BackColor = System.Drawing.Color.White;
-            this.buttonGestionUsuarios.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGestionUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGestionUsuarios.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageUsuarios;
             this.buttonGestionUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGestionUsuarios.Location = new System.Drawing.Point(-2, -19);
@@ -359,7 +379,7 @@ namespace beat_on_jeans_escritorio
             // buttonConfiguracion
             // 
             this.buttonConfiguracion.BackColor = System.Drawing.Color.White;
-            this.buttonConfiguracion.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfiguracion.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageConf;
             this.buttonConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonConfiguracion.Location = new System.Drawing.Point(-2, -23);
@@ -435,7 +455,7 @@ namespace beat_on_jeans_escritorio
             // buttonLogOut
             // 
             this.buttonLogOut.BackColor = System.Drawing.Color.White;
-            this.buttonLogOut.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageLogOut;
             this.buttonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLogOut.Location = new System.Drawing.Point(-17, -24);
@@ -463,7 +483,10 @@ namespace beat_on_jeans_escritorio
             this.ClientSize = new System.Drawing.Size(1264, 682);
             this.Controls.Add(this.panelCargarForms);
             this.Controls.Add(this.sidebar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
