@@ -101,7 +101,7 @@
             // 
             // bindingSourceUbicaciones
             // 
-            this.bindingSourceUbicaciones.DataSource = typeof(beat_on_jeans_escritorio.Models.Locales);
+            this.bindingSourceUbicaciones.DataSource = typeof(beat_on_jeans_escritorio.Models.LocalesMapsOrm);
             // 
             // labelNombreLocal
             // 

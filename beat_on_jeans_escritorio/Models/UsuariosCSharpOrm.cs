@@ -52,26 +52,60 @@ namespace beat_on_jeans_escritorio.Models
             return usuario;
         }
 
+        /// <summary>
+        /// Select a la base de datos de los musicos.
+        /// </summary>
+        /// <returns></returns>
         public static List<dynamic> SelectMusicos()
         {
             using (var context = new dam05Entities())
             {
                 var query = from u in context.Usuarios
-                            join m in context.Musicos on u.ID equals m.Usuario_ID
                             join r in context.Roles on u.ROL_ID equals r.ID
+                            join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
+                            where u.ROL_ID == 1  // Filtro para solo músicos
                             select new
                             {
                                 u.ID,
                                 u.Nombre,
                                 u.Correo,
                                 u.Contrasena,
-                                u.ROL_ID,
-                                Codigo_Postal = m.Codigo_Postal,
-                                Nombre_Rol = r.Nombre_Rol
+                                Codigo_Postal = um.Ubicacion,
+                                Nombre_Rol = r.Nombre_Rol,
                             };
 
                 return query.ToList<dynamic>();
             }
         }
+
+        /// <summary>
+        /// Select de los locales a la base de datos.
+        /// </summary>
+        /// <returns></returns>
+        public static List<dynamic> SelectLocales()
+        {
+            using (var context = new dam05Entities())
+            {
+                var query = from u in context.Usuarios
+                            join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
+                            where u.ROL_ID == 2  // Filtro para solo locales
+                            select new
+                            {
+                                NombreLocal = u.Nombre,
+                                CorreoLocal = u.Correo,
+                                Ubicacion = um.Ubicacion,
+                                ValoracionMedia = um.ValoracionTotal,
+                                ID = u.ID  // Mantenemos el ID por si es necesario
+                            };
+
+                return query.ToList<dynamic>();
+            }
+        }
+
+
+
+
+
+
     }
 }
