@@ -45,8 +45,10 @@
             this.labelLocal = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.labelMusico = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -138,7 +140,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::beat_on_jeans_escritorio.Properties.Resources.arrowRight;
-            this.pictureBox2.Location = new System.Drawing.Point(207, 23);
+            this.pictureBox2.Location = new System.Drawing.Point(201, 23);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 33);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -171,7 +173,7 @@
             // 
             this.labelUbicacion.AutoSize = true;
             this.labelUbicacion.Font = new System.Drawing.Font("Figtree Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUbicacion.Location = new System.Drawing.Point(644, 156);
+            this.labelUbicacion.Location = new System.Drawing.Point(644, 149);
             this.labelUbicacion.Name = "labelUbicacion";
             this.labelUbicacion.Size = new System.Drawing.Size(115, 20);
             this.labelUbicacion.TabIndex = 12;
@@ -181,7 +183,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Figtree", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(644, 263);
+            this.label10.Location = new System.Drawing.Point(644, 233);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 23);
             this.label10.TabIndex = 13;
@@ -191,7 +193,7 @@
             // 
             this.labelLocal.AutoSize = true;
             this.labelLocal.Font = new System.Drawing.Font("Figtree Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLocal.Location = new System.Drawing.Point(644, 294);
+            this.labelLocal.Location = new System.Drawing.Point(644, 264);
             this.labelLocal.Name = "labelLocal";
             this.labelLocal.Size = new System.Drawing.Size(75, 18);
             this.labelLocal.TabIndex = 14;
@@ -201,7 +203,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Figtree", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(644, 403);
+            this.label12.Location = new System.Drawing.Point(644, 327);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 23);
             this.label12.TabIndex = 15;
@@ -211,11 +213,21 @@
             // 
             this.labelMusico.AutoSize = true;
             this.labelMusico.Font = new System.Drawing.Font("Figtree Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMusico.Location = new System.Drawing.Point(644, 432);
+            this.labelMusico.Location = new System.Drawing.Point(644, 356);
             this.labelMusico.Name = "labelMusico";
             this.labelMusico.Size = new System.Drawing.Size(88, 18);
             this.labelMusico.TabIndex = 16;
             this.labelMusico.Text = "labelMusico";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNaranja;
+            this.pictureBox3.Location = new System.Drawing.Point(4, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(929, 608);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 17;
+            this.pictureBox3.TabStop = false;
             // 
             // FormCalendario
             // 
@@ -240,12 +252,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCalendario";
             this.Text = "FormCalendario";
             this.Load += new System.EventHandler(this.FormCalendario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +284,6 @@
         private System.Windows.Forms.Label labelLocal;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label labelMusico;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

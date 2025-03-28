@@ -31,22 +31,20 @@ namespace beat_on_jeans_escritorio.Models
                 try
                 {
                     return db.Actuacion
-                           .Include(a => a.UsuarioMobil)     // Relación con el Local (UsuarioMobil_L)
-                           .Include(a => a.UsuarioMobil1)    // Relación con el Músico (UsuarioMobil_M)
-                           .Include(a => a.UsuarioMobil.Usuarios)  // Datos del Local
-                           .Include(a => a.UsuarioMobil1.Usuarios) // Datos del Músico
+                           .Include(a => a.UsuarioMobil)     // Relación con el Local (UsuarioMobil_Local_ID)
+                           .Include(a => a.UsuarioMobil.Usuarios)  // Datos del usuario Local
+                           .Include(a => a.UsuarioMobil1)    // Relación con el Músico (UsuarioMobil_Musico_ID)
+                           .Include(a => a.UsuarioMobil1.Usuarios) // Datos del usuario Músico
                            .Where(a => DbFunctions.TruncateTime(a.Fecha) == fecha.Date)
                            .Select(a => new
                            {
                                FechaActuacion = a.Fecha,
-                               UbicacionLocal = a.UsuarioMobil.Ubicacion,
+                               // Asegurando que obtenemos la ubicación del LOCAL (ROL_ID=2)
+                               UbicacionLocal = a.UsuarioMobil.Usuarios.ROL_ID == 2 ?
+                                              a.UsuarioMobil.Ubicacion :
+                                              a.UsuarioMobil1.Ubicacion,
                                NombreLocal = a.UsuarioMobil.Usuarios.Nombre,
-                               NombreMusico = a.UsuarioMobil1.Usuarios.Nombre,
-                               // Campos adicionales que podrían ser útiles:
-                               ImagenLocal = a.UsuarioMobil.Url_Imagen,
-                               ImagenMusico = a.UsuarioMobil1.Url_Imagen,
-                               ValoracionLocal = a.UsuarioMobil.ValoracionTotal,
-                               ValoracionMusico = a.UsuarioMobil1.ValoracionTotal
+                               NombreMusico = a.UsuarioMobil1.Usuarios.Nombre
                            })
                            .ToList<dynamic>();
                 }

@@ -56,17 +56,17 @@ namespace beat_on_jeans_escritorio
                 dataGridViewTickets.AutoGenerateColumns = false;
                 dataGridViewTickets.DataSource = tickets;
 
-                    // Configurar las propiedades de las columnas
-                    dataGridViewTickets.Columns["ID"].DataPropertyName = "ID";
-                    dataGridViewTickets.Columns["Usuario_ID"].DataPropertyName = "Usuario_ID";
-                    dataGridViewTickets.Columns["Tecnico_ID"].DataPropertyName = "Tecnico_ID";
-                    dataGridViewTickets.Columns["TipoIncidencia"].DataPropertyName = "TipoIncidencia";
-                    dataGridViewTickets.Columns["Fecha_Creacion"].DataPropertyName = "Fecha_Creacion";
-                    dataGridViewTickets.Columns["Fecha_Cierre"].DataPropertyName = "Fecha_Cierre";
+                // Configurar las propiedades de las columnas
+                dataGridViewTickets.Columns["ID"].DataPropertyName = "ID";
+                dataGridViewTickets.Columns["Usuario_ID"].DataPropertyName = "Usuario_ID";
+                dataGridViewTickets.Columns["Tecnico_ID"].DataPropertyName = "Tecnico_ID";
+                dataGridViewTickets.Columns["TipoIncidencia"].DataPropertyName = "TipoIncidencia";
+                dataGridViewTickets.Columns["Fecha_Creacion"].DataPropertyName = "Fecha_Creacion";
+                dataGridViewTickets.Columns["Fecha_Cierre"].DataPropertyName = "Fecha_Cierre";
 
-                    // Formato de fechas
-                    dataGridViewTickets.Columns["Fecha_Creacion"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-                    dataGridViewTickets.Columns["Fecha_Cierre"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                // Formato de fechas
+                dataGridViewTickets.Columns["Fecha_Creacion"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                dataGridViewTickets.Columns["Fecha_Cierre"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
                 
 
                 // Configuración de visualización
