@@ -160,9 +160,7 @@
     <Compile Include="Models\Generos_Usuarios.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Locales.cs">
-      <DependentUpon>ModelBoj.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\HomeSuperUsuarioOrm.cs" />
     <Compile Include="Models\LocalesMapsOrm.cs" />
     <Compile Include="Models\Matches.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
@@ -185,11 +183,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelBoj.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Musicos.cs">
-      <DependentUpon>ModelBoj.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocalesOrm.cs" />
-    <Compile Include="Models\MusicosOrm.cs" />
     <Compile Include="Models\Notificaciones.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>

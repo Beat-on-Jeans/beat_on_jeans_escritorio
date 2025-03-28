@@ -31,17 +31,22 @@ namespace beat_on_jeans_escritorio.Models
                 try
                 {
                     return db.Actuacion
-                           .Include(a => a.Locales)
-                           .Include(a => a.Musicos)
-                           .Include(a => a.Musicos.UsuarioMobil)
-                           .Include(a => a.Musicos.UsuarioMobil.Usuarios)
+                           .Include(a => a.UsuarioMobil)     // Relación con el Local (UsuarioMobil_L)
+                           .Include(a => a.UsuarioMobil1)    // Relación con el Músico (UsuarioMobil_M)
+                           .Include(a => a.UsuarioMobil.Usuarios)  // Datos del Local
+                           .Include(a => a.UsuarioMobil1.Usuarios) // Datos del Músico
                            .Where(a => DbFunctions.TruncateTime(a.Fecha) == fecha.Date)
                            .Select(a => new
                            {
                                FechaActuacion = a.Fecha,
-                               NombreMusico = a.Musicos.UsuarioMobil.Usuarios.Nombre,
-                               NombreLocal = a.Locales.UsuarioMobil.Usuarios.Nombre, // Nombre del local
-                               DireccionLocal = a.Locales.Ubicacion // Dirección del local
+                               UbicacionLocal = a.UsuarioMobil.Ubicacion,
+                               NombreLocal = a.UsuarioMobil.Usuarios.Nombre,
+                               NombreMusico = a.UsuarioMobil1.Usuarios.Nombre,
+                               // Campos adicionales que podrían ser útiles:
+                               ImagenLocal = a.UsuarioMobil.Url_Imagen,
+                               ImagenMusico = a.UsuarioMobil1.Url_Imagen,
+                               ValoracionLocal = a.UsuarioMobil.ValoracionTotal,
+                               ValoracionMusico = a.UsuarioMobil1.ValoracionTotal
                            })
                            .ToList<dynamic>();
                 }

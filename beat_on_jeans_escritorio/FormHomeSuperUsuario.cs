@@ -87,7 +87,7 @@ namespace beat_on_jeans_escritorio
             try
             {
                 // Obtener los datos de los locales
-                var datosMusicos = MusicosOrm.SelectMusicosInfo();
+                var datosMusicos = HomeSuperUsuarioOrm.SelectMusicos();
 
                 // Configurar el DataGridView
                 dataGridViewMusicos.AutoGenerateColumns = false;
@@ -95,7 +95,9 @@ namespace beat_on_jeans_escritorio
 
                 // Configurar las columnas para que usen las propiedades correctas
                 dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "NombreMusico";
+                dataGridViewMusicos.Columns["CorreoMusico"].DataPropertyName = "CorreoMusico";
                 dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "CodigoPostal";
+
 
                 // Configuración de visualización
                 dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -115,14 +117,16 @@ namespace beat_on_jeans_escritorio
         {
             try
             {
-                var datosLocales = LocalesOrm.SelectLocalesInfo();
+                var datosLocales = HomeSuperUsuarioOrm.SelectLocales();
 
                 dataGridViewLocales.AutoGenerateColumns = false;
                 dataGridViewLocales.DataSource = datosLocales;
 
                 dataGridViewLocales.Columns["NombreLocal"].DataPropertyName = "NombreLocal";
-                dataGridViewLocales.Columns["ValoracionMedia"].DataPropertyName = "ValoracionMedia";
+                dataGridViewLocales.Columns["CorreoLocal"].DataPropertyName = "CorreoLocal";
                 dataGridViewLocales.Columns["Ubicacion"].DataPropertyName = "Ubicacion";
+                dataGridViewLocales.Columns["ValoracionTotal"].DataPropertyName = "ValoracionTotal";
+
 
                 // Configuración de visualización
                 dataGridViewLocales.DefaultCellStyle.WrapMode = DataGridViewTriState.True;

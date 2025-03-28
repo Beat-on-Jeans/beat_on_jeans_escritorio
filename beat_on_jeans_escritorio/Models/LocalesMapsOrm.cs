@@ -7,19 +7,25 @@ namespace beat_on_jeans_escritorio.Models
 {
     class LocalesMapsOrm
     {
-        // Método para obtener ubicaciones únicas
+        /// <summary>
+        /// Select para seleccionar las ubicaciones de los locales
+        /// </summary>
+        /// <returns></returns>
         public static List<string> SelectUbicacionesLocales()
         {
             try
             {
                 using (var context = new dam05Entities())
                 {
-                    return context.Locales
-                                 .Where(l => l.Ubicacion != null && l.Ubicacion != "")
-                                 .Select(l => l.Ubicacion)
-                                 .Distinct()
-                                 .OrderBy(u => u)
-                                 .ToList();
+                    return (from u in context.Usuarios
+                            join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
+                            where u.ROL_ID == 2 &&
+                                  um.Ubicacion != null &&
+                                  um.Ubicacion != string.Empty
+                            select um.Ubicacion)
+                           .Distinct()
+                           .OrderBy(u => u)
+                           .ToList();
                 }
             }
             catch (Exception ex)
@@ -36,19 +42,18 @@ namespace beat_on_jeans_escritorio.Models
             {
                 using (var context = new dam05Entities())
                 {
-                    // Retorna solo el primer local que coincide con la ubicación
-                    return context.Locales
-                                 .Where(l => l.Ubicacion == ubicacion)
-                                 .Join(context.Usuarios,
-                                       local => local.Usuario_ID,
-                                       usuario => usuario.ID,
-                                       (local, usuario) => new
-                                       {
-                                           NombreLocal = usuario.Nombre,
-                                           Valoracion = local.Valoracion_Media,
-                                           Ubicacion = local.Ubicacion
-                                       })
-                                 .FirstOrDefault(); // Devolver solo el primer local
+                    var query = from u in context.Usuarios
+                                join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
+                                where u.ROL_ID == 2 &&
+                                      um.Ubicacion == ubicacion
+                                select new
+                                {
+                                    NombreLocal = u.Nombre,
+                                    Valoracion = um.ValoracionTotal,
+                                    Ubicacion = um.Ubicacion
+                                };
+
+                    return query.FirstOrDefault(); // Devolver solo el primer local que coincida
                 }
             }
             catch (Exception ex)
