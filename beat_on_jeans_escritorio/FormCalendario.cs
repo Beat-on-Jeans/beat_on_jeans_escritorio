@@ -24,41 +24,104 @@ namespace beat_on_jeans_escritorio
 
         private void ConfigurarLabels()
         {
+            // Inicialmente ocultos
+            label8.Visible = false;
+            labelUbicacion.Visible = false;
+            label10.Visible = false;
+            labelLocal.Visible = false;
+            label12.Visible = false;
+            labelMusico.Visible = false;
+
             // Configurar el label de Ubicación
             labelUbicacion.AutoSize = true;
             labelUbicacion.ForeColor = Color.Black;
-            labelUbicacion.Text = "Ubicación: ";
-            labelUbicacion.MaximumSize = new Size(150, 0);
+            labelUbicacion.MaximumSize = new Size(200, 0); // Aumentado para mejor visualización
 
             // Configurar el label de Local
             labelLocal.AutoSize = true;
             labelLocal.ForeColor = Color.Black;
-            labelLocal.Text = "Local: ";
+            labelLocal.MaximumSize = new Size(300, 0);
 
             // Configurar el label de Músico
             labelMusico.AutoSize = true;
             labelMusico.ForeColor = Color.Black;
-            labelMusico.Text = "Músico: ";
+            labelMusico.MaximumSize = new Size(300, 0);
         }
 
         public void MostrarActuaciones(List<dynamic> actuaciones)
         {
-            // Limpiar los labels
-            labelUbicacion.Text = "Ubicación: ";
-            labelLocal.Text = "Local: ";
-            labelMusico.Text = "Músico: ";
-
-            if (actuaciones == null || actuaciones.Count == 0)
+            try
             {
-                labelUbicacion.Text = "No hay actuaciones para esta fecha";
-                return;
-            }
+                // Limpiar los labels
+                labelUbicacion.Text = "Ubicación: ";
+                labelLocal.Text = "Local: ";
+                labelMusico.Text = "Músico: ";
 
-            // Mostrar la información en los labels
-            var primeraActuacion = actuaciones[0];
-            labelUbicacion.Text = $"Ubicación: {primeraActuacion.DireccionLocal}";
-            labelLocal.Text = $"Local: {primeraActuacion.NombreLocal}";
-            labelMusico.Text = $"Músico: {primeraActuacion.NombreMusico}";
+                // Ocultar labels si no hay datos
+                if (actuaciones == null || actuaciones.Count == 0)
+                {
+                    labelUbicacion.Text = "No hay actuaciones para esta fecha";
+                    OcultarLabelsInformacion();
+                    return;
+                }
+
+                // Mostrar todos los labels de información
+                MostrarLabelsInformacion();
+
+                // Mostrar todos los datos de las actuaciones
+                foreach (dynamic actuacion in actuaciones)
+                {
+                    // Obtener valores con manejo de nulos
+                    string ubicacion = actuacion.UbicacionLocal != null ?
+                                     actuacion.UbicacionLocal.ToString() :
+                                     "Ubicación no disponible";
+
+                    string local = actuacion.NombreLocal != null ?
+                                 actuacion.NombreLocal.ToString() :
+                                 "Local desconocido";
+
+                    string musico = actuacion.NombreMusico != null ?
+                                  actuacion.NombreMusico.ToString() :
+                                  "Músico desconocido";
+
+                    // Mostrar en los labels (concatenar si hay múltiples actuaciones)
+                    labelUbicacion.Text = $"📍 {ubicacion}";
+                    labelLocal.Text = $"🏠 {local}";
+                    labelMusico.Text = $"🎵 {musico}";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                labelUbicacion.Text = "Error al cargar los datos de la actuación";
+                Console.WriteLine($"ERROR en MostrarActuaciones: {ex.Message}");
+
+                // Mostrar detalles adicionales del error
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"INNER EXCEPTION: {ex.InnerException.Message}");
+                }
+            }
+        }
+
+        private void MostrarLabelsInformacion()
+        {
+            label8.Visible = true;        // Label "Ubicación:"
+            labelUbicacion.Visible = true;
+            label10.Visible = true;      // Label "Local:"
+            labelLocal.Visible = true;
+            label12.Visible = true;       // Label "Músico:"
+            labelMusico.Visible = true;
+        }
+
+        private void OcultarLabelsInformacion()
+        {
+            label8.Visible = false;
+            labelUbicacion.Visible = false; 
+            label10.Visible = false;
+            labelLocal.Visible = false;
+            label12.Visible = false;
+            labelMusico.Visible = false;
         }
 
         private void FormCalendario_Load(object sender, EventArgs e)
@@ -75,6 +138,7 @@ namespace beat_on_jeans_escritorio
                 _year -= 1;
             }
             showDays(_month, _year);
+            OcultarLabelsInformacion(); // Ocultar al cambiar de mes
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -86,6 +150,7 @@ namespace beat_on_jeans_escritorio
                 _year += 1;
             }
             showDays(_month, _year);
+            OcultarLabelsInformacion(); // Ocultar al cambiar de mes
         }
 
         private void showDays(int month, int year)

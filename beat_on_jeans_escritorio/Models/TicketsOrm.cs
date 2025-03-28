@@ -35,7 +35,6 @@ namespace beat_on_jeans_escritorio.Models
             }
         }
 
-        // En la clase TicketsOrm, añade este nuevo método
         public static (string nombreUsuario, string nombreTecnico) GetNombresUsuarioYTecnico(int usuarioId, int tecnicoId)
         {
             try
@@ -56,6 +55,32 @@ namespace beat_on_jeans_escritorio.Models
             catch (Exception ex)
             {
                 throw new Exception("Error al obtener nombres: " + ex.Message);
+            }
+        }
+
+        public static void DeleteTicket(int ticketId)
+        {
+            try
+            {
+                using (var db = new dam05Entities())
+                {
+                    // Buscar el ticket a eliminar
+                    var ticket = db.Soporte.FirstOrDefault(s => s.ID == ticketId);
+
+                    if (ticket != null)
+                    {
+                        db.Soporte.Remove(ticket);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new Exception("No se encontró el ticket con ID: " + ticketId);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar ticket: " + ex.Message);
             }
         }
     }

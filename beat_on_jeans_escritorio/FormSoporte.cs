@@ -124,16 +124,45 @@ namespace beat_on_jeans_escritorio
 
         private void buttonCerrarTicket_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Estás seguro de que quieres cerrar este ticket?",
-                                              "Confirmar cierre",
-                                              MessageBoxButtons.YesNo,
-                                              MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.Yes) 
-            { 
-                // Codigo para eliminar el ticket con el delete de la base de datos y actualizar el grid.
+            // Verificar que hay una fila seleccionada
+            if (dataGridViewTickets.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor, selecciona un ticket primero.",
+                              "Advertencia",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
             }
 
+            DialogResult resultado = MessageBox.Show("¿Estás seguro de que quieres cerrar y eliminar este ticket?",
+                                                  "Confirmar cierre",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                try
+                {
+                    int ticketId = Convert.ToInt32(dataGridViewTickets.SelectedRows[0].Cells["ID"].Value);
+
+                    TicketsOrm.DeleteTicket(ticketId);
+
+                    cargarDatosGrid();
+                    esconderLabels();
+
+                    MessageBox.Show("Ticket cerrado correctamente.",
+                                  "Éxito",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cerrar el ticket: " + ex.Message,
+                                  "Error",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
