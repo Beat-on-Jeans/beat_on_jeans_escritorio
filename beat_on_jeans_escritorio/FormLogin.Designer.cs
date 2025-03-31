@@ -51,27 +51,27 @@ namespace beat_on_jeans_escritorio
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Figtree", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(91, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 24);
+            this.label1.Size = new System.Drawing.Size(71, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Correo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Figtree", 14.25F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(92, 288);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.Size = new System.Drawing.Size(112, 23);
             this.label2.TabIndex = 7;
             this.label2.Text = "Contraseña";
             // 
             // textBoxContrasena
             // 
             this.textBoxContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxContrasena.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContrasena.Location = new System.Drawing.Point(101, 338);
             this.textBoxContrasena.MinimumSize = new System.Drawing.Size(355, 30);
             this.textBoxContrasena.Name = "textBoxContrasena";
@@ -85,8 +85,8 @@ namespace beat_on_jeans_escritorio
             this.buttonIniciarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonIniciarSesion.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIniciarSesion.Location = new System.Drawing.Point(110, 450);
+            this.buttonIniciarSesion.Font = new System.Drawing.Font("Figtree", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIniciarSesion.Location = new System.Drawing.Point(116, 528);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
             this.buttonIniciarSesion.Size = new System.Drawing.Size(405, 38);
             this.buttonIniciarSesion.TabIndex = 3;
@@ -97,21 +97,21 @@ namespace beat_on_jeans_escritorio
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Figtree", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(168, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(286, 55);
+            this.label3.Size = new System.Drawing.Size(287, 58);
             this.label3.TabIndex = 4;
             this.label3.Text = "Bienvenido!";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Poppins", 12F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(138)))));
             this.label4.Location = new System.Drawing.Point(149, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(354, 20);
+            this.label4.Size = new System.Drawing.Size(353, 28);
             this.label4.TabIndex = 5;
             this.label4.Text = "Sincroniza tu talento con el escenario ideal";
             // 
@@ -121,7 +121,7 @@ namespace beat_on_jeans_escritorio
             this.textBoxCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCorreo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxCorreo.DataBindings.Add(new System.Windows.Forms.Binding("MaximumSize", global::beat_on_jeans_escritorio.Properties.Settings.Default, "test", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.textBoxCorreo.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Bold);
             this.textBoxCorreo.ForeColor = System.Drawing.Color.Black;
             this.textBoxCorreo.Location = new System.Drawing.Point(101, 227);
             this.textBoxCorreo.MaximumSize = global::beat_on_jeans_escritorio.Properties.Settings.Default.test;

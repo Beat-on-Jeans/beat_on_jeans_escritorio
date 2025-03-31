@@ -14,14 +14,21 @@ using beat_on_jeans_escritorio.Models;
 namespace beat_on_jeans_escritorio
 {
     public partial class FormGestionUsuarios : Form
+
     {
         private string hintText = "Busca al usuario...";
         public FormGestionUsuarios()
         {
             InitializeComponent();
 
-            //Ecoger los roles en la ComboBox
+            // Ecoger los roles en la ComboBox
             bindingSourceRoles.DataSource = RolesOrm.Select();
+
+            // Hacer que comboBoxRoles sea de solo lectura
+            comboBoxRoles.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Hacer que comboBoxAccionUsuario sea de solo lectura
+            comboBoxAccionUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
@@ -30,6 +37,16 @@ namespace beat_on_jeans_escritorio
             disenoGrid();
             rellenarUsuarios();
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Añadir valores a comboBoxAccionUsuario
+            comboBoxAccionUsuario.Items.Add("Crear");
+            comboBoxAccionUsuario.Items.Add("Modificar");
+            comboBoxAccionUsuario.Items.Add("Eliminar");
+
+            if (comboBoxAccionUsuario.Items.Count > 0)
+            {
+                comboBoxAccionUsuario.SelectedIndex = 0;
+            }
         }
 
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,18 +359,18 @@ namespace beat_on_jeans_escritorio
             buttonModificar.FlatAppearance.MouseDownBackColor = buttonModificar.BackColor;
 
             // BOTON ELIMINAR
-            buttonEliminar.BackColor = Color.FromArgb(46, 196, 182);
+            buttonEliminarUsuario.BackColor = Color.FromArgb(46, 196, 182);
 
-            buttonEliminar.FlatAppearance.MouseOverBackColor = buttonEliminar.BackColor;
-            buttonEliminar.FlatAppearance.MouseDownBackColor = buttonEliminar.BackColor;
-            buttonEliminar.FlatAppearance.MouseDownBackColor = buttonEliminar.BackColor;
+            buttonEliminarUsuario.FlatAppearance.MouseOverBackColor = buttonEliminarUsuario.BackColor;
+            buttonEliminarUsuario.FlatAppearance.MouseDownBackColor = buttonEliminarUsuario.BackColor;
+            buttonEliminarUsuario.FlatAppearance.MouseDownBackColor = buttonEliminarUsuario.BackColor;
 
             // BOTON NUEVO USUARIO
-            buttonNuevoUsuario.BackColor = Color.FromArgb(242, 104, 27);
+            buttonCrearUsuario.BackColor = Color.FromArgb(242, 104, 27);
 
-            buttonNuevoUsuario.FlatAppearance.MouseOverBackColor = buttonNuevoUsuario.BackColor;
-            buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
-            buttonNuevoUsuario.FlatAppearance.MouseDownBackColor = buttonNuevoUsuario.BackColor;
+            buttonCrearUsuario.FlatAppearance.MouseOverBackColor = buttonCrearUsuario.BackColor;
+            buttonCrearUsuario.FlatAppearance.MouseDownBackColor = buttonCrearUsuario.BackColor;
+            buttonCrearUsuario.FlatAppearance.MouseDownBackColor = buttonCrearUsuario.BackColor;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -387,16 +404,10 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void buttonCrearUsuario_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
 
@@ -407,10 +418,6 @@ namespace beat_on_jeans_escritorio
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void labelRol_Click(object sender, EventArgs e)
         {
@@ -420,6 +427,39 @@ namespace beat_on_jeans_escritorio
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxCorreo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxAccionUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Ocultar todos los botones primero
+            buttonCrearUsuario.Visible = false;
+            buttonModificar.Visible = false;
+            buttonEliminarUsuario.Visible = false;
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+
+            // Mostrar el botón correspondiente según la opción seleccionada
+            switch (comboBoxAccionUsuario.SelectedItem.ToString())
+            {
+                case "Crear":
+                    buttonCrearUsuario.Visible = true;
+                    pictureBox4.Visible = true;
+                    break;
+                case "Modificar":
+                    buttonModificar.Visible = true;
+                    pictureBox2.Visible = true;
+                    break;
+                case "Eliminar":
+                    buttonEliminarUsuario.Visible = true;
+                    pictureBox3.Visible = true;
+                    break;
+            }
         }
     }
 }
