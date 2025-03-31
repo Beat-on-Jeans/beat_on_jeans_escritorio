@@ -55,13 +55,6 @@ namespace beat_on_jeans_escritorio
         private void Form1_Load(object sender, EventArgs e)
         {
             // Desactivar efectos de hover o clic
-            buttonRegistrar.FlatAppearance.MouseOverBackColor = buttonRegistrar.BackColor;  
-            buttonRegistrar.FlatAppearance.MouseDownBackColor = buttonRegistrar.BackColor;  
-
-            // También desactivar el cambio visual cuando se hace clic en el botón
-            buttonRegistrar.FlatAppearance.MouseDownBackColor = buttonRegistrar.BackColor;
-
-            // Desactivar efectos de hover o clic
             buttonIniciarSesion.FlatAppearance.MouseOverBackColor = buttonIniciarSesion.BackColor;
             buttonIniciarSesion.FlatAppearance.MouseDownBackColor = buttonIniciarSesion.BackColor;
 
