@@ -63,7 +63,7 @@ namespace beat_on_jeans_escritorio.Models
                 var query = from u in context.Usuarios
                             join r in context.Roles on u.ROL_ID equals r.ID
                             join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
-                            where u.ROL_ID == 1 
+                            where u.ROL_ID == 1 // ID para Músicos
                             select new
                             {
                                 u.ID,
@@ -71,7 +71,8 @@ namespace beat_on_jeans_escritorio.Models
                                 u.Correo,
                                 u.Contrasena,
                                 Codigo_Postal = um.Ubicacion,
-                                Nombre_Rol = r.Nombre_Rol,
+                                Rol = r.Nombre_Rol, // Nombre del rol en lugar del ID
+                                ROL_ID = r.ID // Mantenemos el ID oculto
                             };
 
                 return query.ToList<dynamic>();
@@ -87,6 +88,7 @@ namespace beat_on_jeans_escritorio.Models
             using (var context = new dam05Entities())
             {
                 var query = from u in context.Usuarios
+                            join r in context.Roles on u.ROL_ID equals r.ID  // Join con la tabla Roles
                             join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
                             where u.ROL_ID == 2  // Filtro para solo locales
                             select new
@@ -95,12 +97,75 @@ namespace beat_on_jeans_escritorio.Models
                                 CorreoLocal = u.Correo,
                                 Ubicacion = um.Ubicacion,
                                 ValoracionMedia = um.ValoracionTotal,
-                                ID = u.ID  // Mantenemos el ID por si es necesario
+                                Rol = r.Nombre_Rol,  // Añadimos el nombre del rol
+                                ID = u.ID,
+                                ROL_ID = u.ROL_ID  // Mantenemos el ID del rol por si es necesario
                             };
 
                 return query.ToList<dynamic>();
             }
         }
+
+        public static List<dynamic> SelectSuperadministradores()
+        {
+            using (var context = new dam05Entities())
+            {
+                var query = from u in context.Usuarios
+                            join r in context.Roles on u.ROL_ID equals r.ID
+                            where u.ROL_ID == 3 
+                            select new
+                            {
+                                u.ID,
+                                u.Nombre,
+                                u.Correo,
+                                u.Contrasena,
+                                Rol = r.Nombre_Rol,
+                                ROL_ID = u.ROL_ID
+                            };
+
+                return query.ToList<dynamic>();
+            }
+        }
+
+        public static List<dynamic> SelectAdministradores()
+        {
+            using (var context = new dam05Entities())
+            {
+                return (from u in context.Usuarios
+                        join r in context.Roles on u.ROL_ID equals r.ID
+                        where u.ROL_ID == 4 
+                        select new
+                        {
+                            u.ID,
+                            u.Nombre,
+                            u.Correo,
+                            Rol = r.Nombre_Rol,
+                            ROL_ID = u.ROL_ID,
+                            u.Contrasena 
+                        }).ToList<dynamic>();
+            }
+        }
+
+        public static List<dynamic> SelectMantenimiento()
+        {
+            using (var context = new dam05Entities())
+            {
+                return (from u in context.Usuarios
+                        join r in context.Roles on u.ROL_ID equals r.ID
+                        where u.ROL_ID == 5  
+                        select new
+                        {
+                            u.ID,
+                            u.Nombre,
+                            u.Correo,
+                            Rol = r.Nombre_Rol,
+                            ROL_ID = u.ROL_ID,
+                            u.Contrasena  
+                        }).ToList<dynamic>();
+            }
+        }
+
+
 
 
 

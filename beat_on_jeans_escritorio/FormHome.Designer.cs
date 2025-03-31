@@ -118,9 +118,9 @@ namespace beat_on_jeans_escritorio
             this.label1.Font = new System.Drawing.Font("Figtree", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(76, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 32);
+            this.label1.Size = new System.Drawing.Size(186, 32);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Beat and Jeans";
+            this.label1.Text = "Beat on Jeans";
             // 
             // panel2
             // 
@@ -388,10 +388,11 @@ namespace beat_on_jeans_escritorio
             this.Controls.Add(this.panelCargarForms);
             this.Controls.Add(this.sidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "BeatOnJeans";
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
