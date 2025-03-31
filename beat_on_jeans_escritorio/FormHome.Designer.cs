@@ -300,7 +300,8 @@ namespace beat_on_jeans_escritorio
             this.panel9.Controls.Add(this.pictureBox1);
             this.panel9.Controls.Add(this.labelNombreUsuario);
             this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(3, 382);
+            this.panel9.Location = new System.Drawing.Point(3, 509);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 130, 3, 3);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(229, 197);
             this.panel9.TabIndex = 7;
