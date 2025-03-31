@@ -16,50 +16,95 @@ namespace beat_on_jeans_escritorio
         public FormHomeAdmistrador()
         {
             InitializeComponent();
-
+            autoSelecccionarGrid();
             cargarDatosActuaciones();
-            configurarFondoGrid();
+            cargarDatosMusicos();
+            cargarDatosLocales();
+            configurarFondoContenidoGrid();
         }
 
-        private void configurarFondoGrid()
+        private void cargarDatosLocales()
         {
-            // Definir el color RGB (255, 243, 226)
-            Color colorFondo = Color.FromArgb(255, 243, 226);
+            var locales = UsuariosCSharpOrm.SelectLocales();
 
-            // Configurar el color de fondo de las celdas
-            dataGridViewEventosProgramados.DefaultCellStyle.BackColor = colorFondo;
-            dataGridViewEventosProgramados.DefaultCellStyle.BackColor = colorFondo;
-            dataGridViewEventosProgramados.DefaultCellStyle.BackColor = colorFondo;
+            bindingSourceLocales.DataSource = locales;
+            dataGridViewLocales.DataSource = bindingSourceLocales;
 
-            
+            // Ajustar a los nombres reales de las propiedades
+            dataGridViewLocales.Columns["NombreLocal"].DataPropertyName = "NombreLocal";
+            dataGridViewLocales.Columns["CorreoLocal"].DataPropertyName = "CorreoLocal";
+            dataGridViewLocales.Columns["ValoracionMedia"].DataPropertyName = "ValoracionMedia";
+            dataGridViewLocales.Columns["Ubicacion"].DataPropertyName = "Ubicacion";
+
+            // Configurar visualizacion
+            dataGridViewLocales.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridViewLocales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
+        private void cargarDatosMusicos()
+        {
+            var musicos = UsuariosCSharpOrm.SelectMusicos();
+
+            bindingSourceMusicos.DataSource = musicos;
+            dataGridViewMusicos.DataSource = bindingSourceMusicos;
+
+            // Ajustar a los nombres reales de las propiedades
+            dataGridViewMusicos.Columns["Nombre"].DataPropertyName = "Nombre";
+            dataGridViewMusicos.Columns["Correo"].DataPropertyName = "Correo";
+            dataGridViewMusicos.Columns["Codigo_Postal"].DataPropertyName = "Codigo_Postal";
+
+            // Configurar visualizacion
+            dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void cargarDatosActuaciones()
         {
-            // Obtener la lista de actuaciones desde la base de datos
-           // List<Actuacion> actuaciones = ActuacionOrm.Select();
+            var actuaciones = ActuacionesHomeOrm.GetActuacionesConNombres();
 
-            // Asignar la lista de actuaciones al DataGridView
-           // dataGridViewEventosProgramados.DataSource = actuaciones;
+            bindingSourceActuaciones.DataSource = actuaciones;
 
-            // Hacer que el DataGridView sea de solo lectura
-            dataGridViewEventosProgramados.ReadOnly = true;
+            dataGridViewEventosProgramados.DataSource = bindingSourceActuaciones;
 
-            // Configurar el DataGridView para que genere automáticamente las columnas
-            dataGridViewEventosProgramados.AutoGenerateColumns = true;
+            dataGridViewEventosProgramados.Columns["Fecha"].DataPropertyName = "Fecha";
+            dataGridViewEventosProgramados.Columns["Local"].DataPropertyName = "Local";
+            dataGridViewEventosProgramados.Columns["Musico"].DataPropertyName = "Musico";
 
-            // Asegurarse de que las columnas estén visibles
-            foreach (DataGridViewColumn column in dataGridViewEventosProgramados.Columns)
-            {
-                column.Visible = true;
-            }
+            // Configurar visualizacion
+            dataGridViewEventosProgramados.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridViewEventosProgramados.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
+
+        private void autoSelecccionarGrid()
+        {
+            dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewLocales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewEventosProgramados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void configurarFondoContenidoGrid()
+        {
+            // Definir el color RGB (255, 243, 226)
+            Color colorFondo = Color.FromArgb(255, 243, 226);
+
+            // Configurar el color de fondo del DataGridView
+            dataGridViewMusicos.BackgroundColor = colorFondo;
+            dataGridViewLocales.BackgroundColor = colorFondo;
+            dataGridViewEventosProgramados.BackgroundColor = colorFondo;
+
+            // Configurar el color de fondo de las celdas
+            dataGridViewMusicos.DefaultCellStyle.BackColor = colorFondo;
+            dataGridViewLocales.DefaultCellStyle.BackColor = colorFondo;
+            dataGridViewEventosProgramados.DefaultCellStyle.BackColor = colorFondo;
+        }
+
+        
 
         private void FormHomeAdmistrador_Load(object sender, EventArgs e)
         {
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewEventosProgramados, 20);
-            DataGridViewBordeRedondo.RedondearBordes(dataGridViewListaMusicosLocales, 20);
-            DataGridViewBordeRedondo.RedondearBordes(dataGridViewCambiosMusicosLocales, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewMusicos, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewLocales, 20);
         }
     }
 }

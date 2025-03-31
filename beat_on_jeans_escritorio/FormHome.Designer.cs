@@ -38,9 +38,6 @@ namespace beat_on_jeans_escritorio
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBoxEstadistica = new System.Windows.Forms.PictureBox();
             this.buttonSoporte = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBoxRegistro = new System.Windows.Forms.PictureBox();
-            this.buttonRegistro = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBoxNotificaciones = new System.Windows.Forms.PictureBox();
             this.buttonMapa = new System.Windows.Forms.Button();
@@ -50,9 +47,6 @@ namespace beat_on_jeans_escritorio
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBoxGestionUsuarios = new System.Windows.Forms.PictureBox();
             this.buttonGestionUsuarios = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.pictureBoxConf = new System.Windows.Forms.PictureBox();
-            this.buttonConfiguracion = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelRol = new System.Windows.Forms.Label();
@@ -68,16 +62,12 @@ namespace beat_on_jeans_escritorio
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstadistica)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistro)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotificaciones)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventos)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionUsuarios)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConf)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,11 +79,9 @@ namespace beat_on_jeans_escritorio
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel3);
-            this.sidebar.Controls.Add(this.panel4);
             this.sidebar.Controls.Add(this.panel5);
             this.sidebar.Controls.Add(this.panel6);
             this.sidebar.Controls.Add(this.panel7);
-            this.sidebar.Controls.Add(this.panel8);
             this.sidebar.Controls.Add(this.panel9);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
@@ -202,44 +190,11 @@ namespace beat_on_jeans_escritorio
             this.buttonSoporte.UseVisualStyleBackColor = false;
             this.buttonSoporte.Click += new System.EventHandler(this.buttonSoporte_Click);
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pictureBoxRegistro);
-            this.panel4.Controls.Add(this.buttonRegistro);
-            this.panel4.Location = new System.Drawing.Point(3, 220);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(301, 48);
-            this.panel4.TabIndex = 8;
-            // 
-            // pictureBoxRegistro
-            // 
-            this.pictureBoxRegistro.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxRegistro.Location = new System.Drawing.Point(0, -21);
-            this.pictureBoxRegistro.Name = "pictureBoxRegistro";
-            this.pictureBoxRegistro.Size = new System.Drawing.Size(5, 80);
-            this.pictureBoxRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxRegistro.TabIndex = 10;
-            this.pictureBoxRegistro.TabStop = false;
-            // 
-            // buttonRegistro
-            // 
-            this.buttonRegistro.BackColor = System.Drawing.Color.White;
-            this.buttonRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegistro.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageRegistro;
-            this.buttonRegistro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRegistro.Location = new System.Drawing.Point(-2, -31);
-            this.buttonRegistro.Name = "buttonRegistro";
-            this.buttonRegistro.Padding = new System.Windows.Forms.Padding(35, 14, 180, 14);
-            this.buttonRegistro.Size = new System.Drawing.Size(377, 114);
-            this.buttonRegistro.TabIndex = 8;
-            this.buttonRegistro.Text = "Registro";
-            this.buttonRegistro.UseVisualStyleBackColor = false;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.pictureBoxNotificaciones);
             this.panel5.Controls.Add(this.buttonMapa);
-            this.panel5.Location = new System.Drawing.Point(3, 274);
+            this.panel5.Location = new System.Drawing.Point(3, 220);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(301, 48);
             this.panel5.TabIndex = 8;
@@ -273,7 +228,7 @@ namespace beat_on_jeans_escritorio
             // 
             this.panel6.Controls.Add(this.pictureBoxEventos);
             this.panel6.Controls.Add(this.buttonEventos);
-            this.panel6.Location = new System.Drawing.Point(3, 328);
+            this.panel6.Location = new System.Drawing.Point(3, 274);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(301, 48);
             this.panel6.TabIndex = 8;
@@ -307,7 +262,7 @@ namespace beat_on_jeans_escritorio
             // 
             this.panel7.Controls.Add(this.pictureBoxGestionUsuarios);
             this.panel7.Controls.Add(this.buttonGestionUsuarios);
-            this.panel7.Location = new System.Drawing.Point(3, 382);
+            this.panel7.Location = new System.Drawing.Point(3, 328);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(301, 48);
             this.panel7.TabIndex = 8;
@@ -337,39 +292,6 @@ namespace beat_on_jeans_escritorio
             this.buttonGestionUsuarios.UseVisualStyleBackColor = false;
             this.buttonGestionUsuarios.Click += new System.EventHandler(this.buttonGestionUsuarios_Click);
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.pictureBoxConf);
-            this.panel8.Controls.Add(this.buttonConfiguracion);
-            this.panel8.Location = new System.Drawing.Point(3, 436);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(301, 48);
-            this.panel8.TabIndex = 8;
-            // 
-            // pictureBoxConf
-            // 
-            this.pictureBoxConf.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNegro;
-            this.pictureBoxConf.Location = new System.Drawing.Point(0, -15);
-            this.pictureBoxConf.Name = "pictureBoxConf";
-            this.pictureBoxConf.Size = new System.Drawing.Size(5, 80);
-            this.pictureBoxConf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxConf.TabIndex = 10;
-            this.pictureBoxConf.TabStop = false;
-            // 
-            // buttonConfiguracion
-            // 
-            this.buttonConfiguracion.BackColor = System.Drawing.Color.White;
-            this.buttonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfiguracion.Image = global::beat_on_jeans_escritorio.Properties.Resources.imageConf;
-            this.buttonConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfiguracion.Location = new System.Drawing.Point(-2, -23);
-            this.buttonConfiguracion.Name = "buttonConfiguracion";
-            this.buttonConfiguracion.Padding = new System.Windows.Forms.Padding(35, 14, 133, 14);
-            this.buttonConfiguracion.Size = new System.Drawing.Size(377, 91);
-            this.buttonConfiguracion.TabIndex = 8;
-            this.buttonConfiguracion.Text = "Configuración";
-            this.buttonConfiguracion.UseVisualStyleBackColor = false;
-            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.pictureBox2);
@@ -377,9 +299,10 @@ namespace beat_on_jeans_escritorio
             this.panel9.Controls.Add(this.pictureBox1);
             this.panel9.Controls.Add(this.labelNombreUsuario);
             this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(3, 490);
+            this.panel9.Location = new System.Drawing.Point(3, 509);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 130, 3, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(229, 197);
+            this.panel9.Size = new System.Drawing.Size(252, 218);
             this.panel9.TabIndex = 7;
             // 
             // pictureBox2
@@ -476,16 +399,12 @@ namespace beat_on_jeans_escritorio
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEstadistica)).EndInit();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistro)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNotificaciones)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventos)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGestionUsuarios)).EndInit();
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxConf)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -502,16 +421,12 @@ namespace beat_on_jeans_escritorio
         private System.Windows.Forms.Button buttonHome;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonSoporte;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button buttonRegistro;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button buttonMapa;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button buttonEventos;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button buttonGestionUsuarios;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button buttonConfiguracion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Panel panel9;
@@ -519,11 +434,9 @@ namespace beat_on_jeans_escritorio
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBoxHome;
         private System.Windows.Forms.PictureBox pictureBoxEstadistica;
-        private System.Windows.Forms.PictureBox pictureBoxRegistro;
         private System.Windows.Forms.PictureBox pictureBoxNotificaciones;
         private System.Windows.Forms.PictureBox pictureBoxEventos;
         private System.Windows.Forms.PictureBox pictureBoxGestionUsuarios;
-        private System.Windows.Forms.PictureBox pictureBoxConf;
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.Label labelNombreUsuario;
         private System.Windows.Forms.Label labelRol;
