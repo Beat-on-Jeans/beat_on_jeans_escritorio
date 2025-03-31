@@ -22,17 +22,6 @@ namespace beat_on_jeans_escritorio
 
             //Ecoger los roles en la ComboBox
             bindingSourceRoles.DataSource = RolesOrm.Select();
-
-            comboBoxBuscarUsuario = new ComboBox();
-            comboBoxBuscarUsuario.Location = new Point(50, 50);
-            comboBoxBuscarUsuario.Width = 200;
-            comboBoxBuscarUsuario.ForeColor = Color.Gray;
-            comboBoxBuscarUsuario.Text = hintText;
-            comboBoxBuscarUsuario.GotFocus += RemoveHint;
-            comboBoxBuscarUsuario.LostFocus += ShowHint;
-
-            Controls.Add(comboBoxBuscarUsuario);
-
         }
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
@@ -182,6 +171,16 @@ namespace beat_on_jeans_escritorio
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void labelRol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

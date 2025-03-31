@@ -263,8 +263,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelBoj.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Fonts\Figtree.ttf" />
-    <None Include="Fonts\Poppins-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Raleway-VariableFont_wght.ttf" />
+    <EmbeddedResource Include="Fonts\Figtree-VariableFont_wght.ttf" />
     <None Include="Models\ModelBoj.edmx.diagram">
       <DependentUpon>ModelBoj.edmx</DependentUpon>
     </None>
@@ -386,6 +386,9 @@
       <DependentUpon>ModelBoj.edmx</DependentUpon>
       <LastGenOutput>ModelBoj.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Group 31.png" />
+    <None Include="Resources\Group 3.png" />
+    <None Include="Resources\trans_bg.png" />
     <None Include="Resources\maps1.png" />
     <None Include="Resources\soporte.png" />
     <None Include="Resources\icons8-mapa-de-apple-20.png" />
