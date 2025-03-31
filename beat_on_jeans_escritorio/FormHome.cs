@@ -72,32 +72,26 @@ namespace beat_on_jeans_escritorio
             {
                 buttonHome.Enabled = true;
                 buttonSoporte.Enabled = true;
-                buttonRegistro.Enabled = true;
                 buttonMapa.Enabled = true;
                 buttonEventos.Enabled = true;
                 buttonGestionUsuarios.Enabled = true;
-                buttonConfiguracion.Enabled = true;
 
             }
             else if (usuarioActual.ROL_ID == 4) // Usuario normal
             {
                 buttonHome.Enabled = true;
-                buttonSoporte.Enabled = true;
-                buttonRegistro.Enabled = true;
+                buttonSoporte.Enabled = false;
                 buttonMapa.Enabled = true;
                 buttonEventos.Enabled = true;
-                buttonGestionUsuarios.Enabled = false;
-                buttonConfiguracion.Enabled = true;
+                buttonGestionUsuarios.Enabled = true;
             }
             else // Rol básico
             {
                 buttonHome.Enabled = true;
-                buttonSoporte.Enabled = true;
-                buttonRegistro.Enabled = true;
+                buttonSoporte.Enabled = false;
                 buttonMapa.Enabled = true;
                 buttonEventos.Enabled = true;
                 buttonGestionUsuarios.Enabled = false;
-                buttonConfiguracion.Enabled = true;
             }
         }
 
@@ -153,11 +147,9 @@ namespace beat_on_jeans_escritorio
         {
             PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxEstadistica, buttonSoporte);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxRegistro, buttonRegistro);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonMapa);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
-            PictureBoxHandler.AttachHoverBehavior(pictureBoxConf, buttonConfiguracion);
         }
 
         // Eventos de los botones

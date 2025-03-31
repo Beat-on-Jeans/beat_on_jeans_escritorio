@@ -63,7 +63,7 @@ namespace beat_on_jeans_escritorio.Models
                 var query = from u in context.Usuarios
                             join r in context.Roles on u.ROL_ID equals r.ID
                             join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
-                            where u.ROL_ID == 1  // Filtro para solo músicos
+                            where u.ROL_ID == 1 
                             select new
                             {
                                 u.ID,

@@ -150,6 +150,7 @@
     <Compile Include="Models\Actuacion.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActuacionesHomeOrm.cs" />
     <Compile Include="Models\ActuacionLocalOrm.cs" />
     <Compile Include="Models\Chats.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
@@ -270,6 +271,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Actuacion.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.ActuacionesHomeOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.ActuacionLocalOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Chats.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.dam05Entities.datasource" />
@@ -281,6 +283,7 @@
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Matches.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Mensajes.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Musicos.datasource" />
+    <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.MusicosHomeOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.MusicosOrm.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Notificaciones.datasource" />
     <None Include="Properties\DataSources\beat_on_jeans_escritorio.Models.Orm.datasource" />
