@@ -113,6 +113,26 @@ namespace beat_on_jeans_escritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Group_3 {
+            get {
+                object obj = ResourceManager.GetObject("Group 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Group_31 {
+            get {
+                object obj = ResourceManager.GetObject("Group 31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_mapa_de_apple_20 {
             get {
                 object obj = ResourceManager.GetObject("icons8-mapa-de-apple-20", resourceCulture);
@@ -386,6 +406,16 @@ namespace beat_on_jeans_escritorio.Properties {
         internal static System.Drawing.Bitmap soporte {
             get {
                 object obj = ResourceManager.GetObject("soporte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trans_bg {
+            get {
+                object obj = ResourceManager.GetObject("trans_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

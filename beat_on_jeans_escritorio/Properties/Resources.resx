@@ -124,11 +124,8 @@
   <data name="imageEstadistica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageEstadistica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RectangleModificar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RectangleModificar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rectanguloNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rectanguloNegro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RectangleRegistre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RectangleRegistre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imageConf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageConf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,6 +145,12 @@
   <data name="adsada" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\adsada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="felchaDerecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\felchaDerecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Group 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,11 +169,11 @@
   <data name="rectanguloNaranjita" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rectanguloNaranjita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rectanguloNaranja" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rectanguloNaranja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Rectangle 35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rectangle 35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageNotificacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageNotificacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maps" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maps.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +190,20 @@
   <data name="rectanguloFormCalendario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rectanguloFormCalendario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="trans_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trans_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arrowRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrowRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maps1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logoBeatOnJeans" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoBeatOnJeans.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imageLogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imageLogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rectanguloNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rectanguloNegro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RectangleNaranja" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RectangleNaranja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,11 +211,11 @@
   <data name="felchaDerecha1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\felchaDerecha1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="felchaDerecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\felchaDerecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imageLogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imageLogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RectangleRegistre" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RectangleRegistre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RectangleModificar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RectangleModificar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imageRegistro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageRegistro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,13 +223,13 @@
   <data name="RectangleIniciarSesion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RectangleIniciarSesion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imageNotificacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imageNotificacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rectanguloNaranja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rectanguloNaranja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imageEvento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imageEvento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maps1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Group 31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
