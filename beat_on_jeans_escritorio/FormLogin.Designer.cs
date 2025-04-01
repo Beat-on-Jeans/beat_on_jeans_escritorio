@@ -86,9 +86,9 @@ namespace beat_on_jeans_escritorio
             this.buttonIniciarSesion.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIniciarSesion.Font = new System.Drawing.Font("Figtree", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIniciarSesion.Location = new System.Drawing.Point(116, 528);
+            this.buttonIniciarSesion.Location = new System.Drawing.Point(154, 450);
             this.buttonIniciarSesion.Name = "buttonIniciarSesion";
-            this.buttonIniciarSesion.Size = new System.Drawing.Size(405, 38);
+            this.buttonIniciarSesion.Size = new System.Drawing.Size(314, 38);
             this.buttonIniciarSesion.TabIndex = 3;
             this.buttonIniciarSesion.Text = "Iniciar Sesión";
             this.buttonIniciarSesion.UseVisualStyleBackColor = false;

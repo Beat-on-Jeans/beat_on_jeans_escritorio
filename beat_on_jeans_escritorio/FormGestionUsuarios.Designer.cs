@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.comboBoxRoles = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.comboBoxRolFiltro = new System.Windows.Forms.ComboBox();
             this.bindingSourceRoles = new System.Windows.Forms.BindingSource(this.components);
             this.buttonEliminarUsuario = new System.Windows.Forms.Button();
             this.buttonCrearUsuario = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             this.textBoxUbicacion = new System.Windows.Forms.TextBox();
             this.labelUbicacion = new System.Windows.Forms.Label();
             this.labelCodigoPostal = new System.Windows.Forms.Label();
-            this.comboBoxRol = new System.Windows.Forms.ComboBox();
+            this.c = new System.Windows.Forms.ComboBox();
             this.textBoxContrasena = new System.Windows.Forms.TextBox();
             this.textBoxCorreo = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
@@ -90,21 +90,21 @@
             label1.TabIndex = 10;
             label1.Text = "Buscar Usuario";
             // 
-            // comboBoxRoles
+            // comboBoxRolFiltro
             // 
-            this.comboBoxRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
-            this.comboBoxRoles.DataSource = this.bindingSourceRoles;
-            this.comboBoxRoles.DisplayMember = "Nombre_Rol";
-            this.comboBoxRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxRoles.Font = new System.Drawing.Font("Figtree", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxRoles.FormattingEnabled = true;
-            this.comboBoxRoles.Location = new System.Drawing.Point(20, 276);
-            this.comboBoxRoles.Name = "comboBoxRoles";
-            this.comboBoxRoles.Size = new System.Drawing.Size(179, 28);
-            this.comboBoxRoles.TabIndex = 1;
-            this.comboBoxRoles.ValueMember = "ID";
-            this.comboBoxRoles.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsuarios_SelectedIndexChanged);
+            this.comboBoxRolFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
+            this.comboBoxRolFiltro.DataSource = this.bindingSourceRoles;
+            this.comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
+            this.comboBoxRolFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRolFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRolFiltro.Font = new System.Drawing.Font("Figtree", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRolFiltro.FormattingEnabled = true;
+            this.comboBoxRolFiltro.Location = new System.Drawing.Point(20, 276);
+            this.comboBoxRolFiltro.Name = "comboBoxRolFiltro";
+            this.comboBoxRolFiltro.Size = new System.Drawing.Size(179, 28);
+            this.comboBoxRolFiltro.TabIndex = 1;
+            this.comboBoxRolFiltro.ValueMember = "ID";
+            this.comboBoxRolFiltro.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsuarios_SelectedIndexChanged);
             // 
             // bindingSourceRoles
             // 
@@ -178,9 +178,7 @@
             // 
             // comboBoxBuscarUsuario
             // 
-
             this.comboBoxBuscarUsuario.DisplayMember = "ID";
-
             this.comboBoxBuscarUsuario.Font = new System.Drawing.Font("Figtree", 10.25F);
             this.comboBoxBuscarUsuario.FormattingEnabled = true;
             this.comboBoxBuscarUsuario.Location = new System.Drawing.Point(225, 281);
@@ -228,14 +226,14 @@
             this.dataGridViewUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.dataGridViewUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Figtree", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Figtree", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(104)))), ((int)(((byte)(27)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewUsuarios.ColumnHeadersHeight = 30;
             this.dataGridViewUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
@@ -247,14 +245,14 @@
             this.usuarioMobilDataGridViewTextBoxColumn,
             this.usuariosCSharpDataGridViewTextBoxColumn});
             this.dataGridViewUsuarios.DataSource = this.bindingSourceUsuarios;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Figtree", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(150)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Figtree", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(150)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewUsuarios.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewUsuarios.EnableHeadersVisualStyles = false;
             this.dataGridViewUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.dataGridViewUsuarios.Location = new System.Drawing.Point(11, 321);
@@ -351,7 +349,7 @@
             this.groupBox1.Controls.Add(this.textBoxUbicacion);
             this.groupBox1.Controls.Add(this.labelUbicacion);
             this.groupBox1.Controls.Add(this.labelCodigoPostal);
-            this.groupBox1.Controls.Add(this.comboBoxRol);
+            this.groupBox1.Controls.Add(this.c);
             this.groupBox1.Controls.Add(this.textBoxContrasena);
             this.groupBox1.Controls.Add(this.textBoxCorreo);
             this.groupBox1.Controls.Add(this.textBoxNombre);
@@ -404,17 +402,18 @@
             this.labelCodigoPostal.TabIndex = 25;
             this.labelCodigoPostal.Text = "Codigo postal";
             // 
-            // comboBoxRol
+            // c
             // 
-            this.comboBoxRol.DataSource = this.bindingSourceRoles;
-            this.comboBoxRol.DisplayMember = "Nombre_Rol";
-            this.comboBoxRol.Font = new System.Drawing.Font("Figtree", 10F);
-            this.comboBoxRol.FormattingEnabled = true;
-            this.comboBoxRol.Location = new System.Drawing.Point(315, 52);
-            this.comboBoxRol.Name = "comboBoxRol";
-            this.comboBoxRol.Size = new System.Drawing.Size(218, 24);
-            this.comboBoxRol.TabIndex = 24;
-            this.comboBoxRol.ValueMember = "ID";
+            this.c.DataSource = this.bindingSourceRoles;
+            this.c.DisplayMember = "Nombre_Rol";
+            this.c.Font = new System.Drawing.Font("Figtree", 10F);
+            this.c.FormattingEnabled = true;
+            this.c.Location = new System.Drawing.Point(315, 52);
+            this.c.Name = "c";
+            this.c.Size = new System.Drawing.Size(218, 24);
+            this.c.TabIndex = 24;
+            this.c.ValueMember = "ID";
+            this.c.SelectedIndexChanged += new System.EventHandler(this.comboBoxRol_SelectedIndexChanged);
             // 
             // textBoxContrasena
             // 
@@ -510,7 +509,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxBuscarUsuario);
             this.Controls.Add(label1);
-            this.Controls.Add(this.comboBoxRoles);
+            this.Controls.Add(this.comboBoxRolFiltro);
             this.Controls.Add(this.pictureBox5);
             this.Name = "FormGestionUsuarios";
             this.Text = "FormGestionUsuarios";
@@ -531,7 +530,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox comboBoxRoles;
+        private System.Windows.Forms.ComboBox comboBoxRolFiltro;
         private System.Windows.Forms.Button buttonEliminarUsuario;
         private System.Windows.Forms.Button buttonCrearUsuario;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -555,7 +554,7 @@
         private System.Windows.Forms.TextBox textBoxContrasena;
         private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.ComboBox comboBoxRol;
+        private System.Windows.Forms.ComboBox c;
         private System.Windows.Forms.Label labelRol;
         private System.Windows.Forms.Label labelUbicacion;
         private System.Windows.Forms.Label labelCodigoPostal;
