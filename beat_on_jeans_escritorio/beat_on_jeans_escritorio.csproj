@@ -88,6 +88,7 @@
     <Compile Include="ClasesEstilos\DataGridViewBordeRedondo.cs" />
     <Compile Include="ClasesEstilos\DataGridViewHome.cs" />
     <Compile Include="Clases\Actuacion.cs" />
+    <Compile Include="Clases\CargarGridRoles.cs" />
     <Compile Include="Clases\Locales.cs" />
     <Compile Include="Clases\Musicos.cs" />
     <Compile Include="Clases\Soporte.cs" />
