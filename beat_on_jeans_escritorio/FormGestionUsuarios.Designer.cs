@@ -404,12 +404,16 @@
             // 
             // comboBoxRol
             // 
+            this.comboBoxRol.DataSource = this.bindingSourceRoles;
+            this.comboBoxRol.DisplayMember = "Nombre_Rol";
             this.comboBoxRol.Font = new System.Drawing.Font("Figtree", 10F);
             this.comboBoxRol.FormattingEnabled = true;
             this.comboBoxRol.Location = new System.Drawing.Point(315, 52);
             this.comboBoxRol.Name = "comboBoxRol";
             this.comboBoxRol.Size = new System.Drawing.Size(218, 24);
             this.comboBoxRol.TabIndex = 24;
+
+            this.comboBoxRol.ValueMember = "ID";
             this.comboBoxRol.SelectedIndexChanged += new System.EventHandler(this.comboBoxRol_SelectedIndexChanged);
             // 
             // textBoxContrasena

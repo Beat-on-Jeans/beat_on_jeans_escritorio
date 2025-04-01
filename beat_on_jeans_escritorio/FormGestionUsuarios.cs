@@ -26,10 +26,10 @@ namespace beat_on_jeans_escritorio
         {
             InitializeComponent();
             this.rolId = rolId;
-            configurarComboBoxRol();
+            configurarComboBoxRol();  // Configura los roles del combo
             dataGridViewUsuarios.SelectionChanged += DataGridViewUsuarios_SelectionChanged;
 
-            // Ecoger los roles en la ComboBox
+            // Cargar los roles en el combo (todos)
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
             // Hacer que comboBoxRolFiltro sea de solo lectura
@@ -55,12 +55,69 @@ namespace beat_on_jeans_escritorio
 
         private void configurarComboBoxRol()
         {
-            // Primero cargar todos los roles
+            // Cargar los roles disponibles
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
-            if (rolId == 4) // Administrador
+            if (rolId == 4) // Si es administrador
             {
                 cargarComboBoxRolesSoloMusicosYLocales();
+            }
+            else
+            {
+                // Para otros roles, cargar todos los roles sin filtrar
+                comboBoxRolFiltro.DataSource = bindingSourceRoles;
+                comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
+                comboBoxRolFiltro.ValueMember = "ID";
+            }
+        }
+
+        private void cargarUsuariosSegunRol()
+        {
+            try
+            {
+                // Si el rol es Administrador (ID == 4), solo mostrar Músicos y Locales
+                if (rolId == 4) // Administrador
+                {
+                    // Filtrar solo los usuarios con rol de Músico o Local
+                    var usuariosFiltrados = UsuariosCSharpOrm.SelectMusicosYLocales();
+
+                    // Asignar los usuarios filtrados al ComboBox
+                    bindingSourceBuscarUsuarios.DataSource = usuariosFiltrados;
+                    comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                    comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar solo el correo
+                    comboBoxBuscarUsuario.ValueMember = "ID";        // Valor asociado al ID
+                }
+                else
+                {
+                    // Si no es administrador, cargar todos los usuarios
+                    var usuarios = UsuariosORM.Select();
+
+                    bindingSourceBuscarUsuarios.DataSource = usuarios; // Todos los usuarios
+                    comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                    comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar solo el correo
+                    comboBoxBuscarUsuario.ValueMember = "ID";        // Valor asociado al ID
+                }
+
+                // Configurar el estilo del ComboBox
+                comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+                comboBoxBuscarUsuario.SelectedIndex = -1; // No seleccionar ninguno inicialmente
+
+                // Verificar que haya usuarios cargados
+                if (bindingSourceBuscarUsuarios.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron usuarios.",
+                                    "Información",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
 
