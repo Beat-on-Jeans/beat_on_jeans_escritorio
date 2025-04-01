@@ -166,12 +166,23 @@ namespace beat_on_jeans_escritorio.Models
             }
         }
 
+        public static List<dynamic> SelectMusicosYLocales()
+        {
+            using (var context = new dam05Entities())
+            {
+                var query = from u in context.Usuarios
+                            join r in context.Roles on u.ROL_ID equals r.ID
+                            where u.ROL_ID == 1 || u.ROL_ID == 2
+                            select new
+                            {
+                                u.ID,
+                                u.Correo,
+                                NombreRol = r.Nombre_Rol,
+                                ROL_ID = u.ROL_ID
+                            };
 
-
-
-
-
-
-
+                return query.ToList<dynamic>();
+            }
+        }
     }
 }

@@ -26,20 +26,18 @@ namespace beat_on_jeans_escritorio
         {
             InitializeComponent();
             this.rolId = rolId;
-            configurarComboBoxRol();
+            configurarComboBoxRol();  // Configura los roles del combo
             dataGridViewUsuarios.SelectionChanged += DataGridViewUsuarios_SelectionChanged;
 
-            // Ecoger los roles en la ComboBox
+            // Cargar los roles en el combo (todos)
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
             // Hacer que comboBoxRoles sea de solo lectura
             comboBoxRolFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            var usuarios = UsuariosORM.Select();
-            bindingSourceBuscarUsuarios.DataSource = usuarios; // Corrected line
-            comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
-            comboBoxBuscarUsuario.DisplayMember = "Correo"; 
-            comboBoxBuscarUsuario.ValueMember = "ID";
+            // Cargar los usuarios dependiendo del rol
+            cargarUsuariosSegunRol();
+
             comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxBuscarUsuario.SelectedIndex = -1;
             this.rolId = rolId;
@@ -47,10 +45,10 @@ namespace beat_on_jeans_escritorio
 
         private void configurarComboBoxRol()
         {
-            // Primero cargar todos los roles
+            // Cargar los roles disponibles
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
-            if (rolId == 4) // Administrador
+            if (rolId == 4) // Si es administrador
             {
                 cargarComboBoxRolesSoloMusicosYLocales();
             }
@@ -63,43 +61,93 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        private void cargarUsuariosSegunRol()
+        {
+            try
+            {
+                // Si el rol es Administrador (ID == 4), solo mostrar Músicos y Locales
+                if (rolId == 4) // Administrador
+                {
+                    // Filtrar solo los usuarios con rol de Músico o Local
+                    var usuariosFiltrados = UsuariosCSharpOrm.SelectMusicosYLocales();
+
+                    // Asignar los usuarios filtrados al ComboBox
+                    bindingSourceBuscarUsuarios.DataSource = usuariosFiltrados;
+                    comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                    comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar solo el correo
+                    comboBoxBuscarUsuario.ValueMember = "ID";        // Valor asociado al ID
+                }
+                else
+                {
+                    // Si no es administrador, cargar todos los usuarios
+                    var usuarios = UsuariosORM.Select();
+
+                    bindingSourceBuscarUsuarios.DataSource = usuarios; // Todos los usuarios
+                    comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                    comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar solo el correo
+                    comboBoxBuscarUsuario.ValueMember = "ID";        // Valor asociado al ID
+                }
+
+                // Configurar el estilo del ComboBox
+                comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+                comboBoxBuscarUsuario.SelectedIndex = -1; // No seleccionar ninguno inicialmente
+
+                // Verificar que haya usuarios cargados
+                if (bindingSourceBuscarUsuarios.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron usuarios.",
+                                    "Información",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
         private void cargarComboBoxRolesSoloMusicosYLocales()
         {
             try
             {
-                // Verificar que hay datos
-                if (bindingSourceRoles == null || bindingSourceRoles.Count == 0)
-                {
-                    MessageBox.Show("No hay roles disponibles para cargar.");
-                    return;
-                }
+                // Filtrar los roles de Músico (ID=1) y Local (ID=2) solo para administradores
+                var rolesFiltrados = RolesOrm.Select()
+                                             .Where(r => r.ID == 1 || r.ID == 2)
+                                             .ToList();
 
-                // Filtrar usando LINQ para mayor claridad
-                var rolesFiltrados = bindingSourceRoles.List.Cast<Roles>()
-                    .Where(r => r.ID == 1 || r.ID == 2)  // 1: Músico, 2: Local
-                    .ToList();
-
-                // Verificar que encontramos los roles esperados
                 if (!rolesFiltrados.Any())
                 {
-                    MessageBox.Show("No se encontraron los roles de Músico o Local.");
+                    MessageBox.Show("No se encontraron los roles de Músico o Local.",
+                                     "Advertencia",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Configurar el ComboBox
-                comboBoxRolFiltro.DataSource = rolesFiltrados;
+                // Configurar el ComboBox de roles con solo Músicos y Locales
+                comboBoxRolFiltro.DataSource = new BindingSource(rolesFiltrados, null);
                 comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
                 comboBoxRolFiltro.ValueMember = "ID";
 
-                comboBoxRol.DataSource = rolesFiltrados;
+                comboBoxRol.DataSource = new BindingSource(rolesFiltrados, null);
                 comboBoxRol.DisplayMember = "Nombre_Rol";
                 comboBoxRol.ValueMember = "ID";
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar roles: {ex.Message}");
+                MessageBox.Show($"Error al cargar roles: {ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
+
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
