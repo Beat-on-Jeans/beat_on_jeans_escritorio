@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using beat_on_jeans_escritorio.Clases;
 using beat_on_jeans_escritorio.Models;
+using Microsoft.CSharp.RuntimeBinder;
 
 namespace beat_on_jeans_escritorio
 {
@@ -21,6 +24,7 @@ namespace beat_on_jeans_escritorio
         public FormGestionUsuarios()
         {
             InitializeComponent();
+            dataGridViewUsuarios.SelectionChanged += DataGridViewUsuarios_SelectionChanged;
 
             // Ecoger los roles en la ComboBox
             bindingSourceRoles.DataSource = RolesOrm.Select();
@@ -48,6 +52,7 @@ namespace beat_on_jeans_escritorio
             disenoGrid();
             rellenarUsuarios();
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            cargarContenidosUsuarios();
 
             // Añadir valores a comboBoxAccionUsuario
             comboBoxAccionUsuario.Items.Add("Crear");
@@ -60,6 +65,77 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        private void DataGridViewUsuarios_SelectionChanged(object sender, EventArgs e)
+        {
+            cargarContenidosUsuarios();
+        }
+
+        private void cargarContenidosUsuarios()
+        {
+            // Configurar el manejador de errores del DataGridView
+            dataGridViewUsuarios.DataError += (s, e) => { e.ThrowException = false; };
+
+            // Verificación robusta de fila seleccionada
+            if (dataGridViewUsuarios.CurrentRow == null ||
+                dataGridViewUsuarios.CurrentRow.IsNewRow ||
+                !(dataGridViewUsuarios.CurrentRow.DataBoundItem is object selectedUser))
+            {
+                return;
+            }
+
+            try
+            {
+                // Usar dynamic para acceso más flexible a propiedades
+                dynamic user = selectedUser;
+
+                // Asignación segura de valores con comprobación de existencia
+                textBoxNombre.Text = TryGetProperty(user, "Nombre", "NombreLocal");
+                textBoxCorreo.Text = TryGetProperty(user, "Correo", "CorreoLocal");
+                textBoxContrasena.Text = TryGetProperty(user, "Contrasena");
+                textBoxCodigoPostal.Text = TryGetProperty(user, "Codigo_Postal", "CodigoPostal");
+                textBoxUbicacion.Text = TryGetProperty(user, "Ubicacion", "Location", "Direccion");
+
+                // Configuración segura del combo de roles
+                var rolValue = TryGetProperty(user, "Rol", "Role", "TipoUsuario");
+                if (!string.IsNullOrEmpty(rolValue))
+                {
+                    var selectedRole = comboBoxRoles.Items.Cast<Roles>()
+                        .FirstOrDefault(r => r.Nombre_Rol.Equals(rolValue, StringComparison.OrdinalIgnoreCase));
+                    comboBoxRoles.SelectedItem = selectedRole;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al cargar usuario: {ex.Message}");
+                // No mostrar mensaje al usuario para evitar interrupciones
+            }
+        }
+
+        private string TryGetProperty(dynamic obj, params string[] propertyNames)
+        {
+            try
+            {
+                foreach (var name in propertyNames)
+                {
+                    try
+                    {
+                        var value = obj.GetType().GetProperty(name)?.GetValue(obj);
+                        if (value != null) return value.ToString();
+                    }
+                    catch (RuntimeBinderException)
+                    {
+                        // Continuar con el siguiente nombre si la propiedad no existe
+                        continue;
+                    }
+                }
+            }
+            catch
+            {
+                // Manejar cualquier otro error silenciosamente
+            }
+            return string.Empty;
+        }
+
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             rellenarUsuarios();
@@ -68,280 +144,8 @@ namespace beat_on_jeans_escritorio
 
         private void rellenarUsuarios()
         {
-            Roles _rol = (Roles)comboBoxRoles.SelectedItem;
-            if (_rol == null)
-            {
-                return;
-            }
-
-            dataGridViewUsuarios.DataSource = _rol.Usuarios.ToList();
-
-            if (_rol.Nombre_Rol == "Musico")
-            {
-                var usuariosMusicos = UsuariosCSharpOrm.SelectMusicos();
-
-                dataGridViewUsuarios.AutoGenerateColumns = true;
-                bindingSourceUsuarios.DataSource = usuariosMusicos.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-
-                // Desactivar generación automática para personalizar
-                dataGridViewUsuarios.AutoGenerateColumns = false;
-
-                // Limpiar columnas existentes
-                dataGridViewUsuarios.Columns.Clear();
-
-                // Crear y configurar columnas manualmente
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Nombre",
-                    HeaderText = "Nombre",
-                    DataPropertyName = "Nombre"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Correo",
-                    HeaderText = "Correo",
-                    DataPropertyName = "Correo"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Rol",
-                    HeaderText = "Rol",
-                    DataPropertyName = "Rol"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Codigo_Postal",
-                    HeaderText = "Código Postal",
-                    DataPropertyName = "Codigo_Postal"
-                });
-
-                // Configuración visual
-                dataGridViewUsuarios.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridViewUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            }
-            else if (_rol.Nombre_Rol == "Local")
-            {
-                // Cargar datos
-                var usuariosLocales = UsuariosCSharpOrm.SelectLocales();
-
-                // Configurar DataSource con generación automática inicial
-                dataGridViewUsuarios.AutoGenerateColumns = true;
-                bindingSourceUsuarios.DataSource = usuariosLocales.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-
-                // Desactivar generación automática para personalizar
-                dataGridViewUsuarios.AutoGenerateColumns = false;
-
-                // Limpiar columnas existentes
-                dataGridViewUsuarios.Columns.Clear();
-
-                // Crear y configurar columnas manualmente
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "NombreLocal",
-                    HeaderText = "Nombre",
-                    DataPropertyName = "NombreLocal"  // Usamos el alias del query
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "CorreoLocal",
-                    HeaderText = "Correo",
-                    DataPropertyName = "CorreoLocal"  // Usamos el alias del query
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Rol",
-                    HeaderText = "Rol",
-                    DataPropertyName = "Rol"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "ValoracionMedia",
-                    HeaderText = "Valoración",
-                    DataPropertyName = "ValoracionMedia"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Ubicacion",
-                    HeaderText = "Ubicación",
-                    DataPropertyName = "Ubicacion"
-                });
-
-                // Configuración visual
-                dataGridViewUsuarios.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridViewUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                // Reasignar el DataSource para aplicar los cambios
-                bindingSourceUsuarios.DataSource = usuariosLocales.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-            }
-            else if (_rol.Nombre_Rol == "Superadministrador")
-            {
-                // Cargar datos
-                var superAdmins = UsuariosCSharpOrm.SelectSuperadministradores();
-
-                // Configurar DataSource con generación automática inicial
-                dataGridViewUsuarios.AutoGenerateColumns = true;
-                bindingSourceUsuarios.DataSource = superAdmins.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-
-                // Desactivar generación automática para personalizar
-                dataGridViewUsuarios.AutoGenerateColumns = false;
-
-                // Limpiar columnas existentes
-                dataGridViewUsuarios.Columns.Clear();
-
-                // Crear y configurar columnas manualmente
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Nombre",
-                    HeaderText = "Nombre",
-                    DataPropertyName = "Nombre"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Correo",
-                    HeaderText = "Correo",
-                    DataPropertyName = "Correo"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Contrasena",
-                    HeaderText = "Contrasena",
-                    DataPropertyName = "Contrasena"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Rol",
-                    HeaderText = "Rol",
-                    DataPropertyName = "Rol"
-                });
-
-                // Configuración visual
-                dataGridViewUsuarios.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridViewUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                // Reasignar el DataSource para aplicar los cambios
-                bindingSourceUsuarios.DataSource = superAdmins.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-            }
-            else if (_rol.Nombre_Rol == "Administrador")
-            {
-                // Cargar datos
-                var administradores = UsuariosCSharpOrm.SelectAdministradores();
-
-                // Configurar DataSource con generación automática inicial
-                dataGridViewUsuarios.AutoGenerateColumns = true;
-                bindingSourceUsuarios.DataSource = administradores.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-
-                // Desactivar generación automática para personalizar
-                dataGridViewUsuarios.AutoGenerateColumns = false;
-
-                // Limpiar columnas existentes
-                dataGridViewUsuarios.Columns.Clear();
-
-                // Crear y configurar columnas manualmente
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Nombre",
-                    HeaderText = "Nombre",
-                    DataPropertyName = "Nombre"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Correo",
-                    HeaderText = "Correo",
-                    DataPropertyName = "Correo"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Contrasena",
-                    HeaderText = "Contrasena",
-                    DataPropertyName = "Contrasena"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Rol",
-                    HeaderText = "Rol",
-                    DataPropertyName = "Rol"
-                });
-
-                // Configuración visual
-                dataGridViewUsuarios.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridViewUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                // Reasignar el DataSource para aplicar los cambios
-                bindingSourceUsuarios.DataSource = administradores.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-            }
-            else if (_rol.Nombre_Rol == "Mantenimiento")
-            {
-                // Cargar datos
-                var mantenimiento = UsuariosCSharpOrm.SelectMantenimiento();
-
-                // Configurar DataSource con generación automática inicial
-                dataGridViewUsuarios.AutoGenerateColumns = true;
-                bindingSourceUsuarios.DataSource = mantenimiento.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-
-                // Desactivar generación automática para personalizar
-                dataGridViewUsuarios.AutoGenerateColumns = false;
-
-                // Limpiar columnas existentes
-                dataGridViewUsuarios.Columns.Clear();
-
-                // Crear y configurar columnas manualmente
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Nombre",
-                    HeaderText = "Nombre",
-                    DataPropertyName = "Nombre"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Correo",
-                    HeaderText = "Correo",
-                    DataPropertyName = "Correo"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Contrasena",
-                    HeaderText = "Contrasena",
-                    DataPropertyName = "Contrasena"
-                });
-
-                dataGridViewUsuarios.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "Rol",
-                    HeaderText = "Rol",
-                    DataPropertyName = "Rol"
-                });
-
-                // Configuración visual
-                dataGridViewUsuarios.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridViewUsuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-                // Reasignar el DataSource para aplicar los cambios
-                bindingSourceUsuarios.DataSource = mantenimiento.ToList();
-                dataGridViewUsuarios.DataSource = bindingSourceUsuarios;
-            }
+            Roles rolSeleccionado = (Roles)comboBoxRoles.SelectedItem;
+            CargarGridRoles.ConfigurarGridSegunRol(rolSeleccionado, dataGridViewUsuarios, bindingSourceUsuarios);
         }
 
         private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

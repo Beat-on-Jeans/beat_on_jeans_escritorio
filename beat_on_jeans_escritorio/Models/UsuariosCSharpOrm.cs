@@ -95,6 +95,7 @@ namespace beat_on_jeans_escritorio.Models
                             {
                                 NombreLocal = u.Nombre,
                                 CorreoLocal = u.Correo,
+                                u.Contrasena,
                                 Ubicacion = um.Ubicacion,
                                 ValoracionMedia = um.ValoracionTotal,
                                 Rol = r.Nombre_Rol,  // Añadimos el nombre del rol
