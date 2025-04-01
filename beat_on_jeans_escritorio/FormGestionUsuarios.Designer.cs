@@ -55,12 +55,12 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelContrasena = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxCodigoPostal = new System.Windows.Forms.TextBox();
+            this.textBoxUbicacion = new System.Windows.Forms.TextBox();
             this.labelUbicacion = new System.Windows.Forms.Label();
             this.labelCodigoPostal = new System.Windows.Forms.Label();
             this.comboBoxRol = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxContrasena = new System.Windows.Forms.TextBox();
             this.textBoxCorreo = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelCorreo = new System.Windows.Forms.Label();
@@ -344,12 +344,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBoxCodigoPostal);
+            this.groupBox1.Controls.Add(this.textBoxUbicacion);
             this.groupBox1.Controls.Add(this.labelUbicacion);
             this.groupBox1.Controls.Add(this.labelCodigoPostal);
             this.groupBox1.Controls.Add(this.comboBoxRol);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxContrasena);
             this.groupBox1.Controls.Add(this.textBoxCorreo);
             this.groupBox1.Controls.Add(this.textBoxNombre);
             this.groupBox1.Controls.Add(this.labelCorreo);
@@ -365,21 +365,21 @@
             this.groupBox1.Text = "Info Usuario";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox3
+            // textBoxCodigoPostal
             // 
-            this.textBox3.Font = new System.Drawing.Font("Figtree", 10F);
-            this.textBox3.Location = new System.Drawing.Point(315, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(218, 23);
-            this.textBox3.TabIndex = 28;
+            this.textBoxCodigoPostal.Font = new System.Drawing.Font("Figtree", 10F);
+            this.textBoxCodigoPostal.Location = new System.Drawing.Point(315, 112);
+            this.textBoxCodigoPostal.Name = "textBoxCodigoPostal";
+            this.textBoxCodigoPostal.Size = new System.Drawing.Size(218, 23);
+            this.textBoxCodigoPostal.TabIndex = 28;
             // 
-            // textBox2
+            // textBoxUbicacion
             // 
-            this.textBox2.Font = new System.Drawing.Font("Figtree", 10F);
-            this.textBox2.Location = new System.Drawing.Point(315, 166);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(218, 23);
-            this.textBox2.TabIndex = 27;
+            this.textBoxUbicacion.Font = new System.Drawing.Font("Figtree", 10F);
+            this.textBoxUbicacion.Location = new System.Drawing.Point(315, 166);
+            this.textBoxUbicacion.Name = "textBoxUbicacion";
+            this.textBoxUbicacion.Size = new System.Drawing.Size(218, 23);
+            this.textBoxUbicacion.TabIndex = 27;
             // 
             // labelUbicacion
             // 
@@ -403,20 +403,23 @@
             // 
             // comboBoxRol
             // 
+            this.comboBoxRol.DataSource = this.bindingSourceRoles;
+            this.comboBoxRol.DisplayMember = "Nombre_Rol";
             this.comboBoxRol.Font = new System.Drawing.Font("Figtree", 10F);
             this.comboBoxRol.FormattingEnabled = true;
             this.comboBoxRol.Location = new System.Drawing.Point(315, 52);
             this.comboBoxRol.Name = "comboBoxRol";
             this.comboBoxRol.Size = new System.Drawing.Size(218, 24);
             this.comboBoxRol.TabIndex = 24;
+            this.comboBoxRol.ValueMember = "ID";
             // 
-            // textBox1
+            // textBoxContrasena
             // 
-            this.textBox1.Font = new System.Drawing.Font("Figtree", 10F);
-            this.textBox1.Location = new System.Drawing.Point(24, 166);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 23);
-            this.textBox1.TabIndex = 23;
+            this.textBoxContrasena.Font = new System.Drawing.Font("Figtree", 10F);
+            this.textBoxContrasena.Location = new System.Drawing.Point(24, 166);
+            this.textBoxContrasena.Name = "textBoxContrasena";
+            this.textBoxContrasena.Size = new System.Drawing.Size(249, 23);
+            this.textBoxContrasena.TabIndex = 23;
             // 
             // textBoxCorreo
             // 
@@ -546,15 +549,15 @@
         private System.Windows.Forms.Label labelContrasena;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelCorreo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxContrasena;
         private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.ComboBox comboBoxRol;
         private System.Windows.Forms.Label labelRol;
         private System.Windows.Forms.Label labelUbicacion;
         private System.Windows.Forms.Label labelCodigoPostal;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxCodigoPostal;
+        private System.Windows.Forms.TextBox textBoxUbicacion;
         private System.Windows.Forms.GroupBox groupBoxBotones;
         private System.Windows.Forms.ComboBox comboBoxAccionUsuario;
         private System.Windows.Forms.PictureBox pictureBox2;
