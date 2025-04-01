@@ -59,7 +59,7 @@
             this.textBoxUbicacion = new System.Windows.Forms.TextBox();
             this.labelUbicacion = new System.Windows.Forms.Label();
             this.labelCodigoPostal = new System.Windows.Forms.Label();
-            this.c = new System.Windows.Forms.ComboBox();
+            this.comboBoxRol = new System.Windows.Forms.ComboBox();
             this.textBoxContrasena = new System.Windows.Forms.TextBox();
             this.textBoxCorreo = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
@@ -349,7 +349,7 @@
             this.groupBox1.Controls.Add(this.textBoxUbicacion);
             this.groupBox1.Controls.Add(this.labelUbicacion);
             this.groupBox1.Controls.Add(this.labelCodigoPostal);
-            this.groupBox1.Controls.Add(this.c);
+            this.groupBox1.Controls.Add(this.comboBoxRol);
             this.groupBox1.Controls.Add(this.textBoxContrasena);
             this.groupBox1.Controls.Add(this.textBoxCorreo);
             this.groupBox1.Controls.Add(this.textBoxNombre);
@@ -402,18 +402,18 @@
             this.labelCodigoPostal.TabIndex = 25;
             this.labelCodigoPostal.Text = "Codigo postal";
             // 
-            // c
+            // comboBoxRol
             // 
-            this.c.DataSource = this.bindingSourceRoles;
-            this.c.DisplayMember = "Nombre_Rol";
-            this.c.Font = new System.Drawing.Font("Figtree", 10F);
-            this.c.FormattingEnabled = true;
-            this.c.Location = new System.Drawing.Point(315, 52);
-            this.c.Name = "c";
-            this.c.Size = new System.Drawing.Size(218, 24);
-            this.c.TabIndex = 24;
-            this.c.ValueMember = "ID";
-            this.c.SelectedIndexChanged += new System.EventHandler(this.comboBoxRol_SelectedIndexChanged);
+            this.comboBoxRol.DataSource = this.bindingSourceRoles;
+            this.comboBoxRol.DisplayMember = "Nombre_Rol";
+            this.comboBoxRol.Font = new System.Drawing.Font("Figtree", 10F);
+            this.comboBoxRol.FormattingEnabled = true;
+            this.comboBoxRol.Location = new System.Drawing.Point(315, 52);
+            this.comboBoxRol.Name = "comboBoxRol";
+            this.comboBoxRol.Size = new System.Drawing.Size(218, 24);
+            this.comboBoxRol.TabIndex = 24;
+            this.comboBoxRol.ValueMember = "ID";
+            this.comboBoxRol.SelectedIndexChanged += new System.EventHandler(this.comboBoxRol_SelectedIndexChanged);
             // 
             // textBoxContrasena
             // 
@@ -554,7 +554,7 @@
         private System.Windows.Forms.TextBox textBoxContrasena;
         private System.Windows.Forms.TextBox textBoxCorreo;
         private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.ComboBox c;
+        private System.Windows.Forms.ComboBox comboBoxRol;
         private System.Windows.Forms.Label labelRol;
         private System.Windows.Forms.Label labelUbicacion;
         private System.Windows.Forms.Label labelCodigoPostal;

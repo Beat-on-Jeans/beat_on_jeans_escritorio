@@ -54,11 +54,19 @@ namespace beat_on_jeans_escritorio
             {
                 cargarComboBoxRolesSoloMusicosYLocales();
             }
+            else
+            {
+                // Para otros roles, cargar todos los roles sin filtrar
+                comboBoxRolFiltro.DataSource = bindingSourceRoles;
+                comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
+                comboBoxRolFiltro.ValueMember = "ID";
+            }
         }
 
         private void cargarComboBoxRolesSoloMusicosYLocales()
         {
-            
+            try
+            {
                 // Verificar que hay datos
                 if (bindingSourceRoles == null || bindingSourceRoles.Count == 0)
                 {
@@ -71,14 +79,27 @@ namespace beat_on_jeans_escritorio
                     .Where(r => r.ID == 1 || r.ID == 2)  // 1: Músico, 2: Local
                     .ToList();
 
-            comboBoxBuscarUsuario.TextChanged += ComboBoxBuscarUsuario_TextChanged;
+                // Verificar que encontramos los roles esperados
+                if (!rolesFiltrados.Any())
+                {
+                    MessageBox.Show("No se encontraron los roles de Músico o Local.");
+                    return;
+                }
+
+                // Configurar el ComboBox
+                comboBoxRolFiltro.DataSource = rolesFiltrados;
+                comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
+                comboBoxRolFiltro.ValueMember = "ID";
+
+                comboBoxRol.DataSource = rolesFiltrados;
+                comboBoxRol.DisplayMember = "Nombre_Rol";
+                comboBoxRol.ValueMember = "ID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar roles: {ex.Message}");
+            }
         }
-
-
-
-
-
-
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
