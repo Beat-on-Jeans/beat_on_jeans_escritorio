@@ -22,7 +22,6 @@ namespace beat_on_jeans_escritorio
             configurarInterfaz();
             cargarFormularioPorRol();
             cargarLabels();
-            configurarImagenRedonda();
             hoverBotones();
         }
 
@@ -43,7 +42,7 @@ namespace beat_on_jeans_escritorio
                 case 4:
                     return "Administrador";
                 case 5:
-                    return "Mantenimiento de Datos";
+                    return "Mantenimiento";
                 default:
                     return "Rol Desconocido";
             }
@@ -111,38 +110,6 @@ namespace beat_on_jeans_escritorio
             formulario.Show();
         }
 
-        // Método para redondear la imagen del PictureBox
-        private void configurarImagenRedonda()
-        {
-            // Crear un gráfico a partir de la imagen actual.
-            Bitmap originalBitmap = new Bitmap(pictureBox.Image);
-            int diametro = Math.Min(originalBitmap.Width, originalBitmap.Height);
-
-            // Crear una nueva imagen con el mismo tamaño que la imagen
-            Bitmap roundBitmap = new Bitmap(diametro, diametro);
-
-            // Crear un objeto Graphics para dibujar la nueva imagen
-            using (Graphics g = Graphics.FromImage(roundBitmap))
-            {
-                g.SmoothingMode = SmoothingMode.AntiAlias;
-                g.Clear(Color.Transparent);  // Fondo transparente
-
-                // Crear una ruta de gráficos con una forma circular
-                GraphicsPath path = new GraphicsPath();
-                path.AddEllipse(0, 0, diametro, diametro);
-
-                // Establecer la región del gráfico como la forma circular
-                g.SetClip(path);
-
-                // Dibujar la imagen original en la imagen redonda
-                g.DrawImage(originalBitmap, new Rectangle(0, 0, diametro, diametro));
-            }
-
-            // Asignar la imagen redonda al PictureBox
-            pictureBox.Image = roundBitmap;
-        }
-
-        // Método para configurar el comportamiento de hover en los botones
         private void hoverBotones()
         {
             PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
@@ -150,6 +117,7 @@ namespace beat_on_jeans_escritorio
             PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonMapa);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
+
         }
 
         // Eventos de los botones
@@ -160,32 +128,6 @@ namespace beat_on_jeans_escritorio
             cargarFormularioPorRol(); // Recargar el formulario según el rol
         }
 
-        // Botón Gestión de Usuarios
-        private void buttonGestionUsuarios_Click(object sender, EventArgs e)
-        {
-            CargarFormulario(new FormGestionUsuarios()); // Cargar el formulario de gestión de usuarios
-        }
-
-        private void panelCargarForms_Paint(object sender, PaintEventArgs e)
-        {
-            // No es necesario hacer nada aquí
-        }
-
-        private void buttonEventos_Click(object sender, EventArgs e)
-        {
-            CargarFormulario(new FormCalendario()); // Cargar el formulario de calendario
-        }
-
-        private void buttonLogOut_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            FormLogin login = new FormLogin();
-            login.Show();
-        }
-
-        
-
         private void buttonSoporte_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormSoporte());
@@ -194,6 +136,24 @@ namespace beat_on_jeans_escritorio
         private void buttonMapa_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormMaps());
+        }
+
+        private void buttonEventos_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FormCalendario()); // Cargar el formulario de calendario
+        }
+
+        private void buttonGestionUsuarios_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FormGestionUsuarios(usuarioActual.ROL_ID ?? 0));
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FormLogin login = new FormLogin();
+            login.Show();
         }
     }
 }

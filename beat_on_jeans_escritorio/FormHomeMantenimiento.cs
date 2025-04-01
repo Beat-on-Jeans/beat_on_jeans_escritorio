@@ -20,18 +20,47 @@ namespace beat_on_jeans_escritorio
             cargarDatosMusicos();
             cargarDatosLocales();
             autoSeleccionarGrid();
+            configuracionFondoGrid();
         }
 
-        private void autoSeleccionarGrid()
+        private void FormHomeMantenimiento_Load(object sender, EventArgs e)
         {
-            dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewLocales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewMusicos, 20);
+            DataGridViewBordeRedondo.RedondearBordes(dataGridViewLocales, 20);
         }
-
         private void redondearGrid()
         {
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewMusicos, 20);
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewLocales, 20);
+        }
+
+        private void cargarDatosMusicos()
+        {
+            try
+            {
+                var datosMusicos = HomeSuperUsuarioOrm.SelectMusicos();
+
+                // Configurar el DataGridView
+                dataGridViewMusicos.AutoGenerateColumns = false;
+                dataGridViewMusicos.DataSource = datosMusicos;
+
+                // Configurar las columnas para que usen las propiedades correctas
+                dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "NombreMusico";
+                dataGridViewMusicos.Columns["CorreoMusico"].DataPropertyName = "CorreoMusico";
+                dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "CodigoPostal";
+
+                // Configuración de visualización
+                dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de locales: " + ex.Message,
+                               "Error",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
         }
 
         private void cargarDatosLocales()
@@ -64,39 +93,24 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-        private void cargarDatosMusicos()
+        private void autoSeleccionarGrid()
         {
-            try
-            {
-                var datosMusicos = HomeSuperUsuarioOrm.SelectMusicos();
-
-                // Configurar el DataGridView
-                dataGridViewMusicos.AutoGenerateColumns = false;
-                dataGridViewMusicos.DataSource = datosMusicos;
-
-                // Configurar las columnas para que usen las propiedades correctas
-                dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "NombreMusico";
-                dataGridViewMusicos.Columns["CorreoMusico"].DataPropertyName = "CorreoMusico";
-                dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "CodigoPostal";
-
-                // Configuración de visualización
-                dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los datos de locales: " + ex.Message,
-                               "Error",
-                               MessageBoxButtons.OK,
-                               MessageBoxIcon.Error);
-            }
+            dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewLocales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void FormHomeMantenimiento_Load(object sender, EventArgs e)
+        private void configuracionFondoGrid()
         {
-            DataGridViewBordeRedondo.RedondearBordes(dataGridViewMusicos, 20);
-            DataGridViewBordeRedondo.RedondearBordes(dataGridViewLocales, 20);
+            // Definir el color RGB (255, 243, 226)
+            Color colorFondo = Color.FromArgb(255, 243, 226);
+
+            // Configurar el color de fondo del DataGridView
+            dataGridViewMusicos.BackgroundColor = colorFondo;
+            dataGridViewLocales.BackgroundColor = colorFondo;
+
+            // Configurar el color de fondo de las celdas
+            dataGridViewMusicos.DefaultCellStyle.BackColor = colorFondo;
+            dataGridViewLocales.DefaultCellStyle.BackColor = colorFondo;
         }
     }
 }

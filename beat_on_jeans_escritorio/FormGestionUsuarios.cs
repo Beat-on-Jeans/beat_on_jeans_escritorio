@@ -21,9 +21,12 @@ namespace beat_on_jeans_escritorio
     {
         private string hintText = "Busca al usuario...";
         private BindingSource bindingSourceBuscarUsuarios = new BindingSource();
-        public FormGestionUsuarios()
+        private int rolId;
+        public FormGestionUsuarios(int rolId)
         {
             InitializeComponent();
+            this.rolId = rolId;
+            configurarComboBoxRol();
             dataGridViewUsuarios.SelectionChanged += DataGridViewUsuarios_SelectionChanged;
 
             // Ecoger los roles en la ComboBox
@@ -42,9 +45,60 @@ namespace beat_on_jeans_escritorio
             comboBoxBuscarUsuario.ValueMember = "ID"; // Ajusta esto según el nombre de la propiedad del ID del usuario
             comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxBuscarUsuario.SelectedIndex = -1;
-
-            comboBoxBuscarUsuario.TextChanged += ComboBoxBuscarUsuario_TextChanged;
+            this.rolId = rolId;
         }
+
+        private void configurarComboBoxRol()
+        {
+            // Primero cargar todos los roles
+            bindingSourceRoles.DataSource = RolesOrm.Select();
+
+            if (rolId == 4) // Administrador
+            {
+                cargarComboBoxRolesSoloMusicosYLocales();
+            }
+        }
+
+        private void cargarComboBoxRolesSoloMusicosYLocales()
+        {
+            
+                // Verificar que hay datos
+                if (bindingSourceRoles == null || bindingSourceRoles.Count == 0)
+                {
+                    MessageBox.Show("No hay roles disponibles para cargar.");
+                    return;
+                }
+
+                // Filtrar usando LINQ para mayor claridad
+                var rolesFiltrados = bindingSourceRoles.List.Cast<Roles>()
+                    .Where(r => r.ID == 1 || r.ID == 2)  // 1: Músico, 2: Local
+                    .ToList();
+
+                // Verificar que encontramos los roles esperados
+                if (!rolesFiltrados.Any())
+                {
+                    MessageBox.Show("No se encontraron los roles de Músico o Local.");
+                    return;
+                }
+
+                // Configurar el ComboBox
+                comboBoxRoles.DataSource = rolesFiltrados;
+                comboBoxRoles.DisplayMember = "Nombre_Rol";
+                comboBoxRoles.ValueMember = "ID";
+                comboBoxRoles.SelectedIndex = -1;
+
+                comboBoxRol.DataSource = rolesFiltrados;
+                comboBoxRol.DisplayMember = "Nombre_Rol";
+                comboBoxRol.ValueMember = "ID";
+                comboBoxRol.SelectedIndex = -1;
+            
+        }
+
+
+
+
+
+
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
