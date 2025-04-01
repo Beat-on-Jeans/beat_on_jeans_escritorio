@@ -44,6 +44,14 @@
             this.buttonModificar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rOLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contrasenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioMobilDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuariosCSharpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelContrasena = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -170,12 +178,14 @@
             // 
             // comboBoxBuscarUsuario
             // 
+            this.comboBoxBuscarUsuario.DisplayMember = "ID";
             this.comboBoxBuscarUsuario.Font = new System.Drawing.Font("Figtree", 10.25F);
             this.comboBoxBuscarUsuario.FormattingEnabled = true;
             this.comboBoxBuscarUsuario.Location = new System.Drawing.Point(225, 281);
             this.comboBoxBuscarUsuario.Name = "comboBoxBuscarUsuario";
             this.comboBoxBuscarUsuario.Size = new System.Drawing.Size(701, 25);
             this.comboBoxBuscarUsuario.TabIndex = 13;
+            this.comboBoxBuscarUsuario.ValueMember = "ID";
             this.comboBoxBuscarUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // buttonModificar
@@ -225,6 +235,15 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewUsuarios.ColumnHeadersHeight = 30;
+            this.dataGridViewUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.rOLIDDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.correoDataGridViewTextBoxColumn,
+            this.contrasenaDataGridViewTextBoxColumn,
+            this.rolesDataGridViewTextBoxColumn,
+            this.usuarioMobilDataGridViewTextBoxColumn,
+            this.usuariosCSharpDataGridViewTextBoxColumn});
             this.dataGridViewUsuarios.DataSource = this.bindingSourceUsuarios;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
@@ -246,6 +265,62 @@
             this.dataGridViewUsuarios.RowTemplate.Height = 24;
             this.dataGridViewUsuarios.Size = new System.Drawing.Size(915, 286);
             this.dataGridViewUsuarios.TabIndex = 15;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rOLIDDataGridViewTextBoxColumn
+            // 
+            this.rOLIDDataGridViewTextBoxColumn.DataPropertyName = "ROL_ID";
+            this.rOLIDDataGridViewTextBoxColumn.HeaderText = "ROL_ID";
+            this.rOLIDDataGridViewTextBoxColumn.Name = "rOLIDDataGridViewTextBoxColumn";
+            this.rOLIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // correoDataGridViewTextBoxColumn
+            // 
+            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
+            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
+            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
+            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contrasenaDataGridViewTextBoxColumn
+            // 
+            this.contrasenaDataGridViewTextBoxColumn.DataPropertyName = "Contrasena";
+            this.contrasenaDataGridViewTextBoxColumn.HeaderText = "Contrasena";
+            this.contrasenaDataGridViewTextBoxColumn.Name = "contrasenaDataGridViewTextBoxColumn";
+            this.contrasenaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rolesDataGridViewTextBoxColumn
+            // 
+            this.rolesDataGridViewTextBoxColumn.DataPropertyName = "Roles";
+            this.rolesDataGridViewTextBoxColumn.HeaderText = "Roles";
+            this.rolesDataGridViewTextBoxColumn.Name = "rolesDataGridViewTextBoxColumn";
+            this.rolesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usuarioMobilDataGridViewTextBoxColumn
+            // 
+            this.usuarioMobilDataGridViewTextBoxColumn.DataPropertyName = "UsuarioMobil";
+            this.usuarioMobilDataGridViewTextBoxColumn.HeaderText = "UsuarioMobil";
+            this.usuarioMobilDataGridViewTextBoxColumn.Name = "usuarioMobilDataGridViewTextBoxColumn";
+            this.usuarioMobilDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usuariosCSharpDataGridViewTextBoxColumn
+            // 
+            this.usuariosCSharpDataGridViewTextBoxColumn.DataPropertyName = "UsuariosCSharp";
+            this.usuariosCSharpDataGridViewTextBoxColumn.HeaderText = "UsuariosCSharp";
+            this.usuariosCSharpDataGridViewTextBoxColumn.Name = "usuariosCSharpDataGridViewTextBoxColumn";
+            this.usuariosCSharpDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // labelNombre
             // 
@@ -483,5 +558,10 @@
         private System.Windows.Forms.GroupBox groupBoxBotones;
         private System.Windows.Forms.ComboBox comboBoxAccionUsuario;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rOLIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rolesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioMobilDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuariosCSharpDataGridViewTextBoxColumn;
     }
 }

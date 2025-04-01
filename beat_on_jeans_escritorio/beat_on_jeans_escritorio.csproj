@@ -209,6 +209,7 @@
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsuariosCSharpOrm.cs" />
+    <Compile Include="Models\UsuariosORM.cs" />
     <Compile Include="Models\Valoracion.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>

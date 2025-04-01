@@ -17,6 +17,7 @@ namespace beat_on_jeans_escritorio
 
     {
         private string hintText = "Busca al usuario...";
+        private BindingSource bindingSourceBuscarUsuarios = new BindingSource();
         public FormGestionUsuarios()
         {
             InitializeComponent();
@@ -29,6 +30,16 @@ namespace beat_on_jeans_escritorio
 
             // Hacer que comboBoxAccionUsuario sea de solo lectura
             comboBoxAccionUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            var usuarios = UsuariosORM.Select();
+            bindingSourceBuscarUsuarios.DataSource = usuarios; // Corrected line
+            comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+            comboBoxBuscarUsuario.DisplayMember = "Correo"; // Ajusta esto según el nombre de la propiedad que deseas mostrar
+            comboBoxBuscarUsuario.ValueMember = "ID"; // Ajusta esto según el nombre de la propiedad del ID del usuario
+            comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxBuscarUsuario.SelectedIndex = -1;
+
+            comboBoxBuscarUsuario.TextChanged += ComboBoxBuscarUsuario_TextChanged;
         }
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
@@ -384,24 +395,6 @@ namespace beat_on_jeans_escritorio
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void RemoveHint(object sender, EventArgs e)
-        {
-            if (comboBoxBuscarUsuario.ForeColor == Color.Gray)
-            {
-                comboBoxBuscarUsuario.Text = "";
-                comboBoxBuscarUsuario.ForeColor = Color.Black;
-            }
-        }
-
-        private void ShowHint(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(comboBoxBuscarUsuario.Text))
-            {
-                comboBoxBuscarUsuario.ForeColor = Color.Gray;
-                comboBoxBuscarUsuario.Text = hintText;
-            }
         }
 
         private void buttonCrearUsuario_Click(object sender, EventArgs e)
