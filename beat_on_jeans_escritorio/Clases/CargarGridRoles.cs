@@ -11,7 +11,6 @@ namespace beat_on_jeans_escritorio.Clases
             if (rol == null) return;
 
             // Configuración común para todos los roles
-            dataGridView.AutoGenerateColumns = true;
             bindingSource.DataSource = rol.Usuarios;
             dataGridView.DataSource = bindingSource;
 
@@ -52,6 +51,7 @@ namespace beat_on_jeans_escritorio.Clases
 
             AgregarColumna(dataGridView, "Nombre", "Nombre", "Nombre");
             AgregarColumna(dataGridView, "Correo", "Correo", "Correo");
+            AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");
             AgregarColumna(dataGridView, "Rol", "Rol", "Rol");
             AgregarColumna(dataGridView, "Codigo_Postal", "Código Postal", "Codigo_Postal");
         }
@@ -64,6 +64,7 @@ namespace beat_on_jeans_escritorio.Clases
 
             AgregarColumna(dataGridView, "NombreLocal", "Nombre", "NombreLocal");
             AgregarColumna(dataGridView, "CorreoLocal", "Correo", "CorreoLocal");
+            AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");
             AgregarColumna(dataGridView, "Rol", "Rol", "Rol");
             AgregarColumna(dataGridView, "ValoracionMedia", "Valoración", "ValoracionMedia");
             AgregarColumna(dataGridView, "Ubicacion", "Ubicación", "Ubicacion");
