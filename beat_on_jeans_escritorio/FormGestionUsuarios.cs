@@ -189,7 +189,7 @@ namespace beat_on_jeans_escritorio
             try
             {
                 // Usar dynamic para acceso más flexible a propiedades
-                dynamic user = selectedUser;
+                dynamic user = dataGridViewUsuarios.CurrentRow.DataBoundItem;
 
                 // Asignación segura de valores con comprobación de existencia
                 textBoxNombre.Text = TryGetProperty(user, "Nombre", "NombreLocal");
@@ -213,6 +213,7 @@ namespace beat_on_jeans_escritorio
                 // No mostrar mensaje al usuario para evitar interrupciones
             }
         }
+
 
         private string TryGetProperty(dynamic obj, params string[] propertyNames)
         {
@@ -241,9 +242,31 @@ namespace beat_on_jeans_escritorio
 
         private void comboBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rellenarUsuarios();
-      
+            // Asegurarnos de que el índice seleccionado no sea -1
+            if (comboBoxBuscarUsuario.SelectedIndex != -1)
+            {
+                // Obtener el correo del usuario seleccionado en el ComboBox
+                string correoSeleccionado = (string)comboBoxBuscarUsuario.SelectedItem;
+
+                // Buscar el usuario en el DataGridView por correo
+                foreach (DataGridViewRow row in dataGridViewUsuarios.Rows)
+                {
+                    // Verificamos que la fila no sea una fila nueva (row.IsNewRow) y que el valor en la columna "Correo" coincida con el correo seleccionado
+                    if (row.Cells["Correo"].Value != null && row.Cells["Correo"].Value.ToString() == correoSeleccionado)
+                    {
+                        // Seleccionamos la fila en el DataGridView
+                        dataGridViewUsuarios.ClearSelection();
+                        row.Selected = true;
+
+                        // Cargar los detalles del usuario seleccionado en los controles correspondientes
+                        cargarContenidosUsuarios();
+
+                        break; // Salimos del bucle una vez que encontramos la fila correspondiente
+                    }
+                }
+            }
         }
+
 
         private void rellenarUsuarios()
         {
