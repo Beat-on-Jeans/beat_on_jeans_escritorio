@@ -32,17 +32,25 @@ namespace beat_on_jeans_escritorio
             // Ecoger los roles en la ComboBox
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
-            // Hacer que comboBoxRoles sea de solo lectura
+            // Hacer que comboBoxRolFiltro sea de solo lectura
             comboBoxRolFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
 
             var usuarios = UsuariosORM.Select();
             bindingSourceBuscarUsuarios.DataSource = usuarios; // Corrected line
             comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
-            comboBoxBuscarUsuario.DisplayMember = "Correo"; 
+            comboBoxBuscarUsuario.DisplayMember = "Correo";
             comboBoxBuscarUsuario.ValueMember = "ID";
             comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxBuscarUsuario.SelectedIndex = -1;
             this.rolId = rolId;
+
+            // Cargar los roles en comboBoxRol
+            var roles = RolesOrm.Select();
+            comboBoxRol.DataSource = roles;
+            comboBoxRol.DisplayMember = "Nombre_Rol"; // Ajusta esto según el nombre de la propiedad que quieres mostrar
+            comboBoxRol.ValueMember = "ID";
+            comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void configurarComboBoxRol()
@@ -58,27 +66,18 @@ namespace beat_on_jeans_escritorio
 
         private void cargarComboBoxRolesSoloMusicosYLocales()
         {
-            
-                // Verificar que hay datos
-                if (bindingSourceRoles == null || bindingSourceRoles.Count == 0)
-                {
-                    MessageBox.Show("No hay roles disponibles para cargar.");
-                    return;
-                }
+            // Verificar que hay datos
+            if (bindingSourceRoles == null || bindingSourceRoles.Count == 0)
+            {
+                MessageBox.Show("No hay roles disponibles para cargar.");
+                return;
+            }
 
-                // Filtrar usando LINQ para mayor claridad
-                var rolesFiltrados = bindingSourceRoles.List.Cast<Roles>()
-                    .Where(r => r.ID == 1 || r.ID == 2)  // 1: Músico, 2: Local
-                    .ToList();
-
-            comboBoxBuscarUsuario.TextChanged += ComboBoxBuscarUsuario_TextChanged;
+            // Filtrar usando LINQ para mayor claridad
+            var rolesFiltrados = bindingSourceRoles.List.Cast<Roles>()
+                .Where(r => r.ID == 1 || r.ID == 2)  // 1: Músico, 2: Local
+                .ToList();
         }
-
-
-
-
-
-
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
