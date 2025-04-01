@@ -16,5 +16,13 @@ namespace beat_on_jeans_escritorio.Models
                     ).ToList();
             return _usuarios;
         }
+
+        public static Usuarios Insert(Usuarios _usuario)
+        {
+            Orm.db.Usuarios.Add(_usuario);
+            Orm.db.SaveChanges();
+            return _usuario;
+        }
+
     }
 }

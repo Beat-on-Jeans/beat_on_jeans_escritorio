@@ -33,16 +33,13 @@ namespace beat_on_jeans_escritorio
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
             // Hacer que comboBoxRoles sea de solo lectura
-            comboBoxRoles.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            // Hacer que comboBoxAccionUsuario sea de solo lectura
-            comboBoxAccionUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRolFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
 
             var usuarios = UsuariosORM.Select();
             bindingSourceBuscarUsuarios.DataSource = usuarios; // Corrected line
             comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
-            comboBoxBuscarUsuario.DisplayMember = "Correo"; // Ajusta esto según el nombre de la propiedad que deseas mostrar
-            comboBoxBuscarUsuario.ValueMember = "ID"; // Ajusta esto según el nombre de la propiedad del ID del usuario
+            comboBoxBuscarUsuario.DisplayMember = "Correo"; 
+            comboBoxBuscarUsuario.ValueMember = "ID";
             comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxBuscarUsuario.SelectedIndex = -1;
             this.rolId = rolId;
@@ -74,24 +71,7 @@ namespace beat_on_jeans_escritorio
                     .Where(r => r.ID == 1 || r.ID == 2)  // 1: Músico, 2: Local
                     .ToList();
 
-                // Verificar que encontramos los roles esperados
-                if (!rolesFiltrados.Any())
-                {
-                    MessageBox.Show("No se encontraron los roles de Músico o Local.");
-                    return;
-                }
-
-                // Configurar el ComboBox
-                comboBoxRoles.DataSource = rolesFiltrados;
-                comboBoxRoles.DisplayMember = "Nombre_Rol";
-                comboBoxRoles.ValueMember = "ID";
-                comboBoxRoles.SelectedIndex = -1;
-
-                comboBoxRol.DataSource = rolesFiltrados;
-                comboBoxRol.DisplayMember = "Nombre_Rol";
-                comboBoxRol.ValueMember = "ID";
-                comboBoxRol.SelectedIndex = -1;
-            
+            comboBoxBuscarUsuario.TextChanged += ComboBoxBuscarUsuario_TextChanged;
         }
 
 
@@ -153,9 +133,9 @@ namespace beat_on_jeans_escritorio
                 var rolValue = TryGetProperty(user, "Rol", "Role", "TipoUsuario");
                 if (!string.IsNullOrEmpty(rolValue))
                 {
-                    var selectedRole = comboBoxRoles.Items.Cast<Roles>()
+                    var selectedRole = comboBoxRolFiltro.Items.Cast<Roles>()
                         .FirstOrDefault(r => r.Nombre_Rol.Equals(rolValue, StringComparison.OrdinalIgnoreCase));
-                    comboBoxRoles.SelectedItem = selectedRole;
+                    comboBoxRolFiltro.SelectedItem = selectedRole;
                 }
             }
             catch (Exception ex)
@@ -198,8 +178,15 @@ namespace beat_on_jeans_escritorio
 
         private void rellenarUsuarios()
         {
-            Roles rolSeleccionado = (Roles)comboBoxRoles.SelectedItem;
-            CargarGridRoles.ConfigurarGridSegunRol(rolSeleccionado, dataGridViewUsuarios, bindingSourceUsuarios);
+            // Obtener el rol seleccionado del comboBoxRoles
+            Roles rolSeleccionado = (Roles)comboBoxRolFiltro.SelectedItem;
+
+            // Verificar que se haya seleccionado un rol
+            if (rolSeleccionado != null)
+            {
+                // Configurar el dataGridViewUsuarios según el rol seleccionado
+                CargarGridRoles.ConfigurarGridSegunRol(rolSeleccionado, dataGridViewUsuarios, bindingSourceUsuarios);
+            }
         }
 
         private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -255,9 +242,37 @@ namespace beat_on_jeans_escritorio
 
         }
 
+        // ------------------ Logica de Creación, Modificación y Eliminación de Usuarios ------------------
+
+
         private void buttonCrearUsuario_Click(object sender, EventArgs e)
         {
 
+            String nombreUsuario = textBoxNombre.Text;
+            String correoUsuario = textBoxCorreo.Text;
+            String contrasenaUsuario = textBoxContrasena.Text;
+            String codigoPostalUsuario = textBoxCodigoPostal.Text;
+            String ubicacionUsuario = textBoxUbicacion.Text;
+            Roles rolUsuario = (Roles)comboBoxRolFiltro.SelectedItem;
+
+            if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(correoUsuario) || string.IsNullOrWhiteSpace(contrasenaUsuario))
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Usuarios nuevoUsuario = new Usuarios
+            {
+                Nombre = nombreUsuario,
+                Correo = correoUsuario,
+                Contrasena = contrasenaUsuario,
+                ROL_ID = rolUsuario.ID
+            };
+
+            UsuariosORM.Insert(nuevoUsuario);
+            bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.Select();
+            MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+       
         }
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
@@ -311,6 +326,11 @@ namespace beat_on_jeans_escritorio
                     pictureBox3.Visible = true;
                     break;
             }
+        }
+
+        private void comboBoxRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

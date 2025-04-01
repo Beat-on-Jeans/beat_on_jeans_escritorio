@@ -39,7 +39,6 @@ namespace beat_on_jeans_escritorio
                 {
                     //Pasarle el usuario actual
                     FormHome formulario2 = new FormHome(usuarioActual);
-                    MessageBox.Show(mensaje, "Validación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     formulario2.Show();
                     this.Hide(); // Ocultar el formulario actual
                     formulario2.FormClosed += (s, args) => this.Close(); // Cerrar el formulario actual cuando se cierre el nuevo formulario
