@@ -90,7 +90,7 @@ namespace beat_on_jeans_escritorio
                 buttonSoporte.Enabled = false;
                 buttonMapa.Enabled = true;
                 buttonEventos.Enabled = true;
-                buttonGestionUsuarios.Enabled = false;
+                buttonGestionUsuarios.Enabled = true;
             }
         }
 

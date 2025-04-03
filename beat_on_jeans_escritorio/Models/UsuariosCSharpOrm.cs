@@ -186,7 +186,7 @@ namespace beat_on_jeans_escritorio.Models
             }
         }
 
-        public static UsuariosCSharp Insert(UsuariosCSharp _usuario)
+     public static UsuariosCSharp Insert(UsuariosCSharp _usuario)
         {
             Orm.db.UsuariosCSharp.Add(_usuario);
             Orm.db.SaveChanges();
@@ -204,6 +204,7 @@ namespace beat_on_jeans_escritorio.Models
 
             return Insert(nuevoUsuarioCSharp);
         }
+
 
     }
 }
