@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using beat_on_jeans_escritorio.Clases;
+﻿using beat_on_jeans_escritorio.Clases;
 using beat_on_jeans_escritorio.Models;
 using Microsoft.CSharp.RuntimeBinder;
+using System;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace beat_on_jeans_escritorio
 {
@@ -32,8 +26,48 @@ namespace beat_on_jeans_escritorio
             configurarComboBoxRol();
 
             dataGridViewUsuarios.SelectionChanged += DataGridViewUsuarios_SelectionChanged;
-
             comboBoxBuscarUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxBuscarUsuario.SelectedIndex = -1;
+
+            // Agregar el manejador de eventos para el cambio de rol
+            comboBoxRolFiltro.SelectedIndexChanged += ComboBoxRolFiltro_SelectedIndexChanged;
+        }
+
+        private void ComboBoxRolFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Verificar que se haya seleccionado un ítem
+            if (comboBoxRolFiltro.SelectedIndex != -1)
+            {
+                // Obtener el rol seleccionado
+                Roles rolSeleccionado = (Roles)comboBoxRolFiltro.SelectedItem;
+
+                // Actualizar el grid según el rol seleccionado
+                CargarGridRoles.ConfigurarGridSegunRol(rolSeleccionado, dataGridViewUsuarios, bindingSourceUsuarios);
+
+                // También puedes actualizar el ComboBox de búsqueda si es necesario
+                ActualizarComboBoxBusqueda(rolSeleccionado);
+            }
+        }
+
+        private void ActualizarComboBoxBusqueda(Roles rolSeleccionado)
+        {
+            // Actualizar el ComboBox de búsqueda según el rol seleccionado
+            if (rolSeleccionado.Nombre_Rol == "Musico")
+            {
+                bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.SelectMusicos();
+            }
+            else if (rolSeleccionado.Nombre_Rol == "Local")
+            {
+                bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.SelectLocales();
+            }
+            else
+            {
+                bindingSourceBuscarUsuarios.DataSource = UsuariosORM.Select();
+            }
+
+            comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+            comboBoxBuscarUsuario.DisplayMember = "Correo";
+            comboBoxBuscarUsuario.ValueMember = "ID";
             comboBoxBuscarUsuario.SelectedIndex = -1;
         }
 
@@ -111,7 +145,7 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-        
+
 
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
@@ -235,15 +269,14 @@ namespace beat_on_jeans_escritorio
         private void rellenarUsuarios()
         {
             // Obtener el rol seleccionado del comboBoxRoles
-            Roles rolSeleccionado = (Roles)comboBoxRolFiltro.SelectedItem;
-
-            // Verificar que se haya seleccionado un rol
-            if (rolSeleccionado != null)
+            if (comboBoxRolFiltro.SelectedItem is Roles rolSeleccionado)
             {
                 // Configurar el dataGridViewUsuarios según el rol seleccionado
                 CargarGridRoles.ConfigurarGridSegunRol(rolSeleccionado, dataGridViewUsuarios, bindingSourceUsuarios);
             }
         }
+
+
 
         private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -287,7 +320,7 @@ namespace beat_on_jeans_escritorio
 
         private void label3_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -328,12 +361,50 @@ namespace beat_on_jeans_escritorio
             UsuariosORM.Insert(nuevoUsuario);
             bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.Select();
             MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-       
+
         }
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
+            if (dataGridViewUsuarios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un usuario primero");
+                return;
+            }
 
+            // Obtenemos el ID del usuario seleccionado
+            var selectedRow = dataGridViewUsuarios.SelectedRows[0];
+            dynamic usuario = selectedRow.DataBoundItem;
+            int userId = usuario.ID; // Asegúrate que esta propiedad coincide con tu DataGridView
+
+            DialogResult confirm = MessageBox.Show(
+                "¿Está seguro de eliminar este usuario y todos sus datos relacionados?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                try
+                {
+                    bool eliminado = UsuariosCSharpOrm.DeleteUser(userId);
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show("Usuario eliminado correctamente");
+                        rellenarUsuarios(); // Método para actualizar el DataGridView
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar el usuario");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
         }
+
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
