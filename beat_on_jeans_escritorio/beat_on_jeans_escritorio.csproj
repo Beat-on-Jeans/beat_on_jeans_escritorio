@@ -203,6 +203,7 @@
     <Compile Include="Models\UsuarioMobil.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuarioMovilOrm.cs" />
     <Compile Include="Models\Usuarios.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>

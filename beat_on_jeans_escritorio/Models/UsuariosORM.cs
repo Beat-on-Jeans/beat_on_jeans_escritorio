@@ -24,5 +24,10 @@ namespace beat_on_jeans_escritorio.Models
             return _usuario;
         }
 
+        // Verificar si el correo ya existe
+        public static bool CorreoExiste(string correo)
+        {
+            return Orm.db.Usuarios.Any(u => u.Correo == correo);
+        }
     }
 }

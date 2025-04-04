@@ -164,6 +164,9 @@ namespace beat_on_jeans_escritorio
             {
                 comboBoxAccionUsuario.SelectedIndex = 0;
             }
+
+            
+
         }
 
         private void DataGridViewUsuarios_SelectionChanged(object sender, EventArgs e)
@@ -193,8 +196,7 @@ namespace beat_on_jeans_escritorio
                 textBoxNombre.Text = TryGetProperty(user, "Nombre", "NombreLocal");
                 textBoxCorreo.Text = TryGetProperty(user, "Correo", "CorreoLocal");
                 textBoxContrasena.Text = TryGetProperty(user, "Contrasena");
-                textBoxCodigoPostal.Text = TryGetProperty(user, "Codigo_Postal", "CodigoPostal");
-                textBoxUbicacion.Text = TryGetProperty(user, "Ubicacion", "Location", "Direccion");
+                textBoxUbicacion.Text = TryGetProperty(user, "Codigo_Postal", "CodigoPostal");
 
                 // Configuración segura del combo de roles
                 var rolValue = TryGetProperty(user, "Rol", "Role", "TipoUsuario");
@@ -297,11 +299,11 @@ namespace beat_on_jeans_escritorio
         private void disenoBotones()
         {
             // BOTON MODIFICAR
-            buttonModificar.BackColor = Color.FromArgb(255, 243, 226);
+            buttonModificarUsuario.BackColor = Color.FromArgb(255, 243, 226);
 
-            buttonModificar.FlatAppearance.MouseOverBackColor = buttonModificar.BackColor;
-            buttonModificar.FlatAppearance.MouseDownBackColor = buttonModificar.BackColor;
-            buttonModificar.FlatAppearance.MouseDownBackColor = buttonModificar.BackColor;
+            buttonModificarUsuario.FlatAppearance.MouseOverBackColor = buttonModificarUsuario.BackColor;
+            buttonModificarUsuario.FlatAppearance.MouseDownBackColor = buttonModificarUsuario.BackColor;
+            buttonModificarUsuario.FlatAppearance.MouseDownBackColor = buttonModificarUsuario.BackColor;
 
             // BOTON ELIMINAR
             buttonEliminarUsuario.BackColor = Color.FromArgb(46, 196, 182);
@@ -333,36 +335,82 @@ namespace beat_on_jeans_escritorio
 
         // ------------------ Logica de Creación, Modificación y Eliminación de Usuarios ------------------
 
-
         private void buttonCrearUsuario_Click(object sender, EventArgs e)
         {
-
             String nombreUsuario = textBoxNombre.Text;
             String correoUsuario = textBoxCorreo.Text;
             String contrasenaUsuario = textBoxContrasena.Text;
-            String codigoPostalUsuario = textBoxCodigoPostal.Text;
             String ubicacionUsuario = textBoxUbicacion.Text;
             Roles rolUsuario = (Roles)comboBoxRolFiltro.SelectedItem;
 
-            if (string.IsNullOrWhiteSpace(nombreUsuario) || string.IsNullOrWhiteSpace(correoUsuario) || string.IsNullOrWhiteSpace(contrasenaUsuario))
+            // Validación de datos
+            if (!ValidarDatosUsuario(nombreUsuario, correoUsuario, contrasenaUsuario, rolUsuario))
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Usuarios nuevoUsuario = new Usuarios
+            // Verificar si el correo ya existe
+            if (UsuariosORM.CorreoExiste(correoUsuario))
             {
-                Nombre = nombreUsuario,
-                Correo = correoUsuario,
-                Contrasena = contrasenaUsuario,
-                ROL_ID = rolUsuario.ID
-            };
+                MessageBox.Show("El correo ya está en uso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // Crear nuevo usuario
+            Usuarios nuevoUsuario = CrearNuevoUsuario(nombreUsuario, correoUsuario, contrasenaUsuario, rolUsuario.ID);
+
+            // Insertar usuario en la base de datos
             UsuariosORM.Insert(nuevoUsuario);
-            bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.Select();
-            MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            // Crear usuario específico según el rol
+            if (rolUsuario.ID == 1 || rolUsuario.ID == 2) // Músico o Local
+            {
+                UsuarioMovilOrm.Insert(new UsuarioMobil
+                {
+                    Usuario_ID = nuevoUsuario.ID,
+                    ROL_ID = rolUsuario.ID,
+                    Ubicacion = ubicacionUsuario
+                });
+            }
+            else if (rolUsuario.ID >= 3 && rolUsuario.ID <= 5) // Administrador, Superadministrador o Mantenimiento
+            {
+                UsuariosCSharpOrm.CrearUsuarioCSharp(nuevoUsuario.ID, rolUsuario.ID);
+            }
+
+            // Actualizar la lista de usuarios
+            bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.Select();
+
+            MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private bool ValidarDatosUsuario(string nombre, string correo, string contrasena, Roles rol)
+        {
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(contrasena) || rol == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios y seleccione un rol.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!correo.Contains("@"))
+            {
+                MessageBox.Show("Por favor, ingrese un correo electrónico válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private Usuarios CrearNuevoUsuario(string nombre, string correo, string contrasena, int rolId)
+        {
+            return new Usuarios
+            {
+                Nombre = nombre,
+                Correo = correo,
+                Contrasena = contrasena,
+                ROL_ID = rolId
+            };
+        }
+         
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridViewUsuarios.SelectedRows.Count == 0)
@@ -431,7 +479,7 @@ namespace beat_on_jeans_escritorio
         {
             // Ocultar todos los botones primero
             buttonCrearUsuario.Visible = false;
-            buttonModificar.Visible = false;
+            buttonModificarUsuario.Visible = false;
             buttonEliminarUsuario.Visible = false;
             pictureBox2.Visible = false;
             pictureBox3.Visible = false;
@@ -445,7 +493,7 @@ namespace beat_on_jeans_escritorio
                     pictureBox4.Visible = true;
                     break;
                 case "Modificar":
-                    buttonModificar.Visible = true;
+                    buttonModificarUsuario.Visible = true;
                     pictureBox2.Visible = true;
                     break;
                 case "Eliminar":
@@ -456,6 +504,24 @@ namespace beat_on_jeans_escritorio
         }
 
         private void comboBoxRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLimipiar_Click(object sender, EventArgs e)
+        {
+            textBoxNombre.Text = string.Empty;
+            textBoxCorreo.Text = string.Empty;
+            textBoxContrasena.Text = string.Empty;
+            textBoxUbicacion.Text = string.Empty;
+        }
+
+        private void labelUbicacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxContrasena_TextChanged(object sender, EventArgs e)
         {
 
         }
