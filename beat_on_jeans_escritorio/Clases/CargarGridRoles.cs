@@ -49,6 +49,7 @@ namespace beat_on_jeans_escritorio.Clases
             bindingSource.DataSource = usuariosMusicos;
             dataGridView.DataSource = bindingSource;
 
+            AgregarColumna(dataGridView, "ID", "ID", "ID");
             AgregarColumna(dataGridView, "Nombre", "Nombre", "Nombre");
             AgregarColumna(dataGridView, "Correo", "Correo", "Correo");
             AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");
@@ -62,6 +63,7 @@ namespace beat_on_jeans_escritorio.Clases
             bindingSource.DataSource = usuariosLocales;
             dataGridView.DataSource = bindingSource;
 
+            AgregarColumna(dataGridView, "ID", "ID", "ID");
             AgregarColumna(dataGridView, "NombreLocal", "Nombre", "NombreLocal");
             AgregarColumna(dataGridView, "CorreoLocal", "Correo", "CorreoLocal");
             AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");
@@ -76,6 +78,7 @@ namespace beat_on_jeans_escritorio.Clases
             bindingSource.DataSource = superAdmins;
             dataGridView.DataSource = bindingSource;
 
+            AgregarColumna(dataGridView, "ID", "ID", "ID");
             AgregarColumna(dataGridView, "Nombre", "Nombre", "Nombre");
             AgregarColumna(dataGridView, "Correo", "Correo", "Correo");
             AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");
@@ -88,6 +91,7 @@ namespace beat_on_jeans_escritorio.Clases
             bindingSource.DataSource = administradores;
             dataGridView.DataSource = bindingSource;
 
+            AgregarColumna(dataGridView, "ID", "ID", "ID");
             AgregarColumna(dataGridView, "Nombre", "Nombre", "Nombre");
             AgregarColumna(dataGridView, "Correo", "Correo", "Correo");
             AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");
@@ -100,6 +104,7 @@ namespace beat_on_jeans_escritorio.Clases
             bindingSource.DataSource = mantenimiento;
             dataGridView.DataSource = bindingSource;
 
+            AgregarColumna(dataGridView, "ID", "ID", "ID");
             AgregarColumna(dataGridView, "Nombre", "Nombre", "Nombre");
             AgregarColumna(dataGridView, "Correo", "Correo", "Correo");
             AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");

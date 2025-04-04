@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -186,23 +188,185 @@ namespace beat_on_jeans_escritorio.Models
             }
         }
 
-     public static UsuariosCSharp Insert(UsuariosCSharp _usuario)
+        public static bool DeleteUser(int userId)
         {
-            Orm.db.UsuariosCSharp.Add(_usuario);
-            Orm.db.SaveChanges();
-            return _usuario;
-        }
-
-        // Nueva función para crear un usuario de tipo UsuariosCSharp
-        public static UsuariosCSharp CrearUsuarioCSharp(int usuarioId, int rolId)
-        {
-            UsuariosCSharp nuevoUsuarioCSharp = new UsuariosCSharp
+            using (var context = new dam05Entities())
             {
-                Usuario_Id = usuarioId,
-                RoleId = rolId
-            };
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        // 1. Obtener el usuario con TODAS sus relaciones posibles
+                        var usuario = context.Usuarios
+                            .Include(u => u.UsuarioMobil)
+                            // Relaciones de UsuarioMobil
+                            .Include(u => u.UsuarioMobil.Select(um => um.Actuacion)) // Actuaciones como Local
+                            .Include(u => u.UsuarioMobil.Select(um => um.Actuacion1)) // Actuaciones como Músico
+                            .Include(u => u.UsuarioMobil.Select(um => um.Chats)) // Chats como Local
+                            .Include(u => u.UsuarioMobil.Select(um => um.Chats1)) // Chats como Músico
+                            .Include(u => u.UsuarioMobil.Select(um => um.Chats.Select(c => c.Mensajes))) // Mensajes como Local
+                            .Include(u => u.UsuarioMobil.Select(um => um.Chats1.Select(c => c.Mensajes))) // Mensajes como Músico
+                            .Include(u => u.UsuarioMobil.Select(um => um.Generos_Usuarios)) // Géneros musicales
+                            .Include(u => u.UsuarioMobil.Select(um => um.Matches)) // Matches como Local
+                            .Include(u => u.UsuarioMobil.Select(um => um.Matches1)) // Matches como Músico
+                            .Include(u => u.UsuarioMobil.Select(um => um.Notificaciones)) // Notificaciones
+                            .Include(u => u.UsuarioMobil.Select(um => um.Valoracion)) // Valoraciones recibidas
+                            .Include(u => u.UsuarioMobil.Select(um => um.Valoracion1)) // Valoraciones dadas
+                            .Include(u => u.UsuarioMobil.Select(um => um.Soporte)) // Tickets de soporte creados
+                            .Include(u => u.UsuarioMobil.Select(um => um.Soporte1)) // Tickets de soporte asignados
+                                                                                    // Relaciones de UsuariosCSharp
+                            .Include(u => u.UsuariosCSharp)
+                            .Include(u => u.UsuariosCSharp.Select(uc => uc.Soporte)) // Tickets de soporte creados
+                            .Include(u => u.UsuariosCSharp.Select(uc => uc.Soporte1)) // Tickets de soporte asignados
+                            .FirstOrDefault(u => u.ID == userId);
 
-            return Insert(nuevoUsuarioCSharp);
+                        if (usuario == null) return false;
+
+                        // 2. Eliminar en orden inverso de dependencia
+                        if (usuario.UsuarioMobil != null && usuario.UsuarioMobil.Any())
+                        {
+                            var usuarioMobil = usuario.UsuarioMobil.First();
+
+                            // 2.1. Eliminar Mensajes de Chats donde es Local
+                            if (usuarioMobil.Chats != null)
+                            {
+                                foreach (var chat in usuarioMobil.Chats.ToList())
+                                {
+                                    if (chat.Mensajes != null)
+                                    {
+                                        context.Mensajes.RemoveRange(chat.Mensajes.ToList());
+                                    }
+                                }
+                            }
+
+                            // 2.2. Eliminar Mensajes de Chats donde es Músico
+                            if (usuarioMobil.Chats1 != null)
+                            {
+                                foreach (var chat in usuarioMobil.Chats1.ToList())
+                                {
+                                    if (chat.Mensajes != null)
+                                    {
+                                        context.Mensajes.RemoveRange(chat.Mensajes.ToList());
+                                    }
+                                }
+                            }
+
+                            // 2.3. Eliminar Chats donde es Local
+                            if (usuarioMobil.Chats != null)
+                            {
+                                context.Chats.RemoveRange(usuarioMobil.Chats.ToList());
+                            }
+
+                            // 2.4. Eliminar Chats donde es Músico
+                            if (usuarioMobil.Chats1 != null)
+                            {
+                                context.Chats.RemoveRange(usuarioMobil.Chats1.ToList());
+                            }
+
+                            // 2.5. Eliminar Actuaciones donde es Músico
+                            if (usuarioMobil.Actuacion1 != null)
+                            {
+                                context.Actuacion.RemoveRange(usuarioMobil.Actuacion1.ToList());
+                            }
+
+                            // 2.6. Eliminar Actuaciones donde es Local
+                            if (usuarioMobil.Actuacion != null)
+                            {
+                                context.Actuacion.RemoveRange(usuarioMobil.Actuacion.ToList());
+                            }
+
+                            // 2.7. Eliminar Matches donde es Local
+                            if (usuarioMobil.Matches != null)
+                            {
+                                context.Matches.RemoveRange(usuarioMobil.Matches.ToList());
+                            }
+
+                            // 2.8. Eliminar Matches donde es Músico
+                            // 2.8. Eliminar Matches donde es Músico
+                            if (usuarioMobil.Matches1 != null)
+                            {
+                                context.Matches.RemoveRange(usuarioMobil.Matches1.ToList());
+                            }
+
+                            // 2.9. Eliminar relaciones con Géneros musicales
+                            if (usuarioMobil.Generos_Usuarios != null)
+                            {
+                                context.Generos_Usuarios.RemoveRange(usuarioMobil.Generos_Usuarios.ToList());
+                            }
+
+                            // 2.10. Eliminar Notificaciones
+                            if (usuarioMobil.Notificaciones != null)
+                            {
+                                context.Notificaciones.RemoveRange(usuarioMobil.Notificaciones);
+                            }
+
+                            // 2.11. Eliminar Valoraciones recibidas (donde el usuario fue valorado)
+                            if (usuarioMobil.Valoracion != null)
+                            {
+                                context.Valoracion.RemoveRange(usuarioMobil.Valoracion.ToList());
+                            }
+
+                            // 2.12. Eliminar Valoraciones dadas (donde el usuario valoró a otros)
+                            if (usuarioMobil.Valoracion1 != null)
+                            {
+                                context.Valoracion.RemoveRange(usuarioMobil.Valoracion1.ToList());
+                            }
+
+                            // 2.13. Eliminar Tickets de soporte donde es usuario solicitante
+                            if (usuarioMobil.Soporte != null)
+                            {
+                                context.Soporte.RemoveRange(usuarioMobil.Soporte.ToList());
+                            }
+
+                            // 2.14. Eliminar Tickets de soporte donde es técnico asignado
+                            if (usuarioMobil.Soporte1 != null)
+                            {
+                                context.Soporte.RemoveRange(usuarioMobil.Soporte1.ToList());
+                            }
+
+                            // 2.15. Eliminar UsuarioMobil
+                            context.UsuarioMobil.Remove(usuarioMobil);
+                        }
+
+                        // 3. Eliminar datos relacionados con UsuariosCSharp
+                        if (usuario.UsuariosCSharp != null && usuario.UsuariosCSharp.Any())
+                        {
+                            var usuarioCSharp = usuario.UsuariosCSharp.First();
+
+                            // 3.1. Eliminar tickets de soporte creados
+                            if (usuarioCSharp.Soporte != null)
+                            {
+                                context.Soporte.RemoveRange(usuarioCSharp.Soporte.ToList());
+                            }
+
+                            // 3.2. Eliminar tickets de soporte asignados
+                            if (usuarioCSharp.Soporte1 != null)
+                            {
+                                context.Soporte.RemoveRange(usuarioCSharp.Soporte1.ToList());
+                            }
+
+                            // 3.3. Eliminar UsuarioCSharp
+                            context.UsuariosCSharp.Remove(usuarioCSharp);
+                        }
+
+                        // 4. Eliminar Usuario principal
+                        context.Usuarios.Remove(usuario);
+
+                        // 5. Guardar todos los cambios
+                        context.SaveChanges();
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Error completo al eliminar usuario: " +
+                                             ex.Message + " | " +
+                                             (ex.InnerException?.Message ?? "No hay información adicional") + " | " +
+                                             (ex.InnerException?.InnerException?.Message ?? "No hay información adicional"));
+                    }
+                }
+            }
         }
 
 
