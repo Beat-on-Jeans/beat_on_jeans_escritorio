@@ -369,6 +369,25 @@ namespace beat_on_jeans_escritorio.Models
             }
         }
 
+        public static UsuariosCSharp Insert(UsuariosCSharp _usuario)
+        {
+            Orm.db.UsuariosCSharp.Add(_usuario);
+            Orm.db.SaveChanges();
+            return _usuario;
+        }
+
+        // Nueva función para crear un usuario de tipo UsuariosCSharp
+        public static UsuariosCSharp CrearUsuarioCSharp(int usuarioId, int rolId)
+        {
+            UsuariosCSharp nuevoUsuarioCSharp = new UsuariosCSharp
+            {
+                Usuario_Id = usuarioId,
+                RoleId = rolId
+            };
+
+            return Insert(nuevoUsuarioCSharp);
+        }
+
 
     }
 }
