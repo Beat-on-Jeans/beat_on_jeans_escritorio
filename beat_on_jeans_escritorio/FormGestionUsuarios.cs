@@ -317,6 +317,9 @@ namespace beat_on_jeans_escritorio
 
         private void CargarUsuarioEnFormulario(Usuarios usuario)
         {
+            // Vaciar el ComboBox de búsqueda
+            comboBoxBuscarUsuario.SelectedIndex = -1;
+
             // Actualizamos los controles del formulario con los datos del usuario
             textBoxNombre.Text = usuario.Nombre;
             textBoxCorreo.Text = usuario.Correo;
@@ -329,9 +332,8 @@ namespace beat_on_jeans_escritorio
             {
                 comboBoxRolFiltro.SelectedItem = rolSeleccionado;
             }
-
-            // Cargar otros datos si es necesario (como ubicación, etc.)
         }
+
 
 
 
