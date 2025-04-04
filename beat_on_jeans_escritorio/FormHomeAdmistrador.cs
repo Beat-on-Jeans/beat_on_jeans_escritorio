@@ -1,4 +1,5 @@
-﻿using beat_on_jeans_escritorio.Models;
+﻿using beat_on_jeans_escritorio.Clases;
+using beat_on_jeans_escritorio.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace beat_on_jeans_escritorio
 {
@@ -27,6 +29,15 @@ namespace beat_on_jeans_escritorio
         {
             var locales = UsuariosCSharpOrm.SelectLocales();
 
+            if (locales == null || !locales.Any())
+            {
+                // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                bindingSourceLocales.DataSource = new List<object>();  // Cargar una lista vacía
+                dataGridViewLocales.DataSource = bindingSourceLocales;
+                dataGridViewLocales.Refresh();  // Refrescar para que el DataGridView esté vacío
+                return;  // Salir del método para evitar el resto del código
+            }
+
             bindingSourceLocales.DataSource = locales;
             dataGridViewLocales.DataSource = bindingSourceLocales;
 
@@ -45,6 +56,15 @@ namespace beat_on_jeans_escritorio
         {
             var musicos = UsuariosCSharpOrm.SelectMusicos();
 
+            if (musicos == null || !musicos.Any())
+            {
+                // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                bindingSourceMusicos.DataSource = new List<object>();  // Cargar una lista vacía
+                dataGridViewMusicos.DataSource = bindingSourceMusicos;
+                dataGridViewMusicos.Refresh();  // Refrescar para que el DataGridView esté vacío
+                return;  // Salir del método para evitar el resto del código
+            }
+
             bindingSourceMusicos.DataSource = musicos;
             dataGridViewMusicos.DataSource = bindingSourceMusicos;
 
@@ -62,8 +82,16 @@ namespace beat_on_jeans_escritorio
         {
             var actuaciones = ActuacionesHomeOrm.GetActuacionesConNombres();
 
-            bindingSourceActuaciones.DataSource = actuaciones;
+            if (actuaciones == null || !actuaciones.Any())
+            {
+                // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                bindingSourceActuaciones.DataSource = new List<object>();  // Cargar una lista vacía
+                dataGridViewEventosProgramados.DataSource = bindingSourceActuaciones;
+                dataGridViewEventosProgramados.Refresh();  // Refrescar para que el DataGridView esté vacío
+                return;  // Salir del método para evitar el resto del código
+            }
 
+            bindingSourceActuaciones.DataSource = actuaciones;
             dataGridViewEventosProgramados.DataSource = bindingSourceActuaciones;
 
             dataGridViewEventosProgramados.Columns["Fecha"].DataPropertyName = "Fecha";

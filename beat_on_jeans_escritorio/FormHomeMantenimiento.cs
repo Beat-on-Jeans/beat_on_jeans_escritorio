@@ -1,4 +1,5 @@
-﻿using beat_on_jeans_escritorio.Models;
+﻿using beat_on_jeans_escritorio.Clases;
+using beat_on_jeans_escritorio.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,6 +69,15 @@ namespace beat_on_jeans_escritorio
             try
             {
                 var datosLocales = HomeSuperUsuarioOrm.SelectLocales();
+
+                if (datosLocales == null || !datosLocales.Any())
+                {
+                    // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                    dataGridViewMusicos.DataSource = new List<object>();  // Cargar una lista vacía
+                    dataGridViewMusicos.DataSource = dataGridViewMusicos;
+                    dataGridViewMusicos.Refresh();  // Refrescar para que el DataGridView esté vacío
+                    return;  // Salir del método para evitar el resto del código
+                }
 
                 // Configurar el DataGridView
                 dataGridViewLocales.AutoGenerateColumns = false;

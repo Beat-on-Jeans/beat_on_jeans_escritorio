@@ -1,4 +1,5 @@
-﻿using beat_on_jeans_escritorio.Models;
+﻿using beat_on_jeans_escritorio.Clases;
+using beat_on_jeans_escritorio.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace beat_on_jeans_escritorio
 {
@@ -45,6 +47,16 @@ namespace beat_on_jeans_escritorio
                 // Obtener los tickets
                 var tickets = TicketsOrm.SelectTicketsWithIncidentType();
 
+                // Verificar si no hay tickets
+                if (tickets == null || !tickets.Any())
+                {
+                    // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                    bindingSourceTickets.DataSource = new List<object>();  // Cargar una lista vacía
+                    dataGridViewTickets.DataSource = bindingSourceTickets;
+                    dataGridViewTickets.Refresh();  // Refrescar para que el DataGridView esté vacío
+                    return;  // Salir del método para evitar el resto del código
+                }
+
                 // Configurar el origen de datos
                 bindingSourceTickets.DataSource = tickets;
                 dataGridViewTickets.DataSource = bindingSourceTickets;
@@ -76,21 +88,19 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-        // Método auxiliar para agregar columnas
-        private void AddColumn(string propertyName, string headerText, int width)
-        {
-            dataGridViewTickets.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = propertyName,
-                HeaderText = headerText,
-                Width = width,
-                Name = propertyName
-            });
-        }
 
         private void cargarDatosMusicos()
         {
             var musicos = UsuariosCSharpOrm.SelectMusicos();
+
+            if (musicos == null || !musicos.Any())
+            {
+                // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                bindingSourceMusicos.DataSource = new List<object>();  // Cargar una lista vacía
+                bindingSourceMusicos.DataSource = bindingSourceMusicos;
+                dataGridViewMusicos.Refresh();  // Refrescar para que el DataGridView esté vacío
+                return;  // Salir del método para evitar el resto del código
+            }
 
             bindingSourceMusicos.DataSource = musicos;
             dataGridViewMusicos.DataSource = bindingSourceMusicos;
@@ -108,6 +118,15 @@ namespace beat_on_jeans_escritorio
         private void cargarDatosLocales()
         {
             var locales = UsuariosCSharpOrm.SelectLocales();
+
+            if (locales == null || !locales.Any())
+            {
+                // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                bindingSourceLocales.DataSource = new List<object>();  // Cargar una lista vacía
+                bindingSourceLocales.DataSource = bindingSourceLocales;
+                dataGridViewLocales.Refresh();  // Refrescar para que el DataGridView esté vacío
+                return;  // Salir del método para evitar el resto del código
+            }
 
             bindingSourceLocales.DataSource = locales;
             dataGridViewLocales.DataSource = bindingSourceLocales;
