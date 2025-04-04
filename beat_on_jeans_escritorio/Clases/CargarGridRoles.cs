@@ -54,7 +54,7 @@ namespace beat_on_jeans_escritorio.Clases
             AgregarColumna(dataGridView, "Correo", "Correo", "Correo");
             AgregarColumna(dataGridView, "Contrasena", "Contrasena", "Contrasena");
             AgregarColumna(dataGridView, "Rol", "Rol", "Rol");
-            AgregarColumna(dataGridView, "Codigo_Postal", "Código Postal", "Codigo_Postal");
+            AgregarColumna(dataGridView, "Ubicacion", "Ubicación", "Ubicacion");
         }
 
         private static void ConfigurarGridLocal(DataGridView dataGridView, BindingSource bindingSource)

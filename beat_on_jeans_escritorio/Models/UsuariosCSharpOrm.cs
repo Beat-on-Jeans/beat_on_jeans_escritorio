@@ -58,7 +58,7 @@ namespace beat_on_jeans_escritorio.Models
         /// Select a la base de datos de los musicos.
         /// </summary>
         /// <returns></returns>
-       
+
         public static List<dynamic> SelectMusicos()
         {
             using (var context = new dam05Entities())
@@ -73,9 +73,11 @@ namespace beat_on_jeans_escritorio.Models
                                 u.Nombre,
                                 u.Correo,
                                 u.Contrasena,
-                                Codigo_Postal = um.Ubicacion,
-                                Rol = r.Nombre_Rol, // Nombre del rol en lugar del ID
-                                ROL_ID = r.ID // Mantenemos el ID oculto
+                                Ubicacion = um.Ubicacion, // Cambiado de Codigo_Postal a Ubicacion
+                                Valoracion = um.ValoracionTotal, // Añadido valoración
+                                Imagen = um.Url_Imagen, // Añadido imagen
+                                Rol = r.Nombre_Rol,
+                                ROL_ID = r.ID
                             };
 
                 return query.ToList<dynamic>();
@@ -387,6 +389,22 @@ namespace beat_on_jeans_escritorio.Models
 
             return Insert(nuevoUsuarioCSharp);
         }
+
+        /// <summary>
+        /// Busca un usuario completo por su correo electrónico
+        /// </summary>
+        public static Usuarios SelectUserByEmail(string email)
+        {
+            using (var context = new dam05Entities())
+            {
+                return context.Usuarios
+                    .Include(u => u.UsuarioMobil)
+                    .Include(u => u.UsuariosCSharp)
+                    .FirstOrDefault(u => u.Correo == email);
+            }
+        }
+
+
 
 
     }

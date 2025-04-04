@@ -41,6 +41,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.comboBoxBuscarUsuario = new System.Windows.Forms.ComboBox();
+            this.bindingSourceGmails = new System.Windows.Forms.BindingSource(this.components);
             this.buttonModificarUsuario = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
@@ -67,19 +68,18 @@
             this.groupBoxBotones = new System.Windows.Forms.GroupBox();
             this.comboBoxAccionUsuario = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCorreos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGmails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBoxBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +106,6 @@
             this.comboBoxRolFiltro.Size = new System.Drawing.Size(179, 28);
             this.comboBoxRolFiltro.TabIndex = 1;
             this.comboBoxRolFiltro.ValueMember = "ID";
-            this.comboBoxRolFiltro.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsuarios_SelectedIndexChanged);
             // 
             // bindingSourceRoles
             // 
@@ -180,18 +179,22 @@
             // 
             // comboBoxBuscarUsuario
             // 
-            this.comboBoxBuscarUsuario.DataSource = this.bindingSourceCorreos;
+            this.comboBoxBuscarUsuario.DataSource = this.bindingSourceGmails;
             this.comboBoxBuscarUsuario.DisplayMember = "Correo";
             this.comboBoxBuscarUsuario.Font = new System.Drawing.Font("Figtree", 10.25F);
             this.comboBoxBuscarUsuario.FormattingEnabled = true;
             this.comboBoxBuscarUsuario.Location = new System.Drawing.Point(248, 279);
             this.comboBoxBuscarUsuario.Name = "comboBoxBuscarUsuario";
-            this.comboBoxBuscarUsuario.Size = new System.Drawing.Size(657, 25);
+            this.comboBoxBuscarUsuario.Size = new System.Drawing.Size(490, 25);
             this.comboBoxBuscarUsuario.TabIndex = 13;
             this.comboBoxBuscarUsuario.ValueMember = "ROL_ID";
             this.comboBoxBuscarUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.bindingSourceCorreos.DataSource = typeof(beat_on_jeans_escritorio.Models.Usuarios);
-
+            // 
+            // bindingSourceGmails
+            // 
+            this.bindingSourceGmails.DataSource = typeof(beat_on_jeans_escritorio.Models.Usuarios);
+            // 
+            // buttonModificarUsuario
             // 
             this.buttonModificarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.buttonModificarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -370,7 +373,7 @@
             // 
             // buttonLimipiar
             // 
-            this.buttonLimipiar.Location = new System.Drawing.Point(475, 183);
+            this.buttonLimipiar.Location = new System.Drawing.Point(458, 184);
             this.buttonLimipiar.Name = "buttonLimipiar";
             this.buttonLimipiar.Size = new System.Drawing.Size(75, 23);
             this.buttonLimipiar.TabIndex = 29;
@@ -493,15 +496,15 @@
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // buttonBuscar
             // 
-            this.pictureBox1.Image = global::beat_on_jeans_escritorio.Properties.Resources.rectanguloNaranja;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(911, 594);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
+            this.buttonBuscar.Location = new System.Drawing.Point(763, 279);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(136, 23);
+            this.buttonBuscar.TabIndex = 21;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // FormGestionUsuarios
             // 
@@ -509,6 +512,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(935, 618);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.groupBoxBotones);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridViewUsuarios);
@@ -517,7 +521,6 @@
             this.Controls.Add(label1);
             this.Controls.Add(this.comboBoxRolFiltro);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "FormGestionUsuarios";
             this.Text = "FormGestionUsuarios";
             this.Load += new System.EventHandler(this.FormGestionUsuarios_Load);
@@ -526,13 +529,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCorreos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGmails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBoxBotones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,6 +578,7 @@
         private System.Windows.Forms.Button buttonLimipiar;
         private System.Windows.Forms.TextBox textBoxUbicacion;
         private System.Windows.Forms.Label labelCodigoUbicacion;
-
+        private System.Windows.Forms.BindingSource bindingSourceGmails;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }
