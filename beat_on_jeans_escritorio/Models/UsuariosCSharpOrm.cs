@@ -58,6 +58,7 @@ namespace beat_on_jeans_escritorio.Models
         /// Select a la base de datos de los musicos.
         /// </summary>
         /// <returns></returns>
+       
         public static List<dynamic> SelectMusicos()
         {
             using (var context = new dam05Entities())
@@ -386,8 +387,6 @@ namespace beat_on_jeans_escritorio.Models
 
             return Insert(nuevoUsuarioCSharp);
         }
-
-
 
 
     }
