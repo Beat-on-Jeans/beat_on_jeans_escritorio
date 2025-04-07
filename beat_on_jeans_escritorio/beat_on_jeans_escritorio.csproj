@@ -147,7 +147,7 @@
     <Compile Include="FormSoporte.Designer.cs">
       <DependentUpon>FormSoporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Geocoder.cs" />
+    <Compile Include="Clases\Geocoder.cs" />
     <Compile Include="Models\Actuacion.cs">
       <DependentUpon>ModelBoj.tt</DependentUpon>
     </Compile>

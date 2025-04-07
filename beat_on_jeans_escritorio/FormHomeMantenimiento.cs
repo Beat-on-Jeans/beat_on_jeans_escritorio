@@ -37,31 +37,28 @@ namespace beat_on_jeans_escritorio
 
         private void cargarDatosMusicos()
         {
-            try
+            var musicos = UsuariosCSharpOrm.SelectMusicos();
+
+            if (musicos == null || !musicos.Any())
             {
-                var datosMusicos = HomeSuperUsuarioOrm.SelectMusicos();
+                // Si no hay tickets, aseguramos que el DataGridView esté vacío
+                bindingSourceMusicos.DataSource = new List<object>();  // Cargar una lista vacía
+                bindingSourceMusicos.DataSource = bindingSourceMusicos;
+                dataGridViewMusicos.Refresh();  // Refrescar para que el DataGridView esté vacío
+                return;  // Salir del método para evitar el resto del código
+            } 
 
-                // Configurar el DataGridView
-                dataGridViewMusicos.AutoGenerateColumns = false;
-                dataGridViewMusicos.DataSource = datosMusicos;
+            bindingSourceMusicos.DataSource = musicos;
+            dataGridViewMusicos.DataSource = bindingSourceMusicos;
 
-                // Configurar las columnas para que usen las propiedades correctas
-                dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "NombreMusico";
-                dataGridViewMusicos.Columns["CorreoMusico"].DataPropertyName = "CorreoMusico";
-                dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "CodigoPostal";
+            // Ajustar a los nombres reales de las propiedades
+            dataGridViewMusicos.Columns["NombreMusico"].DataPropertyName = "Nombre";
+            dataGridViewMusicos.Columns["CorreoMusico"].DataPropertyName = "Correo";
+            dataGridViewMusicos.Columns["CodigoPostal"].DataPropertyName = "Ubicacion";
 
-                // Configuración de visualización
-                dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar los datos de locales: " + ex.Message,
-                               "Error",
-                               MessageBoxButtons.OK,
-                               MessageBoxIcon.Error);
-            }
+            // Configurar visualizacion
+            dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void cargarDatosLocales()

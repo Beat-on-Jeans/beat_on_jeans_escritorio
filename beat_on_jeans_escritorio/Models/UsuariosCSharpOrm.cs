@@ -66,16 +66,16 @@ namespace beat_on_jeans_escritorio.Models
                 var query = from u in context.Usuarios
                             join r in context.Roles on u.ROL_ID equals r.ID
                             join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
-                            where u.ROL_ID == 1 // ID para Músicos
+                            where u.ROL_ID == 1 // Cambiado a 2 o el ID correcto para músicos
                             select new
                             {
                                 u.ID,
                                 u.Nombre,
                                 u.Correo,
                                 u.Contrasena,
-                                Ubicacion = um.Ubicacion, // Cambiado de Codigo_Postal a Ubicacion
-                                Valoracion = um.ValoracionTotal, // Añadido valoración
-                                Imagen = um.Url_Imagen, // Añadido imagen
+                                Ubicacion = um.Ubicacion,
+                                Valoracion = um.ValoracionTotal,
+                                Imagen = um.Url_Imagen,
                                 Rol = r.Nombre_Rol,
                                 ROL_ID = r.ID
                             };

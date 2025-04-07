@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,15 +40,17 @@
             this.ValoracionTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewMusicos = new System.Windows.Forms.DataGridView();
-            this.NombreMusico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorreoMusico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelLocales = new System.Windows.Forms.Label();
             this.labelMusicos = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.NombreMusico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CorreoMusico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoPostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceMusicos = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMusicos)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewLocales
@@ -136,6 +139,7 @@
             this.dataGridViewMusicos.AllowUserToResizeRows = false;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.dataGridViewMusicos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewMusicos.AutoGenerateColumns = false;
             this.dataGridViewMusicos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.dataGridViewMusicos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewMusicos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -152,6 +156,7 @@
             this.NombreMusico,
             this.CorreoMusico,
             this.CodigoPostal});
+            this.dataGridViewMusicos.DataSource = this.bindingSourceMusicos;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,30 +177,6 @@
             this.dataGridViewMusicos.RowTemplate.Height = 24;
             this.dataGridViewMusicos.Size = new System.Drawing.Size(416, 225);
             this.dataGridViewMusicos.TabIndex = 14;
-            // 
-            // NombreMusico
-            // 
-            this.NombreMusico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreMusico.FillWeight = 150F;
-            this.NombreMusico.HeaderText = "Nombre del Músico";
-            this.NombreMusico.Name = "NombreMusico";
-            this.NombreMusico.ReadOnly = true;
-            // 
-            // CorreoMusico
-            // 
-            this.CorreoMusico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CorreoMusico.FillWeight = 150F;
-            this.CorreoMusico.HeaderText = "Correo del músico";
-            this.CorreoMusico.Name = "CorreoMusico";
-            this.CorreoMusico.ReadOnly = true;
-            // 
-            // CodigoPostal
-            // 
-            this.CodigoPostal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CodigoPostal.FillWeight = 150F;
-            this.CodigoPostal.HeaderText = "Codigo Postal";
-            this.CodigoPostal.Name = "CodigoPostal";
-            this.CodigoPostal.ReadOnly = true;
             // 
             // labelLocales
             // 
@@ -229,6 +210,34 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
+            // NombreMusico
+            // 
+            this.NombreMusico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombreMusico.FillWeight = 150F;
+            this.NombreMusico.HeaderText = "Nombre del Músico";
+            this.NombreMusico.Name = "NombreMusico";
+            this.NombreMusico.ReadOnly = true;
+            // 
+            // CorreoMusico
+            // 
+            this.CorreoMusico.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CorreoMusico.FillWeight = 150F;
+            this.CorreoMusico.HeaderText = "Correo del músico";
+            this.CorreoMusico.Name = "CorreoMusico";
+            this.CorreoMusico.ReadOnly = true;
+            // 
+            // CodigoPostal
+            // 
+            this.CodigoPostal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CodigoPostal.FillWeight = 150F;
+            this.CodigoPostal.HeaderText = "Ubicacion";
+            this.CodigoPostal.Name = "CodigoPostal";
+            this.CodigoPostal.ReadOnly = true;
+            // 
+            // bindingSourceMusicos
+            // 
+            this.bindingSourceMusicos.DataSource = typeof(beat_on_jeans_escritorio.Models.UsuariosCSharpOrm);
+            // 
             // FormHomeMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMusicos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,11 +270,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValoracionTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ubicacion;
         private System.Windows.Forms.DataGridView dataGridViewMusicos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreMusico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CorreoMusico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoPostal;
         private System.Windows.Forms.Label labelLocales;
         private System.Windows.Forms.Label labelMusicos;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreMusico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CorreoMusico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoPostal;
+        private System.Windows.Forms.BindingSource bindingSourceMusicos;
     }
 }
