@@ -155,6 +155,7 @@ namespace beat_on_jeans_escritorio
             rellenarUsuarios();
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             cargarContenidosUsuarios();
+            textBoxContrasena.UseSystemPasswordChar = true;
 
             // Añadir valores a comboBoxAccionUsuario
             comboBoxAccionUsuario.Items.Add("Crear");
@@ -382,43 +383,40 @@ namespace beat_on_jeans_escritorio
             Roles rolUsuario = (Roles)comboBoxRolFiltro.SelectedItem;
 
             // Validación de datos
-            if (!ValidarDatosUsuario(nombreUsuario, correoUsuario, contrasenaUsuario, rolUsuario))
+            if (ValidarDatosUsuario(nombreUsuario, correoUsuario, contrasenaUsuario, rolUsuario))
             {
-                return;
-            }
-
-            // Verificar si el correo ya existe
-            if (UsuariosORM.CorreoExiste(correoUsuario))
-            {
-                MessageBox.Show("El correo ya está en uso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Crear nuevo usuario
-            Usuarios nuevoUsuario = CrearNuevoUsuario(nombreUsuario, correoUsuario, contrasenaUsuario, rolUsuario.ID);
-
-            // Insertar usuario en la base de datos
-            UsuariosORM.Insert(nuevoUsuario);
-
-            // Crear usuario específico según el rol
-            if (rolUsuario.ID == 1 || rolUsuario.ID == 2) // Músico o Local
-            {
-                UsuarioMovilOrm.Insert(new UsuarioMobil
+                if (UsuariosORM.CorreoExiste(correoUsuario))
                 {
-                    Usuario_ID = nuevoUsuario.ID,
-                    ROL_ID = rolUsuario.ID,
-                    Ubicacion = ubicacionUsuario
-                });
-            }
-            else if (rolUsuario.ID >= 3 && rolUsuario.ID <= 5) // Administrador, Superadministrador o Mantenimiento
-            {
-                UsuariosCSharpOrm.CrearUsuarioCSharp(nuevoUsuario.ID, rolUsuario.ID);
-            }
+                    MessageBox.Show("El correo ya está en uso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    Usuarios nuevoUsuario = CrearNuevoUsuario(nombreUsuario, correoUsuario, contrasenaUsuario, rolUsuario.ID);
+                    UsuariosORM.Insert(nuevoUsuario);
 
-            // Actualizar la lista de usuarios
-            bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.Select();
+                    bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.Select();
+                    MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (rolUsuario.ID == 1 || rolUsuario.ID == 2) // Músico o Local
+                    {
+                        UsuarioMovilOrm.Insert(new UsuarioMobil
+                        {
+                            Usuario_ID = nuevoUsuario.ID,
+                            ROL_ID = rolUsuario.ID,
+                            Ubicacion = ubicacionUsuario
+                        });
+                    }
+                    else if (rolUsuario.ID >= 3 && rolUsuario.ID <= 5) // Administrador, Superadministrador o Mantenimiento
+                    {
+                        UsuariosCSharpOrm.CrearUsuarioCSharp(nuevoUsuario.ID, rolUsuario.ID);
+                    }
+
+                    // Actualizar el DataGridView
+                    rellenarUsuarios();
+                }
+                return;
+            }
         }
 
         private bool ValidarDatosUsuario(string nombre, string correo, string contrasena, Roles rol)
@@ -560,6 +558,9 @@ namespace beat_on_jeans_escritorio
 
         }
 
-        
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Collections.Generic;
 using beat_on_jeans_escritorio.Models;
+using System.Linq;
 
 namespace beat_on_jeans_escritorio.Clases
 {
@@ -11,7 +12,8 @@ namespace beat_on_jeans_escritorio.Clases
             if (rol == null) return;
 
             // Configuración común para todos los roles
-            bindingSource.DataSource = rol.Usuarios;
+            bindingSource.DataSource = rol.Usuarios.ToList();
+            //bindingSource.DataSource = rol.Usuarios;
             dataGridView.DataSource = bindingSource;
 
             // Desactivar generación automática para personalizar
