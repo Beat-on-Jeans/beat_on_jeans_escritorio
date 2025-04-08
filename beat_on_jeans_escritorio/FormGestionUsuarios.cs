@@ -492,56 +492,46 @@ namespace beat_on_jeans_escritorio
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            // Verificar si hay una fila seleccionada en el DataGridView
             if (dataGridViewUsuarios.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione un usuario primero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Obtener el usuario seleccionado
             var selectedRow = dataGridViewUsuarios.SelectedRows[0];
-            dynamic usuario = selectedRow.DataBoundItem;
-
-            // Obtener los valores del formulario
-            string nombre = textBoxNombre.Text;
-            string correo = textBoxCorreo.Text;
-            string contrasena = textBoxContrasena.Text;
-            string ubicacion = textBoxUbicacion.Text;
+            int usuarioId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
             Roles rol = (Roles)comboBoxRolFiltro.SelectedItem;
 
-            // Validar los datos
-            if (!ValidarDatosUsuario(nombre, correo, contrasena, rol))
+            // Validar datos primero
+            if (!ValidarDatosUsuario(textBoxNombre.Text, textBoxCorreo.Text, textBoxContrasena.Text, rol))
             {
                 return;
             }
 
-            // Actualizar los valores del usuario
-            usuario.Nombre = nombre;
-            usuario.Correo = correo;
-            usuario.Contrasena = contrasena;
-            usuario.ROL_ID = rol.ID;
-
-            // Actualizar la ubicación si es un músico o local
-            if (rol.ID == 1 || rol.ID == 2)
+            // Crear objeto actualizado
+            Usuarios usuarioActualizado = new Usuarios
             {
-                usuario.Ubicacion = ubicacion;
-            }
+                ID = usuarioId,
+                Nombre = textBoxNombre.Text,
+                Correo = textBoxCorreo.Text,
+                Contrasena = textBoxContrasena.Text,
+                ROL_ID = rol.ID, // Esto está bien aunque ROL_ID sea nullable
+                Ubicacion = (rol.ID == 1 || rol.ID == 2) ? textBoxUbicacion.Text : null
+            };
 
-            // Guardar los cambios en la base de datos
-            bool actualizado = UsuariosORM.UpdateUser(usuario);
+            // Actualizar en base de datos
+            bool actualizado = UsuariosORM.UpdateUser(usuarioActualizado);
 
             if (actualizado)
             {
                 MessageBox.Show("Usuario modificado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                rellenarUsuarios(); // Actualizar el DataGridView
+                rellenarUsuarios(); // Refrescar DataGridView
             }
             else
             {
                 MessageBox.Show("No se pudo modificar el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void labelRol_Click(object sender, EventArgs e)
         {

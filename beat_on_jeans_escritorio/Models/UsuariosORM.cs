@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,23 +32,47 @@ namespace beat_on_jeans_escritorio.Models
         }
         public static bool UpdateUser(Usuarios usuarioActualizado)
         {
-            // Buscar el usuario existente en la base de datos
-            var usuarioExistente = Orm.db.Usuarios.FirstOrDefault(u => u.ID == usuarioActualizado.ID);
-
-            if (usuarioExistente != null)
+            try
             {
-                // Actualizar los campos del usuario existente con los valores del usuario actualizado
-                usuarioExistente.Nombre = usuarioActualizado.Nombre;
-                usuarioExistente.Correo = usuarioActualizado.Correo;
-                usuarioExistente.Contrasena = usuarioActualizado.Contrasena;
-                usuarioExistente.ROL_ID = usuarioActualizado.ROL_ID;
+                var usuarioExistente = Orm.db.Usuarios.FirstOrDefault(u => u.ID == usuarioActualizado.ID);
 
-                // Guardar los cambios en la base de datos
-                Orm.db.SaveChanges();
-                return true;
+                if (usuarioExistente != null)
+                {
+                    // Actualizar propiedades básicas
+                    usuarioExistente.Nombre = usuarioActualizado.Nombre;
+                    usuarioExistente.Correo = usuarioActualizado.Correo;
+                    usuarioExistente.Contrasena = usuarioActualizado.Contrasena;
+                    usuarioExistente.ROL_ID = usuarioActualizado.ROL_ID; // Esto debería funcionar aunque ROL_ID sea nullable
+
+                    // Manejo de ubicación - versión mejorada
+                    if (usuarioActualizado.ROL_ID.HasValue &&
+                       (usuarioActualizado.ROL_ID.Value == 1 || usuarioActualizado.ROL_ID.Value == 2))
+                    {
+                        usuarioExistente.Ubicacion = usuarioActualizado.Ubicacion;
+                    }
+                    else
+                    {
+                        usuarioExistente.Ubicacion = null;
+                    }
+
+                    // Forzar la verificación de cambios
+                    Orm.db.Entry(usuarioExistente).State = EntityState.Modified;
+                    int cambios = Orm.db.SaveChanges();
+
+                    return cambios > 0; // Retorna true si se guardaron cambios
+                }
+                return false;
             }
-
-            return false; // Retornar false si el usuario no fue encontrado
+            catch (Exception ex)
+            {
+                // Mejor manejo del error
+                System.Diagnostics.Debug.WriteLine($"Error al actualizar usuario: {ex.Message}");
+                if (ex.InnerException != null)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Inner exception: {ex.InnerException.Message}");
+                }
+                return false;
+            }
         }
 
 

@@ -26,7 +26,8 @@ namespace beat_on_jeans_escritorio.Models
         public string Nombre { get; set; }
         public string Correo { get; set; }
         public string Contrasena { get; set; }
-    
+        public string Ubicacion { get; set; }
+
         public virtual Roles Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UsuarioMobil> UsuarioMobil { get; set; }
