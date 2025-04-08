@@ -39,26 +39,26 @@
             this.labelMusicos = new System.Windows.Forms.Label();
             this.labelLocales = new System.Windows.Forms.Label();
             this.dataGridViewMusicos = new System.Windows.Forms.DataGridView();
+            this.bindingSourceMusicos = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewLocales = new System.Windows.Forms.DataGridView();
             this.NombreLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CorreoLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValoracionMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceLocales = new System.Windows.Forms.BindingSource(this.components);
             this.labelTickets = new System.Windows.Forms.Label();
             this.dataGridViewTickets = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bindingSourceLocales = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceMusicos = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceTickets = new System.Windows.Forms.BindingSource(this.components);
-            this.Codigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusicos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMusicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLocales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLocales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMusicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTickets)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +131,10 @@
             this.dataGridViewMusicos.RowTemplate.Height = 24;
             this.dataGridViewMusicos.Size = new System.Drawing.Size(416, 225);
             this.dataGridViewMusicos.TabIndex = 9;
+            // 
+            // bindingSourceMusicos
+            // 
+            this.bindingSourceMusicos.DataSource = typeof(beat_on_jeans_escritorio.Models.UsuariosCSharpOrm);
             // 
             // dataGridViewLocales
             // 
@@ -211,6 +215,10 @@
             this.Ubicacion.Name = "Ubicacion";
             this.Ubicacion.ReadOnly = true;
             // 
+            // bindingSourceLocales
+            // 
+            this.bindingSourceLocales.DataSource = typeof(beat_on_jeans_escritorio.Models.UsuariosCSharpOrm);
+            // 
             // labelTickets
             // 
             this.labelTickets.AutoSize = true;
@@ -272,25 +280,17 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
-            // bindingSourceLocales
-            // 
-            this.bindingSourceLocales.DataSource = typeof(beat_on_jeans_escritorio.Models.UsuariosCSharpOrm);
-            // 
-            // bindingSourceMusicos
-            // 
-            this.bindingSourceMusicos.DataSource = typeof(beat_on_jeans_escritorio.Models.UsuariosCSharpOrm);
-            // 
             // bindingSourceTickets
             // 
             this.bindingSourceTickets.DataSource = typeof(beat_on_jeans_escritorio.Models.TicketsOrm);
             // 
-            // Codigo_Postal
+            // Nombre
             // 
-            this.Codigo_Postal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Codigo_Postal.FillWeight = 150F;
-            this.Codigo_Postal.HeaderText = "Codigo Postal";
-            this.Codigo_Postal.Name = "Codigo_Postal";
-            this.Codigo_Postal.ReadOnly = true;
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.FillWeight = 150F;
+            this.Nombre.HeaderText = "Nombre del Músico";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Correo
             // 
@@ -300,13 +300,13 @@
             this.Correo.Name = "Correo";
             this.Correo.ReadOnly = true;
             // 
-            // Nombre
+            // Codigo_Postal
             // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.FillWeight = 150F;
-            this.Nombre.HeaderText = "Nombre del Músico";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
+            this.Codigo_Postal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Codigo_Postal.FillWeight = 150F;
+            this.Codigo_Postal.HeaderText = "Ubicacion";
+            this.Codigo_Postal.Name = "Codigo_Postal";
+            this.Codigo_Postal.ReadOnly = true;
             // 
             // FormHomeSuperUsuario
             // 
@@ -326,11 +326,11 @@
             this.Text = "FormHomeSuperUsuario";
             this.Load += new System.EventHandler(this.FormHomeSuperUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusicos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMusicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLocales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTickets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLocales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMusicos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTickets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

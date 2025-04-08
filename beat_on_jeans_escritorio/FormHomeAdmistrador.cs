@@ -60,7 +60,7 @@ namespace beat_on_jeans_escritorio
             {
                 // Si no hay tickets, aseguramos que el DataGridView esté vacío
                 bindingSourceMusicos.DataSource = new List<object>();  // Cargar una lista vacía
-                dataGridViewMusicos.DataSource = bindingSourceMusicos;
+                bindingSourceMusicos.DataSource = bindingSourceMusicos;
                 dataGridViewMusicos.Refresh();  // Refrescar para que el DataGridView esté vacío
                 return;  // Salir del método para evitar el resto del código
             }
@@ -71,7 +71,7 @@ namespace beat_on_jeans_escritorio
             // Ajustar a los nombres reales de las propiedades
             dataGridViewMusicos.Columns["Nombre"].DataPropertyName = "Nombre";
             dataGridViewMusicos.Columns["Correo"].DataPropertyName = "Correo";
-            dataGridViewMusicos.Columns["Codigo_Postal"].DataPropertyName = "Codigo_Postal";
+            dataGridViewMusicos.Columns["Codigo_Postal"].DataPropertyName = "Ubicacion";
 
             // Configurar visualizacion
             dataGridViewMusicos.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
