@@ -45,6 +45,14 @@
             this.buttonModificarUsuario = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rOLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contrasenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioMobilDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuariosCSharpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelContrasena = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -64,14 +72,6 @@
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rOLIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contrasenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioMobilDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuariosCSharpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRoles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).BeginInit();
@@ -278,6 +278,63 @@
             this.dataGridViewUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewUsuarios.Size = new System.Drawing.Size(883, 262);
             this.dataGridViewUsuarios.TabIndex = 15;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // rOLIDDataGridViewTextBoxColumn
+            // 
+            this.rOLIDDataGridViewTextBoxColumn.DataPropertyName = "ROL_ID";
+            this.rOLIDDataGridViewTextBoxColumn.HeaderText = "ROL_ID";
+            this.rOLIDDataGridViewTextBoxColumn.Name = "rOLIDDataGridViewTextBoxColumn";
+            this.rOLIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // correoDataGridViewTextBoxColumn
+            // 
+            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
+            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
+            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
+            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contrasenaDataGridViewTextBoxColumn
+            // 
+            this.contrasenaDataGridViewTextBoxColumn.DataPropertyName = "Contrasena";
+            this.contrasenaDataGridViewTextBoxColumn.HeaderText = "Contrasena";
+            this.contrasenaDataGridViewTextBoxColumn.Name = "contrasenaDataGridViewTextBoxColumn";
+            this.contrasenaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rolesDataGridViewTextBoxColumn
+            // 
+            this.rolesDataGridViewTextBoxColumn.DataPropertyName = "Roles";
+            this.rolesDataGridViewTextBoxColumn.HeaderText = "Roles";
+            this.rolesDataGridViewTextBoxColumn.Name = "rolesDataGridViewTextBoxColumn";
+            this.rolesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usuarioMobilDataGridViewTextBoxColumn
+            // 
+            this.usuarioMobilDataGridViewTextBoxColumn.DataPropertyName = "UsuarioMobil";
+            this.usuarioMobilDataGridViewTextBoxColumn.HeaderText = "UsuarioMobil";
+            this.usuarioMobilDataGridViewTextBoxColumn.Name = "usuarioMobilDataGridViewTextBoxColumn";
+            this.usuarioMobilDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usuariosCSharpDataGridViewTextBoxColumn
+            // 
+            this.usuariosCSharpDataGridViewTextBoxColumn.DataPropertyName = "UsuariosCSharp";
+            this.usuariosCSharpDataGridViewTextBoxColumn.HeaderText = "UsuariosCSharp";
+            this.usuariosCSharpDataGridViewTextBoxColumn.Name = "usuariosCSharpDataGridViewTextBoxColumn";
+            this.usuariosCSharpDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // labelNombre
             // 
@@ -501,63 +558,6 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 22;
             this.pictureBox7.TabStop = false;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // rOLIDDataGridViewTextBoxColumn
-            // 
-            this.rOLIDDataGridViewTextBoxColumn.DataPropertyName = "ROL_ID";
-            this.rOLIDDataGridViewTextBoxColumn.HeaderText = "ROL_ID";
-            this.rOLIDDataGridViewTextBoxColumn.Name = "rOLIDDataGridViewTextBoxColumn";
-            this.rOLIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // correoDataGridViewTextBoxColumn
-            // 
-            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
-            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
-            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
-            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contrasenaDataGridViewTextBoxColumn
-            // 
-            this.contrasenaDataGridViewTextBoxColumn.DataPropertyName = "Contrasena";
-            this.contrasenaDataGridViewTextBoxColumn.HeaderText = "Contrasena";
-            this.contrasenaDataGridViewTextBoxColumn.Name = "contrasenaDataGridViewTextBoxColumn";
-            this.contrasenaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rolesDataGridViewTextBoxColumn
-            // 
-            this.rolesDataGridViewTextBoxColumn.DataPropertyName = "Roles";
-            this.rolesDataGridViewTextBoxColumn.HeaderText = "Roles";
-            this.rolesDataGridViewTextBoxColumn.Name = "rolesDataGridViewTextBoxColumn";
-            this.rolesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usuarioMobilDataGridViewTextBoxColumn
-            // 
-            this.usuarioMobilDataGridViewTextBoxColumn.DataPropertyName = "UsuarioMobil";
-            this.usuarioMobilDataGridViewTextBoxColumn.HeaderText = "UsuarioMobil";
-            this.usuarioMobilDataGridViewTextBoxColumn.Name = "usuarioMobilDataGridViewTextBoxColumn";
-            this.usuarioMobilDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usuariosCSharpDataGridViewTextBoxColumn
-            // 
-            this.usuariosCSharpDataGridViewTextBoxColumn.DataPropertyName = "UsuariosCSharp";
-            this.usuariosCSharpDataGridViewTextBoxColumn.HeaderText = "UsuariosCSharp";
-            this.usuariosCSharpDataGridViewTextBoxColumn.Name = "usuariosCSharpDataGridViewTextBoxColumn";
-            this.usuariosCSharpDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormGestionUsuarios
             // 

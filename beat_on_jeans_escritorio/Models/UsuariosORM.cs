@@ -29,5 +29,28 @@ namespace beat_on_jeans_escritorio.Models
         {
             return Orm.db.Usuarios.Any(u => u.Correo == correo);
         }
+        public static bool UpdateUser(Usuarios usuarioActualizado)
+        {
+            // Buscar el usuario existente en la base de datos
+            var usuarioExistente = Orm.db.Usuarios.FirstOrDefault(u => u.ID == usuarioActualizado.ID);
+
+            if (usuarioExistente != null)
+            {
+                // Actualizar los campos del usuario existente con los valores del usuario actualizado
+                usuarioExistente.Nombre = usuarioActualizado.Nombre;
+                usuarioExistente.Correo = usuarioActualizado.Correo;
+                usuarioExistente.Contrasena = usuarioActualizado.Contrasena;
+                usuarioExistente.ROL_ID = usuarioActualizado.ROL_ID;
+
+                // Guardar los cambios en la base de datos
+                Orm.db.SaveChanges();
+                return true;
+            }
+
+            return false; // Retornar false si el usuario no fue encontrado
+        }
+
+
+
     }
 }

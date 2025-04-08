@@ -492,7 +492,54 @@ namespace beat_on_jeans_escritorio
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
+            // Verificar si hay una fila seleccionada en el DataGridView
+            if (dataGridViewUsuarios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un usuario primero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // Obtener el usuario seleccionado
+            var selectedRow = dataGridViewUsuarios.SelectedRows[0];
+            dynamic usuario = selectedRow.DataBoundItem;
+
+            // Obtener los valores del formulario
+            string nombre = textBoxNombre.Text;
+            string correo = textBoxCorreo.Text;
+            string contrasena = textBoxContrasena.Text;
+            string ubicacion = textBoxUbicacion.Text;
+            Roles rol = (Roles)comboBoxRolFiltro.SelectedItem;
+
+            // Validar los datos
+            if (!ValidarDatosUsuario(nombre, correo, contrasena, rol))
+            {
+                return;
+            }
+
+            // Actualizar los valores del usuario
+            usuario.Nombre = nombre;
+            usuario.Correo = correo;
+            usuario.Contrasena = contrasena;
+            usuario.ROL_ID = rol.ID;
+
+            // Actualizar la ubicación si es un músico o local
+            if (rol.ID == 1 || rol.ID == 2)
+            {
+                usuario.Ubicacion = ubicacion;
+            }
+
+            // Guardar los cambios en la base de datos
+            bool actualizado = UsuariosORM.UpdateUser(usuario);
+
+            if (actualizado)
+            {
+                MessageBox.Show("Usuario modificado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rellenarUsuarios(); // Actualizar el DataGridView
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
