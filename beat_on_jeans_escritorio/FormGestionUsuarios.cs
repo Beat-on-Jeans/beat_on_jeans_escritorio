@@ -81,19 +81,9 @@ namespace beat_on_jeans_escritorio
 
         private void ActualizarComboBoxBusqueda(Roles rolSeleccionado)
         {
-            // Actualizar el ComboBox de búsqueda según el rol seleccionado
-            if (rolSeleccionado.Nombre_Rol == "Musico")
-            {
-                bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.SelectMusicos();
-            }
-            else if (rolSeleccionado.Nombre_Rol == "Local")
-            {
-                bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.SelectLocales();
-            }
-            else
-            {
-                bindingSourceBuscarUsuarios.DataSource = UsuariosORM.Select();
-            }
+            // Opcional: Filtrar usuarios si es necesario (ej: solo para ciertos roles)
+            // Pero en tu caso, queremos mostrar TODOS los correos siempre
+            bindingSourceBuscarUsuarios.DataSource = UsuariosORM.Select(); // Todos los usuarios
 
             comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
             comboBoxBuscarUsuario.DisplayMember = "Correo";
@@ -106,41 +96,53 @@ namespace beat_on_jeans_escritorio
             // Cargar los roles disponibles
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
-            if (rolId == 4 || rolId == 5) // Si es administrador o gestor
+            if (rolId == 3) // Si es superusuario
+            {
+                // Cargar todos los usuarios sin filtro
+                var todosLosUsuarios = UsuariosORM.Select(); // Obtener todos los usuarios
+                bindingSourceBuscarUsuarios.DataSource = todosLosUsuarios;
+                comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar el correo
+                comboBoxBuscarUsuario.ValueMember = "ID";       // Valor asociado al ID
+
+                // Configurar comboBoxRolFiltro y comboBoxRol (sin cambios)
+                comboBoxRolFiltro.DataSource = bindingSourceRoles;
+                comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
+                comboBoxRolFiltro.ValueMember = "ID";
+
+                comboBoxRol.DataSource = bindingSourceRoles;
+                comboBoxRol.DisplayMember = "Nombre_Rol";
+                comboBoxRol.ValueMember = "ID";
+            }
+            else if (rolId == 4 || rolId == 5) // Si es administrador o mantenimiento
             {
                 // Filtrar roles para Músicos (1) y Locales (2)
                 var rolesFiltrados = bindingSourceRoles.List.Cast<Roles>()
-                    .Where(r => r.ID == 1 || r.ID == 2)
+                    .Where(r => r.ID == 1 || r.ID == 2) // Músicos y Locales
                     .ToList();
 
                 bindingSourceGmails.DataSource = rolesFiltrados;
 
-                // Configurar el ComboBox
-                comboBoxBuscarUsuario.DataSource = bindingSourceGmails;
-                comboBoxBuscarUsuario.DisplayMember = "Correo";
-                comboBoxBuscarUsuario.ValueMember = "ROL_ID";
-                comboBoxBuscarUsuario.SelectedIndex = -1;
-
-                // Configurar comboBoxRolFiltro
+                // Configurar comboBoxRolFiltro y comboBoxRol (sin cambios)
                 comboBoxRolFiltro.DataSource = rolesFiltrados;
                 comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
                 comboBoxRolFiltro.ValueMember = "ID";
 
-                // Configurar comboBoxRol
                 comboBoxRol.DataSource = rolesFiltrados;
                 comboBoxRol.DisplayMember = "Nombre_Rol";
                 comboBoxRol.ValueMember = "ID";
 
-                // Filtrar solo los usuarios con rol de Músico o Local
-                var usuariosFiltrados = UsuariosCSharpOrm.SelectMusicosYLocales();
+                // --- Solo mostrar los usuarios Músicos (ID == 1) y Locales (ID == 2) en comboBoxBuscarUsuario ---
+                var usuariosFiltrados = UsuariosORM.Select()
+                    .Where(u => u.ROL_ID == 1 || u.ROL_ID == 2) // Filtrar por Músicos y Locales
+                    .ToList();
 
-                // Asignar los usuarios filtrados al ComboBox
                 bindingSourceBuscarUsuarios.DataSource = usuariosFiltrados;
                 comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
-                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar solo el correo
-                comboBoxBuscarUsuario.ValueMember = "ID";        // Valor asociado al ID
+                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar el correo
+                comboBoxBuscarUsuario.ValueMember = "ID";       // Valor asociado al ID
 
-                // Configuraciones específicas para gestor (rolId == 5)
+                // Configuraciones específicas para mantenimiento (rolId == 5)
                 if (rolId == 5)
                 {
                     comboBoxAccionUsuario.Items.Clear();
@@ -159,7 +161,7 @@ namespace beat_on_jeans_escritorio
             }
             else
             {
-                // Para otros roles, cargar todos los roles sin filtrar
+                // Para otros roles (no superusuario, admin o mantenimiento), cargar todos los roles sin filtrar
                 comboBoxRolFiltro.DataSource = bindingSourceRoles;
                 comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
                 comboBoxRolFiltro.ValueMember = "ID";
@@ -172,8 +174,12 @@ namespace beat_on_jeans_escritorio
                 var usuarios = UsuariosORM.Select();
                 bindingSourceBuscarUsuarios.DataSource = usuarios;
                 comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar el correo
+                comboBoxBuscarUsuario.ValueMember = "ID";       // Valor asociado al ID
             }
         }
+
+
 
 
 
@@ -308,41 +314,23 @@ namespace beat_on_jeans_escritorio
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            // Verificar si el correo está seleccionado correctamente en el ComboBox
+            // Verificar si hay un ítem seleccionado
             if (comboBoxBuscarUsuario.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, selecciona un correo para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Obtener el correo seleccionado del ComboBox
-            var usuarioSeleccionado = comboBoxBuscarUsuario.SelectedItem as dynamic;
-            string correoSeleccionado = usuarioSeleccionado?.Correo;
-
-            if (string.IsNullOrEmpty(correoSeleccionado))
+            // Obtener el usuario seleccionado directamente
+            var usuarioSeleccionado = comboBoxBuscarUsuario.SelectedItem as Usuarios;
+            if (usuarioSeleccionado == null)
             {
-                MessageBox.Show("Por favor, selecciona un correo para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El correo seleccionado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Buscar el usuario con el correo seleccionado
-            var usuario = BuscarUsuarioPorCorreo(correoSeleccionado);
-
-            if (usuario != null)
-            {
-                // Si se encuentra el usuario, actualizar los controles del formulario
-                CargarUsuarioEnFormulario(usuario);
-            }
-            else
-            {
-                MessageBox.Show("No se encontró un usuario con ese correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private Usuarios BuscarUsuarioPorCorreo(string correo)
-        {
-            // Llamar al método ORM para obtener el usuario por correo
-            return UsuariosCSharpOrm.SelectUserByEmail(correo); // Asegúrate de que este método esté funcionando correctamente en tu ORM
+            // Cargar los datos del usuario en el formulario
+            CargarUsuarioEnFormulario(usuarioSeleccionado);
         }
 
         private void CargarUsuarioEnFormulario(Usuarios usuario)
