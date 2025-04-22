@@ -9,7 +9,7 @@ namespace beat_on_jeans_escritorio.Models
     {
         public static List<dynamic> GetActuacionesConNombres()
         {
-            using (var db = new dam05Entities())
+            using (var db = new dam05Entities1())
             {
                 try
                 {

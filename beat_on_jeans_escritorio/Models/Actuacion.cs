@@ -16,8 +16,9 @@ namespace beat_on_jeans_escritorio.Models
     {
         public int ID { get; set; }
         public System.DateTime Fecha { get; set; }
-        public int UsuarioMobil_Local_ID { get; set; }
-        public int UsuarioMobil_Musico_ID { get; set; }
+        public int Creador_ID { get; set; }
+        public int Finalizador_ID { get; set; }
+        public Nullable<int> Estado { get; set; }
     
         public virtual UsuarioMobil UsuarioMobil { get; set; }
         public virtual UsuarioMobil UsuarioMobil1 { get; set; }

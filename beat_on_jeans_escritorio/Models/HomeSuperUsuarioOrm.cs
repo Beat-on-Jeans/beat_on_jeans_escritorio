@@ -10,7 +10,7 @@ namespace beat_on_jeans_escritorio.Models
     {
         public static List<dynamic> SelectMusicos()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 var query = from u in context.Usuarios
                             join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
@@ -29,7 +29,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static List<dynamic> SelectLocales()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 var query = from u in context.Usuarios
                             join um in context.UsuarioMobil on u.ID equals um.Usuario_ID

@@ -39,6 +39,9 @@
             this.labelMusicos = new System.Windows.Forms.Label();
             this.labelLocales = new System.Windows.Forms.Label();
             this.dataGridViewMusicos = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceMusicos = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewLocales = new System.Windows.Forms.DataGridView();
             this.NombreLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,9 +53,6 @@
             this.dataGridViewTickets = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bindingSourceTickets = new System.Windows.Forms.BindingSource(this.components);
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMusicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMusicos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLocales)).BeginInit();
@@ -71,7 +71,7 @@
             this.labelMusicos.Name = "labelMusicos";
             this.labelMusicos.Size = new System.Drawing.Size(136, 38);
             this.labelMusicos.TabIndex = 0;
-            this.labelMusicos.Text = "Musicos";
+            this.labelMusicos.Text = "Músicos";
             // 
             // labelLocales
             // 
@@ -131,6 +131,30 @@
             this.dataGridViewMusicos.RowTemplate.Height = 24;
             this.dataGridViewMusicos.Size = new System.Drawing.Size(416, 225);
             this.dataGridViewMusicos.TabIndex = 9;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.FillWeight = 150F;
+            this.Nombre.HeaderText = "Nombre del Músico";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Correo
+            // 
+            this.Correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Correo.FillWeight = 150F;
+            this.Correo.HeaderText = "Correo del músico";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            // 
+            // Codigo_Postal
+            // 
+            this.Codigo_Postal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Codigo_Postal.FillWeight = 150F;
+            this.Codigo_Postal.HeaderText = "Ubicacion";
+            this.Codigo_Postal.Name = "Codigo_Postal";
+            this.Codigo_Postal.ReadOnly = true;
             // 
             // bindingSourceMusicos
             // 
@@ -283,30 +307,6 @@
             // bindingSourceTickets
             // 
             this.bindingSourceTickets.DataSource = typeof(beat_on_jeans_escritorio.Models.TicketsOrm);
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.FillWeight = 150F;
-            this.Nombre.HeaderText = "Nombre del Músico";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Correo
-            // 
-            this.Correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Correo.FillWeight = 150F;
-            this.Correo.HeaderText = "Correo del músico";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            // 
-            // Codigo_Postal
-            // 
-            this.Codigo_Postal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Codigo_Postal.FillWeight = 150F;
-            this.Codigo_Postal.HeaderText = "Ubicacion";
-            this.Codigo_Postal.Name = "Codigo_Postal";
-            this.Codigo_Postal.ReadOnly = true;
             // 
             // FormHomeSuperUsuario
             // 

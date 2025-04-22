@@ -263,12 +263,12 @@
     <EmbeddedResource Include="ucDays.resx">
       <DependentUpon>ucDays.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fonts\Raleway-VariableFont_wght.ttf" />
+    <EmbeddedResource Include="Fonts\Figtree-VariableFont_wght.ttf" />
     <EntityDeploy Include="Models\ModelBoj.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelBoj.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EmbeddedResource Include="Fonts\Raleway-VariableFont_wght.ttf" />
-    <EmbeddedResource Include="Fonts\Figtree-VariableFont_wght.ttf" />
     <None Include="Models\ModelBoj.edmx.diagram">
       <DependentUpon>ModelBoj.edmx</DependentUpon>
     </None>
@@ -380,7 +380,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\ModelBoj.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -392,6 +391,8 @@
       <DependentUpon>ModelBoj.edmx</DependentUpon>
       <LastGenOutput>ModelBoj.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Group 31.png" />
     <None Include="Resources\Group 3.png" />
     <None Include="Resources\trans_bg.png" />

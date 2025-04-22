@@ -11,7 +11,7 @@ namespace beat_on_jeans_escritorio.Models
         {
             try
             {
-                using (var db = new dam05Entities()) 
+                using (var db = new dam05Entities1()) 
                 {
                     var query = db.Soporte
                         .Include(s => s.TipoIncidencia) 
@@ -39,7 +39,7 @@ namespace beat_on_jeans_escritorio.Models
         {
             try
             {
-                using (var db = new dam05Entities())
+                using (var db = new dam05Entities1())
                 {
                     // Obtener nombre del usuario
                     var usuario = db.Usuarios.FirstOrDefault(u => u.ID == usuarioId);
@@ -62,7 +62,7 @@ namespace beat_on_jeans_escritorio.Models
         {
             try
             {
-                using (var db = new dam05Entities())
+                using (var db = new dam05Entities1())
                 {
                     // Buscar el ticket a eliminar
                     var ticket = db.Soporte.FirstOrDefault(s => s.ID == ticketId);
