@@ -54,11 +54,6 @@ namespace beat_on_jeans_escritorio.Models
             return usuario;
         }
 
-        /// <summary>
-        /// Select a la base de datos de los musicos.
-        /// </summary>
-        /// <returns></returns>
-
         public static List<dynamic> SelectMusicos()
         {
             using (var context = new dam05Entities1())
@@ -84,10 +79,6 @@ namespace beat_on_jeans_escritorio.Models
             }
         }
 
-        /// <summary>
-        /// Select de los locales a la base de datos.
-        /// </summary>
-        /// <returns></returns>
         public static List<dynamic> SelectLocales()
         {
             using (var context = new dam05Entities1())
@@ -389,23 +380,5 @@ namespace beat_on_jeans_escritorio.Models
 
             return Insert(nuevoUsuarioCSharp);
         }
-
-        /// <summary>
-        /// Busca un usuario completo por su correo electrónico
-        /// </summary>
-        public static Usuarios SelectUserByEmail(string email)
-        {
-            using (var context = new dam05Entities1())
-            {
-                return context.Usuarios
-                    .Include(u => u.UsuarioMobil)
-                    .Include(u => u.UsuariosCSharp)
-                    .FirstOrDefault(u => u.Correo == email);
-            }
-        }
-
-
-
-
     }
 }

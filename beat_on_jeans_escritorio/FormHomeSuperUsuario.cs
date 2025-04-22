@@ -23,6 +23,11 @@ namespace beat_on_jeans_escritorio
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se ejecutara la primera vez que se ejecute el formulario y ejecutara los siguientes metodos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormHomeSuperUsuario_Load(object sender, EventArgs e)
         {
             gridBordesRedondos();
@@ -33,6 +38,9 @@ namespace beat_on_jeans_escritorio
             autoSeleccionarGrid();
         }
 
+        /// <summary>
+        /// Autoselecciona el grid cuando lo clicas, la fila entera.
+        /// </summary>
         private void autoSeleccionarGrid()
         {
             dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -40,6 +48,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewTickets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        /// <summary>
+        /// Carga los datos de Tickets en el dataGridView.
+        /// </summary>
         private void cargarDatosTickets()
         {
             try
@@ -88,7 +99,9 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-
+        /// <summary>
+        /// Carga los datos de los Musicos en el dataGridView.
+        /// </summary>
         private void cargarDatosMusicos()
         {
             var musicos = UsuariosCSharpOrm.SelectMusicos();
@@ -115,6 +128,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        /// <summary>
+        /// Carga los datos de los Locales en el dataGridView.
+        /// </summary>
         private void cargarDatosLocales()
         {
             var locales = UsuariosCSharpOrm.SelectLocales();
@@ -142,6 +158,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewLocales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        /// <summary>
+        /// Configura el grid con un fondo de color.
+        /// </summary>
         private void configurarFondoContenidoGrid()
         {
             // Definir el color RGB (255, 243, 226)
@@ -158,8 +177,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewTickets.DefaultCellStyle.BackColor = colorFondo;
         }
 
-        
-
+        /// <summary>
+        /// Configura el grid con bordes redondos.
+        /// </summary>
         private void gridBordesRedondos()
         {
             // Aplicar bordes redondeados a los DataGridView

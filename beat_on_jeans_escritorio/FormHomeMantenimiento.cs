@@ -24,6 +24,11 @@ namespace beat_on_jeans_escritorio
             configuracionFondoGrid();
         }
 
+        /// <summary>
+        /// Se ejecutara la primera vez que se ejecute este form y redondeara los bordes del grid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormHomeMantenimiento_Load(object sender, EventArgs e)
         {
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewMusicos, 20);
@@ -35,6 +40,9 @@ namespace beat_on_jeans_escritorio
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewLocales, 20);
         }
 
+        /// <summary>
+        /// Carga los datos de los musicos en el dataGridView.
+        /// </summary>
         private void cargarDatosMusicos()
         {
             var musicos = UsuariosCSharpOrm.SelectMusicos();
@@ -61,6 +69,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        /// <summary>
+        /// Carga los datos de los locales en el dataGridView.
+        /// </summary>
         private void cargarDatosLocales()
         {
             try
@@ -100,12 +111,18 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Autoselecciona la columna entera del grid.
+        /// </summary>
         private void autoSeleccionarGrid()
         {
             dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewLocales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        /// <summary>
+        /// Configuración del fondo del grid.
+        /// </summary>
         private void configuracionFondoGrid()
         {
             // Definir el color RGB (255, 243, 226)

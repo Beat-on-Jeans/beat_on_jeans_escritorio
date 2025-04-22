@@ -23,6 +23,11 @@ namespace beat_on_jeans_escritorio
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se ejecuta la primera vez que se ejecuta el form y es para configurar el mapa.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormMaps_Load(object sender, EventArgs e)
         {
             bindingSourceUbicaciones.DataSource = LocalesMapsOrm.SelectUbicacionesLocales();
@@ -34,9 +39,11 @@ namespace beat_on_jeans_escritorio
 
             esconderLabels();
             ConfigureMap();
-            
         }
 
+        /// <summary>
+        /// Escondemos los labels.
+        /// </summary>
         private void esconderLabels()
         {
             labelNombreLocal.Visible = false;
@@ -47,6 +54,9 @@ namespace beat_on_jeans_escritorio
             labelUbicacion.Visible = false;
         }
 
+        /// <summary>
+        /// Configuramos el mapa para que añada un marcador en el mapa.
+        /// </summary>
         private void ConfigureMap()
         {
             gMapControl1.DragButton = MouseButtons.Left;
@@ -64,7 +74,10 @@ namespace beat_on_jeans_escritorio
         }
 
         
-
+        /// <summary>
+        /// Toma una ubicación y intenta coger las coordenadas de esta dirección.
+        /// </summary>
+        /// <param name="direccion"></param>
         private void MostrarUbicacionSeleccionada(string direccion)
         {
             try
@@ -104,6 +117,11 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Ubicamos el mapa con las coordenadas indicadas.
+        /// </summary>
+        /// <param name="direccion"></param>
+        /// <param name="coords"></param>
         private void UpdateMapWithNewLocation(string direccion, PointLatLng coords)
         {
             try
@@ -128,6 +146,11 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Ponemos los bordes del mapa redondo.
+        /// </summary>
+        /// <param name="mapControl"></param>
+        /// <param name="radius"></param>
         private void SetRoundedCorners(GMapControl mapControl, int radius)
         {
             var path = new System.Drawing.Drawing2D.GraphicsPath();
@@ -139,6 +162,11 @@ namespace beat_on_jeans_escritorio
             mapControl.Region = new Region(path);
         }
 
+        /// <summary>
+        /// Cuando le da a este boton enseña la ubicación en el mapa.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(comboBoxCalles.Text))
@@ -160,6 +188,10 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Enseña la información del local con los labels y los hacemos visibles.
+        /// </summary>
+        /// <param name="direccion"></param>
         private void MostrarInformacionLocal(string direccion)
         {
             try

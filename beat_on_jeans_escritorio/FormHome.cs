@@ -10,7 +10,6 @@ namespace beat_on_jeans_escritorio
     {
         private Usuarios usuarioActual;
 
-        // Constructor que recibe el usuario como parámetro
         public FormHome(Usuarios usuario)
         {
             InitializeComponent();
@@ -25,14 +24,21 @@ namespace beat_on_jeans_escritorio
             hoverBotones();
         }
 
+        /// <summary>
+        /// Cargamos los labels con el nombre del usuario y el nombre de su rol.
+        /// </summary>
         private void cargarLabels()
         {
-
             labelNombreUsuario.Text = usuarioActual.Nombre;
             string nombreRol = ObtenerNombreRol(usuarioActual.ROL_ID);
             labelRol.Text = nombreRol;
         }
 
+        /// <summary>
+        /// Obtenemos el nombre del rol dependiendo del rolId que tenga el usuario.
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns>Devolvemos el rol al nombre</returns>
         private string ObtenerNombreRol(int? roleId)
         {
             switch (roleId)
@@ -48,6 +54,9 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Depende del usuario se le cargara un formulario.
+        /// </summary>
         private void cargarFormularioPorRol()
         {
             if (usuarioActual.ROL_ID == 3) // Superusuario
@@ -64,6 +73,9 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Configuramos la interfaz, algunos usuarios no tienen algunas opciones.
+        /// </summary>
         private void configurarInterfaz()
         {
             // Configuramos la interfaz según el rol del usuario
@@ -94,7 +106,10 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-        // Método para cargar formularios dentro del panel
+        /// <summary>
+        /// Desde este metodo se cargan los formularios dentro del panel con un pequeño estilo.
+        /// </summary>
+        /// <param name="formulario"></param>
         private void CargarFormulario(Form formulario)
         {
             // Limpiar el panel antes de cargar un nuevo formulario
@@ -110,6 +125,9 @@ namespace beat_on_jeans_escritorio
             formulario.Show();
         }
 
+        /// <summary>
+        /// Cuando pase el cursor por encima de los botones enseña una imagen.
+        /// </summary>
         private void hoverBotones()
         {
             PictureBoxHandler.AttachHoverBehavior(pictureBoxHome, buttonHome);
@@ -117,37 +135,63 @@ namespace beat_on_jeans_escritorio
             PictureBoxHandler.AttachHoverBehavior(pictureBoxNotificaciones, buttonMapa);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxEventos, buttonEventos);
             PictureBoxHandler.AttachHoverBehavior(pictureBoxGestionUsuarios, buttonGestionUsuarios);
-
         }
 
-        // Eventos de los botones
-
-        // Botón Home
+        /// <summary>
+        /// Cuando le de click al boton de Home ejecuta el metodo para ajustar el form al panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonHome_Click(object sender, EventArgs e)
         {
             cargarFormularioPorRol(); // Recargar el formulario según el rol
         }
 
+        /// <summary>
+        /// Cuando le de click al boton de Soporte ejecuta el metodo para ajustar el form al panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSoporte_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormSoporte());
         }
 
+        /// <summary>
+        /// Cuando le de click al boton de Mapa ejecuta el metodo para ajustar el form al panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonMapa_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormMaps());
         }
 
+        /// <summary>
+        /// Cuando le de click al boton de Eventos ejecuta el metodo para ajustar el form al panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEventos_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormCalendario()); // Cargar el formulario de calendario
         }
 
+        /// <summary>
+        /// Cuando le de click al boton de Gestion Usuarios ejecuta el metodo para ajustar el form al panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonGestionUsuarios_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FormGestionUsuarios(usuarioActual.ROL_ID ?? 0));
         }
 
+        /// <summary>
+        /// Cerrará sesión del usuario actual.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();

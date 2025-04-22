@@ -8,24 +8,6 @@ namespace beat_on_jeans_escritorio.Models
 {
     class HomeSuperUsuarioOrm
     {
-        public static List<dynamic> SelectMusicos()
-        {
-            using (var context = new dam05Entities1())
-            {
-                var query = from u in context.Usuarios
-                            join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
-                            where u.ROL_ID == 1  // Filtro para solo músicos
-                            select new
-                            {
-                                NombreMusico = u.Nombre,  // Coincide con DataPropertyName
-                                CorreoMusico = u.Correo,  // Coincide con DataPropertyName
-                                CodigoPostal = um.Ubicacion,  // Coincide con DataPropertyName
-                                ID = u.ID  // Mantener por si es necesario
-                            };
-
-                return query.ToList<dynamic>();
-            }
-        }
 
         public static List<dynamic> SelectLocales()
         {

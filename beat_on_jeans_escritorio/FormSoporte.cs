@@ -18,6 +18,11 @@ namespace beat_on_jeans_escritorio
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se ejecuta la primera vez que se ejecuta el form y ejecuta los siguientes metodos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormSoporte_Load(object sender, EventArgs e)
         {
             gridBorderRedondos();
@@ -26,12 +31,19 @@ namespace beat_on_jeans_escritorio
             clickGrid();
         }
 
-        // En el FormSoporte, modifica el método clickGrid y añade el manejador de eventos
+        /// <summary>
+        /// Configura el clic en las celdas.
+        /// </summary>
         private void clickGrid()
         {
             dataGridViewTickets.CellClick += DataGridViewTickets_CellClick;
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en las celdas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGridViewTickets_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -70,6 +82,9 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Carga los datos en el dataGridView
+        /// </summary>
         private void cargarDatosGrid()
         {
             try
