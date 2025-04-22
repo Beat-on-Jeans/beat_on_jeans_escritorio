@@ -48,24 +48,36 @@ namespace beat_on_jeans_escritorio
         {
             try
             {
-                // Ignorar clicks en los encabezados de columna
                 if (e.RowIndex < 0) return;
 
-                // Obtener la fila seleccionada
                 var row = dataGridViewTickets.Rows[e.RowIndex];
 
-                // Obtener los IDs del usuario y técnico
+                // Verificar valores antes de convertir
+                if (row.Cells["Usuario_ID"].Value == null || row.Cells["Tecnico_ID"].Value == null)
+                {
+                    MessageBox.Show("Los IDs de usuario o técnico están vacíos", "Advertencia",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 int usuarioId = Convert.ToInt32(row.Cells["Usuario_ID"].Value);
                 int tecnicoId = Convert.ToInt32(row.Cells["Tecnico_ID"].Value);
 
-                // Obtener los nombres
+                // Verificar IDs válidos
+                if (usuarioId <= 0 || tecnicoId <= 0)
+                {
+                    MessageBox.Show("Los IDs de usuario o técnico no son válidos", "Advertencia",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 var (nombreUsuario, nombreTecnico) = TicketsOrm.GetNombresUsuarioYTecnico(usuarioId, tecnicoId);
 
-                // Mostrar los nombres en los labels
-                labelNombreUsuario.Text = nombreUsuario;
-                labelNombreTecnico.Text = nombreTecnico;
+                // Mostrar información con formato mejorado
+                labelNombreUsuario.Text = $"Usuario: {nombreUsuario}";
+                labelNombreTecnico.Text = $"Técnico: {nombreTecnico}";
 
-                // Hacer visibles los labels
+                // Mostrar controles
                 labelNombreTecnico.Visible = true;
                 label1.Visible = true;
                 labelNombreUsuario.Visible = true;
@@ -75,10 +87,10 @@ namespace beat_on_jeans_escritorio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener los nombres: " + ex.Message,
-                              "Error",
-                              MessageBoxButtons.OK,
-                              MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar detalles:\n{ex.Message}",
+                               "Error",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
             }
         }
 
