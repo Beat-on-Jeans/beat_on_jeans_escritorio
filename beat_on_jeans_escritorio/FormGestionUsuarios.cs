@@ -50,6 +50,33 @@ namespace beat_on_jeans_escritorio
                 // También puedes actualizar el ComboBox de búsqueda si es necesario
                 ActualizarComboBoxBusqueda(rolSeleccionado);
             }
+
+            if (comboBoxRolFiltro.SelectedIndex == 1)
+            {
+                labelCodigoUbicacion.Visible = true;
+                textBoxUbicacion.Visible = true;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 2)
+            {
+                labelCodigoUbicacion.Visible = true;
+                textBoxUbicacion.Visible = true;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 2)
+            {
+                labelCodigoUbicacion.Visible = false;
+                textBoxUbicacion.Visible = false;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 3)
+            {
+                labelCodigoUbicacion.Visible = false;
+                textBoxUbicacion.Visible = false;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 4)
+            {
+                labelCodigoUbicacion.Visible = false;
+                textBoxUbicacion.Visible = false;
+            }
+
         }
 
         private void ActualizarComboBoxBusqueda(Roles rolSeleccionado)
