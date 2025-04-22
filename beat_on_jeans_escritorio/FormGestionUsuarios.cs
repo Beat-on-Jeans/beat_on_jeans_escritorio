@@ -32,6 +32,8 @@ namespace beat_on_jeans_escritorio
 
             // Agregar el manejador de eventos para el cambio de rol
             comboBoxRolFiltro.SelectedIndexChanged += ComboBoxRolFiltro_SelectedIndexChanged;
+
+            
         }
 
         private void ComboBoxRolFiltro_SelectedIndexChanged(object sender, EventArgs e)

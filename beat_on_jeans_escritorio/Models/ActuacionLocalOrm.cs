@@ -9,7 +9,7 @@ namespace beat_on_jeans_escritorio.Models
     {
         public static bool TieneActuacion(DateTime fecha)
         {
-            using (var db = new dam05Entities())
+            using (var db = new dam05Entities1())
             {
                 try
                 {
@@ -26,7 +26,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static List<dynamic> GetActuacionesPorFecha(DateTime fecha)
         {
-            using (var db = new dam05Entities())
+            using (var db = new dam05Entities1())
             {
                 try
                 {

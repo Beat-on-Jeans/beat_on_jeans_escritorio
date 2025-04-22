@@ -13,10 +13,10 @@ namespace beat_on_jeans_escritorio.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dam05Entities : DbContext
+    public partial class dam05Entities1 : DbContext
     {
-        public dam05Entities()
-            : base("name=dam05Entities")
+        public dam05Entities1()
+            : base("name=dam05Entities1")
         {
         }
     

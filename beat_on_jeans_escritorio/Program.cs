@@ -1,4 +1,5 @@
-﻿using System;
+﻿using beat_on_jeans_escritorio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

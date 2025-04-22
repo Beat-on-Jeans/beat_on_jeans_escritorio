@@ -15,7 +15,7 @@ namespace beat_on_jeans_escritorio.Models
         {
             try
             {
-                using (var context = new dam05Entities())
+                using (var context = new dam05Entities1())
                 {
                     return (from u in context.Usuarios
                             join um in context.UsuarioMobil on u.ID equals um.Usuario_ID
@@ -40,7 +40,7 @@ namespace beat_on_jeans_escritorio.Models
         {
             try
             {
-                using (var context = new dam05Entities())
+                using (var context = new dam05Entities1())
                 {
                     var query = from u in context.Usuarios
                                 join um in context.UsuarioMobil on u.ID equals um.Usuario_ID

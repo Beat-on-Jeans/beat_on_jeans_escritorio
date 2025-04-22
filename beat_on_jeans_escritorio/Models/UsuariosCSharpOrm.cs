@@ -61,7 +61,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static List<dynamic> SelectMusicos()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 var query = from u in context.Usuarios
                             join r in context.Roles on u.ROL_ID equals r.ID
@@ -90,7 +90,7 @@ namespace beat_on_jeans_escritorio.Models
         /// <returns></returns>
         public static List<dynamic> SelectLocales()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 var query = from u in context.Usuarios
                             join r in context.Roles on u.ROL_ID equals r.ID  // Join con la tabla Roles
@@ -114,7 +114,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static List<dynamic> SelectSuperadministradores()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 var query = from u in context.Usuarios
                             join r in context.Roles on u.ROL_ID equals r.ID
@@ -135,7 +135,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static List<dynamic> SelectAdministradores()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 return (from u in context.Usuarios
                         join r in context.Roles on u.ROL_ID equals r.ID
@@ -154,7 +154,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static List<dynamic> SelectMantenimiento()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 return (from u in context.Usuarios
                         join r in context.Roles on u.ROL_ID equals r.ID
@@ -173,7 +173,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static List<dynamic> SelectMusicosYLocales()
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 var query = from u in context.Usuarios
                             join r in context.Roles on u.ROL_ID equals r.ID
@@ -192,7 +192,7 @@ namespace beat_on_jeans_escritorio.Models
 
         public static bool DeleteUser(int userId)
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 using (var transaction = context.Database.BeginTransaction())
                 {
@@ -299,7 +299,7 @@ namespace beat_on_jeans_escritorio.Models
                             // 2.10. Eliminar Notificaciones
                             if (usuarioMobil.Notificaciones != null)
                             {
-                                context.Notificaciones.RemoveRange(usuarioMobil.Notificaciones);
+                                context.Notificaciones.RemoveRange((IEnumerable<Notificaciones>)usuarioMobil.Notificaciones);
                             }
 
                             // 2.11. Eliminar Valoraciones recibidas (donde el usuario fue valorado)
@@ -395,7 +395,7 @@ namespace beat_on_jeans_escritorio.Models
         /// </summary>
         public static Usuarios SelectUserByEmail(string email)
         {
-            using (var context = new dam05Entities())
+            using (var context = new dam05Entities1())
             {
                 return context.Usuarios
                     .Include(u => u.UsuarioMobil)
