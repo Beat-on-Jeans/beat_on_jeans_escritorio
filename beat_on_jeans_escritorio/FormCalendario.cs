@@ -22,6 +22,9 @@ namespace beat_on_jeans_escritorio
             ConfigurarLabels();
         }
 
+        /// <summary>
+        /// Configuración de labels con un estilo.
+        /// </summary>
         private void ConfigurarLabels()
         {
             // Inicialmente ocultos
@@ -48,6 +51,10 @@ namespace beat_on_jeans_escritorio
             labelMusico.MaximumSize = new Size(300, 0);
         }
 
+        /// <summary>
+        /// Enseñar actuaciones en la fecha en la que esten y mostrarlas cuando le de click al dia de la actuación,
+        /// </summary>
+        /// <param name="actuaciones"></param>
         public void MostrarActuaciones(List<dynamic> actuaciones)
         {
             try
@@ -104,6 +111,9 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Mostrar los labels con la información.
+        /// </summary>
         private void MostrarLabelsInformacion()
         {
             label8.Visible = true;        // Label "Ubicación:"
@@ -114,6 +124,9 @@ namespace beat_on_jeans_escritorio
             labelMusico.Visible = true;
         }
 
+        /// <summary>
+        /// Esconder los labels.
+        /// </summary>
         private void OcultarLabelsInformacion()
         {
             label8.Visible = false;
@@ -124,11 +137,21 @@ namespace beat_on_jeans_escritorio
             labelMusico.Visible = false;
         }
 
+        /// <summary>
+        /// Se ejecuta cuando enseñamos el calendario por primera vez.  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalendario_Load(object sender, EventArgs e)
         {
             showDays(_month, _year);
         }
 
+        /// <summary>
+        /// Decrementa el mes y tambien el año si pasa todos los meses.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             _month -= 1;
@@ -141,6 +164,11 @@ namespace beat_on_jeans_escritorio
             OcultarLabelsInformacion(); // Ocultar al cambiar de mes
         }
 
+        /// <summary>
+        /// Aumenta el mes y si pasa por todos los meses aumenta el año.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             _month += 1;
@@ -153,6 +181,11 @@ namespace beat_on_jeans_escritorio
             OcultarLabelsInformacion(); // Ocultar al cambiar de mes
         }
 
+        /// <summary>
+        /// Eseña los dias especifico del mes. 
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
         private void showDays(int month, int year)
         {
             flowLayoutPanel1.Controls.Clear();

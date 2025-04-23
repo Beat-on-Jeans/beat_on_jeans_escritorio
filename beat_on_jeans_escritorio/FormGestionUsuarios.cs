@@ -12,9 +12,7 @@ using System.Windows.Forms;
 namespace beat_on_jeans_escritorio
 {
     public partial class FormGestionUsuarios : Form
-
     {
-
         private BindingSource bindingSourceBuscarUsuarios = new BindingSource();
         private int rolId;
 
@@ -32,10 +30,13 @@ namespace beat_on_jeans_escritorio
 
             // Agregar el manejador de eventos para el cambio de rol
             comboBoxRolFiltro.SelectedIndexChanged += ComboBoxRolFiltro_SelectedIndexChanged;
-
-            
         }
 
+        /// <summary>
+        /// Actualiza la interfaz según el rol seleccionado, mostrando u ocultando campos y ajustando la visualización de datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBoxRolFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Verificar que se haya seleccionado un ítem
@@ -50,23 +51,41 @@ namespace beat_on_jeans_escritorio
                 // También puedes actualizar el ComboBox de búsqueda si es necesario
                 ActualizarComboBoxBusqueda(rolSeleccionado);
             }
+
+            if (comboBoxRolFiltro.SelectedIndex == 1)
+            {
+                labelCodigoUbicacion.Visible = true;
+                textBoxUbicacion.Visible = true;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 2)
+            {
+                labelCodigoUbicacion.Visible = true;
+                textBoxUbicacion.Visible = true;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 2)
+            {
+                labelCodigoUbicacion.Visible = false;
+                textBoxUbicacion.Visible = false;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 3)
+            {
+                labelCodigoUbicacion.Visible = false;
+                textBoxUbicacion.Visible = false;
+            }
+            if (comboBoxRolFiltro.SelectedIndex == 4)
+            {
+                labelCodigoUbicacion.Visible = false;
+                textBoxUbicacion.Visible = false;
+            }
         }
 
+        /// <summary>
+        /// Muestra todos los correos en la comboBox.
+        /// </summary>
+        /// <param name="rolSeleccionado"></param>
         private void ActualizarComboBoxBusqueda(Roles rolSeleccionado)
         {
-            // Actualizar el ComboBox de búsqueda según el rol seleccionado
-            if (rolSeleccionado.Nombre_Rol == "Musico")
-            {
-                bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.SelectMusicos();
-            }
-            else if (rolSeleccionado.Nombre_Rol == "Local")
-            {
-                bindingSourceBuscarUsuarios.DataSource = UsuariosCSharpOrm.SelectLocales();
-            }
-            else
-            {
-                bindingSourceBuscarUsuarios.DataSource = UsuariosORM.Select();
-            }
+            bindingSourceBuscarUsuarios.DataSource = UsuariosORM.Select(); // Todos los usuarios
 
             comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
             comboBoxBuscarUsuario.DisplayMember = "Correo";
@@ -74,46 +93,61 @@ namespace beat_on_jeans_escritorio
             comboBoxBuscarUsuario.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Configurar comboBox y que en dependiendo el usuario enseñe unos datos o otros.
+        /// </summary>
         private void configurarComboBoxRol()
         {
             // Cargar los roles disponibles
             bindingSourceRoles.DataSource = RolesOrm.Select();
 
-            if (rolId == 4 || rolId == 5) // Si es administrador o gestor
+            if (rolId == 3) // Si es superusuario
+            {
+                // Cargar todos los usuarios sin filtro
+                var todosLosUsuarios = UsuariosORM.Select(); // Obtener todos los usuarios
+                bindingSourceBuscarUsuarios.DataSource = todosLosUsuarios;
+                comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar el correo
+                comboBoxBuscarUsuario.ValueMember = "ID";       // Valor asociado al ID
+
+                // Configurar comboBoxRolFiltro y comboBoxRol (sin cambios)
+                comboBoxRolFiltro.DataSource = bindingSourceRoles;
+                comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
+                comboBoxRolFiltro.ValueMember = "ID";
+
+                comboBoxRol.DataSource = bindingSourceRoles;
+                comboBoxRol.DisplayMember = "Nombre_Rol";
+                comboBoxRol.ValueMember = "ID";
+            }
+            else if (rolId == 4 || rolId == 5) // Si es administrador o mantenimiento
             {
                 // Filtrar roles para Músicos (1) y Locales (2)
                 var rolesFiltrados = bindingSourceRoles.List.Cast<Roles>()
-                    .Where(r => r.ID == 1 || r.ID == 2)
+                    .Where(r => r.ID == 1 || r.ID == 2) // Músicos y Locales
                     .ToList();
 
                 bindingSourceGmails.DataSource = rolesFiltrados;
 
-                // Configurar el ComboBox
-                comboBoxBuscarUsuario.DataSource = bindingSourceGmails;
-                comboBoxBuscarUsuario.DisplayMember = "Correo";
-                comboBoxBuscarUsuario.ValueMember = "ROL_ID";
-                comboBoxBuscarUsuario.SelectedIndex = -1;
-
-                // Configurar comboBoxRolFiltro
+                // Configurar comboBoxRolFiltro y comboBoxRol (sin cambios)
                 comboBoxRolFiltro.DataSource = rolesFiltrados;
                 comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
                 comboBoxRolFiltro.ValueMember = "ID";
 
-                // Configurar comboBoxRol
                 comboBoxRol.DataSource = rolesFiltrados;
                 comboBoxRol.DisplayMember = "Nombre_Rol";
                 comboBoxRol.ValueMember = "ID";
 
-                // Filtrar solo los usuarios con rol de Músico o Local
-                var usuariosFiltrados = UsuariosCSharpOrm.SelectMusicosYLocales();
+                // --- Solo mostrar los usuarios Músicos (ID == 1) y Locales (ID == 2) en comboBoxBuscarUsuario ---
+                var usuariosFiltrados = UsuariosORM.Select()
+                    .Where(u => u.ROL_ID == 1 || u.ROL_ID == 2) // Filtrar por Músicos y Locales
+                    .ToList();
 
-                // Asignar los usuarios filtrados al ComboBox
                 bindingSourceBuscarUsuarios.DataSource = usuariosFiltrados;
                 comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
-                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar solo el correo
-                comboBoxBuscarUsuario.ValueMember = "ID";        // Valor asociado al ID
+                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar el correo
+                comboBoxBuscarUsuario.ValueMember = "ID";       // Valor asociado al ID
 
-                // Configuraciones específicas para gestor (rolId == 5)
+                // Configuraciones específicas para mantenimiento (rolId == 5)
                 if (rolId == 5)
                 {
                     comboBoxAccionUsuario.Items.Clear();
@@ -132,7 +166,7 @@ namespace beat_on_jeans_escritorio
             }
             else
             {
-                // Para otros roles, cargar todos los roles sin filtrar
+                // Para otros roles (no superusuario, admin o mantenimiento), cargar todos los roles sin filtrar
                 comboBoxRolFiltro.DataSource = bindingSourceRoles;
                 comboBoxRolFiltro.DisplayMember = "Nombre_Rol";
                 comboBoxRolFiltro.ValueMember = "ID";
@@ -145,11 +179,16 @@ namespace beat_on_jeans_escritorio
                 var usuarios = UsuariosORM.Select();
                 bindingSourceBuscarUsuarios.DataSource = usuarios;
                 comboBoxBuscarUsuario.DataSource = bindingSourceBuscarUsuarios;
+                comboBoxBuscarUsuario.DisplayMember = "Correo";  // Mostrar el correo
+                comboBoxBuscarUsuario.ValueMember = "ID";       // Valor asociado al ID
             }
         }
 
-
-
+        /// <summary>
+        /// Se ejecuta la primera vez que se ejecuta el form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormGestionUsuarios_Load(object sender, EventArgs e)
         {
             disenoBotones();
@@ -170,11 +209,19 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Llama a otro metodo para que ejecute la acción.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGridViewUsuarios_SelectionChanged(object sender, EventArgs e)
         {
             cargarContenidosUsuarios();
         }
 
+        /// <summary>
+        /// Carga de manera segura los datos del usuario seleccionado en el dataGridViewUsuarios a varios controles de la interfaz
+        /// </summary>
         private void cargarContenidosUsuarios()
         {
             // Configurar el manejador de errores del DataGridView
@@ -215,7 +262,12 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-
+        /// <summary>
+        /// Intenta obtener el valor de una propiedad de un objeto dinámico, probando varios nombres de propiedad en orden
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="propertyNames"></param>
+        /// <returns>Si una propiedad existe y tiene un valor, lo devuelve. Si no, sigue intentando con los siguientes nombres.</returns>
         private string TryGetProperty(dynamic obj, params string[] propertyNames)
         {
             try
@@ -241,11 +293,9 @@ namespace beat_on_jeans_escritorio
             return string.Empty;
         }
 
-
-
-
-
-
+        /// <summary>
+        /// Rellenar la dataGridView con los usuarios dentro de esos roles.
+        /// </summary>
         private void rellenarUsuarios()
         {
             // Obtener el rol seleccionado del comboBoxRoles
@@ -262,59 +312,36 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-
-
-        private void dataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            var dataBoundItem = dataGridViewUsuarios.Rows[e.RowIndex].DataBoundItem;
-
-            // Mostramos el codigo postal de Musicos
-            if (dataGridViewUsuarios.Columns[e.ColumnIndex].Name == "Ubicacion")
-            {
-                dynamic _usuario = dataBoundItem;
-                e.Value = _usuario.Ubicacion;
-            }
-        }
-
+        /// <summary>
+        /// Cuando le de al boton de buscar verifica que hay seleccionado un correo y cuando lo verifica lo muestra en el dataGridView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            // Verificar si el correo está seleccionado correctamente en el ComboBox
+            // Verificar si hay un ítem seleccionado
             if (comboBoxBuscarUsuario.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, selecciona un correo para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Obtener el correo seleccionado del ComboBox
-            var usuarioSeleccionado = comboBoxBuscarUsuario.SelectedItem as dynamic;
-            string correoSeleccionado = usuarioSeleccionado?.Correo;
-
-            if (string.IsNullOrEmpty(correoSeleccionado))
+            // Obtener el usuario seleccionado directamente
+            var usuarioSeleccionado = comboBoxBuscarUsuario.SelectedItem as Usuarios;
+            if (usuarioSeleccionado == null)
             {
-                MessageBox.Show("Por favor, selecciona un correo para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El correo seleccionado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Buscar el usuario con el correo seleccionado
-            var usuario = BuscarUsuarioPorCorreo(correoSeleccionado);
-
-            if (usuario != null)
-            {
-                // Si se encuentra el usuario, actualizar los controles del formulario
-                CargarUsuarioEnFormulario(usuario);
-            }
-            else
-            {
-                MessageBox.Show("No se encontró un usuario con ese correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Cargar los datos del usuario en el formulario
+            CargarUsuarioEnFormulario(usuarioSeleccionado);
         }
 
-        private Usuarios BuscarUsuarioPorCorreo(string correo)
-        {
-            // Llamar al método ORM para obtener el usuario por correo
-            return UsuariosCSharpOrm.SelectUserByEmail(correo); // Asegúrate de que este método esté funcionando correctamente en tu ORM
-        }
-
+        /// <summary>
+        /// Carga el usuario con ese correo en el formulario.
+        /// </summary>
+        /// <param name="usuario"></param>
         private void CargarUsuarioEnFormulario(Usuarios usuario)
         {
             // Vaciar el ComboBox de búsqueda
@@ -334,14 +361,17 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-
-
-
-
+        /// <summary>
+        /// Diseño del grid con bordes redondos.
+        /// </summary>
         private void disenoGrid()
         {
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewUsuarios, 20);
         }
+
+        /// <summary>
+        /// Diseño de botones con estilo.
+        /// </summary>
         private void disenoBotones()
         {
             // BOTON MODIFICAR
@@ -366,13 +396,13 @@ namespace beat_on_jeans_escritorio
             buttonCrearUsuario.FlatAppearance.MouseDownBackColor = buttonCrearUsuario.BackColor;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         // ------------------ Logica de Creación, Modificación y Eliminación de Usuarios ------------------
 
+        /// <summary>
+        /// Crea un usuario y lo manda la BBDD con sus campos correspondientes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCrearUsuario_Click(object sender, EventArgs e)
         {
             String nombreUsuario = textBoxNombre.Text;
@@ -421,6 +451,14 @@ namespace beat_on_jeans_escritorio
             }
         }
 
+        /// <summary>
+        /// Valida los datos del propio usuario antes de crearlo.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="correo"></param>
+        /// <param name="contrasena"></param>
+        /// <param name="rol"></param>
+        /// <returns>Devuelve un boolean</returns>
         private bool ValidarDatosUsuario(string nombre, string correo, string contrasena, Roles rol)
         {
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(contrasena) || rol == null)
@@ -438,6 +476,14 @@ namespace beat_on_jeans_escritorio
             return true;
         }
 
+        /// <summary>
+        /// Crea y construye una nueva instacia de clase usuario.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="correo"></param>
+        /// <param name="contrasena"></param>
+        /// <param name="rolId"></param>
+        /// <returns>Devuelve un usuario.</returns>
         private Usuarios CrearNuevoUsuario(string nombre, string correo, string contrasena, int rolId)
         {
             return new Usuarios
@@ -448,7 +494,12 @@ namespace beat_on_jeans_escritorio
                 ROL_ID = rolId
             };
         }
-         
+        
+        /// <summary>
+        /// Elimina al usuario que haya seleccionado.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridViewUsuarios.SelectedRows.Count == 0)
@@ -491,7 +542,11 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-
+        /// <summary>
+        /// Modifica al usuario que tenga seleccionado.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             if (dataGridViewUsuarios.SelectedRows.Count == 0)
@@ -539,21 +594,11 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-        private void labelRol_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxCorreo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Depende lo que elija enseña un boton u otro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxAccionUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Ocultar todos los botones primero
@@ -582,28 +627,17 @@ namespace beat_on_jeans_escritorio
             }
         }
 
-        private void comboBoxRol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Que limpie los campos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLimipiar_Click(object sender, EventArgs e)
         {
             textBoxNombre.Text = string.Empty;
             textBoxCorreo.Text = string.Empty;
             textBoxContrasena.Text = string.Empty;
             textBoxUbicacion.Text = string.Empty;
-        }
-
-
-        private void textBoxContrasena_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

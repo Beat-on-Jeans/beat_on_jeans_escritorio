@@ -194,7 +194,6 @@
             this.comboBoxBuscarUsuario.Size = new System.Drawing.Size(490, 25);
             this.comboBoxBuscarUsuario.TabIndex = 13;
             this.comboBoxBuscarUsuario.ValueMember = "ROL_ID";
-            this.comboBoxBuscarUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // bindingSourceGmails
             // 
@@ -377,7 +376,6 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info Usuario";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // buttonLimipiar
             // 
@@ -426,7 +424,6 @@
             this.comboBoxRol.Size = new System.Drawing.Size(218, 24);
             this.comboBoxRol.TabIndex = 24;
             this.comboBoxRol.ValueMember = "ID";
-            this.comboBoxRol.SelectedIndexChanged += new System.EventHandler(this.comboBoxRol_SelectedIndexChanged);
             // 
             // textBoxContrasena
             // 
@@ -435,7 +432,6 @@
             this.textBoxContrasena.Name = "textBoxContrasena";
             this.textBoxContrasena.Size = new System.Drawing.Size(249, 23);
             this.textBoxContrasena.TabIndex = 23;
-            this.textBoxContrasena.TextChanged += new System.EventHandler(this.textBoxContrasena_TextChanged);
             // 
             // textBoxCorreo
             // 
@@ -444,7 +440,6 @@
             this.textBoxCorreo.Name = "textBoxCorreo";
             this.textBoxCorreo.Size = new System.Drawing.Size(249, 23);
             this.textBoxCorreo.TabIndex = 22;
-            this.textBoxCorreo.TextChanged += new System.EventHandler(this.textBoxCorreo_TextChanged);
             // 
             // textBoxNombre
             // 
@@ -473,7 +468,6 @@
             this.labelRol.Size = new System.Drawing.Size(29, 18);
             this.labelRol.TabIndex = 16;
             this.labelRol.Text = "Rol";
-            this.labelRol.Click += new System.EventHandler(this.labelRol_Click);
             // 
             // pictureBox6
             // 
@@ -521,7 +515,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // buttonBuscar
             // 

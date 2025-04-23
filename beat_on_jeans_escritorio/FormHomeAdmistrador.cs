@@ -25,6 +25,9 @@ namespace beat_on_jeans_escritorio
             configurarFondoContenidoGrid();
         }
 
+        /// <summary>
+        /// Carga en el dataGridView los datos de los locales.
+        /// </summary>
         private void cargarDatosLocales()
         {
             var locales = UsuariosCSharpOrm.SelectLocales();
@@ -52,6 +55,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewLocales.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        /// <summary>
+        /// Carga en el dataGridView los datos de los musicos.
+        /// </summary>
         private void cargarDatosMusicos()
         {
             var musicos = UsuariosCSharpOrm.SelectMusicos();
@@ -78,6 +84,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewMusicos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        /// <summary>
+        /// Carga en el dataGridView los datos de las actuaciones.
+        /// </summary>
         private void cargarDatosActuaciones()
         {
             var actuaciones = ActuacionesHomeOrm.GetActuacionesConNombres();
@@ -103,6 +112,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewEventosProgramados.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
+        /// <summary>
+        /// Metodo par que autoseleccione la columna entera del grid.
+        /// </summary>
         private void autoSelecccionarGrid()
         {
             dataGridViewMusicos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -110,6 +122,9 @@ namespace beat_on_jeans_escritorio
             dataGridViewEventosProgramados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        /// <summary>
+        /// Configuración del fondo del grid.
+        /// </summary>
         private void configurarFondoContenidoGrid()
         {
             // Definir el color RGB (255, 243, 226)
@@ -126,8 +141,11 @@ namespace beat_on_jeans_escritorio
             dataGridViewEventosProgramados.DefaultCellStyle.BackColor = colorFondo;
         }
 
-        
-
+        /// <summary>
+        /// Se ejecutará la primera vez que se ejecute el programa y pone bordes redondos al grid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormHomeAdmistrador_Load(object sender, EventArgs e)
         {
             DataGridViewBordeRedondo.RedondearBordes(dataGridViewEventosProgramados, 20);

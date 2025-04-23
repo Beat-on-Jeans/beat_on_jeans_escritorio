@@ -41,20 +41,31 @@ namespace beat_on_jeans_escritorio.Models
             {
                 using (var db = new dam05Entities1())
                 {
-                    // Obtener nombre del usuario
-                    var usuario = db.Usuarios.FirstOrDefault(u => u.ID == usuarioId);
-                    string nombreUsuario = usuario?.Nombre ?? "Desconocido";
+                    // 1. Obtener nombre del usuario principal
+                    var usuario = db.Usuarios
+                                  .Where(u => u.ID == usuarioId)
+                                  .Select(u => new { u.Nombre })
+                                  .FirstOrDefault();
 
-                    // Obtener nombre del técnico
-                    var tecnico = db.Usuarios.FirstOrDefault(u => u.ID == tecnicoId);
-                    string nombreTecnico = tecnico?.Nombre ?? "Desconocido";
+                    string nombreUsuario = usuario?.Nombre ?? "Usuario no encontrado";
+
+                    // 2. Obtener nombre del técnico (a través de UsuariosCSharp)
+                    var tecnico = db.UsuariosCSharp
+                                 .Where(uc => uc.ID == tecnicoId)
+                                 .Join(db.Usuarios,
+                                       uc => uc.Usuario_Id,
+                                       u => u.ID,
+                                       (uc, u) => new { u.Nombre })
+                                 .FirstOrDefault();
+
+                    string nombreTecnico = tecnico?.Nombre ?? "Técnico no encontrado";
 
                     return (nombreUsuario, nombreTecnico);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al obtener nombres: " + ex.Message);
+                return ("Error al obtener usuario", "Error al obtener técnico");
             }
         }
 

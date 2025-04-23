@@ -7,10 +7,6 @@ namespace beat_on_jeans_escritorio.Models
 {
     class LocalesMapsOrm
     {
-        /// <summary>
-        /// Select para seleccionar las ubicaciones de los locales
-        /// </summary>
-        /// <returns></returns>
         public static List<string> SelectUbicacionesLocales()
         {
             try
