@@ -38,7 +38,7 @@ namespace beat_on_jeans_escritorio.Models
 
             var encryptor = new BlowfishEncryptor("keuh10lt14bbeuc2");
             contrasenaDesencriptada = encryptor.DecryptPassword(usuarioEncontrado.Contrasena);
-
+                
 
             if (usuarioEncontrado == null)
             {
