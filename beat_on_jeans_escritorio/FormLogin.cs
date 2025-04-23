@@ -26,7 +26,7 @@ namespace beat_on_jeans_escritorio
 
             if (ValidarCredenciales == true)
             {
-                  
+             
                 Usuarios usuarioActual = UsuariosCSharpOrm.validarUsuario(correo, contrasena, out mensaje);
 
                 if (usuarioActual == null)
@@ -44,11 +44,6 @@ namespace beat_on_jeans_escritorio
                     formulario2.FormClosed += (s, args) => this.Close(); // Cerrar el formulario actual cuando se cierre el nuevo formulario
                 }
             }
-        }
-
-        private void buttonRegistrar_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)

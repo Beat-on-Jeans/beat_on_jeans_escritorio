@@ -168,9 +168,6 @@ namespace beat_on_jeans_escritorio
             {
                 comboBoxAccionUsuario.SelectedIndex = 0;
             }
-
-            
-
         }
 
         private void DataGridViewUsuarios_SelectionChanged(object sender, EventArgs e)
@@ -394,6 +391,9 @@ namespace beat_on_jeans_escritorio
                 }
                 else
                 {
+                    var encryptor = new BlowfishEncryptor("keuh10lt14bbeuc2");
+                    contrasenaUsuario = encryptor.EncryptPassword(contrasenaUsuario);
+
                     Usuarios nuevoUsuario = CrearNuevoUsuario(nombreUsuario, correoUsuario, contrasenaUsuario, rolUsuario.ID);
                     UsuariosORM.Insert(nuevoUsuario);
 
@@ -509,6 +509,10 @@ namespace beat_on_jeans_escritorio
             {
                 return;
             }
+
+            var encryptor = new BlowfishEncryptor("keuh10lt14bbeuc2");
+            textBoxContrasena.Text = encryptor.EncryptPassword(textBoxContrasena.Text);
+
 
             // Crear objeto actualizado
             Usuarios usuarioActualizado = new Usuarios

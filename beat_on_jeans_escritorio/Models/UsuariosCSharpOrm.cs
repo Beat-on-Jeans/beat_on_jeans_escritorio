@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace beat_on_jeans_escritorio.Models
 {
@@ -27,16 +28,23 @@ namespace beat_on_jeans_escritorio.Models
         {
             mensaje = string.Empty;
             Usuarios usuario = null;
+            String contrasenaDesencriptada = "";
 
             var usuarioEncontrado = (from u in Orm.db.Usuarios
                                      where u.Correo == correo
                                      select u).FirstOrDefault();
 
+            // Recogemos la contraseña a partir del usuario recogido y la desencriptamos
+
+            var encryptor = new BlowfishEncryptor("keuh10lt14bbeuc2");
+            contrasenaDesencriptada = encryptor.DecryptPassword(usuarioEncontrado.Contrasena);
+
+
             if (usuarioEncontrado == null)
             {
                 mensaje = "El correo no existe.";
             }
-            else if (usuarioEncontrado.Contrasena != contrasena)
+            else if (contrasena != contrasenaDesencriptada)
             {
                 mensaje = "La contraseña es incorrecta.";
             }
